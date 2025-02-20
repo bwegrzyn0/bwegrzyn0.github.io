@@ -1,0 +1,293 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[margin=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, angles, quotes}
+\DeclareMathAlphabet\mathbfcal{OMS}{cmsy}{b}{n}
+
+%opening
+\title{Elektrostatyka}
+\author{Bartosz Węgrzyn}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Podstawowe wielkości w elektrostatyce}
+Cała elektrostatyka opiera się na prawie Coulomba. Mówi ono, że siła, z jaką ładunek $q$ działa na $Q$ jest dana wzorem
+\begin{equation}
+	\mathbf{F}=\frac{1}{4\pi\varepsilon_0}\frac{qQ}{\mathcal{R}^2}\mathbfcal{\hat{R}},
+\end{equation}
+gdzie $\mathbfcal{R}$ to wektor zaczynający się w $q$ i kończący w $Q$.
+
+Wprowadźmy wielkość zwaną natężeniem pola elektrycznego:
+\begin{equation}
+	\label{pole elektryczne}
+	\mathbf{E}=\frac{1}{4\pi\varepsilon_0}\frac{q}{\mathcal{R}^2}\mathbfcal{\hat{R}}.
+\end{equation}
+Wtedy siła działająca na ładunek Q to
+\begin{equation*}
+	\mathbf{F}=Q\mathbf{E}.
+\end{equation*}
+$\mathbf{E}$ jest wygodne w użyciu, ponieważ zależy \textit{tylko} od ładunku wytwarzającego pole.
+
+Doświadczalnie stwierdzonym faktem jest zasada superpozycji mówiąca, że
+\begin{equation}
+	\mathbf{E}=\mathbf{E}_1+\mathbf{E}_2+\dots,
+\end{equation}
+gdzie $\mathbf{E}$ to całkowite natężenie pola elektrycznego w danym punkcie w przestrzeni. Możemy zatem uogólnić wzór \eqref{pole elektryczne} na dowolny rozkład ładunków:
+\begin{equation}
+	\mathbf{E}=\int \frac{\mathbfcal{\hat{R}}}{\mathcal{R}^2}\,dq.
+\end{equation}.
+
+\section{Równania Maxwella dla elektrostatyki}
+
+{\centering
+\begin{tikzpicture}
+	\draw (2,2) circle (3);
+	\draw (-1,2) arc (180: 360: 3cm and 1cm);
+	\draw [dashed] (5,2) arc (0: 180: 3cm and 1cm);
+	
+	\draw [arrows = {-Stealth[scale=1]}, semithick] (2,2) coordinate (A) -- (5.5, 2) node[anchor=west] {$y$};
+	
+	\draw [arrows = {-Stealth[scale=1]}, semithick] (2,2) -- 
+	(2, 5.5) coordinate (B) node[anchor=south] {$z$};
+	
+	\draw [arrows = {-Stealth[scale=1]}, semithick] (2,2) -- 
+	(-1, 0) node[anchor=north east] {$x$};
+	
+	\draw (3, 2) node [circle, fill, inner sep=1pt] {};
+	
+	\draw (3, 2) node [anchor = north west] {$q$};
+	
+	\draw [arrows = {-Stealth[scale=0.5]}, thick] (2, 2) -- (2.7, 3.7) coordinate (C);
+	
+	\draw (C) node [below = 10pt, left=5pt] {$\mathbf{r}$};
+	
+	\draw [arrows = {-Stealth[scale=0.5]}, thick] (3,2) -- (C);
+	\draw (C) node [below = 27pt, right=3pt] {$\mathbfcal{R}$};
+
+	
+	\draw [arrows = {-Stealth[scale=0.5]}, thick] (2, 2) -- (3, 2);
+	\draw (3,2) node [left=13pt, above = -2pt] {$\mathbf{d}$};
+	
+		\draw pic [draw, -, angle radius = 0.9cm] {angle = C--A--B};
+	\draw (2,2) node [above = 0.6cm, right = -2.7pt] {$\theta$};
+	
+	\draw [dashed] (2.7, 3.7) -- (2.7, 1.2);
+	\draw [dashed] (2.7, 1.2) coordinate (A) -- (3.9,2);
+	\draw [dashed, thick] (2,2) -- (A);
+	\draw [dashed] (2.7, 1.2) -- (0.8,1.2) coordinate (B);
+	\draw pic [draw, -, angle radius = 0.3cm] {right angle = 
+	C--A--B};
+	\draw (2,2) coordinate (A) (2.7, 1.2) coordinate (C) pic [draw, -, angle radius = 0.5cm] {angle = 
+		B--A--C};
+	\draw (2,2) node [below = 0.5 pt] {$\phi$};
+\end{tikzpicture}
+\par}
+
+Rozważmy ładunek punktowy $q$ umieszczony w odległości $d$ wzdłuż osi $y$ od początku układu współrzędnych. Wytwarza on pole elektryczne dane wzorem \eqref{pole elektryczne}. Obliczmy dywergencję $\mathbf{E}$ pochodzącego od tego ładunku w punkcie $\mathbf{r}$:
+\begin{equation*}
+	\nabla\cdot\mathbf{E}=\frac{q}{4\pi\varepsilon_0}\nabla\cdot\left(\frac{\mathbfcal{\hat{R}}}{\mathcal{R}^2}\right)=\frac{q}{4\pi\varepsilon_0}\cdot 4\pi\delta(\mathbf{r}-\mathbf{d})=\frac{q}{\varepsilon_0}\delta(\mathbf{r}-\mathbf{d}),
+\end{equation*}
+gdzie $\mathbf{r}=\mathbf{R}-\mathbf{d}$.
+Pocałkujmy teraz dywergencję po całej objętości kuli umieszczonej w początku układu i o promieniu $R$:
+\begin{equation*}
+	\int_{\text{kula}} \left(\nabla\cdot\mathbf{E}\right)\, dV= \frac{q}{\varepsilon_0}\int_{\text{kula}} \delta(\mathbf{r}-\mathbf{d})\,dV = \frac{q}{\varepsilon_0}.
+\end{equation*}
+Zauważmy, że 
+\begin{equation*}
+	\int_{\text{kula}} \left(\nabla\cdot\mathbf{E}\right)\, dV=\int_{\text{sfera}}\mathbf{E}\cdot\mathbf{dS}\implies
+	\int_{\text{sfera}}\mathbf{E}\cdot\mathbf{dS}=\frac{q}{\varepsilon_0}
+\end{equation*}
+oraz
+\begin{equation*}
+	\frac{q}{\varepsilon_0}=\frac{1}{\varepsilon_0}
+	\int_{\text{kula}}\rho\,dV \implies \nabla\cdot\mathbf{E}=\frac{\rho}{\varepsilon_0}.
+\end{equation*}
+Na mocy zasady superpozycji możemy uogólnić ten wynik na dowolny rozkład ładunku. Możemy też uogólnić go na powierzchnię, która ten ładunek w sobie zawiera, co da nam:
+\begin{equation}
+	\int\mathbf{E}\cdot\mathbf{dS}=\frac{q}{\varepsilon_0},
+\end{equation}
+gdzie $q$ to całkowity ładunek \textit{wewnątrz} powierzchni całkowania oraz
+\begin{equation}
+	\label{gauss diff}
+	\nabla\cdot\mathbf{E}=\frac{\rho}{\varepsilon_0},
+\end{equation}
+gdzie $\rho$ to objętościowa gęstość ładunku w danym punkcie.
+Jest to prawo Gaussa w postaci różniczkowej i całkowej.
+
+Bez straty ogólności umieśćmy ładunek w początku układu, wtedy $\mathbf{d}=\mathbf{0}$ i $\mathbfcal{R}=\mathbf{r}$. Aby wyznaczyć rotację $\mathbf{E}$, obliczmy najpierw całkę krzywoliniową po dowolnej krzywej łączącej punkty $\mathbf{a}$ i $\mathbf{b}$ po $\mathbf{E}$.
+\begin{equation*}
+	\int_\mathbf{a}^\mathbf{b} \mathbf{E}\cdot\mathbf{dl}=\int_\mathbf{a}^\mathbf{b} (E_r, E_\theta, E_\phi)\cdot(dr, r\,d\theta, r\sin{\theta}\,d\phi).
+\end{equation*}
+Ponieważ $E_\theta=E_\phi=0$, to
+\begin{equation}
+	\label{potencjał}
+	\int_\mathbf{a}^\mathbf{b} E_r\,dr=\frac{q}{4\pi\varepsilon_0}\int_\mathbf{a}^\mathbf{b}\frac{dr}{r^2}=\frac{q}{4\pi\varepsilon_0}\left(\frac{1}{a_r}-\frac{1}{b_r}\right).
+\end{equation}
+Jak widzimy, całka \textit{nie zależy} od wybranej drogi, oraz wynosi $0$, gdy $\mathbf{a}=\mathbf{b}$. Twierdzenie Stokes'a mówi, że
+\begin{equation*}
+	\oint_{\partial\mathcal{S}} \mathbf{E}\cdot\mathbf{dl}=\int_\mathcal{S} \left(\nabla\times\mathbf{E}\right)\cdot\mathbf{dS},
+\end{equation*}
+zatem
+\begin{equation}
+	\label{rotacja}
+	\mathbf{\nabla\times\mathbf{E}}=0
+\end{equation}
+dla ładunku punktowego oraz na mocy zasady superpozycji dla wszystkich rozkładów ładunków.
+
+\section{Potencjał elektryczny}
+Potencjał elektryczny $\varphi$ w punkcie $\mathbf{r}$ względem punktu odniesienia $\mathbf{O}$ (gdzie $E=0$) definiujemy jako
+\begin{equation}
+	\varphi(\mathbf{r})=-\int_\mathbf{O}^\mathbf{r} \mathbf{E}\cdot\mathbf{dl}.
+\end{equation}
+Całkę dla ładunku punktowego obliczyliśmy już w \eqref{potencjał}:
+\begin{equation}
+	\varphi(\mathbf{r})=-\frac{q}{4\pi\varepsilon_0}\left(\frac{1}{O}-\frac{1}{r}\right).
+\end{equation}
+Często $O=\infty$ i wtedy
+\begin{equation}
+	\varphi(\mathbf{r})=\frac{1}{4\pi\varepsilon_0}\frac{q}{r}.
+\end{equation}
+Uogólniając na dowolny rozkład ładunków:
+\begin{equation}
+	\varphi(\mathbf{r})=\frac{1}{4\pi\varepsilon_0}\int\frac{1}{\mathcal{R}}\,dq.
+\end{equation}
+\newpage
+\section{Równanie Laplace'a i Poissona}
+Równanie \eqref{rotacja} pozwala nam zapisać $\mathbf{E}$ jako
+\begin{equation}
+	\label{phi-E}
+	\mathbf{E}=-\nabla\varphi.
+\end{equation}
+Aby to udowodnić, obliczmy gradient:
+\begin{equation*}
+	-\nabla\varphi=-\nabla\left(-\int_\mathbf{O}^\mathbf{r} \mathbf{E}\cdot\mathbf{dl}\right)=\int_\mathbf{O}^\mathbf{r} \nabla E\,dr=\mathbf{E}(\mathbf{r})-\mathbf{E}(\mathbf{O}),
+\end{equation*}
+a ponieważ $E = 0$ w $\mathbf{O}$:
+\begin{equation*}
+	-\nabla\varphi=\mathbf{E}(\mathbf{r}).
+\end{equation*}
+
+Wstawmy \eqref{phi-E} do \eqref{gauss diff}:
+\begin{equation*}
+	\nabla\cdot\mathbf{E}=\nabla\cdot\left(-\nabla\varphi\right)=-\nabla^2\varphi,
+\end{equation*}
+zatem
+\begin{equation}
+	\nabla^2\varphi=-\frac{\rho}{\varepsilon_0}.
+\end{equation}
+Jest to równanie Poissona. W szczególności, gdy $\rho$ w pewnym obszarze wynosi $0$, mamy równanie Laplace'a:
+\begin{equation}
+	\nabla^2\varphi=0.
+\end{equation}
+Funkcje, które są rozwiązaniami równania Laplace'a nazywamy harmonicznymi.
+
+\begin{itemize}
+	\item \textbf{W 1 wymiarze}\\
+	Równanie Laplace'a w 1 wymiarze sprowadza się do:
+	\begin{equation*}
+		\frac{d^2\varphi}{dx^2}=0,
+	\end{equation*}
+	więc jego rozwiązania są trywialnie postaci $\varphi=ax+b$. Zauważmy, że
+	\begin{equation*}
+		\varphi(x)=\frac{1}{2}\left[\varphi(x-r)+\varphi(x+r)\right], 
+	\end{equation*}
+	ponieważ
+	\begin{equation*}
+		\frac{1}{2}\left[\varphi(x-r)+\varphi(x+r)\right]=\frac{1}{2}\left[a(x-r)+b+a(x+r)+b\right]=\frac{1}{2}\left[2ax+2b\right]=ax+b.
+	\end{equation*}
+	Zauważmy, że jeśli $x\in\left[\alpha,\beta\right]$, to $\varphi(x)$ osiąga ekstremalne wartości w $x=\alpha$ i $x=\beta$.
+	\item \textbf{W 2 wymiarach}\\
+	Wtedy mamy
+	\begin{equation*}
+		\frac{\partial^2\varphi}{\partial x^2}+\frac{\partial^2\varphi}{\partial y^2}=0.
+	\end{equation*}
+	Umieśćmy teraz ładunek punktowy $q$ w $(0, 0)$. Niech $\mathcal{O}$ to okrąg o promieniu $r$ i środku w $(x_0,y_0)$. Niech $\mathcal{R}=\sqrt{x^2+y^2}$.
+	Zdefiniujmy funkcję
+	\begin{equation*}
+		g(r)\equiv\frac{1}{2\pi r}\oint_\mathcal{O} \varphi(x,y)\,dl=
+		\frac{1}{2\pi}\int_0^{2\pi}\varphi(x,y)\,d\theta.
+	\end{equation*}
+	Zauważmy, że
+	\begin{equation*}
+		\frac{dg}{dr}=\frac{1}{2\pi}\int_0^{2\pi}\frac{d\varphi}{dr}\,d\theta,
+	\end{equation*}
+	a ponieważ $\varphi$ w żaden sposób \textit{nie zależy} od $r$, to pochodna ta wszędzie się zeruje, zatem $g(r)=\text{const.}$.
+	Wyznaczmy teraz	$\lim_{r\to 0} g(r)$. Gdy $r$ jest małe, $\varphi$ na okręgu $\mathcal{O}$ jest w przybliżeniu równe $\varphi$ w środku tego okręgu, zatem całka krzywoliniowa może być przybliżona jako $2\pi r\varphi(x_0,y_0)$. Zatem
+	\begin{equation*}
+		\lim_{r\to 0}g(r)=\frac{1}{2\pi r}2\pi r\varphi(x_0,y_0)=\varphi(x_0,y_0),
+	\end{equation*}
+	a skoro $g'(r)=0$, to
+	\begin{equation*}
+		\varphi(x_0,y_0)=g(r).
+	\end{equation*}
+	dla $(x_0,y_0)\neq (0,0)$ (w tej sytuacji).
+	Jest to rozszerzenie własności średniej z 1 wymiaru. Analogicznie oznacza ona, że funkcja osiąga ekstrema na granicy obszaru.
+	\item \textbf{W 3 wymiarach}\\
+	Analogiczne własności można dowieść w podobny sposób dla 3 wymiarów:
+	\begin{equation*}
+		\varphi(x_0,y_0,z_0)=\frac{1}{4\pi r^2}\oint_\mathcal{S} \varphi(x,y,z)\,dS,
+	\end{equation*}
+	gdzie $\mathcal{S}$ to sfera o promieniu $r$ oraz środku w $(x_0, y_0, z_0)$ oraz $\varphi(x,y,z)$ przyjmuje wartości ekstremalne na brzegach obszaru.
+\end{itemize}
+
+\section{Twierdzenia o jednoznaczności}
+Twierdzenia o jednoznaczności brzmią następujaco:
+\begin{itemize}
+	
+\item W obszarze $\mathcal{V}$, gdzie znane jest $\rho$ oraz znana jest wartość $\varphi$ na $\partial\mathcal{V}$ istnieje \textit{tylko jedno} rozwiązanie równania Poissona.
+
+\noindent\textbf{Dowód:} Załóżmy, że istnieją dwa rozwiązania, $\varphi_1$ i $\varphi_2$. Niech $\varphi_3=\varphi_2-\varphi_1$. Wtedy:
+\begin{equation*}
+	\nabla^2\varphi_3=\nabla^2\left(\varphi_2-\varphi_1\right)=\nabla^2\varphi_2-\nabla^2\varphi_1=-\frac{\rho}{\varepsilon_0}+\frac{\rho}{\varepsilon_0}=0.
+\end{equation*}
+Zatem $\varphi_3$ spełnia równanie Laplace'a w $\mathcal{V}$. Ponieważ na $\partial\mathcal{V}$ $\varphi_2=\varphi_1$, to $\varphi_3$ wynosi tam $0$. Skoro $\varphi_3$ osiąga swoje ekstremalne wartości na $\partial\mathcal{V}$ i jest harmoniczna, to $\varphi_3=0$ w $\mathcal{V}$. Zatem $\varphi_1=\varphi_2$. 
+
+\item Jeśli w danym obszarze znajdują się przewodniki i jest znany całkowity ładunek na nich oraz w obszarze między nimi znana jest $\rho$, to $\mathbf{E}$ jest w tym obszarze określone jednoznacznie.
+
+\noindent \textbf{Dowód:} Niech $\mathbf{E_1}$ i $\mathbf{E_2}$ będą rozwiązaniami problemu. Niech $\mathbf{E_3}=\mathbf{E_2}-\mathbf{E_1}$.
+Najpierw zauważmy, że w obszarze między przewodnikami
+\begin{equation*}
+	\nabla\cdot\mathbf{E_1}=\nabla\cdot\mathbf{E_2}=\frac{\rho}{\varepsilon_0}
+\end{equation*}
+oraz
+\begin{equation*}
+	\oint_{\mathcal{S}_i}\mathbf{E_1}\cdot\mathbf{dS}=\oint_{\mathcal{S}_i}\mathbf{E_2}\cdot\mathbf{dS}=\frac{Q_i}{\varepsilon_0},
+\end{equation*}
+gdzie $\mathcal{S}_i$ to powierzchnia otaczająca $i$-ty przewodnik, a $Q_i$ to ładunek na nim zgromadzony, oraz
+\begin{equation*}
+	\oint_{\mathcal{S}_c}\mathbf{E_1}\cdot\mathbf{dS}=\oint_{\mathcal{S}_c}\mathbf{E_2}\cdot\mathbf{dS}=\frac{Q_c}{\varepsilon_0},
+\end{equation*}
+gdzie $\mathcal{S}_c$ to powierzchnia otaczająca cały rozważany obszar (obejmująca wszystkie przewodniki), a $Q_c$ to całkowity ładunek na wszystkich przewodnikach. Z tych równań możemy wyprowadzić, że
+\begin{equation*}
+	\nabla\cdot\mathbf{E_3}=0,
+\end{equation*}
+\begin{equation*}
+	\oint_{\mathcal{S}_i}\mathbf{E_3}\cdot\mathbf{dS}=0
+\end{equation*}
+oraz 
+\begin{equation*}
+	\oint_{\mathcal{S}_c}\mathbf{E_3}\cdot\mathbf{dS}=0.
+\end{equation*}
+Naszym celem jest dowieść, że $\mathbf{E_3}=\mathbf{0}$, więc przydałaby się całka z $E_3^2$. Zauważmy, że w ogólności
+\begin{equation*}
+	\nabla\cdot(V\mathbf{E})=\mathbf{E}\nabla{V}+V\nabla\cdot\mathbf{E}=-E^2.
+\end{equation*}
+Na powierzchni przewodnika $V=\text{const.}$, czyli
+\begin{equation*}
+	V_i\oint_{\mathcal{S}_i}\mathbf{E_3}\cdot\mathbf{dS}=\oint_{\mathcal{S}_i}V_i\mathbf{E_3}\cdot\mathbf{dS}=\int_{\mathcal{V}_i}\nabla\cdot(V_i\mathbf{E_3})\,dV=-\int_{\mathcal{V}_i}E_3^2\,dV=0,
+\end{equation*}
+gdzie $\mathcal{V}_i$ to objętość ograniczona przez $\mathcal{S}_i$. Skoro całka z kwadratu wynosi $0$, to kwadrat musi być równy 0, zatem $E_3=0$ na powierzchni każdego z przewodników. Jeśli wybierzemy $\mathcal{S}_c$, takie że potencjał na nim jest stały, poprzez analogiczny argument otrzymamy, że $E_3=0$ na granicy obszaru. Skoro zarówno wewnątrz, jak i na granicy obszaru $E_3=0$ oraz $\nabla\cdot\mathbf{E_3}=0$, $\mathbf{E_3}=\mathbf{0}$ w całym obszarze, to $\mathbf{E_1}=\mathbf{E_2}$.
+
+\end{itemize}
+
+Te twierdzenia oznaczają, że jeśli znajdziemy w \textit{jakikolwiek} sposób \textit{jakiekolwiek} rozwiązanie równania Laplace'a lub Poissona przy zadanych warunkach brzegowych, jest to jedyne i poprawne rozwiązanie.
+
+\end{document}
