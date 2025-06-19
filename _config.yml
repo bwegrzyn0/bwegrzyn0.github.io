@@ -30,6 +30,10 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+sass:
+  quiet_deps: true
+minima:
+  skin: dark
 
 # Exclude from processing.
 # The following items will not be processed, by default.

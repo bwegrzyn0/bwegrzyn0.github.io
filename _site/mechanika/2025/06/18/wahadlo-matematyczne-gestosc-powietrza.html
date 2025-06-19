@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-06-19T16:14:39+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Wyznaczanie gęstości powietrza za pomocą wahadła matematycznego</title><link href="http://localhost:4000/mechanika/2025/06/18/wahadlo-matematyczne-gestosc-powietrza.html" rel="alternate" type="text/html" title="Wyznaczanie gęstości powietrza za pomocą wahadła matematycznego" /><published>2025-06-18T00:00:00+02:00</published><updated>2025-06-18T00:00:00+02:00</updated><id>http://localhost:4000/mechanika/2025/06/18/wahadlo-matematyczne-gestosc-powietrza</id><content type="html" xml:base="http://localhost:4000/mechanika/2025/06/18/wahadlo-matematyczne-gestosc-powietrza.html"><![CDATA[<h3 id="tłumione-wahadło-matematyczne">Tłumione wahadło matematyczne</h3>
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Wyznaczanie gęstości powietrza za pomocą wahadła matematycznego | bwegrzyn0.github.io</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Wyznaczanie gęstości powietrza za pomocą wahadła matematycznego" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Tłumione wahadło matematyczne Rozważmy najprostszy model wahadła. Jest to masa punktowa $m$ zawieszona na nieważkiej lince o długości $l$. Na wahadło działa siła ciężkości $\mathbf{Q}$, która rozkłada się na składową radialną i styczną do linki oraz siła reakcji linki $\mathbf{F_r}$, która równoważy $\mathbf{Q_r}$. Na masę działa również siła oporu $\mathbf{F_o}$. Poniżej został przedstawiony schemat tego układu." />
+<meta property="og:description" content="Tłumione wahadło matematyczne Rozważmy najprostszy model wahadła. Jest to masa punktowa $m$ zawieszona na nieważkiej lince o długości $l$. Na wahadło działa siła ciężkości $\mathbf{Q}$, która rozkłada się na składową radialną i styczną do linki oraz siła reakcji linki $\mathbf{F_r}$, która równoważy $\mathbf{Q_r}$. Na masę działa również siła oporu $\mathbf{F_o}$. Poniżej został przedstawiony schemat tego układu." />
+<link rel="canonical" href="http://localhost:4000/mechanika/2025/06/18/wahadlo-matematyczne-gestosc-powietrza.html" />
+<meta property="og:url" content="http://localhost:4000/mechanika/2025/06/18/wahadlo-matematyczne-gestosc-powietrza.html" />
+<meta property="og:site_name" content="bwegrzyn0.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-06-18T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Wyznaczanie gęstości powietrza za pomocą wahadła matematycznego" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-06-18T00:00:00+02:00","datePublished":"2025-06-18T00:00:00+02:00","description":"Tłumione wahadło matematyczne Rozważmy najprostszy model wahadła. Jest to masa punktowa $m$ zawieszona na nieważkiej lince o długości $l$. Na wahadło działa siła ciężkości $\\mathbf{Q}$, która rozkłada się na składową radialną i styczną do linki oraz siła reakcji linki $\\mathbf{F_r}$, która równoważy $\\mathbf{Q_r}$. Na masę działa również siła oporu $\\mathbf{F_o}$. Poniżej został przedstawiony schemat tego układu.","headline":"Wyznaczanie gęstości powietrza za pomocą wahadła matematycznego","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/mechanika/2025/06/18/wahadlo-matematyczne-gestosc-powietrza.html"},"url":"http://localhost:4000/mechanika/2025/06/18/wahadlo-matematyczne-gestosc-powietrza.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bwegrzyn0.github.io" /></head>
+<head>
+	  
+
+<!-- CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
+
+<!-- JavaScript -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{
+    delimiters: [
+      { left: '$$',  right: '$$',  display: true  },
+      { left: '$',   right: '$',   display: false },
+      { left: '\\[', right: '\\]', display: true  },
+      { left: '\\(', right: '\\)', display: false }
+  ]});">
+</script>
+
+
+  </head>
+
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">bwegrzyn0.github.io</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Wyznaczanie gęstości powietrza za pomocą wahadła matematycznego</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-06-18T00:00:00+02:00" itemprop="datePublished">Jun 18, 2025
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody" style="text-align: justify">
+    <h3 id="tłumione-wahadło-matematyczne">Tłumione wahadło matematyczne</h3>
 <p>Rozważmy najprostszy model wahadła. Jest to masa punktowa $m$ zawieszona na nieważkiej lince o długości $l$. Na wahadło działa siła ciężkości $\mathbf{Q}$, która rozkłada się na składową radialną i styczną do linki oraz siła reakcji linki $\mathbf{F_r}$, która równoważy $\mathbf{Q_r}$. Na masę działa również siła oporu $\mathbf{F_o}$. Poniżej został przedstawiony schemat tego układu.</p>
 
 <p align="center">
@@ -104,4 +174,34 @@ gdzie bezwymiarowy współczynnik $\alpha\approx 1$, $\rho$ to gęstość gazu, 
 $$	\rho=\frac{\mu}{\alpha\lambda}\sqrt{\frac{\pi m}{2k_B T}}.$$
 Dla powietrza $m\approx29\text{u}\approx 4.28\times 10^{-26}\text{kg}$, $\lambda\approx6,6\times 10^{-8}$m. Temperatura podczas pomiarów wynosiła ok. $T\approx293\text{K}$. Wstawiając te dane do wzoru otrzymujemy wynik 
 $$	\rho=(0.77\pm0.30)\frac{\text{kg}}{\text{m}^3},$$
-przy czym tablicowa wartość w tej temperaturze to $\rho=1.20\frac{\text{kg}}{\text{m}^3}$. Wynik jest obarczony dużą niepewnością spowodowaną głównie niepewnością $m$ i $\mu$. Należy również zauważyć, że prawdziwa wartość $\rho$ nie mieści się w przedziale niepewności. Jest to najprawdopodobniej spowodowane przybliżeniem nitki jako złożonej z wielu kul.</p>]]></content><author><name></name></author><category term="mechanika" /><summary type="html"><![CDATA[Tłumione wahadło matematyczne Rozważmy najprostszy model wahadła. Jest to masa punktowa $m$ zawieszona na nieważkiej lince o długości $l$. Na wahadło działa siła ciężkości $\mathbf{Q}$, która rozkłada się na składową radialną i styczną do linki oraz siła reakcji linki $\mathbf{F_r}$, która równoważy $\mathbf{Q_r}$. Na masę działa również siła oporu $\mathbf{F_o}$. Poniżej został przedstawiony schemat tego układu.]]></summary></entry></feed>
+przy czym tablicowa wartość w tej temperaturze to $\rho=1.20\frac{\text{kg}}{\text{m}^3}$. Wynik jest obarczony dużą niepewnością spowodowaną głównie niepewnością $m$ i $\mu$. Należy również zauważyć, że prawdziwa wartość $\rho$ nie mieści się w przedziale niepewności. Jest to najprawdopodobniej spowodowane przybliżeniem nitki jako złożonej z wielu kul.</p>
+
+  </div><a class="u-url" href="/mechanika/2025/06/18/wahadlo-matematyczne-gestosc-powietrza.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">bwegrzyn0.github.io</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bwegrzyn0"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bwegrzyn0</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Fizyka i programowanie</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
