@@ -47,7 +47,7 @@ gdzie $\theta_0$ to amplituda drgań, a $\varphi$ to faza.
 ### Pomiar współczynnika tłumienia
 Skonstruowano wahadło z cienkiej, w przybliżeniu nieważkiej nitki oraz śruby zamocowanej na jej końcu. Ponieważ rozmiary śruby były znacznie mniejsze niż długość wahadła, cała masa była w przybliżeniu skoncentrowana w jednym punkcie. Nitka została owinięta wokół cienkiego patyczka służącego jako punkt zaczepienia. Taki sposób zaczepienia linki umożliwił łatwą regulację długości wahadła. Zakładamy, że współczynnik tłumienia jest na tyle mały, że $\omega\approx\omega_0$.
 
-Mierząc wartość $\theta$, gdy $\cos{\omega t}=1$ (gdy wahadło jest w swoim maksymalnym wychyleniu) możemy wyznaczyć $\beta$. Warunek ten zachodzi w bardzo dobrym przybliżeniu dla małych wychyleń (ponieważ $T$ tak naprawdę zależy od amplitudy), gdy $t=nT$, gdzie $T$ to okres wahadła, a $n=0,1,2,\dots$.
+Mierząc wartość $\theta$, gdy $\cos{\omega t+\varphi}=1$ (gdy wahadło jest w swoim maksymalnym wychyleniu) możemy wyznaczyć $\beta$. Czas mierzymy od chwili puszczenia wahadła, więc $\varphi=0$. Warunek zachodzi w bardzo dobrym przybliżeniu dla małych wychyleń (ponieważ $T$ tak naprawdę zależy od amplitudy), gdy $t=nT$, gdzie $T$ to okres wahadła, a $n=0,1,2,\dots$.
 \$$		\theta(nT)=\theta_0 e^{-\beta nT} \$$
 \$$		\ln{\theta(nT)}=\ln{\theta_0}+-\beta nT \$$
 Sporządzając wykres $\ln{\theta(nT)}$ możemy wyznaczyć $\beta$ nawet bez znajomości $\theta_0$, ponieważ będzie to współczynnik kierunkowy prostej najlepszego dopasowania.
