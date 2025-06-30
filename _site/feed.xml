@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-06-30T13:31:44+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Numeryczne rozwiązywanie równań różniczkowych 2 rzędu metodą Rungego-Kutty</title><link href="http://localhost:4000/programowanie/2025/06/30/runge-kutta-2-zmienne.html" rel="alternate" type="text/html" title="Numeryczne rozwiązywanie równań różniczkowych 2 rzędu metodą Rungego-Kutty" /><published>2025-06-30T00:00:00+02:00</published><updated>2025-06-30T00:00:00+02:00</updated><id>http://localhost:4000/programowanie/2025/06/30/runge-kutta-2-zmienne</id><content type="html" xml:base="http://localhost:4000/programowanie/2025/06/30/runge-kutta-2-zmienne.html"><![CDATA[<h2 id="metoda-rungego-kutty">Metoda Rungego-Kutty</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-06-30T13:41:30+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Numeryczne rozwiązywanie równań różniczkowych 2 rzędu metodą Rungego-Kutty</title><link href="http://localhost:4000/programowanie/2025/06/30/runge-kutta-2-zmienne.html" rel="alternate" type="text/html" title="Numeryczne rozwiązywanie równań różniczkowych 2 rzędu metodą Rungego-Kutty" /><published>2025-06-30T00:00:00+02:00</published><updated>2025-06-30T00:00:00+02:00</updated><id>http://localhost:4000/programowanie/2025/06/30/runge-kutta-2-zmienne</id><content type="html" xml:base="http://localhost:4000/programowanie/2025/06/30/runge-kutta-2-zmienne.html"><![CDATA[<h2 id="metoda-rungego-kutty">Metoda Rungego-Kutty</h2>
 <p>Mamy dane równanie różniczkowe 1 rzędu w postaci
 $$ \frac{dy}{dx}=f(x,y). $$
 Najprostszą metodą, aby rozwiązać tego typu równanie numerycznie jest metoda Eulera. Pochodną możemy przybliżyć jako
@@ -22,17 +22,17 @@ z warunkiem początkowym $ y(0)=1 $. Łatwo jest sprawdzić, że jego rozwiązan
 <p>Program rozwiązujący to równanie numerycznie został napisany w C++.</p>
 
 <p>W pierwszej kolejności definiujemy zmienne i warunki początkowe:</p>
-
-<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="kt">float</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// ustawiamy y na wartość początkową</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">float</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// ustawiamy y na wartość początkową</span>
 <span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// ustawiamy x na wartość początkową</span>
 <span class="kt">float</span> <span class="n">x_max</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span> <span class="c1">// końcowa wartość x</span>
-<span class="kt">float</span> <span class="n">step</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span> <span class="c1">// krok - Delta x</span></code></pre></figure>
+<span class="kt">float</span> <span class="n">step</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span> <span class="c1">// krok - Delta x</span>
+</code></pre></div></div>
 
 <p>Następnie zdefiniujmy naszą funkcję $f(x,y)$:</p>
-
-<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="kt">float</span> <span class="nf">dy_dx</span><span class="p">(</span><span class="kt">float</span> <span class="n">y</span><span class="p">,</span> <span class="kt">float</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">float</span> <span class="nf">dy_dx</span><span class="p">(</span><span class="kt">float</span> <span class="n">y</span><span class="p">,</span> <span class="kt">float</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
 	<span class="k">return</span> <span class="n">y</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>Teraz musimy wykonać <code class="language-plaintext highlighter-rouge">(x_max-x_min)/step</code> kroków, a w każdym z nich wykonać procedurę opisaną na początku artykułu:</p>
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">x_max</span><span class="o">-</span><span class="n">x_min</span><span class="p">)</span><span class="o">/</span><span class="n">step</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
