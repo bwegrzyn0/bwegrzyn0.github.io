@@ -6,7 +6,7 @@ categories: mechanika
 katex: true
 ---
 
-### Tłumione wahadło matematyczne
+## Tłumione wahadło matematyczne
 Rozważmy najprostszy model wahadła. Jest to masa punktowa $m$ zawieszona na nieważkiej lince o długości $l$. Na wahadło działa siła ciężkości $\mathbf{Q}$, która rozkłada się na składową radialną i styczną do linki oraz siła reakcji linki $\mathbf{F_r}$, która równoważy $\mathbf{Q_r}$. Na masę działa również siła oporu $\mathbf{F_o}$. Poniżej został przedstawiony schemat tego układu.
 
 <p align="center">
@@ -44,7 +44,7 @@ Ponieważ w nawiasie znajduje się liniowa kombinacja sinusa i cosinusa, możemy
 \$$ \theta=\theta_0 e^{-\beta t}\cos(\omega t+\varphi), \$$
 gdzie $\theta_0$ to amplituda drgań, a $\varphi$ to faza.
 
-### Pomiar współczynnika tłumienia
+## Pomiar współczynnika tłumienia
 Skonstruowano wahadło z cienkiej, w przybliżeniu nieważkiej nitki oraz śruby zamocowanej na jej końcu. Ponieważ rozmiary śruby były znacznie mniejsze niż długość wahadła, cała masa była w przybliżeniu skoncentrowana w jednym punkcie. Nitka została owinięta wokół cienkiego patyczka służącego jako punkt zaczepienia. Taki sposób zaczepienia linki umożliwił łatwą regulację długości wahadła. Zakładamy, że współczynnik tłumienia jest na tyle mały, że $\omega\approx\omega_0$.
 
 Mierząc wartość $\theta$, gdy $\cos(\omega t+\varphi)=1$ (gdy wahadło jest w swoim maksymalnym wychyleniu) możemy wyznaczyć $\beta$. Czas mierzymy od chwili puszczenia wahadła, więc $\varphi=0$. Warunek zachodzi w bardzo dobrym przybliżeniu dla małych wychyleń (ponieważ $T$ tak naprawdę zależy od amplitudy), gdy $t=nT$, gdzie $T$ to okres wahadła, a $n=0,1,2,\dots$.
@@ -75,7 +75,7 @@ Współczynniki tłumienia wyznaczone dla wielu wahadeł umieściłem na widoczn
 <img src="/assets/images/2025-06-18/wykresbetal.svg" width="700" />
 </p>
 
-### Wyjaśnienie zaobserwowanej zależności
+## Wyjaśnienie zaobserwowanej zależności
 Można spekulować, że wyraz wolny to część współczynnika tłumienia pochodząca od śruby służącej jako masa na końcu wahadła, a $al$ to wkład pochodzący od nitki.
 
 Prawo Stokesa mówi, że wartość siły działającej na kulę o promieniu $R$ poruszającą się z małą prędkością $v$ w płynie jest dana wzorem
@@ -94,7 +94,7 @@ gdzie $v$ to prędkość końca wahadła. Ponieważ $F=2\beta m v$, zachodzi ró
     \$$
 co wyjaśnia zaobserwowaną zależność.
 
-### Wyznaczanie lepkości dynamicznej powietrza
+## Wyznaczanie lepkości dynamicznej powietrza
 Całkowita siła oporu działająca na wahadło to
 \$$	F=2\beta mv=2almv+2bmv,\$$
 gdzie m to masa śrubki zawieszonej na końcu wahadła (masa nitki jest pomijalna). Pierwszy wyraz po prawej stronie to siła pochodząca od nitki, czyli przyrównując to do wcześniej obliczonej siły otrzymujemy
@@ -105,7 +105,7 @@ Zmierzona masa śrubki to $m=(4\pm 0.5)$g oraz $a=(0.0073\pm0.0019)\frac{1}{\tex
 	\$$ \mu=(12.4\pm4.8)\times 10^{-6}\text{ Pa s},\$$
 przy czym tablicowa wartość $\mu$ dla powietrza w temperaturze $293\text{K}$ to $\mu=18.13\times 10^{-6}\text{ Pa s}$.
 
-### Wyznaczanie gęstości powietrza
+## Wyznaczanie gęstości powietrza
 Kinetyczna teoria gazów daje następujący wzór dla rozrzedzonych gazów:
 \$$	\mu=\alpha\rho\lambda\sqrt{\frac{2k_B T}{\pi m}},\$$
 gdzie bezwymiarowy współczynnik $\alpha\approx 1$, $\rho$ to gęstość gazu, $\lambda$ to średnia droga swobodna w tym gazie, $T$ to temperatura, a $m$ to masa cząsteczkowa. Przekształćmy ten wzór do postaci

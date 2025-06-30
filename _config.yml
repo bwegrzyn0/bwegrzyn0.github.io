@@ -34,6 +34,7 @@ sass:
   quiet_deps: true
 minima:
   skin: dark
+highlighter: rouge
 
 # Exclude from processing.
 # The following items will not be processed, by default.
