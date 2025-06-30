@@ -30,19 +30,19 @@ z warunkiem początkowym \$ y(0)=1 \$. Łatwo jest sprawdzić, że jego rozwiąz
 Program rozwiązujący to równanie numerycznie został napisany w C++.
 
 W pierwszej kolejności definiujemy zmienne i warunki początkowe:
-{% highlight c++ %}
+```cpp
 float y = 1; // ustawiamy y na wartość początkową
 float x = 0; // ustawiamy x na wartość początkową
 float x_max = 30; // końcowa wartość x
 float step = 0.5; // krok - Delta x
-{% endhighlight %}
+```
 
 Następnie zdefiniujmy naszą funkcję $f(x,y)$:
-{% highlight c++ %}
+```cpp
 float dy_dx(float y, float x) {
 	return y*cos(x);
 }
-{% endhighlight %}
+```
 
 Teraz musimy wykonać `(x_max-x_min)/step` kroków, a w każdym z nich wykonać procedurę opisaną na początku artykułu:
 ```cpp
