@@ -88,9 +88,9 @@ W pierwszej kolejności obliczamy $k_1$ dla obydwu równań:
 \$$ k_{1y}=g(x, y, u), \$$
 gdzie $g(x, y, u)=u$.
 \$$ k_{1u}=f(x, y, u) \$$
-Aby obliczyć $k_{2y}$, za $u$ podstawiamy $u+k_{2u}\Delta x/2$:
-\$$ k_{2y}=g(x+\frac{\Delta x}{2}, y+k_{1y}\frac{\Delta x}{2}, u+k_{1u}\frac{\Delta x}{2})=u+k_{1u}\frac{\Delta x}{2}. \$$
-Podobnie obliczamy $k_{2u}$:
+Aby obliczyć $k_{2y}$, za $u$ podstawiamy $u+k_{1u}\Delta x/2$:
+\$$ k_{2y}=g(x+\frac{\Delta x}{2}, y+k_{1y}\frac{\Delta x}{2}, u+k_{1u}\frac{\Delta x}{2}) \$$
+i podobnie obliczamy $k_{2u}$:
 \$$ k_{2u}=f(x+\frac{\Delta x}{2}, y+k_{1y}\frac{\Delta x}{2}, u+k_{1u}\frac{\Delta x}{2}a). \$$
 Prodecura wygląda analogicznie dla $k_3$ i $k_4$. Finalnie możemy obliczyć $y(x+\Delta x)$:
 \$$ y(x+\Delta x)=y(x)+\frac{\Delta x}{6}(k_{1y}+2k_{2y}+2k_{3y}+k_{4y}) \$$
@@ -154,7 +154,7 @@ for (int i = 1; i < (t_max-t_min)/step; i++) {
     file << t << ", " << x << ", " << v <<  "\n"; // zapisujemy wyniki do pliku
 }
 ```
-Podobnie jak wcześniej wyniki oraz rozwiązanie analityczne naniosłem na jeden wykres otrzymując idealną zgodność:
+Podobnie jak wcześniej wyniki oraz rozwiązanie analityczne naniosłem na jeden wykres, otrzymując idealną zgodność:
 <p align="center">
 <img src="/assets/images/2025-06-30/przyklad2.svg" width="500" />
 </p>
