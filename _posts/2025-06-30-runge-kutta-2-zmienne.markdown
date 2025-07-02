@@ -82,7 +82,7 @@ Podstawienie $v=\dot{x}$ daje nam układ równań
 \$$
 
 ## Numeryczne rozwiązywanie równań 2 rzędu
-Aby numerycznie rozwiązać równanie 2 rzędu musimy mieć dane $y(t)$ oraz $u(t)$. 
+Aby numerycznie rozwiązać równanie 2 rzędu musimy mieć dane $y(x_0)$ oraz $u(x_0)$, gdzie $x_0$ to pewna wartość początkowa zmiennej.
 
 W pierwszej kolejności obliczamy $k_1$ dla obydwu równań:
 \$$ k_{1y}=g(x, y, u), \$$
@@ -158,4 +158,8 @@ Podobnie jak wcześniej wyniki oraz rozwiązanie analityczne naniosłem na jeden
 <p align="center">
 <img src="/assets/images/2025-06-30/przyklad2.svg" width="500" />
 </p>
+
+Pełne pliki źródłowe są dostępne do pobrania tutaj: \\
+<a href="/assets/downloads/2025-06-30/przykład1.cpp" target="_blank">przykład1.cpp</a> \\
+<a href="/assets/downloads/2025-06-30/przykład2.cpp" target="_blank">przykład2.cpp</a>
 
