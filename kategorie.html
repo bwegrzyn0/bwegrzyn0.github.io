@@ -1,0 +1,33 @@
+---
+layout: default
+permalink: /kategorie/
+title: Kategorie 
+---
+
+<div id="archives">
+	<h1 class="post-title">Kategorie</h1>
+	{% for category in site.categories %}
+	<div class="archive-group">
+		{% capture category_name %}{{ category | first }}{% endcapture %}
+		<div id="#{{ category_name }}"></div>
+		<h1 class="category-head">{{ category_name }}</h1>
+		<a name="{{ category_name }}"></a>
+		<ul class="post-list">
+			{% for post in site.categories[category_name] %}
+			<li>
+				{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+				<span class="post-meta">{{ post.date | date: date_format }}</span>
+				<h3>
+					<a class="post-link" href="{{ post.url | relative_url }}">
+						{{ post.title | escape }}
+					</a>
+				</h3>
+				{%- if site.show_excerpts -%}
+				{{ post.excerpt }}
+				{%- endif -%}
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+	{% endfor %}
+</div>
