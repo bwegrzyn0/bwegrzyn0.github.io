@@ -2,7 +2,7 @@
 layout: post
 title: "Wyznaczanie gęstości powietrza za pomocą wahadła matematycznego"
 date: 2025-06-18 
-categories: mechanika
+categories: Mechanika
 katex: true
 ---
 

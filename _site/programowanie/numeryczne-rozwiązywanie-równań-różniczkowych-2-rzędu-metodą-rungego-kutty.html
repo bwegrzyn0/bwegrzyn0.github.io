@@ -9,15 +9,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Metoda Rungego-Kutty Mamy dane równanie różniczkowe 1 rzędu w postaci $$ \frac{dy}{dx}=f(x,y). $$ Najprostszą metodą, aby rozwiązać tego typu równanie numerycznie jest metoda Eulera. Pochodną możemy przybliżyć jako $$ \frac{dy}{dx}\approx\frac{y(x+\Delta x)-y(x)}{\Delta x}, $$ a stąd $$ y(x+\Delta x)\approx y(x)+\Delta x f(x,y). $$ Metoda ta jest bardzo niedokładna szczególnie dla rozwiązań oscylujących. Jest ona również nazywana metodą Rungego-Kutty 1 rzędu." />
 <meta property="og:description" content="Metoda Rungego-Kutty Mamy dane równanie różniczkowe 1 rzędu w postaci $$ \frac{dy}{dx}=f(x,y). $$ Najprostszą metodą, aby rozwiązać tego typu równanie numerycznie jest metoda Eulera. Pochodną możemy przybliżyć jako $$ \frac{dy}{dx}\approx\frac{y(x+\Delta x)-y(x)}{\Delta x}, $$ a stąd $$ y(x+\Delta x)\approx y(x)+\Delta x f(x,y). $$ Metoda ta jest bardzo niedokładna szczególnie dla rozwiązań oscylujących. Jest ona również nazywana metodą Rungego-Kutty 1 rzędu." />
-<link rel="canonical" href="http://localhost:4000/programowanie/2025/06/30/runge-kutta-2-zmienne.html" />
-<meta property="og:url" content="http://localhost:4000/programowanie/2025/06/30/runge-kutta-2-zmienne.html" />
+<link rel="canonical" href="http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty" />
+<meta property="og:url" content="http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty" />
 <meta property="og:site_name" content="bwegrzyn0.github.io" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-06-30T00:00:00+02:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Numeryczne rozwiązywanie równań różniczkowych 2 rzędu metodą Rungego-Kutty" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-06-30T00:00:00+02:00","datePublished":"2025-06-30T00:00:00+02:00","description":"Metoda Rungego-Kutty Mamy dane równanie różniczkowe 1 rzędu w postaci $$ \\frac{dy}{dx}=f(x,y). $$ Najprostszą metodą, aby rozwiązać tego typu równanie numerycznie jest metoda Eulera. Pochodną możemy przybliżyć jako $$ \\frac{dy}{dx}\\approx\\frac{y(x+\\Delta x)-y(x)}{\\Delta x}, $$ a stąd $$ y(x+\\Delta x)\\approx y(x)+\\Delta x f(x,y). $$ Metoda ta jest bardzo niedokładna szczególnie dla rozwiązań oscylujących. Jest ona również nazywana metodą Rungego-Kutty 1 rzędu.","headline":"Numeryczne rozwiązywanie równań różniczkowych 2 rzędu metodą Rungego-Kutty","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/programowanie/2025/06/30/runge-kutta-2-zmienne.html"},"url":"http://localhost:4000/programowanie/2025/06/30/runge-kutta-2-zmienne.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-06-30T00:00:00+02:00","datePublished":"2025-06-30T00:00:00+02:00","description":"Metoda Rungego-Kutty Mamy dane równanie różniczkowe 1 rzędu w postaci $$ \\frac{dy}{dx}=f(x,y). $$ Najprostszą metodą, aby rozwiązać tego typu równanie numerycznie jest metoda Eulera. Pochodną możemy przybliżyć jako $$ \\frac{dy}{dx}\\approx\\frac{y(x+\\Delta x)-y(x)}{\\Delta x}, $$ a stąd $$ y(x+\\Delta x)\\approx y(x)+\\Delta x f(x,y). $$ Metoda ta jest bardzo niedokładna szczególnie dla rozwiązań oscylujących. Jest ona również nazywana metodą Rungego-Kutty 1 rzędu.","headline":"Numeryczne rozwiązywanie równań różniczkowych 2 rzędu metodą Rungego-Kutty","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty"},"url":"http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bwegrzyn0.github.io" /></head>
 <head>
@@ -53,7 +53,7 @@
           </span>
         </label>
 
-        <div class="trigger"></div>
+        <div class="trigger"><a class="page-link" href="/kategorie/">Kategorie</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -63,7 +63,7 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">Numeryczne rozwiązywanie równań różniczkowych 2 rzędu metodą Rungego-Kutty</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2025-06-30T00:00:00+02:00" itemprop="datePublished">Jun 30, 2025
+      <time class="dt-published" datetime="2025-06-30T00:00:00+02:00" itemprop="datePublished">2025-06-30
       </time></p>
   </header>
 
@@ -219,7 +219,7 @@ i analogicznie $u$.</p>
 <a href="/assets/downloads/2025-06-30/przykład2.cpp" target="_blank">przykład2.cpp</a></p>
 
 
-  </div><a class="u-url" href="/programowanie/2025/06/30/runge-kutta-2-zmienne.html" hidden></a>
+  </div><a class="u-url" href="/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty" hidden></a>
 </article>
 
       </div>

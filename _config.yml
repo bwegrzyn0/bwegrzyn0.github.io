@@ -34,7 +34,9 @@ sass:
   quiet_deps: true
 minima:
   skin: dark
+  date_format: "%Y-%m-%d"
 highlighter: rouge
+permalink: /:categories/:title
 
 # Exclude from processing.
 # The following items will not be processed, by default.

@@ -2,7 +2,7 @@
 layout: post
 title: "Numeryczne rozwiązywanie równań różniczkowych 2 rzędu metodą Rungego-Kutty"
 date: 2025-06-30
-categories: programowanie
+categories: [Programowanie]
 katex: true
 ---
 
