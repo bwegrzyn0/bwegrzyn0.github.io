@@ -1,4 +1,153 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-05T16:13:33+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Numeryczne rozwiązywanie równań różniczkowych 2 rzędu metodą Rungego-Kutty</title><link href="http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty" rel="alternate" type="text/html" title="Numeryczne rozwiązywanie równań różniczkowych 2 rzędu metodą Rungego-Kutty" /><published>2025-06-30T00:00:00+02:00</published><updated>2025-06-30T00:00:00+02:00</updated><id>http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty</id><content type="html" xml:base="http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty"><![CDATA[<h2 id="metoda-rungego-kutty">Metoda Rungego-Kutty</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-06T11:58:17+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Tworzenie prostej symulacji grawitacji w C++, część 1: SDL2</title><link href="http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2" rel="alternate" type="text/html" title="Tworzenie prostej symulacji grawitacji w C++, część 1: SDL2" /><published>2025-07-06T00:00:00+02:00</published><updated>2025-07-06T00:00:00+02:00</updated><id>http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2</id><content type="html" xml:base="http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2"><![CDATA[<h2 id="cel-projektu">Cel projektu</h2>
+<p>Celem tego projektu jest stworzenie programu w C++, który będzie pozwalał użytkownikowi:</p>
+<ul>
+  <li>dodawać do sceny ciała niebieskie, które będą oddziaływać ze sobą grawitacyjnie</li>
+  <li>modyfikować ich parametry, takie jak masa, prędkość, położenie, jasność itd. za pomocą prostego interfejsu</li>
+  <li>pauzować, przyspieszać, cofać, resetować symulację</li>
+  <li>poruszać się kamerą po scenie za pomocą myszki, przybliżać i oddalać widok</li>
+  <li>wykreślać i przewidywać trajektorie obiektów</li>
+  <li>ustalać punkt odniesienia dla trajektorii</li>
+  <li>zablokować widok na jednym obiekcie.</li>
+</ul>
+
+<p>Program ma spełniać również następujące założenia:</p>
+<ul>
+  <li>ruch planet ma być dokładnie obliczany za pomocą algorytmu Rungego-Kutty (opisanego w <a href="/programowanie/numeryczne-rozwiązywanie-równań-różniczkowych-2-rzędu-metodą-rungego-kutty" target="_blank">tym</a> artykule)</li>
+  <li>program ma być zoptymalizowany</li>
+  <li>ruch będzie odbywał się w jednej płaszczyźnie i przedstawiany będzie widok z góry</li>
+  <li>oświetlenie planet, zaćmienia (gdy jedna planeta przechodzi za drugą)</li>
+  <li>planety będą przedstawiane jako koła o różnych kolorach</li>
+  <li>anti-aliasing planet</li>
+  <li>zarządzanie obiektami w kodzie powinno być łatwe i uporządkowane.</li>
+</ul>
+
+<h2 id="kod-źródłowy">Kod źródłowy</h2>
+<p>Kod źródłowy projektu jest dostępny w <a href="https://github.com/bwegrzyn0/grav-sim" target="_blank">repozytorium GitHub</a>.</p>
+
+<h2 id="wyświetlanie-okna---sdl2">Wyświetlanie okna - SDL2</h2>
+<p>Do wyświetlania okna i rysowania na nim w tym projekcie zostanie użyta biblioteka <a href="https://www.libsdl.org/" target="_blank">SDL2</a>. Dobry poradnik, jak używać tę bibliotekę, można znaleźć <a href="https://lazyfoo.net/tutorials/SDL/index.php" target="_blank">tutaj</a>.</p>
+
+<h3 id="krok-1-inicjalizacja-sdl">Krok 1: inicjalizacja SDL</h3>
+<p>W pliku <code class="language-plaintext highlighter-rouge">main.cpp</code> dodajemy bibliotekę SDL2:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;SDL/SDL2.h&gt;</span><span class="cp">
+</span></code></pre></div></div>
+<p>a następnie tworzymy zmienne i obiekty:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// wymiary okna</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">800</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">600</span><span class="p">;</span>
+
+<span class="c1">// okno</span>
+<span class="n">SDL_Window</span><span class="o">*</span> <span class="n">window</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="c1">// renderer</span>
+<span class="n">SDL_Renderer</span><span class="o">*</span> <span class="n">renderer</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</code></pre></div></div>
+<p>Obiekt <code class="language-plaintext highlighter-rouge">renderer</code> będzie odpowiedzialny za rysowanie pikseli w oknie <code class="language-plaintext highlighter-rouge">window</code>. Stwórzymy funkcję inicjalizującą SDL:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// funkcja odpowiadająca za inicjalizację SDL</span>
+<span class="kt">bool</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kt">bool</span> <span class="n">success</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+	<span class="c1">// inicjalizuj SDL</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_VIDEO</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">printf</span><span class="p">(</span><span class="s">"Could not init SDL: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">SDL_GetError</span><span class="p">());</span>
+		<span class="n">success</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="c1">// utwórz okno</span>
+		<span class="n">window</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s">"grav-sim"</span><span class="p">,</span> <span class="n">SDL_WINDOWPOS_UNDEFINED</span><span class="p">,</span> <span class="n">SDL_WINDOWPOS_UNDEFINED</span><span class="p">,</span> <span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">window</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">printf</span><span class="p">(</span><span class="s">"Could not create window: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">SDL_GetError</span><span class="p">());</span>
+			<span class="n">success</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="c1">// stwórz renderer</span>
+			<span class="n">renderer</span> <span class="o">=</span> <span class="n">SDL_CreateRenderer</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">SDL_RENDERER_ACCELERATED</span><span class="p">);</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">renderer</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">printf</span><span class="p">(</span><span class="s">"Could not create renderer: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">SDL_GetError</span><span class="p">());</span>
+				<span class="n">success</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="n">success</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Jeśli inicjalizacja nie przebiegnie pomyślnie, funkcja zwróci <code class="language-plaintext highlighter-rouge">false</code>. Potrzebna jest również funkcja “sprzątająca” po wszystkim:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// funkcja odpowiadająca za "posprzątanie" po wszystkim</span>
+<span class="kt">void</span> <span class="nf">close</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// zniszcz okno, zwolnij miejsce w pamięci, zamknij SDL</span>
+	<span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
+	<span class="n">window</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+	<span class="n">SDL_Quit</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="krok-2-rejestrowanie-wejścia-od-użytkownika">Krok 2: rejestrowanie wejścia od użytkownika</h3>
+<p>W tym celu utworzymy obiekt <code class="language-plaintext highlighter-rouge">SDL_Event</code>, który będzie wykrywał zdarzenia, takie jak wciśnięcie klawiatury, myszki itd. oraz funkcję, która na podstawie wykrytego zdarzenia wypisze informację do konsoli:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="n">running</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="n">SDL_Event</span> <span class="n">event</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">handleEvents</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">SDL_PollEvent</span><span class="p">(</span><span class="o">&amp;</span><span class="n">event</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// funkcja sprawdzająca zdarzenia</span>
+        <span class="k">switch</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// typ zdarzenia</span>
+            <span class="k">case</span> <span class="n">SDL_KEYDOWN</span><span class="p">:</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"Key press</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> <span class="c1">// wciśnięcie klawisza na klawiaturze</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">SDL_KEYUP</span><span class="p">:</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"Key up</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> <span class="c1">// puszczenie klawisza na klawiaturze</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">SDL_QUIT</span><span class="p">:</span>
+                <span class="n">running</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// zamknięcie okna</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"Quitting</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="nl">default:</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Zmienna <code class="language-plaintext highlighter-rouge">running</code> mówi, czy program jest uruchomiony. Przyda się ona w jednym z kolejnych kroków.</p>
+
+<h3 id="krok-3-rysowanie">Krok 3: rysowanie</h3>
+<p>Utwórzmy funkcję, która będzie odpowiedzialna za rysowanie na ekranie. Dodajmy w niej również rysowanie białego prostokąta:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">draw</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">SDL_SetRenderDrawColor</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">);</span> <span class="c1">// ustawiamy kolor tła (RGBA)</span>
+	<span class="n">SDL_RenderClear</span><span class="p">(</span><span class="n">renderer</span><span class="p">);</span> <span class="c1">// zapełniamy tło</span>
+
+	<span class="n">SDL_Rect</span> <span class="n">rect</span><span class="p">;</span> <span class="c1">// tworzymy nowy obiekt typu prostokąt</span>
+	<span class="n">rect</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="c1">// ustalamy jego położenie i rozmiary</span>
+	<span class="n">rect</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+	<span class="n">rect</span><span class="p">.</span><span class="n">w</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+	<span class="n">rect</span><span class="p">.</span><span class="n">h</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+
+	<span class="n">SDL_SetRenderDrawColor</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">);</span> <span class="c1">// ustawiamy kolor prostokąta</span>
+	<span class="n">SDL_RenderFillRect</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rect</span><span class="p">);</span> <span class="c1">// rysujemy wypełniony prostokąt</span>
+
+	<span class="n">SDL_RenderPresent</span><span class="p">(</span><span class="n">renderer</span><span class="p">);</span> <span class="c1">// wyświetlamy obraz na ekranie</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="krok-4-pętla-programu">Krok 4: pętla programu</h3>
+<p>Utwórzmy funkcję zawierającą główną pętlę programu:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">while</span> <span class="p">(</span><span class="n">running</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">handleEvents</span><span class="p">();</span>
+		<span class="n">draw</span><span class="p">();</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Na razie kod jest uruchamiany w pętli while, czyli jak najszybciej jest to możliwe. Jest to oczywiście nieopłacalne i niestabilne. Zostanie to naprawione później.</p>
+
+<h3 id="krok-5-main">Krok 5: <code class="language-plaintext highlighter-rouge">main()</code></h3>
+<p>Myślę, że kod jest intuicyjny.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">init</span><span class="p">())</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">loop</span><span class="p">();</span>
+	<span class="n">close</span><span class="p">();</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="co-dalej">Co dalej?</h2>
+<p>Powyższy program powinien wyświetlić okno, a w nim biały prostokąt na czarnym tle. Kod tego programu w całości dostępny jest w <a href="https://github.com/bwegrzyn0/grav-sim/commit/2265e32b3415e08a4f6f77b149b98d625eea4463" target="_blank">commicie</a> na GitHub. W następnej części zajmiemy się rysowaniem kół i okręgów za pomocą algorytmu midpoint.</p>]]></content><author><name></name></author><category term="Programowanie" /><category term="Tworzenie prostej symulacji grawitacji w C++" /><summary type="html"><![CDATA[Cel projektu Celem tego projektu jest stworzenie programu w C++, który będzie pozwalał użytkownikowi: dodawać do sceny ciała niebieskie, które będą oddziaływać ze sobą grawitacyjnie modyfikować ich parametry, takie jak masa, prędkość, położenie, jasność itd. za pomocą prostego interfejsu pauzować, przyspieszać, cofać, resetować symulację poruszać się kamerą po scenie za pomocą myszki, przybliżać i oddalać widok wykreślać i przewidywać trajektorie obiektów ustalać punkt odniesienia dla trajektorii zablokować widok na jednym obiekcie.]]></summary></entry><entry><title type="html">Numeryczne rozwiązywanie równań różniczkowych 2 rzędu metodą Rungego-Kutty</title><link href="http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty" rel="alternate" type="text/html" title="Numeryczne rozwiązywanie równań różniczkowych 2 rzędu metodą Rungego-Kutty" /><published>2025-06-30T00:00:00+02:00</published><updated>2025-06-30T00:00:00+02:00</updated><id>http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty</id><content type="html" xml:base="http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty"><![CDATA[<h2 id="metoda-rungego-kutty">Metoda Rungego-Kutty</h2>
 <p>Mamy dane równanie różniczkowe 1 rzędu w postaci
 $$ \frac{dy}{dx}=f(x,y). $$
 Najprostszą metodą, aby rozwiązać tego typu równanie numerycznie jest metoda Eulera. Pochodną możemy przybliżyć jako
