@@ -20,7 +20,7 @@
 {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-06T00:00:00+02:00","datePublished":"2025-07-06T00:00:00+02:00","description":"Cel projektu Celem tego projektu jest stworzenie programu w C++, który będzie pozwalał użytkownikowi: dodawać do sceny ciała niebieskie, które będą oddziaływać ze sobą grawitacyjnie modyfikować ich parametry, takie jak masa, prędkość, położenie, jasność itd. za pomocą prostego interfejsu pauzować, przyspieszać, cofać, resetować symulację poruszać się kamerą po scenie za pomocą myszki, przybliżać i oddalać widok wykreślać i przewidywać trajektorie obiektów ustalać punkt odniesienia dla trajektorii zablokować widok na jednym obiekcie.","headline":"Tworzenie prostej symulacji grawitacji w C++, część 1: SDL2","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2"},"url":"http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css">
-	<link rel="shortcut icon" type="image/png" href="favicon.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bwegrzyn0.github.io" /></head>
+	<link rel="shortcut icon" type="image/png" href="/favicon.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bwegrzyn0.github.io" /></head>
 <head>
 	  
 
@@ -96,13 +96,13 @@
 <p>Kod źródłowy projektu jest dostępny w <a href="https://github.com/bwegrzyn0/grav-sim" target="_blank">repozytorium GitHub</a>.</p>
 
 <h2 id="wyświetlanie-okna---sdl2">Wyświetlanie okna - SDL2</h2>
-<p>Do wyświetlania okna i rysowania na nim w tym projekcie zostanie użyta biblioteka <a href="https://www.libsdl.org/" target="_blank">SDL2</a>. Dobry poradnik, jak używać tę bibliotekę, można znaleźć <a href="https://lazyfoo.net/tutorials/SDL/index.php" target="_blank">tutaj</a>.</p>
+<p>Do wyświetlania okna i rysowania na nim w tym projekcie użyłem bibliotekę <a href="https://www.libsdl.org/" target="_blank">SDL2</a>. Dobry poradnik, jak ją używać, można znaleźć <a href="https://lazyfoo.net/tutorials/SDL/index.php" target="_blank">tutaj</a>.</p>
 
-<h3 id="krok-1-inicjalizacja-sdl">Krok 1: inicjalizacja SDL</h3>
-<p>W pliku <code class="language-plaintext highlighter-rouge">main.cpp</code> dodajemy bibliotekę SDL2:</p>
+<h3 id="inicjalizacja-sdl">Inicjalizacja SDL</h3>
+<p>W pliku <code class="language-plaintext highlighter-rouge">main.cpp</code> dodałem bibliotekę SDL2:</p>
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;SDL/SDL2.h&gt;</span><span class="cp">
 </span></code></pre></div></div>
-<p>a następnie tworzymy zmienne i obiekty:</p>
+<p>a następnie utworzyłem zmienne i obiekty:</p>
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// wymiary okna</span>
 <span class="k">const</span> <span class="kt">int</span> <span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">800</span><span class="p">;</span>
 <span class="k">const</span> <span class="kt">int</span> <span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">600</span><span class="p">;</span>
@@ -112,7 +112,7 @@
 <span class="c1">// renderer</span>
 <span class="n">SDL_Renderer</span><span class="o">*</span> <span class="n">renderer</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
 </code></pre></div></div>
-<p>Obiekt <code class="language-plaintext highlighter-rouge">renderer</code> będzie odpowiedzialny za rysowanie pikseli w oknie <code class="language-plaintext highlighter-rouge">window</code>. Stwórzymy funkcję inicjalizującą SDL:</p>
+<p>Obiekt <code class="language-plaintext highlighter-rouge">renderer</code> będzie odpowiedzialny za rysowanie pikseli w oknie <code class="language-plaintext highlighter-rouge">window</code>. Stworzyłem funkcję inicjalizującą SDL:</p>
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// funkcja odpowiadająca za inicjalizację SDL</span>
 <span class="kt">bool</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
 	<span class="kt">bool</span> <span class="n">success</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
@@ -149,8 +149,8 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h3 id="krok-2-rejestrowanie-wejścia-od-użytkownika">Krok 2: rejestrowanie wejścia od użytkownika</h3>
-<p>W tym celu utworzymy obiekt <code class="language-plaintext highlighter-rouge">SDL_Event</code>, który będzie wykrywał zdarzenia, takie jak wciśnięcie klawiatury, myszki itd. oraz funkcję, która na podstawie wykrytego zdarzenia wypisze informację do konsoli:</p>
+<h3 id="rejestrowanie-wejścia-od-użytkownika">Rejestrowanie wejścia od użytkownika</h3>
+<p>W tym celu utworzyłem obiekt <code class="language-plaintext highlighter-rouge">SDL_Event</code>, który będzie wykrywał zdarzenia, takie jak wciśnięcie klawiatury, myszki itd. oraz funkcję, która na podstawie wykrytego zdarzenia wypisze informację do konsoli:</p>
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="n">running</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
 <span class="n">SDL_Event</span> <span class="n">event</span><span class="p">;</span>
 
@@ -175,8 +175,8 @@
 </code></pre></div></div>
 <p>Zmienna <code class="language-plaintext highlighter-rouge">running</code> mówi, czy program jest uruchomiony. Przyda się ona w jednym z kolejnych kroków.</p>
 
-<h3 id="krok-3-rysowanie">Krok 3: rysowanie</h3>
-<p>Utwórzmy funkcję, która będzie odpowiedzialna za rysowanie na ekranie. Dodajmy w niej również rysowanie białego prostokąta:</p>
+<h3 id="rysowanie">Rysowanie</h3>
+<p>Utworzyłem funkcję, która będzie odpowiedzialna za rysowanie na ekranie. Dodałem w niej również rysowanie białego prostokąta:</p>
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">draw</span><span class="p">()</span> <span class="p">{</span>
 	<span class="n">SDL_SetRenderDrawColor</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">);</span> <span class="c1">// ustawiamy kolor tła (RGBA)</span>
 	<span class="n">SDL_RenderClear</span><span class="p">(</span><span class="n">renderer</span><span class="p">);</span> <span class="c1">// zapełniamy tło</span>
@@ -194,8 +194,8 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h3 id="krok-4-pętla-programu">Krok 4: pętla programu</h3>
-<p>Utwórzmy funkcję zawierającą główną pętlę programu:</p>
+<h3 id="pętla-programu">Pętla programu</h3>
+<p>Utworzyłem funkcję zawierającą główną pętlę programu:</p>
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
 	<span class="k">while</span> <span class="p">(</span><span class="n">running</span><span class="p">)</span> <span class="p">{</span>
 		<span class="n">handleEvents</span><span class="p">();</span>
@@ -205,8 +205,7 @@
 </code></pre></div></div>
 <p>Na razie kod jest uruchamiany w pętli while, czyli jak najszybciej jest to możliwe. Jest to oczywiście nieopłacalne i niestabilne. Zostanie to naprawione później.</p>
 
-<h3 id="krok-5-main">Krok 5: <code class="language-plaintext highlighter-rouge">main()</code></h3>
-<p>Myślę, że kod jest intuicyjny.</p>
+<p>Tak wygląda moja funkcja <code class="language-plaintext highlighter-rouge">main()</code>:</p>
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
 	<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">init</span><span class="p">())</span> <span class="p">{</span>
 		<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
@@ -218,7 +217,7 @@
 </code></pre></div></div>
 
 <h2 id="co-dalej">Co dalej?</h2>
-<p>Powyższy program powinien wyświetlić okno, a w nim biały prostokąt na czarnym tle. Kod tego programu w całości dostępny jest w <a href="https://github.com/bwegrzyn0/grav-sim/commit/2265e32b3415e08a4f6f77b149b98d625eea4463" target="_blank">commicie</a> na GitHub. W następnej części zajmiemy się rysowaniem kół i okręgów za pomocą algorytmu midpoint.</p>
+<p>Powyższy program wyświetla okno, a w nim biały prostokąt na czarnym tle. Kod tego programu w całości dostępny jest w <a href="https://github.com/bwegrzyn0/grav-sim/commit/2265e32b3415e08a4f6f77b149b98d625eea4463" target="_blank">commicie</a> na GitHub. W następnej części opiszę proces rysowania kół i okręgów za pomocą algorytmu midpoint oraz to, jak dodałem planety.</p>
 
   </div><a class="u-url" href="/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2" hidden></a>
 </article>

@@ -29,14 +29,14 @@ Program ma spełniać również następujące założenia:
 Kod źródłowy projektu jest dostępny w <a href="https://github.com/bwegrzyn0/grav-sim" target="_blank">repozytorium GitHub</a>.
 
 ## Wyświetlanie okna - SDL2
-Do wyświetlania okna i rysowania na nim w tym projekcie zostanie użyta biblioteka <a href="https://www.libsdl.org/" target="_blank">SDL2</a>. Dobry poradnik, jak używać tę bibliotekę, można znaleźć <a href="https://lazyfoo.net/tutorials/SDL/index.php" target="_blank">tutaj</a>.
+Do wyświetlania okna i rysowania na nim w tym projekcie użyłem bibliotekę <a href="https://www.libsdl.org/" target="_blank">SDL2</a>. Dobry poradnik, jak ją używać, można znaleźć <a href="https://lazyfoo.net/tutorials/SDL/index.php" target="_blank">tutaj</a>.
 
-### Krok 1: inicjalizacja SDL
-W pliku ```main.cpp``` dodajemy bibliotekę SDL2:
+### Inicjalizacja SDL
+W pliku ```main.cpp``` dodałem bibliotekę SDL2:
 ```cpp
 #include <SDL/SDL2.h>
 ```
-a następnie tworzymy zmienne i obiekty:
+a następnie utworzyłem zmienne i obiekty:
 ```cpp
 // wymiary okna
 const int WIDTH = 800;
@@ -47,7 +47,7 @@ SDL_Window* window = NULL;
 // renderer
 SDL_Renderer* renderer = NULL;
 ```
-Obiekt ```renderer``` będzie odpowiedzialny za rysowanie pikseli w oknie ```window```. Stwórzymy funkcję inicjalizującą SDL:
+Obiekt ```renderer``` będzie odpowiedzialny za rysowanie pikseli w oknie ```window```. Stworzyłem funkcję inicjalizującą SDL:
 ```cpp
 // funkcja odpowiadająca za inicjalizację SDL
 bool init() {
@@ -86,8 +86,8 @@ void close() {
 }
 ```
 
-### Krok 2: rejestrowanie wejścia od użytkownika
-W tym celu utworzymy obiekt ```SDL_Event```, który będzie wykrywał zdarzenia, takie jak wciśnięcie klawiatury, myszki itd. oraz funkcję, która na podstawie wykrytego zdarzenia wypisze informację do konsoli:
+### Rejestrowanie wejścia od użytkownika
+W tym celu utworzyłem obiekt ```SDL_Event```, który będzie wykrywał zdarzenia, takie jak wciśnięcie klawiatury, myszki itd. oraz funkcję, która na podstawie wykrytego zdarzenia wypisze informację do konsoli:
 ```cpp
 bool running = true;
 SDL_Event event;
@@ -113,8 +113,8 @@ void handleEvents() {
 ```
 Zmienna ```running``` mówi, czy program jest uruchomiony. Przyda się ona w jednym z kolejnych kroków.
 
-### Krok 3: rysowanie
-Utwórzmy funkcję, która będzie odpowiedzialna za rysowanie na ekranie. Dodajmy w niej również rysowanie białego prostokąta:
+### Rysowanie
+Utworzyłem funkcję, która będzie odpowiedzialna za rysowanie na ekranie. Dodałem w niej również rysowanie białego prostokąta:
 ```cpp
 void draw() {
 	SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // ustawiamy kolor tła (RGBA)
@@ -133,8 +133,8 @@ void draw() {
 }
 ```
 
-### Krok 4: pętla programu
-Utwórzmy funkcję zawierającą główną pętlę programu:
+### Pętla programu
+Utworzyłem funkcję zawierającą główną pętlę programu:
 ```cpp
 void loop() {
 	while (running) {
@@ -145,8 +145,7 @@ void loop() {
 ```
 Na razie kod jest uruchamiany w pętli while, czyli jak najszybciej jest to możliwe. Jest to oczywiście nieopłacalne i niestabilne. Zostanie to naprawione później.
 
-### Krok 5: ```main()```
-Myślę, że kod jest intuicyjny.
+Tak wygląda moja funkcja ```main()```:
 ```cpp
 int main(int argc, char* argv[]) {
 	if (!init()) {
@@ -159,4 +158,4 @@ int main(int argc, char* argv[]) {
 ```
 
 ## Co dalej?
-Powyższy program powinien wyświetlić okno, a w nim biały prostokąt na czarnym tle. Kod tego programu w całości dostępny jest w <a href="https://github.com/bwegrzyn0/grav-sim/commit/2265e32b3415e08a4f6f77b149b98d625eea4463" target="_blank">commicie</a> na GitHub. W następnej części zajmiemy się rysowaniem kół i okręgów za pomocą algorytmu midpoint.
+Powyższy program wyświetla okno, a w nim biały prostokąt na czarnym tle. Kod tego programu w całości dostępny jest w <a href="https://github.com/bwegrzyn0/grav-sim/commit/2265e32b3415e08a4f6f77b149b98d625eea4463" target="_blank">commicie</a> na GitHub. W następnej części opiszę proces rysowania kół i okręgów za pomocą algorytmu midpoint oraz to, jak dodałem planety.
