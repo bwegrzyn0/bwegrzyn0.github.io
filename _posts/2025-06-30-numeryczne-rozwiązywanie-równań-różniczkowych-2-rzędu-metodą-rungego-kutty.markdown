@@ -1,21 +1,21 @@
 ---
 layout: post
-title: "Numeryczne rozwiązywanie równań różniczkowych 2 rzędu metodą Rungego-Kutty"
+title: "Numeryczne rozwiązywanie równań różniczkowych 2 rzędu za pomocą algorytmu Rungego-Kutty"
 date: 2025-06-30
 categories: [Programowanie]
 katex: true
 ---
 
-## Metoda Rungego-Kutty
+## Algorytm Rungego-Kutty
 Mamy dane równanie różniczkowe 1 rzędu w postaci
 \$$ \frac{dy}{dx}=f(x,y). \$$
 Najprostszą metodą, aby rozwiązać tego typu równanie numerycznie jest metoda Eulera. Pochodną możemy przybliżyć jako
 \$$ \frac{dy}{dx}\approx\frac{y(x+\Delta x)-y(x)}{\Delta x}, \$$
 a stąd
 \$$ y(x+\Delta x)\approx y(x)+\Delta x f(x,y). \$$
-Metoda ta jest bardzo niedokładna szczególnie dla rozwiązań oscylujących. Jest ona również nazywana metodą Rungego-Kutty 1 rzędu. 
+Metoda ta jest bardzo niedokładna szczególnie dla rozwiązań oscylujących. Jest ona również nazywana algorytmem Rungego-Kutty 1 rzędu. 
 
-O wiele lepsze przybliżenie daje metoda Rungego-Kutty 4 rzędu. W pierwszej kolejności należy obliczyć 4 wielkości:
+O wiele lepsze przybliżenie daje algorytm Rungego-Kutty 4 rzędu. W pierwszej kolejności należy obliczyć 4 wielkości:
 \$$ k_1=f(x,y) \$$
 \$$ k_2=f(x+\frac{\Delta x}{2}, y+\frac{\Delta x}{2}k_1) \$$
 \$$ k_3=f(x+\frac{\Delta x}{2}, y+\frac{\Delta x}{2}k_2) \$$
@@ -63,7 +63,7 @@ Wyniki zapisałem do pliku `.csv`, a następnie naniosłem w pythonie na widoczn
 <p align="center">
 <img src="/assets/images/2025-06-30/przyklad1.svg" width="500" />
 </p>
-Czerwona linia przedstawia rozwiązanie analityczne, a niebieskie krzyżyki rozwiązanie numeryczne. Widzimy, że metoda Rungego-Kutty 4 rzędu nawet przy dużych wartościach \$ \Delta x \$ daje bardzo dobre rezultaty. 
+Czerwona linia przedstawia rozwiązanie analityczne, a niebieskie krzyżyki rozwiązanie numeryczne. Widzimy, że algorytm Rungego-Kutty 4 rzędu nawet przy dużych wartościach \$ \Delta x \$ daje bardzo dobre rezultaty. 
 
 ## Równanie różniczkowe 2 rzędu jako układ równań 1 rzędu
 Niech będzie dane równanie różniczkowe 2 rzędu:

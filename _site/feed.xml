@@ -1,4 +1,182 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-06T16:37:14+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Tworzenie prostej symulacji grawitacji w C++, część 1: SDL2</title><link href="http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2" rel="alternate" type="text/html" title="Tworzenie prostej symulacji grawitacji w C++, część 1: SDL2" /><published>2025-07-06T00:00:00+02:00</published><updated>2025-07-06T00:00:00+02:00</updated><id>http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2</id><content type="html" xml:base="http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2"><![CDATA[<h2 id="cel-projektu">Cel projektu</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-14T09:41:38+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Tworzenie prostej symulacji grawitacji w C++, część 2: Rysowanie kół, planety</title><link href="http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-2-rysowanie-k%C3%B3%C5%82-planety" rel="alternate" type="text/html" title="Tworzenie prostej symulacji grawitacji w C++, część 2: Rysowanie kół, planety" /><published>2025-07-13T00:00:00+02:00</published><updated>2025-07-13T00:00:00+02:00</updated><id>http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-2-rysowanie-k%C3%B3%C5%82-planety</id><content type="html" xml:base="http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-2-rysowanie-k%C3%B3%C5%82-planety"><![CDATA[<h2 id="rysowanie-kół">Rysowanie kół</h2>
+<p>Aby obserwować interakcję grawitacyjną, potrzebujemy obiekty, które będą w taki sposób oddziaływać. W tej symulacji będą one nazywane planetami, chociaż nie będą miały ściśle określonego przedziału na masę, gęstość i rozmiary. Będziemy je traktować jak kule, czyli w tym wypadku tak samo, jak masy punktowe. Aby reprezentować je na ekranie, będzie konieczna możliwość rysowania kół. Niestety SDL nie posiada funkcji wykonującej takie zadanie, więc trzeba ją stworzyć samodzielnie.</p>
+
+<p>Wydajnym algorytmem do rysowania kół i okręgów jest <a href="https://en.wikipedia.org/wiki/Midpoint_circle_algorithm" target="_blank">algorytm midpoint</a>. Jego implementację dla SDL znalazłem <a href="https://gist.github.com/Gumichan01/332c26f6197a432db91cc4327fcabb1c" target="_blank">tutaj</a>.</p>
+
+<p>W funkcji <code class="language-plaintext highlighter-rouge">draw()</code> przeniesionej do osobnego pliku dodałem następujące linijki rysujące okrąg i koło:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SDL_RenderDrawCircle</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="n">SDL_RenderFillCircle</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+</code></pre></div></div>
+<p>Rezultat jest następujący:</p>
+<p align="center">
+<img src="/assets/images/2025-07-13/okrag-i-kolo-test.png" width="500" />
+</p>
+
+<h2 id="planety">Planety</h2>
+<h3 id="obiekt-planeta">Obiekt planeta</h3>
+<p>W pliku <code class="language-plaintext highlighter-rouge">planet.h</code> utworzyłem klasę <code class="language-plaintext highlighter-rouge">Planet</code>, a w niej potrzebne zmienne i funkcje.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#ifndef PLANET_H
+#define PLANET_H
+</span><span class="k">class</span> <span class="nc">Planet</span> <span class="p">{</span>
+    <span class="nl">public:</span>
+        <span class="c1">// położenie planety</span>
+        <span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">y</span><span class="p">;</span>
+        <span class="c1">// prędkość planety</span>
+        <span class="kt">float</span> <span class="n">v_x</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">v_y</span><span class="p">;</span>
+        <span class="c1">// masa planety</span>
+        <span class="kt">float</span> <span class="n">mass</span><span class="p">;</span>
+        <span class="c1">// gęstość planety</span>
+        <span class="kt">float</span> <span class="n">density</span><span class="p">;</span>
+        <span class="c1">// promień planety </span>
+        <span class="kt">float</span> <span class="n">radius</span><span class="p">;</span>
+        <span class="c1">// przyspieszenie planety</span>
+        <span class="kt">float</span> <span class="n">a_x</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">a_y</span><span class="p">;</span>
+        <span class="c1">// indentyfikator</span>
+        <span class="kt">float</span> <span class="n">ID</span><span class="p">;</span>
+        <span class="c1">// konstruktor</span>
+        <span class="n">Planet</span><span class="p">(</span><span class="kt">float</span> <span class="n">_x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_y</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_v_x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_v_y</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_mass</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_density</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_ID</span><span class="p">);</span>
+        <span class="c1">// funkcja aktualizująca położenie planety</span>
+        <span class="kt">void</span> <span class="n">updatePos</span><span class="p">();</span>
+<span class="p">};</span>
+<span class="cp">#endif
+</span></code></pre></div></div>
+<p>Identyfikator będzie potrzebny do obliczania przyspieszenia.</p>
+
+<p>Następnie w pliku <code class="language-plaintext highlighter-rouge">planet.cpp</code> utworzyłem konstruktor, w którym obliczam promień na podstawie masy i gęstości ze wzoru
+$$R = \left(\frac{3M}{4\pi\rho}\right)^{1/3}$$</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Planet</span><span class="o">::</span><span class="n">Planet</span><span class="p">(</span><span class="kt">float</span> <span class="n">_x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_y</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_v_x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_v_y</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_mass</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_density</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_ID</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// przyporządkowujemy zmienne lokalne przekazane do konstruktora zmiennym globalnym 		</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">_x</span><span class="p">;</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">_y</span><span class="p">;</span>
+    <span class="n">v_x</span> <span class="o">=</span> <span class="n">_v_x</span><span class="p">;</span>
+    <span class="n">v_y</span> <span class="o">=</span> <span class="n">_v_y</span><span class="p">;</span>
+    <span class="n">mass</span> <span class="o">=</span> <span class="n">_mass</span><span class="p">;</span>
+    <span class="n">density</span> <span class="o">=</span> <span class="n">_density</span><span class="p">;</span>
+    <span class="n">ID</span> <span class="o">=</span> <span class="n">_ID</span><span class="p">;</span> 
+    <span class="n">a_x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">a_y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// R = [3M/(4*PI*rho)]^(1/3) dla jednorodnej kuli</span>
+    <span class="n">radius</span> <span class="o">=</span> <span class="n">pow</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span> <span class="p">(</span><span class="mf">3.0f</span><span class="o">*</span><span class="n">mass</span><span class="o">/</span><span class="p">(</span><span class="mf">4.0f</span><span class="o">*</span><span class="mf">3.1415f</span><span class="o">*</span><span class="n">density</span><span class="p">)),</span> <span class="mx">0.333d</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>W funkcji <code class="language-plaintext highlighter-rouge">updatePos()</code> zaimplementowałem proste obliczanie kolejnych położeń i prędkości planety za pomocą algorytmu Eulera.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">Planet</span><span class="o">::</span><span class="n">updatePos</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Planet</span><span class="o">&gt;</span> <span class="n">planets</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// OBLICZANIE POŁOŻENIA</span>
+        <span class="n">x</span> <span class="o">+=</span> <span class="n">v_x</span> <span class="o">*</span> <span class="n">dT</span><span class="p">;</span>
+        <span class="c1">// dT to krok czasowy zdefiniowany w pliku main.h</span>
+        <span class="n">y</span> <span class="o">+=</span> <span class="n">v_y</span> <span class="o">*</span> <span class="n">dT</span><span class="p">;</span>
+
+        <span class="c1">// OBLICZANIE PRĘDKOŚCI</span>
+        <span class="c1">// musimy zresetować przyspieszenie, aby obliczyć je na nowo</span>
+        <span class="n">a_x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">a_y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="c1">// obliczanie przyspieszenia ...</span>
+
+        <span class="c1">// aktualizujemy prędkość</span>
+        <span class="n">v_x</span> <span class="o">+=</span> <span class="n">a_x</span> <span class="o">*</span> <span class="n">dT</span><span class="p">;</span>
+        <span class="n">v_y</span> <span class="o">+=</span> <span class="n">a_y</span> <span class="o">*</span> <span class="n">dT</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>$dT$ to pewien krok czasowy ustalony w pliku <code class="language-plaintext highlighter-rouge">main.h</code>. W przyszłości zostanie zaimplementowany algorytm Rungego-Kutty.</p>
+
+<p>Ponieważ krok czasowy jest stały, w przypadku spowolnienia działania programu, zostanie również spowolniona symulacja. Rozważmy to na przykładzie. Załóżmy że program działa z szybkością 60 klatek na sekundę. Wtedy w ciągu sekundy przy kroku czasowym równym $1/60\text{s}$ symulacja postąpi o $1\text{s}$. Jeśli program będzie działał z szybkością 30 klatek na sekundę, aby w tym samym czasie symulacja postąpiła o czas $1\text{s}$, krok czasowy musiałby być 2 razy dłuższy.
+Zostanie to w przyszłości naprawione implementując inną postać pętli programu.</p>
+
+<h3 id="zarządzanie-planetami">Zarządzanie planetami</h3>
+<p>Aby sprawnie zarządzać wszystkimi obiektami utworzyłem plik <code class="language-plaintext highlighter-rouge">handler.cpp</code>, którego zadaniem będzie aktualizowanie wszystkich planet. W nim utworzyłem wektor ze wszystkimi planetami i funkcję, która będzie je aktualizować.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">updatePlanets</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">planets</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">updatePos</span><span class="p">();</span>	
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Warto zauważyć, że nie zadziała tutaj pętla for each, ponieważ tworzy ona nowe obiekty planet i aktualizuje parametry tych nowych, a nie już istniejących obiektów.</p>
+
+<p>W pliku <code class="language-plaintext highlighter-rouge">main.cpp</code> utworzyłem funkcję:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">setupEnvironment</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">planets</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="k">new</span> <span class="n">Planet</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">5.47</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)));</span>
+    <span class="n">planets</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="k">new</span> <span class="n">Planet</span><span class="p">(</span><span class="mi">595</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1</span><span class="p">)));</span>
+    <span class="n">planets</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="k">new</span> <span class="n">Planet</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.033</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2</span><span class="p">)));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>oraz dodałem <code class="language-plaintext highlighter-rouge">updatePlanets()</code> z <code class="language-plaintext highlighter-rouge">handler.cpp</code> do pętli.</p>
+
+<p>Należy pamiętać, aby wyświetlać planety na ekranie, dlatego zmodyfikowałem funkcję <code class="language-plaintext highlighter-rouge">draw()</code> w następujący sposób:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">draw</span><span class="p">(</span><span class="n">SDL_Renderer</span><span class="o">*</span> <span class="n">renderer</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// ustal kolor tła i je zapełń</span>
+    <span class="n">SDL_SetRenderDrawColor</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">);</span>
+    <span class="n">SDL_RenderClear</span><span class="p">(</span><span class="n">renderer</span><span class="p">);</span>
+
+    <span class="c1">// renderujemy po kolei wszystkie planety</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">planets</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">SDL_SetRenderDrawColor</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">);</span>
+        <span class="n">SDL_RenderFillCircle</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">radius</span> <span class="o">*</span> <span class="mi">100</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="c1">// wyświetl to, co zostało narysowane </span>
+    <span class="n">SDL_RenderPresent</span><span class="p">(</span><span class="n">renderer</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="interakcja-grawitacyjna">Interakcja grawitacyjna</h3>
+<p>Potrzebujemy w funkcji <code class="language-plaintext highlighter-rouge">updatePlanets()</code> dostęp do wektora <code class="language-plaintext highlighter-rouge">planets</code>, więc będzie on przekazywany jako argument tej funkcji. Następnie utwórzmy w niej pętlę sumującą przyspieszenia pochodzące od wszystkich innych planet, aby obliczyć siłę wypadkową. Oczywiście musimy sumować rzuty przyspieszeń na poszczególne osie.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">planets</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">ID</span> <span class="o">!=</span> <span class="n">ID</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// nie chcemy żeby planeta przyciągała sama siebie</span>
+        <span class="c1">// obliczamy r^2</span>
+        <span class="kt">float</span> <span class="n">distance_squared</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">y</span><span class="p">);</span>
+        <span class="c1">// obliczamy wartość przyspieszenia</span>
+        <span class="kt">float</span> <span class="n">a</span> <span class="o">=</span> <span class="n">G</span><span class="o">*</span><span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">mass</span><span class="o">/</span><span class="n">distance_squared</span><span class="p">;</span>
+        <span class="c1">// obliczamy wartość sinusa i cosinusa kąta między planetami</span>
+        <span class="kt">float</span> <span class="n">cos</span> <span class="o">=</span> <span class="p">(</span><span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">x</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">pow</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span> <span class="n">distance_squared</span><span class="p">,</span> <span class="mx">0.5d</span><span class="p">);</span>
+        <span class="kt">float</span> <span class="n">sin</span> <span class="o">=</span> <span class="p">(</span><span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">y</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">pow</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span> <span class="n">distance_squared</span><span class="p">,</span> <span class="mx">0.5d</span><span class="p">);</span>
+        <span class="c1">// dodajemy składowe przyspieszenia</span>
+        <span class="n">a_x</span> <span class="o">+=</span> <span class="n">a</span><span class="o">*</span><span class="n">cos</span><span class="p">;</span>
+        <span class="n">a_y</span> <span class="o">+=</span> <span class="n">a</span><span class="o">*</span><span class="n">sin</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="poruszanie-kamerą">Poruszanie kamerą</h2>
+<p>Planety mogą szybko uciec z pola widzenia, dlatego ważna jest możliwość poruszania kamerą.</p>
+
+<p>Utworzyłem tablicę boolów <code class="language-plaintext highlighter-rouge">keysDown</code> o 4 elementach, które opisują stan wciśnięcia strzałek na klawiaturze. Są one ustalane w funkcji <code class="language-plaintext highlighter-rouge">handleEvents()</code> w <code class="language-plaintext highlighter-rouge">main.cpp</code>. Na ich podstawie mogę zmieniać aktualną prędkość i położenie kamery:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">updateCam</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ustawiamy prędkość kamery na postawie wciśniętych klawiszy</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">keysDown</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">cam_vy</span> <span class="o">=</span> <span class="o">-</span><span class="n">cam_v</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">keysDown</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">cam_vy</span> <span class="o">=</span> <span class="n">cam_v</span><span class="p">;</span>
+    <span class="k">else</span> 
+        <span class="n">cam_vy</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">keysDown</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">cam_vx</span> <span class="o">=</span> <span class="n">cam_v</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">keysDown</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+        <span class="n">cam_vx</span> <span class="o">=</span> <span class="o">-</span><span class="n">cam_v</span><span class="p">;</span>
+    <span class="k">else</span> 
+        <span class="n">cam_vx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// aktualizujemy położenie kamery</span>
+    <span class="n">cam_x</span> <span class="o">+=</span> <span class="n">cam_vx</span><span class="p">;</span>
+    <span class="n">cam_y</span> <span class="o">+=</span> <span class="n">cam_vy</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">cam_v</code> to pewna odgórnie ustalona (później dostępna do regulacji dla użytkownika) prędkość kamery.
+Aby zmiana położenia kamery miała efekt, jej położenie musimy odjąć od położenia planet:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SDL_RenderFillCircle</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">x</span> <span class="o">-</span> <span class="n">cam_x</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">y</span> <span class="o">-</span> <span class="n">cam_y</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">radius</span> <span class="o">*</span> <span class="mi">100</span><span class="p">));</span>
+</code></pre></div></div>
+<p>Dlaczego tak jest? Załóżmy, że planeta jest w pozycji $(200, 200)$, a kamera w pozycji $(100, 100)$. Oznacza to, że planeta jest o $100$ pikseli niżej i o $100$ pikseli na prawo od kamery. Położenie planety na ekranie powinno zatem wynosić $(100, 100)$, a więc $(200, 200)-(100,100)$.</p>
+
+<p>W chwili obecnej program prezentuje się następująco:</p>
+<p align="center">
+<img src="/assets/images/2025-07-13/dzialanie-programu.gif" width="500" />
+</p>
+
+<p>W następnej części zostanie zaimplementowana ulepszona pętla programu oraz algorytm Rungego-Kutty do obliczania trajektorii planet. Kod źródłowy projektu jest dostępny na <a href="https://github.com/bwegrzyn0/grav-sim" target="_blank">GitHub</a>.</p>]]></content><author><name></name></author><category term="Programowanie" /><category term="Tworzenie prostej symulacji grawitacji w C++" /><summary type="html"><![CDATA[Rysowanie kół Aby obserwować interakcję grawitacyjną, potrzebujemy obiekty, które będą w taki sposób oddziaływać. W tej symulacji będą one nazywane planetami, chociaż nie będą miały ściśle określonego przedziału na masę, gęstość i rozmiary. Będziemy je traktować jak kule, czyli w tym wypadku tak samo, jak masy punktowe. Aby reprezentować je na ekranie, będzie konieczna możliwość rysowania kół. Niestety SDL nie posiada funkcji wykonującej takie zadanie, więc trzeba ją stworzyć samodzielnie.]]></summary></entry><entry><title type="html">Tworzenie prostej symulacji grawitacji w C++, część 1: SDL2</title><link href="http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2" rel="alternate" type="text/html" title="Tworzenie prostej symulacji grawitacji w C++, część 1: SDL2" /><published>2025-07-06T00:00:00+02:00</published><updated>2025-07-06T00:00:00+02:00</updated><id>http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2</id><content type="html" xml:base="http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2"><![CDATA[<h2 id="cel-projektu">Cel projektu</h2>
 <p>Celem tego projektu jest stworzenie programu w C++, który będzie pozwalał użytkownikowi:</p>
 <ul>
   <li>dodawać do sceny ciała niebieskie, które będą oddziaływać ze sobą grawitacyjnie</li>
@@ -146,16 +324,16 @@
 </code></pre></div></div>
 
 <h2 id="co-dalej">Co dalej?</h2>
-<p>Powyższy program wyświetla okno, a w nim biały prostokąt na czarnym tle. Kod tego programu w całości dostępny jest w <a href="https://github.com/bwegrzyn0/grav-sim/commit/2265e32b3415e08a4f6f77b149b98d625eea4463" target="_blank">commicie</a> na GitHub. W następnej części opiszę proces rysowania kół i okręgów za pomocą algorytmu midpoint oraz to, jak dodałem planety.</p>]]></content><author><name></name></author><category term="Programowanie" /><category term="Tworzenie prostej symulacji grawitacji w C++" /><summary type="html"><![CDATA[Cel projektu Celem tego projektu jest stworzenie programu w C++, który będzie pozwalał użytkownikowi: dodawać do sceny ciała niebieskie, które będą oddziaływać ze sobą grawitacyjnie modyfikować ich parametry, takie jak masa, prędkość, położenie, jasność itd. za pomocą prostego interfejsu pauzować, przyspieszać, cofać, resetować symulację poruszać się kamerą po scenie za pomocą myszki, przybliżać i oddalać widok wykreślać i przewidywać trajektorie obiektów ustalać punkt odniesienia dla trajektorii zablokować widok na jednym obiekcie.]]></summary></entry><entry><title type="html">Numeryczne rozwiązywanie równań różniczkowych 2 rzędu metodą Rungego-Kutty</title><link href="http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty" rel="alternate" type="text/html" title="Numeryczne rozwiązywanie równań różniczkowych 2 rzędu metodą Rungego-Kutty" /><published>2025-06-30T00:00:00+02:00</published><updated>2025-06-30T00:00:00+02:00</updated><id>http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty</id><content type="html" xml:base="http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty"><![CDATA[<h2 id="metoda-rungego-kutty">Metoda Rungego-Kutty</h2>
+<p>Powyższy program wyświetla okno, a w nim biały prostokąt na czerwonym tle. W następnej części opiszę proces rysowania kół i okręgów za pomocą algorytmu midpoint oraz to, jak dodałem planety.</p>]]></content><author><name></name></author><category term="Programowanie" /><category term="Tworzenie prostej symulacji grawitacji w C++" /><summary type="html"><![CDATA[Cel projektu Celem tego projektu jest stworzenie programu w C++, który będzie pozwalał użytkownikowi: dodawać do sceny ciała niebieskie, które będą oddziaływać ze sobą grawitacyjnie modyfikować ich parametry, takie jak masa, prędkość, położenie, jasność itd. za pomocą prostego interfejsu pauzować, przyspieszać, cofać, resetować symulację poruszać się kamerą po scenie za pomocą myszki, przybliżać i oddalać widok wykreślać i przewidywać trajektorie obiektów ustalać punkt odniesienia dla trajektorii zablokować widok na jednym obiekcie.]]></summary></entry><entry><title type="html">Numeryczne rozwiązywanie równań różniczkowych 2 rzędu za pomocą algorytmu Rungego-Kutty</title><link href="http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty" rel="alternate" type="text/html" title="Numeryczne rozwiązywanie równań różniczkowych 2 rzędu za pomocą algorytmu Rungego-Kutty" /><published>2025-06-30T00:00:00+02:00</published><updated>2025-06-30T00:00:00+02:00</updated><id>http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty</id><content type="html" xml:base="http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty"><![CDATA[<h2 id="algorytm-rungego-kutty">Algorytm Rungego-Kutty</h2>
 <p>Mamy dane równanie różniczkowe 1 rzędu w postaci
 $$ \frac{dy}{dx}=f(x,y). $$
 Najprostszą metodą, aby rozwiązać tego typu równanie numerycznie jest metoda Eulera. Pochodną możemy przybliżyć jako
 $$ \frac{dy}{dx}\approx\frac{y(x+\Delta x)-y(x)}{\Delta x}, $$
 a stąd
 $$ y(x+\Delta x)\approx y(x)+\Delta x f(x,y). $$
-Metoda ta jest bardzo niedokładna szczególnie dla rozwiązań oscylujących. Jest ona również nazywana metodą Rungego-Kutty 1 rzędu.</p>
+Metoda ta jest bardzo niedokładna szczególnie dla rozwiązań oscylujących. Jest ona również nazywana algorytmem Rungego-Kutty 1 rzędu.</p>
 
-<p>O wiele lepsze przybliżenie daje metoda Rungego-Kutty 4 rzędu. W pierwszej kolejności należy obliczyć 4 wielkości:
+<p>O wiele lepsze przybliżenie daje algorytm Rungego-Kutty 4 rzędu. W pierwszej kolejności należy obliczyć 4 wielkości:
 $$ k_1=f(x,y) $$
 $$ k_2=f(x+\frac{\Delta x}{2}, y+\frac{\Delta x}{2}k_1) $$
 $$ k_3=f(x+\frac{\Delta x}{2}, y+\frac{\Delta x}{2}k_2) $$
@@ -200,7 +378,7 @@ z warunkiem początkowym $ y(0)=1 $. Łatwo jest sprawdzić, że jego rozwiązan
 <p align="center">
 <img src="/assets/images/2025-06-30/przyklad1.svg" width="500" />
 </p>
-<p>Czerwona linia przedstawia rozwiązanie analityczne, a niebieskie krzyżyki rozwiązanie numeryczne. Widzimy, że metoda Rungego-Kutty 4 rzędu nawet przy dużych wartościach $ \Delta x $ daje bardzo dobre rezultaty.</p>
+<p>Czerwona linia przedstawia rozwiązanie analityczne, a niebieskie krzyżyki rozwiązanie numeryczne. Widzimy, że algorytm Rungego-Kutty 4 rzędu nawet przy dużych wartościach $ \Delta x $ daje bardzo dobre rezultaty.</p>
 
 <h2 id="równanie-różniczkowe-2-rzędu-jako-układ-równań-1-rzędu">Równanie różniczkowe 2 rzędu jako układ równań 1 rzędu</h2>
 <p>Niech będzie dane równanie różniczkowe 2 rzędu:
@@ -294,7 +472,7 @@ i analogicznie $u$.</p>
 
 <p>Pełne pliki źródłowe są dostępne do pobrania tutaj: <br />
 <a href="/assets/downloads/2025-06-30/przykład1.cpp" target="_blank">przykład1.cpp</a> <br />
-<a href="/assets/downloads/2025-06-30/przykład2.cpp" target="_blank">przykład2.cpp</a></p>]]></content><author><name></name></author><category term="Programowanie" /><summary type="html"><![CDATA[Metoda Rungego-Kutty Mamy dane równanie różniczkowe 1 rzędu w postaci $$ \frac{dy}{dx}=f(x,y). $$ Najprostszą metodą, aby rozwiązać tego typu równanie numerycznie jest metoda Eulera. Pochodną możemy przybliżyć jako $$ \frac{dy}{dx}\approx\frac{y(x+\Delta x)-y(x)}{\Delta x}, $$ a stąd $$ y(x+\Delta x)\approx y(x)+\Delta x f(x,y). $$ Metoda ta jest bardzo niedokładna szczególnie dla rozwiązań oscylujących. Jest ona również nazywana metodą Rungego-Kutty 1 rzędu.]]></summary></entry><entry><title type="html">Wyznaczanie gęstości powietrza za pomocą wahadła matematycznego</title><link href="http://localhost:4000/mechanika/wyznaczanie-g%C4%99sto%C5%9Bci-powietrza-za-pomoc%C4%85-wahad%C5%82a-matematycznego" rel="alternate" type="text/html" title="Wyznaczanie gęstości powietrza za pomocą wahadła matematycznego" /><published>2025-06-18T00:00:00+02:00</published><updated>2025-06-18T00:00:00+02:00</updated><id>http://localhost:4000/mechanika/wyznaczanie-g%C4%99sto%C5%9Bci-powietrza-za-pomoc%C4%85-wahad%C5%82a-matematycznego</id><content type="html" xml:base="http://localhost:4000/mechanika/wyznaczanie-g%C4%99sto%C5%9Bci-powietrza-za-pomoc%C4%85-wahad%C5%82a-matematycznego"><![CDATA[<h2 id="tłumione-wahadło-matematyczne">Tłumione wahadło matematyczne</h2>
+<a href="/assets/downloads/2025-06-30/przykład2.cpp" target="_blank">przykład2.cpp</a></p>]]></content><author><name></name></author><category term="Programowanie" /><summary type="html"><![CDATA[Algorytm Rungego-Kutty Mamy dane równanie różniczkowe 1 rzędu w postaci $$ \frac{dy}{dx}=f(x,y). $$ Najprostszą metodą, aby rozwiązać tego typu równanie numerycznie jest metoda Eulera. Pochodną możemy przybliżyć jako $$ \frac{dy}{dx}\approx\frac{y(x+\Delta x)-y(x)}{\Delta x}, $$ a stąd $$ y(x+\Delta x)\approx y(x)+\Delta x f(x,y). $$ Metoda ta jest bardzo niedokładna szczególnie dla rozwiązań oscylujących. Jest ona również nazywana algorytmem Rungego-Kutty 1 rzędu.]]></summary></entry><entry><title type="html">Wyznaczanie gęstości powietrza za pomocą wahadła matematycznego</title><link href="http://localhost:4000/mechanika/wyznaczanie-g%C4%99sto%C5%9Bci-powietrza-za-pomoc%C4%85-wahad%C5%82a-matematycznego" rel="alternate" type="text/html" title="Wyznaczanie gęstości powietrza za pomocą wahadła matematycznego" /><published>2025-06-18T00:00:00+02:00</published><updated>2025-06-18T00:00:00+02:00</updated><id>http://localhost:4000/mechanika/wyznaczanie-g%C4%99sto%C5%9Bci-powietrza-za-pomoc%C4%85-wahad%C5%82a-matematycznego</id><content type="html" xml:base="http://localhost:4000/mechanika/wyznaczanie-g%C4%99sto%C5%9Bci-powietrza-za-pomoc%C4%85-wahad%C5%82a-matematycznego"><![CDATA[<h2 id="tłumione-wahadło-matematyczne">Tłumione wahadło matematyczne</h2>
 <p>Rozważmy najprostszy model wahadła. Jest to masa punktowa $m$ zawieszona na nieważkiej lince o długości $l$. Na wahadło działa siła ciężkości $\mathbf{Q}$, która rozkłada się na składową radialną i styczną do linki oraz siła reakcji linki $\mathbf{F_r}$, która równoważy $\mathbf{Q_r}$. Na masę działa również siła oporu $\mathbf{F_o}$. Poniżej został przedstawiony schemat tego układu.</p>
 
 <p align="center">
