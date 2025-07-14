@@ -158,4 +158,4 @@ int main(int argc, char* argv[]) {
 ```
 
 ## Co dalej?
-Powyższy program wyświetla okno, a w nim biały prostokąt na czarnym tle. Kod tego programu w całości dostępny jest w <a href="https://github.com/bwegrzyn0/grav-sim/commit/2265e32b3415e08a4f6f77b149b98d625eea4463" target="_blank">commicie</a> na GitHub. W następnej części opiszę proces rysowania kół i okręgów za pomocą algorytmu midpoint oraz to, jak dodałem planety.
+Powyższy program wyświetla okno, a w nim biały prostokąt na czerwonym tle. W następnej części opiszę proces rysowania kół i okręgów za pomocą algorytmu midpoint oraz to, jak dodałem planety.
