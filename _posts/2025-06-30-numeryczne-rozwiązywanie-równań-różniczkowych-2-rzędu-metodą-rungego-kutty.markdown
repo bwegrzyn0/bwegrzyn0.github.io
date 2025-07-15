@@ -70,7 +70,7 @@ Niech będzie dane równanie różniczkowe 2 rzędu:
 \$$ \frac{d^2 y}{dx^2}=f(x, y, y'). \$$
 Podstawienie \$ u=y' \$ daje nam układ równań pierwszego rzędu
 \$$
-\begin{cases} u=y' \\\\ u' = f(x, y, u)  \end{cases} 
+\begin{cases} u' = f(x, y, u) \\\\ u=y'=g(x,y,u) \end{cases} 
 \$$
 
 ### Przykład
@@ -78,7 +78,7 @@ Rozważmy równanie ruchu tłumionego oscylatora harmonicznego:
 \$$ \ddot{x}+2\beta m\dot{x}+\omega_0^2 x = 0. \$$
 Podstawienie $v=\dot{x}$ daje nam układ równań
 \$$
-\begin{cases} v=\dot{x} \\\\ \dot{v}=-2\beta v-\omega_0^2 x \end{cases}
+\begin{cases} \dot{v}=-2\beta v-\omega_0^2 x \\\\ v=\dot{x}  \end{cases}
 \$$
 
 ## Numeryczne rozwiązywanie równań 2 rzędu
@@ -91,7 +91,7 @@ gdzie $g(x, y, u)=u$.
 Aby obliczyć $k_{2y}$, za $u$ podstawiamy $u+k_{1u}\Delta x/2$:
 \$$ k_{2y}=g(x+\frac{\Delta x}{2}, y+k_{1y}\frac{\Delta x}{2}, u+k_{1u}\frac{\Delta x}{2}) \$$
 i podobnie obliczamy $k_{2u}$:
-\$$ k_{2u}=f(x+\frac{\Delta x}{2}, y+k_{1y}\frac{\Delta x}{2}, u+k_{1u}\frac{\Delta x}{2}a). \$$
+\$$ k_{2u}=f(x+\frac{\Delta x}{2}, y+k_{1y}\frac{\Delta x}{2}, u+k_{1u}\frac{\Delta x}{2}). \$$
 Prodecura wygląda analogicznie dla $k_3$ i $k_4$. Finalnie możemy obliczyć $y(x+\Delta x)$:
 \$$ y(x+\Delta x)=y(x)+\frac{\Delta x}{6}(k_{1y}+2k_{2y}+2k_{3y}+k_{4y}) \$$
 i analogicznie $u$.
@@ -163,3 +163,15 @@ Pełne pliki źródłowe są dostępne do pobrania tutaj: \\
 <a href="/assets/downloads/2025-06-30/przykład1.cpp" target="_blank">przykład1.cpp</a> \\
 <a href="/assets/downloads/2025-06-30/przykład2.cpp" target="_blank">przykład2.cpp</a>
 
+## Uogólnienie na równania wyższych rzędów
+W takim przypadku ponownie rozpisujemy równanie $n$-tego rzędu jako układ $n$ równań różniczkowych 1 rzędu, np.
+\$$
+\begin{cases} \dot{x_1}=f_1(t, x_1, x_2, \dots, x_n) \\\\ \dot{x_2}=f_2(t, x_1, x_2, \dots, x_n) \\\\ \dots \\\\ \dot{x_n}=f_n(t, x_1, x_2, \dots, x_n) \end{cases}
+\$$
+Niech $\mathbf{x}=(x_1,x_2,\dots,x_n)^\intercal$ oraz $\mathbf{f}(t, \mathbf{x})=(t, f_1(\mathbf{x}), f_2(\mathbf{x}), \dots, f_n(\mathbf{x}))^\intercal$. Wtedy układ równań możemy zapisać jako 
+\$$ \dot{\mathbf{x}}=\mathbf{f}(t, \mathbf{x}) \$$
+Obliczamy teraz $\mathbf{k_1}, \mathbf{k_2}, \dots$:
+\$$ \mathbf{k_1}=\mathbf{f}(t, \mathbf{x}) \$$
+\$$ \mathbf{k_2}=\mathbf{f}(t+\frac{\Delta t}{2}, \mathbf{x}+\mathbf{k_1}\frac{\Delta t}{2}) \$$
+itd.
+W przypadku $n=2$ wszystko sprowadza się do opisanego wcześniej algorytmu.
