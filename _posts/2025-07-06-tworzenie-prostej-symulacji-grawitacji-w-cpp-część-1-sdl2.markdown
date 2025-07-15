@@ -34,7 +34,7 @@ Do wyświetlania okna i rysowania na nim w tym projekcie użyłem bibliotekę <a
 ### Inicjalizacja SDL
 W pliku ```main.cpp``` dodałem bibliotekę SDL2:
 ```cpp
-#include <SDL/SDL2.h>
+#include <SDL2/SDL.h>
 ```
 a następnie utworzyłem zmienne i obiekty:
 ```cpp
