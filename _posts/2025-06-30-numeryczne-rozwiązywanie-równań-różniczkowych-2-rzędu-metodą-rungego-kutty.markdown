@@ -168,7 +168,7 @@ W takim przypadku ponownie rozpisujemy równanie $n$-tego rzędu jako układ $n$
 \$$
 \begin{cases} \dot{x_1}=f_1(t, x_1, x_2, \dots, x_n) \\\\ \dot{x_2}=f_2(t, x_1, x_2, \dots, x_n) \\\\ \dots \\\\ \dot{x_n}=f_n(t, x_1, x_2, \dots, x_n) \end{cases}
 \$$
-Niech $\mathbf{x}=(x_1,x_2,\dots,x_n)^\intercal$ oraz $\mathbf{f}(t, \mathbf{x})=(t, f_1(\mathbf{x}), f_2(\mathbf{x}), \dots, f_n(\mathbf{x}))^\intercal$. Wtedy układ równań możemy zapisać jako 
+Niech $\mathbf{x}=(x_1,x_2,\dots,x_n)^\intercal$ oraz $\mathbf{f}(t, \mathbf{x})=(f_1(t, \mathbf{x}), f_2(t, \mathbf{x}), \dots, f_n(t, \mathbf{x}))^\intercal$. Wtedy układ równań możemy zapisać jako 
 \$$ \dot{\mathbf{x}}=\mathbf{f}(t, \mathbf{x}) \$$
 Obliczamy teraz $\mathbf{k_1}, \mathbf{k_2}, \dots$:
 \$$ \mathbf{k_1}=\mathbf{f}(t, \mathbf{x}) \$$
