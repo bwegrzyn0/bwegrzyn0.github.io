@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Mechanika Lagrange’a, część 1: Równanie Eulera-Lagrange’a | bwegrzyn0.github.io</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Mechanika Lagrange’a, część 1: Równanie Eulera-Lagrange’a" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Motywacja Rozważmy następujący problem: błonę mydlaną rozpięliśmy między dwoma współosiowymi pierścieniami o promieniach $r_1$ i $r_2$. Wiadomo, że bańka mydlana przyjmuje zawsze taki kształt, aby jej pole powierzchni było jak najmniejsze - ten kształt chcemy znaleźć." />
+<meta property="og:description" content="Motywacja Rozważmy następujący problem: błonę mydlaną rozpięliśmy między dwoma współosiowymi pierścieniami o promieniach $r_1$ i $r_2$. Wiadomo, że bańka mydlana przyjmuje zawsze taki kształt, aby jej pole powierzchni było jak najmniejsze - ten kształt chcemy znaleźć." />
+<link rel="canonical" href="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea" />
+<meta property="og:url" content="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea" />
+<meta property="og:site_name" content="bwegrzyn0.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-07-21T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Mechanika Lagrange’a, część 1: Równanie Eulera-Lagrange’a" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-21T00:00:00+02:00","datePublished":"2025-07-21T00:00:00+02:00","description":"Motywacja Rozważmy następujący problem: błonę mydlaną rozpięliśmy między dwoma współosiowymi pierścieniami o promieniach $r_1$ i $r_2$. Wiadomo, że bańka mydlana przyjmuje zawsze taki kształt, aby jej pole powierzchni było jak najmniejsze - ten kształt chcemy znaleźć.","headline":"Mechanika Lagrange’a, część 1: Równanie Eulera-Lagrange’a","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea"},"url":"http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+	<link rel="shortcut icon" type="image/png" href="/favicon.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bwegrzyn0.github.io" /></head>
+<head>
+	  
+
+<!-- CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
+
+<!-- JavaScript -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{
+    delimiters: [
+      { left: '$$',  right: '$$',  display: true  },
+      { left: '$',   right: '$',   display: false },
+      { left: '\\[', right: '\\]', display: true  },
+      { left: '\\(', right: '\\)', display: false }
+  ]});">
+</script>
+
+
+  </head>
+
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">bwegrzyn0.github.io</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/kategorie/">Kategorie</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Mechanika Lagrange&#39;a, część 1: Równanie Eulera-Lagrange&#39;a</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-07-21T00:00:00+02:00" itemprop="datePublished">2025-07-21
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody" style="text-align: justify">
+    <h2 id="motywacja">Motywacja</h2>
+<p>Rozważmy następujący problem: błonę mydlaną rozpięliśmy między dwoma współosiowymi pierścieniami o promieniach $r_1$ i $r_2$. Wiadomo, że bańka mydlana przyjmuje zawsze taki kształt, aby jej pole powierzchni było jak najmniejsze - ten kształt chcemy znaleźć.</p>
+
+<p>Bańkę mydlaną możemy traktować jak bryłę obrotową opisaną funkcją $f(x)$, przy czym $f(x_1)=r_1$ oraz $f(x_2)=r_2$.</p>
+<p align="center">
+<img src="/assets/images/2025-07-21/blona_mydlana.svg" width="600" />
+</p>
+
+<p>Aby policzyć powierzchnię bryły obrotowej, podzielmy ją na nieskończenie małe okręgi o promieniach $f(x)$ i o środkach na osi $x$. Obwód takiego okręgu to $2\pi f(x)$.</p>
+<p align="center">
+<img src="/assets/images/2025-07-21/bryla_obrotowa.svg" width="500" />
+</p>
+<p>Element powierzchni rozciągającej się między dwoma bliskimi okręgami to $2\pi f(x)\,dl$. Jak widać na rysunku, $dl=\sqrt{dx^2+(f’(x)\,dx)^2}=\sqrt{1+f’(x)^2}\,dx$. Zatem element powierzchni to $dS=2\pi f(x)\sqrt{1+f’(x)^2}\,dx$. Całkowita powierzchnia takiej bryły to wtedy
+$$ S=2\pi\int_{x_1}^{x_2}f(x)\sqrt{1+f’(x)^2}\,dx.$$
+Dążymy do zminimalizowania tej całki.</p>
+
+<h2 id="wyprowadzenie-równania-eulera-lagrangea">Wyprowadzenie równania Eulera-Lagrange’a</h2>
+<p>Rozważmy ogólniejszy przypadek. Chcemy zminimalizować całkę
+$$ S=\int_{x_1}^{x_2}f(Y(x), Y’(x), x)\,dx. $$</p>
+
+<p>Niech $y(x)$ będzie funkcją minimalizującą całkę $S$. Rozważmy funkcję $Y(x)=y(x)+\alpha \eta(x)$, gdzie $\eta(x)$ to dowolna funkcja, która spełnia warunek $\eta(x_1)=\eta(x_2)=0$. Wtedy $Y(x)$ spełnia te same warunki brzegowe co $y(x)$, lecz jest tą ,,mniej optymalną’’, w przypadku błony mydlanej powierzchnią między $x_1$ a $x_2$, powierzchnia dla niej będzie nieco większa niż dla $y(x)$.</p>
+
+<p>Spodziewamy się, że dla małych wartości $\alpha$, czyli małych odchyleń od optymalnej powierzchni, całka $S$ nie będzie ulegać zmianie (podobnie jest w przypadku zwykłych funkcji - gdy $f(x)$ ma minimum w $x_0$, $f’(x_0)=0$. Oznacza to, że w przybliżeniu dla małych $\varepsilon$ zachodzi $f(x_0+\varepsilon)-f(x_0)=f’(x_0)\varepsilon=0$). Innymi słowy
+$$ \frac{\partial S}{\partial \alpha}=0. $$
+Obliczmy tę pochodną:
+$$ \frac{\partial S}{\partial \alpha}=\int_{x_1}^{x_2}\frac{\partial f}{\partial \alpha}\,dx$$
+Z reguły łańcuchowej dla wielu zmiennych:
+$$ \frac{\partial f}{\partial \alpha}=\frac{\partial f}{\partial Y}\frac{\partial Y}{\partial \alpha}+\frac{\partial f}{\partial Y’}\frac{\partial Y’}{\partial \alpha}+\frac{\partial f}{\partial x}\frac{\partial x}{\partial \alpha}   $$
+Łatwo obliczyć, że $\partial Y/\partial \alpha=\eta(x)$, $\partial Y’/\partial \alpha=\eta’(x)$ oraz $\partial x/\partial\alpha=0$. Daje nam to
+$$ \frac{\partial S}{\partial \alpha}=\int_{x_1}^{x_2}\left[\frac{\partial f}{\partial Y}\eta(x)+\frac{\partial f}{\partial Y’}\eta’(x)\right]\,dx $$
+Aby zamienić $\eta’(x)$ na $\eta(x)$, pocałkujmy przez części:
+$$ \int_{x_1}^{x_2}\frac{\partial f}{\partial Y’}\eta’(x)\,dx = \left[\eta(x)\frac{\partial f}{\partial Y’}\right]_{x_1}^{x_2}- \int_{x_1}^{x_2} \eta(x) \frac{d}{dx} \frac{\partial f}{\partial Y’}\,dx$$
+Zauważmy, że ponieważ $\eta(x_1)=\eta(x_2)=0$, pierwszy wyraz z prawej strony się zeruje. To pozostawia nas z 
+$$ \frac{\partial S}{\partial\alpha}=0=\int_{x_1}^{x_2}\eta(x)\left[ \frac{\partial f}{\partial Y}-\frac{d}{dx}\frac{\partial f}{\partial Y’} \right]\,dx$$
+Skoro $\eta(x)$ to dowolna funkcja, wybierzmy $\eta(x)$ takie, że wyrażenie podcałkowe jest zawsze nieujemne. Skoro całka z nieujemnego wyrażenia jest równa $0$, to wyrażenie podcałkowe wynosi 0. Ponieważ $\eta(x)\neq 0$, 
+$$ \frac{\partial f}{\partial y}-\frac{d}{dx}\frac{\partial f}{\partial y’} =0,$$
+gdzie $Y$ zamieniłem na $y$, ponieważ jeżeli $Y$ spełnia powyższe równanie, jest ono ,,optymalną’’ funkcją. Jest to równanie Eulera-Lagrange’a.</p>
+
+<h2 id="problem-błony-mydlanej">Problem błony mydlanej</h2>
+<p>Powróćmy do wcześniejszego problemu. Doszliśmy do wniosku, że należy znaleźć funkcję $f(x)$, która minimalizuje całkę
+$$ S=2\pi\int_{x_1}^{x_2}f(x)\sqrt{1+f’(x)^2}\,dx.$$
+Niech $F(f(x), f’(x))=f(x)\sqrt{1+f’(x)^2}$. Wtedy równanie Eulera-Lagrange’a przyjmuje postać
+$$ \frac{\partial F}{\partial f}-\frac{d}{dx}\frac{\partial F}{\partial f’} =0 $$</p>
+
+<p>Zauważmy jednak, że $F(f(x), f’(x))$ nie zależy w jawny sposób od $x$. Pomnóżmy powyższe równanie przez $df/dx$:
+$$ \frac{\partial F}{\partial f}\frac{df}{dx}-f’\frac{d}{dx}\frac{\partial F}{\partial f’}=0$$
+Możemy obliczyć pierwszy wyraz po lewej stronie:
+$$ \frac{\partial F}{\partial f}\frac{df}{dx}=\frac{dF}{dx}-\frac{\partial F}{\partial f’}\frac{df’}{dx}$$
+i wstawić go spowrotem:
+$$ \frac{dF}{dx}-\frac{\partial F}{\partial f’}\frac{df’}{dx}-f’\frac{d}{dx}\frac{\partial F}{\partial f’}=0 $$
+Nietrudno zauważyć, że
+$$-\frac{\partial F}{\partial f’}\frac{df’}{dx}-f’\frac{d}{dx}\frac{\partial F}{\partial f’}=-\frac{d}{dx}\left[f’\frac{\partial F}{\partial f’}\right] $$
+czyli
+$$  \frac{dF}{dx}-\frac{d}{dx}\left[f’\frac{\partial F}{\partial f’}\right]=0 $$
+$$ \frac{d}{dx}\left[F-f’\frac{\partial F}{\partial f’}\right]=0 $$
+$$ F-f’\frac{\partial F}{\partial f’}=const. $$</p>
+
+<p>Ten rezultat możemy uogólnić. Jeśli $f(y(x), y’(x))$ nie zależy jawnie od $x$, to równanie Eulera-Lagrange’a sprowadza się do całki pierwszej:
+$$ f-y’\frac{\partial f}{\partial y’}=const. $$</p>
+
+<p>Wracając do problemu bańki mydlanej, mamy
+$$ \frac{\partial F}{\partial f’}=f\frac{f’}{\sqrt{1+f’^2}} $$
+Wstawmy to do całki pierwszej:
+$$ f\sqrt{1+f’^2}-\frac{ff’^2}{\sqrt{1+f’^2}} = C $$
+$$ f(1+f’^2)-ff’^2=C\sqrt{1+f’^2} $$
+Dostajemy równanie różniczkowe 1 rzędu, które można rozwiązać za pomocą separacji zmiennych:
+$$ f=C\sqrt{1+f’^2} $$
+$$ 1+f’^2=Cf^2 $$
+$$ \frac{df}{dx}=\sqrt{Cf^2-1} $$
+$$ x+C_1=\int \frac{df}{\sqrt{C_2f^2-1} }$$
+Całka po prawej stronie sprowadza się do $\frac{1}{C}\cosh^{-1}\left(Cf\right)$, a stąd
+$$ f(x)=\frac{1}{C_1} \cosh (C_1 x+C_2), $$
+gdzie $C_1$ i $C_2$ to pewne stałe.</p>
+
+
+  </div><a class="u-url" href="/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">bwegrzyn0.github.io</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bwegrzyn0"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bwegrzyn0</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Fizyka i programowanie</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
