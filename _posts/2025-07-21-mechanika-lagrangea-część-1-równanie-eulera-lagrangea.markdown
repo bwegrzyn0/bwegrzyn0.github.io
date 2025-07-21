@@ -80,3 +80,17 @@ Całka po prawej stronie sprowadza się do $\frac{1}{C}\cosh^{-1}\left(Cf\right)
 \$$ f(x)=\frac{1}{C_1} \cosh (C_1 x+C_2), \$$
 gdzie $C_1$ i $C_2$ to pewne stałe.
 
+## Przypadek wielu zmiennych
+W przypadku, gdy $f=f(y_1, y_1', y_2, y_2', x)$, zapisujemy 2 równania Eulera-Lagrange'a, oddzielnie dla każdej zmiennej.
+Jest tak, ponieważ jeśli rozważymy 2 funkcje 
+\$$ Y_1=y_1+\alpha\eta_1 \$$
+oraz
+\$$ Y_2=y_2+\beta\eta_2 \$$
+gdzie $\eta_1$ i $\eta_2$ spełniają takie warunki, jak wcześniejsze $\eta$, dostajemy 2 równania
+\$$ \frac{\partial S}{\partial \alpha}=0 \$$
+oraz 
+\$$ \frac{\partial S}{\partial \beta}=0. \$$
+W obu przypadkach zniknie albo $Y_1$ albo $Y_2$, co da nam 2 równania:
+\$$ \frac{\partial f}{\partial y_1}-\frac{d}{dx}\frac{\partial f}{\partial y_1'}=0 \$$
+\$$ \frac{\partial f}{\partial y_2}-\frac{d}{dx}\frac{\partial f}{\partial y_2'}=0. \$$
+Wynik ten łatwo uogólnia się na większą liczbę zmiennych.
