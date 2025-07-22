@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Mechanika Lagrange’a, część 2: Zasada Hamiltona | bwegrzyn0.github.io</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Mechanika Lagrange’a, część 2: Zasada Hamiltona" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Zasada Hamiltona Rozważmy swobodną cząstkę poruszającą się między punktami $1$ i $2$ w czasie od $t_1$ do $t_2$. Droga $\vec{r}(t)$, którą wybiera cząstka jest taka, że całka działania $$ S=\int_{t_1}^{t_2}\mathcal{L}(\vec{r}, \dot{\vec{r}}, t)\,dt $$ jest minimalna (stacjonarna). $\mathcal{L}$ to lagranżjan układu zdefiniowany jako $$ \mathcal{L}(\vec{r}, \dot{\vec{r}}, t)=T-U, $$ gdzie $T$ to energia kinetyczna cząstki, a $U$ to jej energia potencjalna." />
+<meta property="og:description" content="Zasada Hamiltona Rozważmy swobodną cząstkę poruszającą się między punktami $1$ i $2$ w czasie od $t_1$ do $t_2$. Droga $\vec{r}(t)$, którą wybiera cząstka jest taka, że całka działania $$ S=\int_{t_1}^{t_2}\mathcal{L}(\vec{r}, \dot{\vec{r}}, t)\,dt $$ jest minimalna (stacjonarna). $\mathcal{L}$ to lagranżjan układu zdefiniowany jako $$ \mathcal{L}(\vec{r}, \dot{\vec{r}}, t)=T-U, $$ gdzie $T$ to energia kinetyczna cząstki, a $U$ to jej energia potencjalna." />
+<link rel="canonical" href="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-2-zasada-hamiltona" />
+<meta property="og:url" content="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-2-zasada-hamiltona" />
+<meta property="og:site_name" content="bwegrzyn0.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-07-22T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Mechanika Lagrange’a, część 2: Zasada Hamiltona" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-22T00:00:00+02:00","datePublished":"2025-07-22T00:00:00+02:00","description":"Zasada Hamiltona Rozważmy swobodną cząstkę poruszającą się między punktami $1$ i $2$ w czasie od $t_1$ do $t_2$. Droga $\\vec{r}(t)$, którą wybiera cząstka jest taka, że całka działania $$ S=\\int_{t_1}^{t_2}\\mathcal{L}(\\vec{r}, \\dot{\\vec{r}}, t)\\,dt $$ jest minimalna (stacjonarna). $\\mathcal{L}$ to lagranżjan układu zdefiniowany jako $$ \\mathcal{L}(\\vec{r}, \\dot{\\vec{r}}, t)=T-U, $$ gdzie $T$ to energia kinetyczna cząstki, a $U$ to jej energia potencjalna.","headline":"Mechanika Lagrange’a, część 2: Zasada Hamiltona","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-2-zasada-hamiltona"},"url":"http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-2-zasada-hamiltona"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+	<link rel="shortcut icon" type="image/png" href="/favicon.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bwegrzyn0.github.io" /></head>
+<head>
+	  
+
+<!-- CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
+
+<!-- JavaScript -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{
+    delimiters: [
+      { left: '$$',  right: '$$',  display: true  },
+      { left: '$',   right: '$',   display: false },
+      { left: '\\[', right: '\\]', display: true  },
+      { left: '\\(', right: '\\)', display: false }
+  ]});">
+</script>
+
+
+  </head>
+
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">bwegrzyn0.github.io</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/kategorie/">Kategorie</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Mechanika Lagrange&#39;a, część 2: Zasada Hamiltona</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-07-22T00:00:00+02:00" itemprop="datePublished">2025-07-22
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody" style="text-align: justify">
+    <h2 id="zasada-hamiltona">Zasada Hamiltona</h2>
+<p>Rozważmy swobodną cząstkę poruszającą się między punktami $1$ i $2$ w czasie od $t_1$ do $t_2$. Droga $\vec{r}(t)$, którą wybiera cząstka jest taka, że całka działania
+$$ S=\int_{t_1}^{t_2}\mathcal{L}(\vec{r}, \dot{\vec{r}}, t)\,dt $$
+jest minimalna (stacjonarna). $\mathcal{L}$ to <strong>lagranżjan</strong> układu zdefiniowany jako
+$$ \mathcal{L}(\vec{r}, \dot{\vec{r}}, t)=T-U, $$
+gdzie $T$ to energia kinetyczna cząstki, a $U$ to jej energia potencjalna.</p>
+
+<h3 id="przykład---cząstka-swobodna-w-przestrzeni-3-wymiarowej">Przykład - cząstka swobodna w przestrzeni 3-wymiarowej</h3>
+<p>Rozważmy cząstkę o położeniu $\vec{r}=(x,y,z)$ oraz prędkości $\dot{\vec{r}}=(\dot{x}, \dot{y}, \dot{z})$. Jej energia potencjalna w danej chwili to $U=mgz$, a energia kinetyczna to $T=\frac{1}{2}m\left( \dot{x}^2+\dot{y}^2+\dot{z}^2 \right)$. Wyznaczmy jej równania ruchu.</p>
+
+<p>Funkcja Lagrange’a (lagranżjan) dla tej cząstki to
+$$ \mathcal{L}=\frac{1}{2}m\left( \dot{x}^2+\dot{y}^2+\dot{z}^2 \right)-mgz $$
+<a href="https://bwegrzyn0.github.io/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea" target="_blank">W poprzednim artykule</a> dowiedzieliśmy się, że jeśli funkcja $\mathcal{L}$ sprawia, że całka jest minimalna, to spełnia ona równanie Eulera-Lagrange’a. W naszym przypadku mamy do czynienia z trzema zmiennymi, $x$, $y$ i $z$, więc potrzebujemy trzech równań:
+$$ \frac{\partial \mathcal{L}}{\partial x}-\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial\dot{x}}=0$$
+$$ \frac{\partial \mathcal{L}}{\partial y}-\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial\dot{y}}=0$$
+$$ \frac{\partial \mathcal{L}}{\partial z}-\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial\dot{z}}=0$$
+Obliczmy wszystkie pochodne:
+$$ \frac{\partial \mathcal{L}}{\partial x}=\frac{\partial \mathcal{L}}{\partial y}=0 $$
+$$ \frac{\partial \mathcal{L}}{\partial z}=mg $$
+$$ \frac{d}{dt}\frac{\partial \mathcal{L}}{\partial\dot{x}}=\frac{d}{dt}\left(m\dot{x}\right)=m\ddot{x} $$
+i analogicznie dla $y$ i $z$. Po wstawieniu mamy:
+$$ m\ddot{x}=0 $$
+$$ m\ddot{y}=0 $$
+$$ m\ddot{z}=mg $$
+Widzimy, że otrzymujemy 3 równania ruchu, takie same jak otrzymalibyśmy w przypadku użycia mechaniki Newtona. Zauważmy również, że pochodna $\mathcal{L}$ po współrzędnej jest równa dokładnie składowej siły działającej na cząstkę, a pochodna po składowej prędkości to składowa pędu:
+$$\frac{\partial \mathcal{L}}{\partial x}=F_x$$
+$$\frac{\partial \mathcal{L}}{\partial \dot{x}}=p_x$$
+i analogicznie dla $x$ i $y$. Możemy wstawić to do równania Lagrange’a i otrzymamy dobrze znany wzór
+$$ F_x=\frac{d}{dt}p_x, $$
+co pokazuje, że w tym przypadku sformułowanie mechaniki Lagrange’a jest równoważne sformułowaniu Newtona.</p>
+
+<h3 id="przykład---cząstka-poruszająca-się-pod-wpływem-potencjału-centralnego">Przykład - cząstka poruszająca się pod wpływem potencjału centralnego</h3>
+<p>Rozważmy cząstkę swobodną o masie $m$ poruszającą się w potencjale $U=-GMm/r$, gdzie $r$ to odległość cząstki od początku układu współrzędnych. W tym przypadku najwygodniej będzie posłużyć się współrzędnymi biegunowymi (nie potrzebujemy wsp. sferycznych, ponieważ wiadomo że ruch będzie ograniczony do płaszczyzny) $r$ i $\theta$. Okazuje się, że mimo tego, że $\theta$ jest kątem, wciąż możemy traktować go jak inne współrzędne, np. $x$. Oznacza to, że 2 równania Lagrange’a, które otrzymamy to
+$$ \frac{\partial \mathcal{L}}{\partial r}-\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial\dot{r}}=0$$
+$$ \frac{\partial \mathcal{L}}{\partial \theta}-\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial\dot{\theta}}=0$$
+Obliczmy lagranżjan. Energia kinetyczna to
+$$ T=\frac{1}{2}m\left[\dot{r}^2+(r\dot{\theta})^2\right], $$
+a energię potencjalną znamy. Zatem
+$$ \mathcal{L}=T-U=\frac{1}{2}m\left[\dot{r}^2+(r\dot{\theta})^2\right]+GMm\frac{1}{r}.$$
+Obliczmy pochodne:
+$$ \frac{\partial \mathcal{L}}{\partial r}=mr\dot{\theta}^2-GMm\frac{1}{r^2} $$
+$$ \frac{\partial \mathcal{L}}{\partial \theta}=0$$
+$$ \frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{r}}=m\ddot{r} $$
+$$ \frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{\theta}}=mr^2\ddot{\theta} $$
+i wstawmy je do naszych równań:
+$$ m\ddot{r}=mr\dot{\theta}^2-GMm\frac{1}{r^2} $$
+$$ mr^2\ddot{\theta}=0 $$
+Otrzymujemy ponownie wyniki zgodne z mechaniką Newtona. Zauważmy, że ponownie 
+$$\frac{\partial \mathcal{L}}{\partial r}=F_r, $$
+gdzie $F_r$ to suma wszystkich sił radialnych działających na cząstkę. Możemy rozpoznać w niej siłę grawitacji oraz fikcyjną siłę odśrodkową.
+$$ \frac{\partial \mathcal{L}}{\partial \dot{r}}=p_r,$$
+gdzie $p_r$ to radialna składowa pędu cząstki. W przypadku kąta mamy
+$$ \frac{\partial \mathcal{L}}{\partial \theta}=\Gamma, $$
+gdzie $\Gamma$ to moment siły działający na cząstkę (w tym przypadku 0) oraz 
+$$ \frac{\partial \mathcal{L}}{\partial \dot{\theta}}=L, $$
+gdzie $L$ to moment pędu cząstki. Ponownie otrzymujemy dobrze znane równania
+$$ F_r =\frac{d}{dt}p_r$$
+$$ \Gamma = \frac{d}{dt} L. $$</p>
+
+<p>Poprzednie 2 przykłady pokazały nam, że wielkości $\partial\mathcal{L}/\partial q_i$ oraz $\partial\mathcal{L}/\partial \dot{q}_i$, gdzie $q_i$ to pewna <strong>współrzędna uogólniona</strong> (np. $x$, $r$, $\theta$, $\varphi$) pełnią role kolejno siły oraz pędu. Dlatego są one nazywane <strong>siłą uogólnioną</strong> oraz <strong>pędem uogólnionym</strong>.</p>
+
+  </div><a class="u-url" href="/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-2-zasada-hamiltona" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">bwegrzyn0.github.io</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bwegrzyn0"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bwegrzyn0</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Fizyka i programowanie</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

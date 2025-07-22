@@ -1,4 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-21T14:58:08+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Mechanika Lagrange’a, część 1: Równanie Eulera-Lagrange’a</title><link href="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea" rel="alternate" type="text/html" title="Mechanika Lagrange’a, część 1: Równanie Eulera-Lagrange’a" /><published>2025-07-21T00:00:00+02:00</published><updated>2025-07-21T00:00:00+02:00</updated><id>http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea</id><content type="html" xml:base="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea"><![CDATA[<h2 id="motywacja">Motywacja</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-22T10:04:22+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Mechanika Lagrange’a, część 2: Zasada Hamiltona</title><link href="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-2-zasada-hamiltona" rel="alternate" type="text/html" title="Mechanika Lagrange’a, część 2: Zasada Hamiltona" /><published>2025-07-22T00:00:00+02:00</published><updated>2025-07-22T00:00:00+02:00</updated><id>http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-2-zasada-hamiltona</id><content type="html" xml:base="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-2-zasada-hamiltona"><![CDATA[<h2 id="zasada-hamiltona">Zasada Hamiltona</h2>
+<p>Rozważmy swobodną cząstkę poruszającą się między punktami $1$ i $2$ w czasie od $t_1$ do $t_2$. Droga $\vec{r}(t)$, którą wybiera cząstka jest taka, że całka działania
+$$ S=\int_{t_1}^{t_2}\mathcal{L}(\vec{r}, \dot{\vec{r}}, t)\,dt $$
+jest minimalna (stacjonarna). $\mathcal{L}$ to <strong>lagranżjan</strong> układu zdefiniowany jako
+$$ \mathcal{L}(\vec{r}, \dot{\vec{r}}, t)=T-U, $$
+gdzie $T$ to energia kinetyczna cząstki, a $U$ to jej energia potencjalna.</p>
+
+<h3 id="przykład---cząstka-swobodna-w-przestrzeni-3-wymiarowej">Przykład - cząstka swobodna w przestrzeni 3-wymiarowej</h3>
+<p>Rozważmy cząstkę o położeniu $\vec{r}=(x,y,z)$ oraz prędkości $\dot{\vec{r}}=(\dot{x}, \dot{y}, \dot{z})$. Jej energia potencjalna w danej chwili to $U=mgz$, a energia kinetyczna to $T=\frac{1}{2}m\left( \dot{x}^2+\dot{y}^2+\dot{z}^2 \right)$. Wyznaczmy jej równania ruchu.</p>
+
+<p>Funkcja Lagrange’a (lagranżjan) dla tej cząstki to
+$$ \mathcal{L}=\frac{1}{2}m\left( \dot{x}^2+\dot{y}^2+\dot{z}^2 \right)-mgz $$
+<a href="https://bwegrzyn0.github.io/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea" target="_blank">W poprzednim artykule</a> dowiedzieliśmy się, że jeśli funkcja $\mathcal{L}$ sprawia, że całka jest minimalna, to spełnia ona równanie Eulera-Lagrange’a. W naszym przypadku mamy do czynienia z trzema zmiennymi, $x$, $y$ i $z$, więc potrzebujemy trzech równań:
+$$ \frac{\partial \mathcal{L}}{\partial x}-\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial\dot{x}}=0$$
+$$ \frac{\partial \mathcal{L}}{\partial y}-\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial\dot{y}}=0$$
+$$ \frac{\partial \mathcal{L}}{\partial z}-\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial\dot{z}}=0$$
+Obliczmy wszystkie pochodne:
+$$ \frac{\partial \mathcal{L}}{\partial x}=\frac{\partial \mathcal{L}}{\partial y}=0 $$
+$$ \frac{\partial \mathcal{L}}{\partial z}=mg $$
+$$ \frac{d}{dt}\frac{\partial \mathcal{L}}{\partial\dot{x}}=\frac{d}{dt}\left(m\dot{x}\right)=m\ddot{x} $$
+i analogicznie dla $y$ i $z$. Po wstawieniu mamy:
+$$ m\ddot{x}=0 $$
+$$ m\ddot{y}=0 $$
+$$ m\ddot{z}=mg $$
+Widzimy, że otrzymujemy 3 równania ruchu, takie same jak otrzymalibyśmy w przypadku użycia mechaniki Newtona. Zauważmy również, że pochodna $\mathcal{L}$ po współrzędnej jest równa dokładnie składowej siły działającej na cząstkę, a pochodna po składowej prędkości to składowa pędu:
+$$\frac{\partial \mathcal{L}}{\partial x}=F_x$$
+$$\frac{\partial \mathcal{L}}{\partial \dot{x}}=p_x$$
+i analogicznie dla $x$ i $y$. Możemy wstawić to do równania Lagrange’a i otrzymamy dobrze znany wzór
+$$ F_x=\frac{d}{dt}p_x, $$
+co pokazuje, że w tym przypadku sformułowanie mechaniki Lagrange’a jest równoważne sformułowaniu Newtona.</p>
+
+<h3 id="przykład---cząstka-poruszająca-się-pod-wpływem-potencjału-centralnego">Przykład - cząstka poruszająca się pod wpływem potencjału centralnego</h3>
+<p>Rozważmy cząstkę swobodną o masie $m$ poruszającą się w potencjale $U=-GMm/r$, gdzie $r$ to odległość cząstki od początku układu współrzędnych. W tym przypadku najwygodniej będzie posłużyć się współrzędnymi biegunowymi (nie potrzebujemy wsp. sferycznych, ponieważ wiadomo że ruch będzie ograniczony do płaszczyzny) $r$ i $\theta$. Okazuje się, że mimo tego, że $\theta$ jest kątem, wciąż możemy traktować go jak inne współrzędne, np. $x$. Oznacza to, że 2 równania Lagrange’a, które otrzymamy to
+$$ \frac{\partial \mathcal{L}}{\partial r}-\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial\dot{r}}=0$$
+$$ \frac{\partial \mathcal{L}}{\partial \theta}-\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial\dot{\theta}}=0$$
+Obliczmy lagranżjan. Energia kinetyczna to
+$$ T=\frac{1}{2}m\left[\dot{r}^2+(r\dot{\theta})^2\right], $$
+a energię potencjalną znamy. Zatem
+$$ \mathcal{L}=T-U=\frac{1}{2}m\left[\dot{r}^2+(r\dot{\theta})^2\right]+GMm\frac{1}{r}.$$
+Obliczmy pochodne:
+$$ \frac{\partial \mathcal{L}}{\partial r}=mr\dot{\theta}^2-GMm\frac{1}{r^2} $$
+$$ \frac{\partial \mathcal{L}}{\partial \theta}=0$$
+$$ \frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{r}}=m\ddot{r} $$
+$$ \frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{\theta}}=mr^2\ddot{\theta} $$
+i wstawmy je do naszych równań:
+$$ m\ddot{r}=mr\dot{\theta}^2-GMm\frac{1}{r^2} $$
+$$ mr^2\ddot{\theta}=0 $$
+Otrzymujemy ponownie wyniki zgodne z mechaniką Newtona. Zauważmy, że ponownie 
+$$\frac{\partial \mathcal{L}}{\partial r}=F_r, $$
+gdzie $F_r$ to suma wszystkich sił radialnych działających na cząstkę. Możemy rozpoznać w niej siłę grawitacji oraz fikcyjną siłę odśrodkową.
+$$ \frac{\partial \mathcal{L}}{\partial \dot{r}}=p_r,$$
+gdzie $p_r$ to radialna składowa pędu cząstki. W przypadku kąta mamy
+$$ \frac{\partial \mathcal{L}}{\partial \theta}=\Gamma, $$
+gdzie $\Gamma$ to moment siły działający na cząstkę (w tym przypadku 0) oraz 
+$$ \frac{\partial \mathcal{L}}{\partial \dot{\theta}}=L, $$
+gdzie $L$ to moment pędu cząstki. Ponownie otrzymujemy dobrze znane równania
+$$ F_r =\frac{d}{dt}p_r$$
+$$ \Gamma = \frac{d}{dt} L. $$</p>
+
+<p>Poprzednie 2 przykłady pokazały nam, że wielkości $\partial\mathcal{L}/\partial q_i$ oraz $\partial\mathcal{L}/\partial \dot{q}_i$, gdzie $q_i$ to pewna <strong>współrzędna uogólniona</strong> (np. $x$, $r$, $\theta$, $\varphi$) pełnią role kolejno siły oraz pędu. Dlatego są one nazywane <strong>siłą uogólnioną</strong> oraz <strong>pędem uogólnionym</strong>.</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Zasada Hamiltona Rozważmy swobodną cząstkę poruszającą się między punktami $1$ i $2$ w czasie od $t_1$ do $t_2$. Droga $\vec{r}(t)$, którą wybiera cząstka jest taka, że całka działania $$ S=\int_{t_1}^{t_2}\mathcal{L}(\vec{r}, \dot{\vec{r}}, t)\,dt $$ jest minimalna (stacjonarna). $\mathcal{L}$ to lagranżjan układu zdefiniowany jako $$ \mathcal{L}(\vec{r}, \dot{\vec{r}}, t)=T-U, $$ gdzie $T$ to energia kinetyczna cząstki, a $U$ to jej energia potencjalna.]]></summary></entry><entry><title type="html">Mechanika Lagrange’a, część 1: Równanie Eulera-Lagrange’a</title><link href="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea" rel="alternate" type="text/html" title="Mechanika Lagrange’a, część 1: Równanie Eulera-Lagrange’a" /><published>2025-07-21T00:00:00+02:00</published><updated>2025-07-21T00:00:00+02:00</updated><id>http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea</id><content type="html" xml:base="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea"><![CDATA[<h2 id="motywacja">Motywacja</h2>
 <p>Rozważmy następujący problem: błonę mydlaną rozpięliśmy między dwoma współosiowymi pierścieniami o promieniach $r_1$ i $r_2$. Wiadomo, że bańka mydlana przyjmuje zawsze taki kształt, aby jej pole powierzchni było jak najmniejsze - ten kształt chcemy znaleźć.</p>
 
 <p>Bańkę mydlaną możemy traktować jak bryłę obrotową opisaną funkcją $f(x)$, przy czym $f(x_1)=r_1$ oraz $f(x_2)=r_2$.</p>
@@ -18,7 +77,7 @@ Dążymy do zminimalizowania tej całki.</p>
 <p>Rozważmy ogólniejszy przypadek. Chcemy zminimalizować całkę
 $$ S=\int_{x_1}^{x_2}f(Y(x), Y’(x), x)\,dx. $$</p>
 
-<p>Niech $y(x)$ będzie funkcją minimalizującą całkę $S$. Rozważmy funkcję $Y(x)=y(x)+\alpha \eta(x)$, gdzie $\eta(x)$ to dowolna funkcja, która spełnia warunek $\eta(x_1)=\eta(x_2)=0$. Wtedy $Y(x)$ spełnia te same warunki brzegowe co $y(x)$, lecz jest tą ,,mniej optymalną’’, w przypadku błony mydlanej powierzchnią między $x_1$ a $x_2$, powierzchnia dla niej będzie nieco większa niż dla $y(x)$.</p>
+<p>Niech $y(x)$ będzie funkcją minimalizującą całkę $S$. Rozważmy funkcję $Y(x)=y(x)+\alpha \eta(x)$, gdzie $\eta(x)$ to dowolna funkcja, która spełnia warunek $\eta(x_1)=\eta(x_2)=0$. Wtedy $Y(x)$ spełnia te same warunki brzegowe co $y(x)$, lecz jest tą ,,mniej optymalną’’, w przypadku błony mydlanej powierzchnią między $x_1$ a $x_2$, czyli powierzchnia dla niej będzie nieco większa niż dla $y(x)$.</p>
 
 <p>Spodziewamy się, że dla małych wartości $\alpha$, czyli małych odchyleń od optymalnej powierzchni, całka $S$ nie będzie ulegać zmianie (podobnie jest w przypadku zwykłych funkcji - gdy $f(x)$ ma minimum w $x_0$, $f’(x_0)=0$. Oznacza to, że w przybliżeniu dla małych $\varepsilon$ zachodzi $f(x_0+\varepsilon)-f(x_0)=f’(x_0)\varepsilon=0$). Innymi słowy
 $$ \frac{\partial S}{\partial \alpha}=0. $$

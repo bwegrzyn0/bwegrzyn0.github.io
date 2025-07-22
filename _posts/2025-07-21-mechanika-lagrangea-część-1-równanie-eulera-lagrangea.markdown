@@ -26,7 +26,7 @@ Dążymy do zminimalizowania tej całki.
 Rozważmy ogólniejszy przypadek. Chcemy zminimalizować całkę
 \$$ S=\int_{x_1}^{x_2}f(Y(x), Y'(x), x)\,dx. \$$
 
-Niech $y(x)$ będzie funkcją minimalizującą całkę $S$. Rozważmy funkcję $Y(x)=y(x)+\alpha \eta(x)$, gdzie $\eta(x)$ to dowolna funkcja, która spełnia warunek $\eta(x_1)=\eta(x_2)=0$. Wtedy $Y(x)$ spełnia te same warunki brzegowe co $y(x)$, lecz jest tą ,,mniej optymalną'', w przypadku błony mydlanej powierzchnią między $x_1$ a $x_2$, powierzchnia dla niej będzie nieco większa niż dla $y(x)$. 
+Niech $y(x)$ będzie funkcją minimalizującą całkę $S$. Rozważmy funkcję $Y(x)=y(x)+\alpha \eta(x)$, gdzie $\eta(x)$ to dowolna funkcja, która spełnia warunek $\eta(x_1)=\eta(x_2)=0$. Wtedy $Y(x)$ spełnia te same warunki brzegowe co $y(x)$, lecz jest tą ,,mniej optymalną'', w przypadku błony mydlanej powierzchnią między $x_1$ a $x_2$, czyli powierzchnia dla niej będzie nieco większa niż dla $y(x)$. 
 
 Spodziewamy się, że dla małych wartości $\alpha$, czyli małych odchyleń od optymalnej powierzchni, całka $S$ nie będzie ulegać zmianie (podobnie jest w przypadku zwykłych funkcji - gdy $f(x)$ ma minimum w $x_0$, $f'(x_0)=0$. Oznacza to, że w przybliżeniu dla małych $\varepsilon$ zachodzi $f(x_0+\varepsilon)-f(x_0)=f'(x_0)\varepsilon=0$). Innymi słowy
 \$$ \frac{\partial S}{\partial \alpha}=0. \$$
