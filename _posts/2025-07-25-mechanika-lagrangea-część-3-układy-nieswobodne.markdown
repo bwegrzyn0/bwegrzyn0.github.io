@@ -80,7 +80,7 @@ co po wstawieniu do równania Lagrange'a da nam
 \$$ m\ddot{x}=-mg\sin\theta. \$$
 
 ## Przykład
-Rozważmy wahadło matematyczne o długości $l$, na którego końcu jest zawieszona masa $m$, o energii potencjalnej $-mgy=-mgl\cos{\theta}$ (patrz rysunek).
+Rozważmy wahadło matematyczne o długości $l$, na którego końcu jest zawieszona masa $m$ o energii potencjalnej $U=-mgy=-mgl\cos{\theta}$ (patrz rysunek).
 
 <p align="center">
 <img src="/assets/images/2025-07-25/wahadło.svg" width="600"/>
