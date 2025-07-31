@@ -1,4 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-25T16:36:04+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Mechanika Lagrange’a, część 3: Układy nieswobodne</title><link href="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-3-uk%C5%82ady-nieswobodne" rel="alternate" type="text/html" title="Mechanika Lagrange’a, część 3: Układy nieswobodne" /><published>2025-07-25T00:00:00+02:00</published><updated>2025-07-25T00:00:00+02:00</updated><id>http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-3-uk%C5%82ady-nieswobodne</id><content type="html" xml:base="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-3-uk%C5%82ady-nieswobodne"><![CDATA[<h2 id="układ-nieswobodny">Układ nieswobodny</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-31T11:03:55+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">fraktale-obrazy: Program umożliwiąjący generowanie fraktali</title><link href="http://localhost:4000/programowanie/fraktale-obrazy-program-umo%C5%BCliwiaj%C4%85cy-generowanie-fraktali" rel="alternate" type="text/html" title="fraktale-obrazy: Program umożliwiąjący generowanie fraktali" /><published>2025-07-31T00:00:00+02:00</published><updated>2025-07-31T00:00:00+02:00</updated><id>http://localhost:4000/programowanie/fraktale-obrazy-program-umo%C5%BCliwiaj%C4%85cy-generowanie-fraktali</id><content type="html" xml:base="http://localhost:4000/programowanie/fraktale-obrazy-program-umo%C5%BCliwiaj%C4%85cy-generowanie-fraktali"><![CDATA[<p align="center">
+<img src="/assets/images/2025-07-31/readme_image.jpg" width="700" />
+<br />
+<em>Obraz wygenerowany z użyciem programu</em>
+</p>
+
+<h1 id="fraktale-obrazy">fraktale-obrazy</h1>
+<p>Prosty program napisany w C++ z użyciem biblioteki SDL2, który umożliwia generowanie i zapisywanie obrazów fraktali.</p>
+
+<blockquote>
+  <p><strong>Uwaga!</strong> <br />
+Początkowo miał być to mały projekt, lecz nieco się rozrósł. Program może być niewydajny i zbugowany.</p>
+</blockquote>
+
+<p>Jest to <a href="https://github.com/bwegrzyn0/fraktale-obrazy" target="_blank">plik README z repozytorium GitHub</a> przetłumaczony na język polski.</p>
+
+<h2 id="instalacja-programu">Instalacja programu</h2>
+<p>Zklonuj repozytorium GitHub:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/bwegrzyn0/fraktale-obrazy
+</code></pre></div></div>
+<p>i uruchom program za pomocą komendy <code class="language-plaintext highlighter-rouge">./run.out</code>.</p>
+
+<h2 id="użytkowanie">Użytkowanie</h2>
+<p>W oknie zobaczysz następujący interfejs:</p>
+
+<p align="center">
+<img src="/assets/images/2025-07-31/interface_image.jpg" width="600" />
+</p>
+
+<p>Radzę samodzielnie wypróbować poszczególne opcje aby zobaczyć ich efekt na obrazie. Tutaj po krótce omówię każdą z nich:</p>
+<ul>
+  <li><strong>Brightness multiplier</strong>: mnoży jasność wszystkich pikseli przez zadaną wartość.</li>
+  <li><strong>Resolution</strong>: liczba pikseli na jednostkę długosci. Na przykład, jeśli szerokość obszaru (omawiana dalej) wynosi 10, a rozdzielczość wynosi 100, obraz będzie miał szerokość 100 * 10 = 1000 pikseli. Bardzo duże wartości negatywnie wpływają na wydajność programu. Z tego powodu przy oddalaniu widoku rozdzielczość jest dynamicznie zminiejszana (nie ma to wpływu na zapisywany obraz).</li>
+  <li><strong>Number of iterations</strong>: liczba iteracji algorytmu IFSP.</li>
+  <li><strong>Number of points</strong>: liczba punktów w algorytmie IFSP.</li>
+  <li><strong>Area X and Area Y</strong>: współrzędne X i Y obszaru generacji fraktala.</li>
+  <li><strong>Area width and Area height</strong>: szerokość i wysokość obszaru generacji fraktala.</li>
+  <li><strong>Show area border</strong>: pozwala przełączać widoczność czerwonej granicy wokół obszaru generacji fraktala.</li>
+  <li>
+    <p><strong>Transformation parameters</strong>: maksymalnie można mieć 4 transformacje. Każdą z nich charakteryzuje 7 liczb. Współrzędne są transformowane według następujących zależności:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>transformowane_x = a_x * x + b_x * y + c_x
+transformowane_y = a_y * x + b_y * y + c_y
+</code></pre></div>    </div>
+    <p>Każda transformacja ma swoje prawdopodobieństwo, które nie wpływa na kształt fraktala. Zmienia ono jedynie gęstość rozłożenia punktów na nim.</p>
+    <blockquote>
+      <p><strong>Wskazówka</strong> <br />
+Jeśli potrzebne są jedynie np. 2 transformacje, należy ustawić prawdopodobieństwa pozostałych dwóch na zero.</p>
+    </blockquote>
+  </li>
+  <li><strong>Image file name</strong>: nazwa pliku z obrazem fraktala (bez rozszerzenia).</li>
+</ul>
+
+<p>Obrazy są zapisywane w formacie <code class="language-plaintext highlighter-rouge">.bmp</code> w katalogu, w którym znajduje się program.</p>
+
+<p>Można poruszać się i przybliżać obraz fraktala w programie za pomocą strzałek i scrolla.</p>
+
+<h2 id="jak-działa-ten-program">Jak działa ten program?</h2>
+<p>Wybrana liczba puntków jest jednorodnie rozłożona w kwadracie, po czym są one poddawane algorytmowi IFSP. Każdy piksel posiada gęstość równą liczbie punktów, która w nim wylądowała. Jego jasność jest ustalana na podstawie gęstości - piksele z 0 punktami są czarne, a piksele z największą ich liczbą białe.</p>
+
+<h2 id="przykładowe-obrazy">Przykładowe obrazy</h2>
+<p align="center">
+<img src="/assets/images/2025-07-31/bazia.jpg" width="600" />
+</p>
+<p align="center">
+<img src="/assets/images/2025-07-31/choinka.jpg" width="600" />
+</p>
+<p align="center">
+<img src="/assets/images/2025-07-31/sierpinsk.jpg" width="600" />
+</p>
+<p align="center">
+<img src="/assets/images/2025-07-31/dragon.jpg" width="600" />
+</p>
+
+<h2 id="licencja">Licencja</h2>
+<p>Program nie posiada licencji i może być używany w dowolny sposób.</p>]]></content><author><name></name></author><category term="Programowanie" /><summary type="html"><![CDATA[Obraz wygenerowany z użyciem programu]]></summary></entry><entry><title type="html">Mechanika Lagrange’a, część 3: Układy nieswobodne</title><link href="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-3-uk%C5%82ady-nieswobodne" rel="alternate" type="text/html" title="Mechanika Lagrange’a, część 3: Układy nieswobodne" /><published>2025-07-25T00:00:00+02:00</published><updated>2025-07-25T00:00:00+02:00</updated><id>http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-3-uk%C5%82ady-nieswobodne</id><content type="html" xml:base="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-3-uk%C5%82ady-nieswobodne"><![CDATA[<h2 id="układ-nieswobodny">Układ nieswobodny</h2>
 <p>Do tej pory opisywalśmy ruch cząstki przy założeniu, że jej ruch jest swobodny. Teraz zajmiemy się przypadkiem, gdy jej ruch jest ograniczony <strong>więzami</strong>.</p>
 
 <p>Rozważmy cząstkę poruszającą się w 3 wymiarach, której ruch jest ograniczony do pewnej powierzchni (na przykład kula znajdująca się między dwoma płytkami uniemożliwiającymi jej ruch w kierunku prostopadłym do ich powierzchni). W mechanice Newtona oznacza to, że na kulę działa siła reakcji prostopadła do powierzchni ograniczającej jej ruch, jak zostało pokazane na rysunku. $\hat{T}$ oznacza wektor styczny do kierunku ruchu i zarazem płaszczyzny.</p>
