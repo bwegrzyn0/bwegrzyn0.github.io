@@ -2,7 +2,7 @@
 layout: post
 title: "Tworzenie prostej symulacji grawitacji w C++, część 2: Rysowanie kół, planety"
 date: 2025-07-13
-categories: [Programowanie, "Tworzenie prostej symulacji grawitacji w C++"]
+categories: [Programowanie]
 katex: true
 ---
 

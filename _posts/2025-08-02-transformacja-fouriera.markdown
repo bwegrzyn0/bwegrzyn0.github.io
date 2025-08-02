@@ -2,7 +2,7 @@
 layout: post
 title: "Transformacja Fouriera"
 date: 2025-08-02
-categories: ["Narzędzia matematyczne", Programowanie]
+categories: ["Narzędzia matematyczne"]
 katex: true
 ---
 
