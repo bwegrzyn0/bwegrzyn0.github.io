@@ -9,15 +9,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Cel projektu Celem tego projektu jest stworzenie programu w C++, który będzie pozwalał użytkownikowi: dodawać do sceny ciała niebieskie, które będą oddziaływać ze sobą grawitacyjnie modyfikować ich parametry, takie jak masa, prędkość, położenie, jasność itd. za pomocą prostego interfejsu pauzować, przyspieszać, cofać, resetować symulację poruszać się kamerą po scenie za pomocą myszki, przybliżać i oddalać widok wykreślać i przewidywać trajektorie obiektów ustalać punkt odniesienia dla trajektorii zablokować widok na jednym obiekcie." />
 <meta property="og:description" content="Cel projektu Celem tego projektu jest stworzenie programu w C++, który będzie pozwalał użytkownikowi: dodawać do sceny ciała niebieskie, które będą oddziaływać ze sobą grawitacyjnie modyfikować ich parametry, takie jak masa, prędkość, położenie, jasność itd. za pomocą prostego interfejsu pauzować, przyspieszać, cofać, resetować symulację poruszać się kamerą po scenie za pomocą myszki, przybliżać i oddalać widok wykreślać i przewidywać trajektorie obiektów ustalać punkt odniesienia dla trajektorii zablokować widok na jednym obiekcie." />
-<link rel="canonical" href="http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2" />
-<meta property="og:url" content="http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2" />
+<link rel="canonical" href="http://localhost:4000/programowanie/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2" />
+<meta property="og:url" content="http://localhost:4000/programowanie/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2" />
 <meta property="og:site_name" content="bwegrzyn0.github.io" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-07-06T00:00:00+02:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Tworzenie prostej symulacji grawitacji w C++, część 1: SDL2" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-06T00:00:00+02:00","datePublished":"2025-07-06T00:00:00+02:00","description":"Cel projektu Celem tego projektu jest stworzenie programu w C++, który będzie pozwalał użytkownikowi: dodawać do sceny ciała niebieskie, które będą oddziaływać ze sobą grawitacyjnie modyfikować ich parametry, takie jak masa, prędkość, położenie, jasność itd. za pomocą prostego interfejsu pauzować, przyspieszać, cofać, resetować symulację poruszać się kamerą po scenie za pomocą myszki, przybliżać i oddalać widok wykreślać i przewidywać trajektorie obiektów ustalać punkt odniesienia dla trajektorii zablokować widok na jednym obiekcie.","headline":"Tworzenie prostej symulacji grawitacji w C++, część 1: SDL2","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2"},"url":"http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-06T00:00:00+02:00","datePublished":"2025-07-06T00:00:00+02:00","description":"Cel projektu Celem tego projektu jest stworzenie programu w C++, który będzie pozwalał użytkownikowi: dodawać do sceny ciała niebieskie, które będą oddziaływać ze sobą grawitacyjnie modyfikować ich parametry, takie jak masa, prędkość, położenie, jasność itd. za pomocą prostego interfejsu pauzować, przyspieszać, cofać, resetować symulację poruszać się kamerą po scenie za pomocą myszki, przybliżać i oddalać widok wykreślać i przewidywać trajektorie obiektów ustalać punkt odniesienia dla trajektorii zablokować widok na jednym obiekcie.","headline":"Tworzenie prostej symulacji grawitacji w C++, część 1: SDL2","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/programowanie/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2"},"url":"http://localhost:4000/programowanie/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css">
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bwegrzyn0.github.io" /></head>
@@ -63,6 +63,7 @@
 
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">Tworzenie prostej symulacji grawitacji w C++, część 1: SDL2</h1>
+    <a href="/kategorie"><h3> Programowanie </h3></a>
     <p class="post-meta">
       <time class="dt-published" datetime="2025-07-06T00:00:00+02:00" itemprop="datePublished">2025-07-06
       </time></p>
@@ -219,7 +220,7 @@
 <h2 id="co-dalej">Co dalej?</h2>
 <p>Powyższy program wyświetla okno, a w nim biały prostokąt na czerwonym tle. W następnej części opiszę proces rysowania kół i okręgów za pomocą algorytmu midpoint oraz to, jak dodałem planety.</p>
 
-  </div><a class="u-url" href="/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2" hidden></a>
+  </div><a class="u-url" href="/programowanie/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2" hidden></a>
 </article>
 
       </div>

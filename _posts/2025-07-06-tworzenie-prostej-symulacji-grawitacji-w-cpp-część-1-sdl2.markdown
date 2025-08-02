@@ -2,7 +2,7 @@
 layout: post
 title: "Tworzenie prostej symulacji grawitacji w C++, część 1: SDL2"
 date: 2025-07-06
-categories: [Programowanie, "Tworzenie prostej symulacji grawitacji w C++"]
+categories: [Programowanie]
 katex: true
 ---
 

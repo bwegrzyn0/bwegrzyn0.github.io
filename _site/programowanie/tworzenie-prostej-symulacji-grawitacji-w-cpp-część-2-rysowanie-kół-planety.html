@@ -9,15 +9,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Rysowanie kół Aby obserwować interakcję grawitacyjną, potrzebujemy obiekty, które będą w taki sposób oddziaływać. W tej symulacji będą one nazywane planetami, chociaż nie będą miały ściśle określonego przedziału na masę, gęstość i rozmiary. Będziemy je traktować jak kule, czyli w tym wypadku tak samo, jak masy punktowe. Aby reprezentować je na ekranie, będzie konieczna możliwość rysowania kół. Niestety SDL nie posiada funkcji wykonującej takie zadanie, więc trzeba ją stworzyć samodzielnie." />
 <meta property="og:description" content="Rysowanie kół Aby obserwować interakcję grawitacyjną, potrzebujemy obiekty, które będą w taki sposób oddziaływać. W tej symulacji będą one nazywane planetami, chociaż nie będą miały ściśle określonego przedziału na masę, gęstość i rozmiary. Będziemy je traktować jak kule, czyli w tym wypadku tak samo, jak masy punktowe. Aby reprezentować je na ekranie, będzie konieczna możliwość rysowania kół. Niestety SDL nie posiada funkcji wykonującej takie zadanie, więc trzeba ją stworzyć samodzielnie." />
-<link rel="canonical" href="http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-2-rysowanie-k%C3%B3%C5%82-planety" />
-<meta property="og:url" content="http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-2-rysowanie-k%C3%B3%C5%82-planety" />
+<link rel="canonical" href="http://localhost:4000/programowanie/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-2-rysowanie-k%C3%B3%C5%82-planety" />
+<meta property="og:url" content="http://localhost:4000/programowanie/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-2-rysowanie-k%C3%B3%C5%82-planety" />
 <meta property="og:site_name" content="bwegrzyn0.github.io" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-07-13T00:00:00+02:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Tworzenie prostej symulacji grawitacji w C++, część 2: Rysowanie kół, planety" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-13T00:00:00+02:00","datePublished":"2025-07-13T00:00:00+02:00","description":"Rysowanie kół Aby obserwować interakcję grawitacyjną, potrzebujemy obiekty, które będą w taki sposób oddziaływać. W tej symulacji będą one nazywane planetami, chociaż nie będą miały ściśle określonego przedziału na masę, gęstość i rozmiary. Będziemy je traktować jak kule, czyli w tym wypadku tak samo, jak masy punktowe. Aby reprezentować je na ekranie, będzie konieczna możliwość rysowania kół. Niestety SDL nie posiada funkcji wykonującej takie zadanie, więc trzeba ją stworzyć samodzielnie.","headline":"Tworzenie prostej symulacji grawitacji w C++, część 2: Rysowanie kół, planety","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-2-rysowanie-k%C3%B3%C5%82-planety"},"url":"http://localhost:4000/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-2-rysowanie-k%C3%B3%C5%82-planety"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-07-13T00:00:00+02:00","datePublished":"2025-07-13T00:00:00+02:00","description":"Rysowanie kół Aby obserwować interakcję grawitacyjną, potrzebujemy obiekty, które będą w taki sposób oddziaływać. W tej symulacji będą one nazywane planetami, chociaż nie będą miały ściśle określonego przedziału na masę, gęstość i rozmiary. Będziemy je traktować jak kule, czyli w tym wypadku tak samo, jak masy punktowe. Aby reprezentować je na ekranie, będzie konieczna możliwość rysowania kół. Niestety SDL nie posiada funkcji wykonującej takie zadanie, więc trzeba ją stworzyć samodzielnie.","headline":"Tworzenie prostej symulacji grawitacji w C++, część 2: Rysowanie kół, planety","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/programowanie/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-2-rysowanie-k%C3%B3%C5%82-planety"},"url":"http://localhost:4000/programowanie/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-2-rysowanie-k%C3%B3%C5%82-planety"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css">
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bwegrzyn0.github.io" /></head>
@@ -63,6 +63,7 @@
 
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">Tworzenie prostej symulacji grawitacji w C++, część 2: Rysowanie kół, planety</h1>
+    <a href="/kategorie"><h3> Programowanie </h3></a>
     <p class="post-meta">
       <time class="dt-published" datetime="2025-07-13T00:00:00+02:00" itemprop="datePublished">2025-07-13
       </time></p>
@@ -249,7 +250,7 @@ Aby zmiana położenia kamery miała efekt, jej położenie musimy odjąć od po
 
 <p>W następnej części zostanie zaimplementowana ulepszona pętla programu oraz algorytm Rungego-Kutty do obliczania trajektorii planet. Kod źródłowy projektu jest dostępny na <a href="https://github.com/bwegrzyn0/grav-sim" target="_blank">GitHub</a>.</p>
 
-  </div><a class="u-url" href="/programowanie/tworzenie%20prostej%20symulacji%20grawitacji%20w%20c++/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-2-rysowanie-k%C3%B3%C5%82-planety" hidden></a>
+  </div><a class="u-url" href="/programowanie/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-2-rysowanie-k%C3%B3%C5%82-planety" hidden></a>
 </article>
 
       </div>
