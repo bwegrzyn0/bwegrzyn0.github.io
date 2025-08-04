@@ -89,4 +89,6 @@ Zostało ono przedstawione dla wcześniejszych fal na poniższym wykresie:
 <p align="center">
 <img src="/assets/images/2025-08-02/widmoMocy.svg" width="700"/>
 </p>
+Funkcje $S(\omega)$ na wykresie zostały znormalizowane, aby można było dostrzec ich kształt i wzajemne powiązanie.
+
 Jak widać, jest ono symetryczne względem osi $y$. Jest tak, ponieważ rozważane fale zawierają tylko składową parzystą $\cos$. Dla funkcji $\cos$ nie ma znaczenia znak częstotliwości, a więc moc jest rozłożona równomiernie między $\omega$ i $-\omega$. Zgodnie z oczekiwaniami najwięcej mocy jest skupionej w częstotliwości $\omega_0$. Zauważmy również, że im bardziej ,,rozwlekła'' fala, tym bardziej moc jest skupiona wokół $\omega_0$ (czerwony wykres). Jest to spodwodowane faktem, że bardziej ,,rozwlekła'' fala bardziej ,,przypomina'' zwykłą falę.
