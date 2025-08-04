@@ -1,4 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-08-02T14:08:43+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Transformacja Fouriera</title><link href="http://localhost:4000/narz%C4%99dzia%20matematyczne/transformacja-fouriera" rel="alternate" type="text/html" title="Transformacja Fouriera" /><published>2025-08-02T00:00:00+02:00</published><updated>2025-08-02T00:00:00+02:00</updated><id>http://localhost:4000/narz%C4%99dzia%20matematyczne/transformacja-fouriera</id><content type="html" xml:base="http://localhost:4000/narz%C4%99dzia%20matematyczne/transformacja-fouriera"><![CDATA[<h2 id="szeregi-fouriera">Szeregi Fouriera</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-08-04T18:24:13+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Mechanika Lagrange’a, część 4: Zasady zachowania</title><link href="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-4-zasady-zachowania" rel="alternate" type="text/html" title="Mechanika Lagrange’a, część 4: Zasady zachowania" /><published>2025-08-04T00:00:00+02:00</published><updated>2025-08-04T00:00:00+02:00</updated><id>http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-4-zasady-zachowania</id><content type="html" xml:base="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-4-zasady-zachowania"><![CDATA[<h2 id="uogólnienie-na-układ-wielu-cząstek">Uogólnienie na układ wielu cząstek</h2>
+<p>Do tej pory rozważaliśmy układ złożony jedynie z jednej cząstki. Wprowadzenie większej liczby cząstek daje nam więcej współrzędnych uogólnionych, które definiujemy jako zestaw najmniejszej liczby współrzędnych jednoznacznie określających stan układu. Na przykład, dla 2 cząstek w przestrzeni 3-wymiarowej mamy 6 współrzędnych uogólnionych, a dla wahadła podwójnego - jedynie 2.</p>
+
+<p>Lagrażjan dla układu $N$ cząstek o $n$ współrzędnych uogólnionych ma postać
+$$ \mathcal{L} = T(\dot{q}_1, \dot{q}_2, \dots, \dot{q}_n, t) - U(q_1, q_2, \dots, q_n, t), $$
+gdzie
+$$ T(\dot{q}_1, \dot{q}_2, \dots, \dot{q}_n, t)=\frac{1}{2}m_1\dot{\mathbf{r}}_1+\frac{1}{2}m_2\dot{\mathbf{r}}_2+\dots+\frac{1}{2}m_N\dot{\mathbf{r}}_N, $$
+przy czym $\mathbf{r}_\alpha$ to położenie $\alpha$-tej cząstki, a $m_\alpha$ to jej masa.</p>
+
+<p>Dla każdej ze współrzędnych uogólnionych mamy równanie Lagrange’a:
+$$ \frac{\partial \mathcal{L}}{\partial q_i}-\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q_i}} = 0. $$
+<a href="https://bwegrzyn0.github.io/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-3-uk%C5%82ady-nieswobodne" target="_blank">Dowód prawdziwości równań Lagrange’a dla jednej cząstki w układzie nieswobodnym</a> można łatwo uogólnić dla wielu cząstek.</p>
+
+<h3 id="przykład">Przykład</h3>
+<p>Rozważmy układ przedstawiony na poniższym rysunku.</p>
+
+<p align="center">
+<img src="/assets/images/2025-08-04/sprezyny.svg" width="500" />
+</p>
+
+<p>Sprężyna o współczynniku sprężystości $k_1$ jest przymocowana do ściany, do niej przymocowany jest bloczek o masie $m_1$, a do niego sprężyna o współczynniku sprężystości $k_2$ z bloczkiem o masie $m_2$.</p>
+
+<p>Położenie pierwszego bloczka oznaczmy jako $x_1$, a drugiego jako $x_2$. Ich położenia równowagi oznaczmy kolejno jako $x_{01}$ i $x_{02}$. Łatwo zauważyć, że $x_1=x_{01}+\Delta x_{1}$ oraz $x_2=x_{02}+\Delta x_1 + \Delta x_2$, gdzie $\Delta x_1$ oraz $\Delta x_2$ to rozciągnięcia sprężyn.</p>
+
+<p>Energia kinetyczna tego układu to
+$$ T=\frac{1}{2}m_1 \dot{x}_1^2+\frac{1}{2}m_2 \dot{x}_1^2=\frac{1}{2}m_1\Delta\dot{x}_1^2+\frac{1}{2}m_2\left(\Delta \dot{ x}_1+\Delta \dot{ x}_2\right)^2, $$
+a energia potencjalna to
+$$ U=\frac{1}{2}k_1\Delta x_1^2+\frac{1}{2}k_2\Delta x_2^2. $$
+Po obliczeniu Lagranżjanu, wstawieniu go do dwóch równań i uproszczeniu wyrażeń otrzymujemy układ
+$$ \begin{cases}
+m_1\Delta\ddot{x}_1=-k_1\Delta x_1+k_2\Delta x_2 \\ m_2\Delta \ddot{x}_2=-k_2\Delta x_2-m_2\Delta \ddot{x}_1
+\end{cases} $$
+W pierwszym równaniu z łatwością można wyróżnić siły pochodzące od obu sprężyn, a w drugim siłę sprężystości i siłę bezwładności.</p>
+
+<h2 id="zachowanie-pędu">Zachowanie pędu</h2>
+<p>Rozważmy izolowany układ $N$ cząstek o położeniach $\mathbf{r}_1, \mathbf{r}_2, \dots, \mathbf{r}_N$. Przesuńmy wszystkie cząstki o stały wektor $\boldsymbol{\varepsilon}=\left(\varepsilon, \varepsilon, \dots, \varepsilon\right)$ (ma tyle składowych ile jest współrzędnych uogólnionych).</p>
+
+<p>Ponieważ układ jest izolowany, potencjał pochodzi <em>wyłącznie</em> od cząstek w naszym układzie (nie mamy zewtnętrznych pól). Ponieważ wszystkie cząstki zostały przesunięte, ich względne położenia nie zmieniły się, a co za tym idzie energia potencjalna również. Dlatego mamy $\delta U=0$.</p>
+
+<p>Ponieważ $\boldsymbol{\varepsilon}$ to stały wektor, prędkości cząstek się nie zmieniły, zatem $\delta T=0$.</p>
+
+<p>Zmiana lagranżjanu to
+$$ \delta \mathcal{L}=\delta T -\delta U=0,$$
+ale również
+$$ \delta \mathcal{L}=\frac{\partial \mathcal{L}}{\partial q_1}\varepsilon+\frac{\partial \mathcal{L}}{\partial q_2}\varepsilon+\dots+\frac{\partial \mathcal{L}}{\partial q_n}\varepsilon. $$
+Z powyższych równań wynika, że
+$$ \sum_{i=1}^n \frac{\partial \mathcal{L}}{\partial q_i}\varepsilon = 0, $$
+a ponieważ $\varepsilon\neq 0$
+$$ \sum_{i=1}^n \frac{\partial \mathcal{L}}{\partial q_i}= 0. $$
+Z równania Lagrange’a mamy 
+$$ \frac{\partial \mathcal{L}}{\partial q_i}=\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}_i}, $$
+czyli
+$$ \frac{d}{dt}\sum_{i=1}^n \frac{\partial \mathcal{L}}{\partial \dot{q}_i}= 0 $$
+$$ \sum_{i=1}^n p_i = const. $$
+Jeśli zdefiniujemy wektor $\mathbf{P}=\left(p_1, p_2, \dots, p_n\right)$, to
+$$ \boxed{\mathbf{P}=\mathbf{const.}} $$
+w układzie izolowanym.</p>
+
+<h2 id="zachowanie-energii">Zachowanie energii</h2>
+<p>Załóżmy, że współrzędne są <strong>naturalne</strong>, to znaczy lagranżjan nie zależy jawnie od czasu, $\partial \mathcal{L}/\partial t=0$.</p>
+
+<p>Wyznaczmy pochodną lagranżjanu po czasie:
+$$ \frac{d\mathcal{L}}{dt}=\sum_{i=1}^n \frac{\partial\mathcal{L}}{\partial q_i}\dot{q}_i+\sum_{i=1}^n \frac{\partial\mathcal{L}}{\partial \dot{q}_i}\ddot{q}_i+\frac{\partial\mathcal{L}}{\partial t}. $$
+$\partial \mathcal{L}/\partial t=0$, a $\partial \mathcal{L}/\partial q_i$ możemy wyznaczyć z równań Langrange’a. Po podstawieniu dostajemy
+$$ \frac{d\mathcal{L}}{dt}=\sum_{i=1}^n \left[\frac{d}{dt}  \frac{\partial\mathcal{L}}{\partial \dot{q}_i}\dot{q}_i +\frac{\partial\mathcal{L}}{\partial \dot{q}_i}\ddot{q}_i\right].$$
+Zauważmy, że wyrażenie pod sumą to pochodna iloczynu funkcji, dlatego
+$$ \frac{d\mathcal{L}}{dt}=\sum_{i=1}^n\frac{d}{dt}\left[\frac{\partial\mathcal{L}}{\partial \dot{q}_i}\dot{q}_i\right]. $$
+Odejmując obustronnie wyrażenie z prawej strony otrzymujemy 
+$$ \sum_{i=1}^n\frac{d}{dt}\left[\frac{\partial\mathcal{L}}{\partial \dot{q}_i}\dot{q}_i\right]-\frac{d\mathcal{L}}{dt}=0$$
+$$ \sum_{i=1}^n p_i\dot{q}_i-\mathcal{L}=const.$$
+gdzie skorzystałem z faktu, że $\partial\mathcal{L}/\partial \dot{q}_i=p_i$. Powyższa wielkość nazywa się <strong>hamiltonianem</strong> $\mathcal{H}$.
+Wart uwagi jest fakt, że powyższe równanie jest takie samo jak <a href="https://bwegrzyn0.github.io/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea" target="_blank">całka pierwsza wyprowadzona na przykładzie błony mydlanej w jednym z poprzednich artykułów.</a></p>
+
+<p>Obliczmy bezpośrednio hamiltonian dla układu $N$ cząstek o $n$ współrzędnych uogólnionych. Aby obliczyć $p_i$ musimy obliczyć pochodną $\partial\mathcal{L}/\partial \dot{q}_i$, a ponieważ $U$ nie zależy od $\dot{q}_i$, jest to po prostu $\partial T/\partial \dot{q}_i$. $T$ jest dane wzorem
+$$ T=\frac{1}{2}\sum_{\alpha=1}^N m_\alpha \dot{\mathbf{r}}_{\alpha} \cdot \dot{\mathbf{r}}_{\alpha}. $$
+Obliczmy $\dot{\mathbf{r}}_\alpha$ za pomocą reguły łańcuchowej:
+$$ \dot{\mathbf{r}}_\alpha=\frac{\partial \mathbf{r}_\alpha}{\partial q_1}\dot{q}_1+\frac{\partial \mathbf{r}_\alpha}{\partial q_2}\dot{q}_2+\dots+\frac{\partial \mathbf{r}_\alpha}{\partial q_n}\dot{q}_n=\sum_{j=1}^n \frac{\partial \mathbf{r}_\alpha}{\partial q_j}\dot{q}_j $$
+Iloczyn wektorowy będzie równy
+$$ \dot{\mathbf{r}}_\alpha\cdot\dot{\mathbf{r}}_\alpha=\sum_j \sum_k \frac{\partial \mathbf{r}_\alpha}{\partial q_j}\cdot\frac{\partial \mathbf{r}_\alpha}{\partial q_k} \dot{q}_j \dot{q}_k. $$
+Pomijam granice sumowania dla przejrzystości zapisu. Zauważmy, że 
+$$ \frac{\partial T}{ \partial \dot{q}_i}=\frac{1}{2}\sum_{\alpha} m_\alpha\frac{\partial}{\partial \dot{q}_i} \left(\dot{\mathbf{r}}_\alpha\cdot\dot{\mathbf{r}}_\alpha\right), $$
+więc obliczmy tę pochodną. Pochodna wszystkich wyrazów dla których $j\neq i$ oraz $k\neq i$ jednocześnie będzie wynosić 0. Pozostają nam wyrazy, dla których $j=i$ oraz $k=i$. To daje nam
+$$\frac{\partial}{\partial \dot{q}_i} \left(\dot{\mathbf{r}}_\alpha\cdot\dot{\mathbf{r}}_\alpha\right)=
+\frac{\partial}{\partial \dot{q}_i} \sum_j \sum_k \frac{\partial \mathbf{r}_\alpha}{\partial q_j}\cdot\frac{\partial \mathbf{r}_\alpha}{\partial q_k} \dot{q}_j \dot{q}_k= \sum_j \frac{\partial \mathbf{r}_\alpha}{\partial q_j}\cdot\frac{\partial \mathbf{r}_\alpha}{\partial q_i} \dot{q}_j+\sum_k \frac{\partial \mathbf{r}_\alpha}{\partial q_i}\cdot\frac{\partial \mathbf{r}_\alpha}{\partial q_k} \dot{q}_k. $$
+Obydwie sumy są dokładnie takie same, więc mamy
+$$ 2\sum_j \frac{\partial \mathbf{r}_\alpha}{\partial q_j}\cdot\frac{\partial \mathbf{r}_\alpha}{\partial q_i} \dot{q}_j.$$
+Po wstawieniu do wyrażenia na pęd otrzymamy
+$$ p_i=\sum_\alpha m_\alpha\sum_j \frac{\partial \mathbf{r}_\alpha}{\partial q_j}\cdot\frac{\partial \mathbf{r}_\alpha}{\partial q_i} \dot{q}_j.$$
+Wstawmy to do hamiltonianu:
+$$ \mathcal{H}=\sum_i  \dot{q}_i\sum_\alpha m_\alpha\sum_j \frac{\partial \mathbf{r}_\alpha}{\partial q_j}\cdot\frac{\partial \mathbf{r}_\alpha}{\partial q_i} \dot{q}_j  - \mathcal{L}. $$
+$\dot{q}_i$ możemy przenieść wewnątrz sumy po $j$:
+$$ \mathcal{H}= \sum_\alpha m_\alpha\sum_i\sum_j \frac{\partial \mathbf{r}_\alpha}{\partial q_j}\cdot\frac{\partial \mathbf{r}_\alpha}{\partial q_i} \dot{q}_j \dot{q}_i - \mathcal{L}. $$
+Podwójną sumę rozpoznajemy jako $\dot{\mathbf{r}}_\alpha\cdot\dot{\mathbf{r}}_\alpha$. Wtedy cała suma po $\alpha$ to po prostu $2T$. Pamiętając, że $\mathcal{L}=T-U$, otrzymujemy następujący wynik:
+$$ \boxed{\mathcal{H}=T+U=const.} $$
+gdy współrzędne są naturalne (lagranżjan nie zależy jawnie od czasu).</p>
+
+<p>Oczywistym faktem jest, że jeśli energia potencjalna $U$ zmienia się w czasie (np. z jakiegoś powodu zmienia się przyspieszenie ziemskie), energia w układzie nie będzia zachowana.</p>
+
+<p>$T$ jest zależne od czasu np. w sytuacji, gdy wagon, na którego suficie przyczepione jest wahadło, porusza się z przyspieszeniem $a$ wzdłuż osi $x$. Położenie wahadła względem ziemi charakteryzują wtedy współrzędne $x$ oraz $\theta$. Energia kinetyczna tego wahadła będzie wyrażała się wzorem
+$$ T=\frac{1}{2}ml^2\dot{\theta}^2+\frac{1}{2}ma^2t^2, $$
+gdzie $l$ to długość wahadła, a $m$ to masa zaczepiona na jego końcu. Lagranżjan zależy jawnie od czasu, a energia oczywiście nie jest zachowana, ponieważ wahadło zyskuje wraz z wagonem energię kinetyczną. Bardziej <em>naturalnym</em> wyborem układu współrzędnych w tej sytuacji jest układ związany z wagonem (w tym układzie współrzędne są faktycznie <em>naturalne</em>). Siłę bezwładności możemy modelować wtedy jak zadaną potencjałem proporcjonalnym do $x$.</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Uogólnienie na układ wielu cząstek Do tej pory rozważaliśmy układ złożony jedynie z jednej cząstki. Wprowadzenie większej liczby cząstek daje nam więcej współrzędnych uogólnionych, które definiujemy jako zestaw najmniejszej liczby współrzędnych jednoznacznie określających stan układu. Na przykład, dla 2 cząstek w przestrzeni 3-wymiarowej mamy 6 współrzędnych uogólnionych, a dla wahadła podwójnego - jedynie 2.]]></summary></entry><entry><title type="html">Transformacja Fouriera</title><link href="http://localhost:4000/narz%C4%99dzia%20matematyczne/transformacja-fouriera" rel="alternate" type="text/html" title="Transformacja Fouriera" /><published>2025-08-02T00:00:00+02:00</published><updated>2025-08-02T00:00:00+02:00</updated><id>http://localhost:4000/narz%C4%99dzia%20matematyczne/transformacja-fouriera</id><content type="html" xml:base="http://localhost:4000/narz%C4%99dzia%20matematyczne/transformacja-fouriera"><![CDATA[<h2 id="szeregi-fouriera">Szeregi Fouriera</h2>
 <p>Fourier zaproponował, że funkcje okresowe (tzn. $f(t)=f(t+\tau)$) spełniające dostateczne warunki (znaczna większość funkcji występujących w zastosowaniach je spełnia) można przedstawić w postaci <strong>szeregu Fouriera</strong>
 $$ f(t)=\sum_{n=0}^\infty a_n\cos\left(n\omega t\right)+b_n\sin\left(n\omega t\right), $$
 gdzie $\omega=2\pi/\tau$.
@@ -81,6 +181,8 @@ Zostało ono przedstawione dla wcześniejszych fal na poniższym wykresie:</p>
 <p align="center">
 <img src="/assets/images/2025-08-02/widmoMocy.svg" width="700" />
 </p>
+<p>Funkcje $S(\omega)$ na wykresie zostały znormalizowane, aby można było dostrzec ich kształt i wzajemne powiązanie.</p>
+
 <p>Jak widać, jest ono symetryczne względem osi $y$. Jest tak, ponieważ rozważane fale zawierają tylko składową parzystą $\cos$. Dla funkcji $\cos$ nie ma znaczenia znak częstotliwości, a więc moc jest rozłożona równomiernie między $\omega$ i $-\omega$. Zgodnie z oczekiwaniami najwięcej mocy jest skupionej w częstotliwości $\omega_0$. Zauważmy również, że im bardziej ,,rozwlekła’’ fala, tym bardziej moc jest skupiona wokół $\omega_0$ (czerwony wykres). Jest to spodwodowane faktem, że bardziej ,,rozwlekła’’ fala bardziej ,,przypomina’’ zwykłą falę.</p>]]></content><author><name></name></author><category term="Narzędzia matematyczne" /><summary type="html"><![CDATA[Szeregi Fouriera Fourier zaproponował, że funkcje okresowe (tzn. $f(t)=f(t+\tau)$) spełniające dostateczne warunki (znaczna większość funkcji występujących w zastosowaniach je spełnia) można przedstawić w postaci szeregu Fouriera $$ f(t)=\sum_{n=0}^\infty a_n\cos\left(n\omega t\right)+b_n\sin\left(n\omega t\right), $$ gdzie $\omega=2\pi/\tau$. Wiadomo, że dowolna liniowa kombinacja sinusa i cosinusa to cosinus z przesunięciem fazowym, zatem $$ f(t)=\sum_{n=0}^\infty c_n\cos\left(n\omega t+\phi_n\right). $$ Wygodniej jest operować na funkcji wykładniczej niż trygonometrycznej. Ponieważ $\cos x=(e^{ix}+e^{-ix})/2$, $$ c_n\cos\left(n\omega t+\phi_n\right)=\frac{c_n}{2}\left(e^{i(n\omega_0 t+\phi_n)}+e^{-i(n\omega_0 t+\phi_n)}\right)=a_n e^{\phi_n}e^{in\omega_0 t}+a_{-n}e^{\phi_{-n}}e^{-in\omega_0 t}=\hat{a}_n e^{in\omega_0 t}+\hat{a}_{-n}e^{-in\omega_0 t} $$ gdzie $a_n$ i $a_{-n}$ to pewne współczynniki. To pozwala nam zapisać $$ \boxed{f(t)=\sum_{n=-\infty}^\infty \hat{a}_n e^{i n\omega t},} $$ gdzie $n$ zaczyna się w $-\infty$, ponieważ musimy wziąć pod uwagę oba wyrazy. Chcemy wyznaczyć współczynniki $\hat{a}_n$. W tym celu pomnóżmy obie strony powyższej równości przez $e^{-i m\omega t}$, gdzie $m$ to liczba całkowita: $$ f(t)e^{-i m\omega t}=\sum_{n=-\infty}^\infty \hat{a}_n e^{i n\omega t}e^{-i m\omega t}=\sum_{n=-\infty}^\infty \hat{a}_n e^{i (n-m)\omega t} $$ Pocałkujmy teraz obustronnie po czasie na przedziale $[0, \tau]$: $$ \int_0^\tau f(t)e^{-i m\omega t}\,dt=\sum_{n=0}^\infty\int_0^\tau\hat{a}_n e^{i (n-m)\omega t}\,dt. $$ Zajmijmy się całką wewnątrz sumy. Gdy $n=m$, całka ta wynosi $\hat{a}_n\tau$, a w przeciwnym wypadku $$ \int_0^\tau\hat{a}_n e^{i (n-m)\omega t}\,dt=\hat{a}_n\left[\frac{1}{i\omega(n-m)}e^{i (n-m)\omega t}\right]_0^\tau=\frac{\hat{a}_n}{i\omega(n-m)}\left[e^{i(n-m)\cdot 2\pi}-1\right],$$ gdzie skorzystałem z faktu, że $\omega\tau=2\pi$ oraz $e^0=1$. Zauważmy, że $2\pi(n-m)$ będzie zawsze całkowitą wielokrotnością $2\pi$, przez co $e^{i(n-m)\cdot 2\pi}=1$. Z tego powodu całka ta wynosić będzie 0. Ponieważ stwierdziliśmy, że wyrażenie pod sumą zeruje się dla $n\neq m$, pozostaje nam tylko $n=m$: $$ \int_0^\tau f(t)e^{-i n\omega t}\,dt=\tau\hat{a}_n, $$ a stąd $$ \boxed{\hat{a}_n=\frac{1}{\tau}\int_0^\tau f(t)e^{-i n\omega t}\,dt.} $$ $\hat{a}_n$ są nazywane współczynnikami Fouriera.]]></summary></entry><entry><title type="html">fraktale-obrazy: Program umożliwiąjący generowanie fraktali</title><link href="http://localhost:4000/programowanie/fraktale-obrazy-program-umo%C5%BCliwiaj%C4%85cy-generowanie-fraktali" rel="alternate" type="text/html" title="fraktale-obrazy: Program umożliwiąjący generowanie fraktali" /><published>2025-07-31T00:00:00+02:00</published><updated>2025-07-31T00:00:00+02:00</updated><id>http://localhost:4000/programowanie/fraktale-obrazy-program-umo%C5%BCliwiaj%C4%85cy-generowanie-fraktali</id><content type="html" xml:base="http://localhost:4000/programowanie/fraktale-obrazy-program-umo%C5%BCliwiaj%C4%85cy-generowanie-fraktali"><![CDATA[<p align="center">
 <img src="/assets/images/2025-07-31/readme_image.jpg" width="700" />
 <br />
@@ -170,45 +272,45 @@ $$ \frac{\partial\mathcal{L}}{\partial q_i}-\frac{d}{dt}\frac{\partial\mathcal{L
 dla których lagranżjan jest dany wzorem
 $$ \mathcal{L}=T-U, $$
 gdzie $U$ jest energią potencjalną wszystkich sił (przy założeniu, że da się je zapisać jako jej gradient) <strong>oprócz sił reakcji</strong>. Innymi słowy
-$$ \vec{F}_{cał.}=\vec{F}+\vec{F}_R=-\nabla U+\vec{F}_R, $$
-gdzie $\vec{F}_R$ to siła reakcji, a $\vec{F}_{cał.}$ to siła całkowita działająca na cząstkę.</p>
+$$ \mathbf{F}_{cał.}=\mathbf{F}+\mathbf{F}_R=-\nabla U+\mathbf{F}_R, $$
+gdzie $\mathbf{F}_R$ to siła reakcji, a $\mathbf{F}_{cał.}$ to siła całkowita działająca na cząstkę.</p>
 
 <p>Chcielibyśmy udowodnić, że to sformułowanie jest równoważne sformułowaniu newtonowskiemu.</p>
 
 <h3 id="dowód">Dowód</h3>
-<p>Rozważmy ruch cząstki w czasie od $t_1$ do $t_2$ po torze $\vec{r}$.
+<p>Rozważmy ruch cząstki w czasie od $t_1$ do $t_2$ po torze $\mathbf{r}$.
 Powyższe twierdzenie jest równoważne temu, że wariacja działania wynosi 0:
-$$ \delta S=\delta \int_{t_1}^{t_2}\mathcal{L}(\vec{r}, \dot{\vec{r}}, t)\,dt =0$$
-Rozważmy zatem tor $\vec{R}=\vec{r}+\vec{\varepsilon}$, gdzie $\vec{\varepsilon}$ wynosi $\vec{0}$ dla $t_1$ i $t_2$ oraz nie wychodzi poza powierzchnię ruchu cząstki (cząstka dalej pozostaje ograniczona). Zostało to zilustrowane na poniższym rysunku, gdzie kolorem białym została oznaczona prawdziwa trajektoria cząstki, a niebieskim $\vec{R}$. Ruch cząstki jest ograniczony do zielonej płaszczyzny.</p>
+$$ \delta S=\delta \int_{t_1}^{t_2}\mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)\,dt =0$$
+Rozważmy zatem tor $\mathbf{R}=\mathbf{r}+\boldsymbol{\varepsilon}$, gdzie $\boldsymbol{\varepsilon}$ wynosi $\mathbf{0}$ dla $t_1$ i $t_2$ oraz nie wychodzi poza powierzchnię ruchu cząstki (cząstka dalej pozostaje ograniczona). Zostało to zilustrowane na poniższym rysunku, gdzie kolorem białym została oznaczona prawdziwa trajektoria cząstki, a niebieskim $\mathbf{R}$. Ruch cząstki jest ograniczony do zielonej płaszczyzny.</p>
 
 <p align="center">
 <img src="/assets/images/2025-07-25/wykres_powierzchnia.svg" width="500" />
 </p>
 
 <p>Wariacja działania to wtedy
-$$ \delta S=\int_{t_1}^{t_2}\left[\mathcal{L}(\vec{R}, \dot{\vec{R}}, t)-\mathcal{L}(\vec{r}, \dot{\vec{r}}, t)\right]\,dt$$
+$$ \delta S=\int_{t_1}^{t_2}\left[\mathcal{L}(\mathbf{R}, \dot{\mathbf{R}}, t)-\mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)\right]\,dt$$
 Obliczmy różnicę znajdującą się pod całką:
-$$ \mathcal{L}(\vec{R}, \dot{\vec{R}}, t)-\mathcal{L}(\vec{r}, \dot{\vec{r}}, t)=T(\vec{R}, \dot{\vec{R}}, t)-U(\vec{R}, t)-T(\vec{r}, \dot{\vec{r}}, t)+U(\vec{r}, t)$$
+$$ \mathcal{L}(\mathbf{R}, \dot{\mathbf{R}}, t)-\mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)=T(\dot{\mathbf{R}})-U(\mathbf{R}, t)-T( \dot{\mathbf{r}})+U(\mathbf{r}, t)$$
 Wyznaczmy poszczególne wyrazy:
-$$ T(\vec{R}, \dot{\vec{R}}, t)=\frac{1}{2}m\dot{R}^2=\frac{1}{2}m\left(\dot{\vec{r}}+\dot{\vec{\varepsilon}}\right)^2=\frac{1}{2}m\left(\dot{r}^2+2\dot{\vec{r}}\cdot\dot{\vec{\varepsilon}}+\dot{\varepsilon}^2\right)$$
-$$ T(\vec{R}, \dot{\vec{R}}, t)-T(\vec{r}, \dot{\vec{r}}, t)=\frac{1}{2}m\left(\dot{r}^2+2\dot{\vec{r}}\cdot\dot{\vec{\varepsilon}}+\dot{\varepsilon}^2\right)-\frac{1}{2}m\dot{r}^2=m\dot{\vec{r}}\cdot\dot{\vec{\varepsilon}}+\frac{1}{2}m\dot{\varepsilon}^2$$
+$$ T(\dot{\mathbf{R}})=\frac{1}{2}m\dot{R}^2=\frac{1}{2}m\left(\dot{\mathbf{r}}+\dot{\boldsymbol{\varepsilon}}\right)^2=\frac{1}{2}m\left(\dot{r}^2+2\dot{\mathbf{r}}\cdot\dot{\boldsymbol{\varepsilon}}+\dot{\varepsilon}^2\right)$$
+$$ T(\dot{\mathbf{R}})-T( \dot{\mathbf{r}})=\frac{1}{2}m\left(\dot{r}^2+2\dot{\mathbf{r}}\cdot\dot{\boldsymbol{\varepsilon}}+\dot{\varepsilon}^2\right)-\frac{1}{2}m\dot{r}^2=m\dot{\mathbf{r}}\cdot\dot{\boldsymbol{\varepsilon}}+\frac{1}{2}m\dot{\varepsilon}^2$$
 Ponieważ $\varepsilon$ oraz $\dot{\varepsilon}$ są małe
-$$ T(\vec{R}, \dot{\vec{R}}, t)-T(\vec{r}, \dot{\vec{r}}, t)\approx m\dot{\vec{r}}\cdot\dot{\vec{\varepsilon}}.$$
+$$ T(\dot{\mathbf{R}})-T(\dot{\mathbf{r}})\approx m\dot{\mathbf{r}}\cdot\dot{\boldsymbol{\varepsilon}}.$$
 Obliczmy teraz różnicę 
-$$ -U(\vec{R}, t)+U(\vec{r}, t)=-\left[ U(\vec{r}+\vec{\varepsilon}, t)-U(\vec{r}, t) \right]\approx-\left[ U(\vec{r}, t)+\vec{\varepsilon}\cdot\nabla U(\vec{r}, t)-U(\vec{r}, t)\right]=-\vec{\varepsilon}\cdot\nabla U(\vec{r}, t)$$
+$$ -U(\mathbf{R}, t)+U(\mathbf{r}, t)=-\left[ U(\mathbf{r}+\boldsymbol{\varepsilon}, t)-U(\mathbf{r}, t) \right]\approx-\left[ U(\mathbf{r}, t)+\boldsymbol{\varepsilon}\cdot\nabla U(\mathbf{r}, t)-U(\mathbf{r}, t)\right]=-\boldsymbol{\varepsilon}\cdot\nabla U(\mathbf{r}, t)$$
 Wracając, mamy
-$$ \mathcal{L}(\vec{R}, \dot{\vec{R}}, t)-\mathcal{L}(\vec{r}, \dot{\vec{r}}, t)\approx m\dot{\vec{r}}\cdot\dot{\vec{\varepsilon}}-\vec{\varepsilon}\cdot\nabla U(\vec{r}, t)$$
+$$ \mathcal{L}(\mathbf{R}, \dot{\mathbf{R}}, t)-\mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)\approx m\dot{\mathbf{r}}\cdot\dot{\boldsymbol{\varepsilon}}-\boldsymbol{\varepsilon}\cdot\nabla U(\mathbf{r}, t)$$
 Wstawmy to do całki:
-$$ \delta S=\int_{t_1}^{t_2}\left[ m\dot{\vec{r}}\cdot\dot{\vec{\varepsilon}}-\vec{\varepsilon}\cdot\nabla U(\vec{r}, t) \right]\,dt $$
-Aby pozbyć się $\dot{\vec{\varepsilon}}$, pocałkujmy pierwszy wyraz przez części:
-$$ \int_{t_1}^{t_2} m\dot{\vec{r}}\cdot\dot{\vec{\varepsilon}} \,dt =\underbrace{\left[m\dot{\vec{r}}\cdot\vec{\varepsilon} \right]_{t_1}^{t_2}}_{=0} -\int_{t_1}^{t_2} m\ddot{\vec{r}}\cdot\vec{\varepsilon}\,dt, $$
+$$ \delta S=\int_{t_1}^{t_2}\left[ m\dot{\mathbf{r}}\cdot\dot{\boldsymbol{\varepsilon}}-\boldsymbol{\varepsilon}\cdot\nabla U(\mathbf{r}, t) \right]\,dt $$
+Aby pozbyć się $\dot{\boldsymbol{\varepsilon}}$, pocałkujmy pierwszy wyraz przez części:
+$$ \int_{t_1}^{t_2} m\dot{\mathbf{r}}\cdot\dot{\boldsymbol{\varepsilon}} \,dt =\underbrace{\left[m\dot{\mathbf{r}}\cdot\boldsymbol{\varepsilon} \right]_{t_1}^{t_2}}_{=0} -\int_{t_1}^{t_2} m\ddot{\mathbf{r}}\cdot\boldsymbol{\varepsilon}\,dt, $$
 co daje nam 
-$$ \delta S=\int_{t_1}^{t_2}\vec{\varepsilon}\cdot\left[-m\ddot{\vec{r}} -\nabla U(\vec{r}, t) \right]\,dt. $$
-Zauważmy teraz, że $m\ddot{\vec{r}}=\vec{F}_{cał.}$ oraz $-\nabla U(\vec{r}, t)=\vec{F}$:
-$$ \delta S=\int_{t_1}^{t_2}\vec{\varepsilon}\cdot\left[-\vec{F}_{cał.}+\vec{F}\right]\,dt$$
-Wiemy, że $-\vec{F}_{cał.}+\vec{F}=-\vec{F}-\vec{F}_R+\vec{F}=-\vec{F}_R$, zatem
-$$ \delta S =-\int_{t_1}^{t_2}\vec{\varepsilon}\cdot\vec{F}_R\,dt. $$
-Jak wspomnieliśmy wcześniej, siły reakcji są <strong>zawsze prostopadłe</strong> do powierzchni ruchu cząstki, a $\vec{\varepsilon}$ wybraliśmy takie, aby w tej powierzchni leżało. Oznacza to, że $\vec{\varepsilon}\cdot\vec{F}_R=0$, a co za tym idzie
+$$ \delta S=\int_{t_1}^{t_2}\boldsymbol{\varepsilon}\cdot\left[-m\ddot{\mathbf{r}} -\nabla U(\mathbf{r}, t) \right]\,dt. $$
+Zauważmy teraz, że $m\ddot{\mathbf{r}}=\mathbf{F}_{cał.}$ oraz $-\nabla U(\mathbf{r}, t)=\mathbf{F}$:
+$$ \delta S=\int_{t_1}^{t_2}\boldsymbol{\varepsilon}\cdot\left[-\mathbf{F}_{cał.}+\mathbf{F}\right]\,dt$$
+Wiemy, że $-\mathbf{F}_{cał.}+\mathbf{F}=-\mathbf{F}-\mathbf{F}_R+\mathbf{F}=-\mathbf{F}_R$, zatem
+$$ \delta S =-\int_{t_1}^{t_2}\boldsymbol{\varepsilon}\cdot\mathbf{F}_R\,dt. $$
+Jak wspomnieliśmy wcześniej, siły reakcji są <strong>zawsze prostopadłe</strong> do powierzchni ruchu cząstki, a $\boldsymbol{\varepsilon}$ wybraliśmy takie, aby w tej powierzchni leżało. Oznacza to, że $\boldsymbol{\varepsilon}\cdot\mathbf{F}_R=0$, a co za tym idzie
 $$ \delta S = 0, $$
 co kończy dowód.</p>
 
@@ -240,14 +342,14 @@ $$ m\ddot{x}=-mg\sin\theta. $$</p>
 $$ \mathcal{L}=\frac{1}{2}ml^2\dot{\theta}^2+mgl\cos{\theta}, $$
 a wynikające z niego równanie ruchu to
 $$ ml^2\ddot{\theta}+mgl\sin{\theta}=0. $$</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Układ nieswobodny Do tej pory opisywalśmy ruch cząstki przy założeniu, że jej ruch jest swobodny. Teraz zajmiemy się przypadkiem, gdy jej ruch jest ograniczony więzami.]]></summary></entry><entry><title type="html">Mechanika Lagrange’a, część 2: Zasada Hamiltona</title><link href="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-2-zasada-hamiltona" rel="alternate" type="text/html" title="Mechanika Lagrange’a, część 2: Zasada Hamiltona" /><published>2025-07-22T00:00:00+02:00</published><updated>2025-07-22T00:00:00+02:00</updated><id>http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-2-zasada-hamiltona</id><content type="html" xml:base="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-2-zasada-hamiltona"><![CDATA[<h2 id="zasada-hamiltona">Zasada Hamiltona</h2>
-<p>Rozważmy swobodną cząstkę poruszającą się między punktami $1$ i $2$ w czasie od $t_1$ do $t_2$. Droga $\vec{r}(t)$, którą wybiera cząstka jest taka, że całka działania
-$$ S=\int_{t_1}^{t_2}\mathcal{L}(\vec{r}, \dot{\vec{r}}, t)\,dt $$
+<p>Rozważmy swobodną cząstkę poruszającą się między punktami $1$ i $2$ w czasie od $t_1$ do $t_2$. Droga $\mathbf{r}(t)$, którą wybiera cząstka jest taka, że całka działania
+$$ S=\int_{t_1}^{t_2}\mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)\,dt $$
 jest minimalna (stacjonarna). $\mathcal{L}$ to <strong>lagranżjan</strong> układu zdefiniowany jako
-$$ \mathcal{L}(\vec{r}, \dot{\vec{r}}, t)=T-U, $$
+$$ \mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)=T-U, $$
 gdzie $T$ to energia kinetyczna cząstki, a $U$ to jej energia potencjalna.</p>
 
 <h3 id="przykład---cząstka-swobodna-w-przestrzeni-3-wymiarowej">Przykład - cząstka swobodna w przestrzeni 3-wymiarowej</h3>
-<p>Rozważmy cząstkę o położeniu $\vec{r}=(x,y,z)$ oraz prędkości $\dot{\vec{r}}=(\dot{x}, \dot{y}, \dot{z})$. Jej energia potencjalna w danej chwili to $U=mgz$, a energia kinetyczna to $T=\frac{1}{2}m\left( \dot{x}^2+\dot{y}^2+\dot{z}^2 \right)$. Wyznaczmy jej równania ruchu.</p>
+<p>Rozważmy cząstkę o położeniu $\mathbf{r}=(x,y,z)$ oraz prędkości $\dot{\mathbf{r}}=(\dot{x}, \dot{y}, \dot{z})$. Jej energia potencjalna w danej chwili to $U=mgz$, a energia kinetyczna to $T=\frac{1}{2}m\left( \dot{x}^2+\dot{y}^2+\dot{z}^2 \right)$. Wyznaczmy jej równania ruchu.</p>
 
 <p>Funkcja Lagrange’a (lagranżjan) dla tej cząstki to
 $$ \mathcal{L}=\frac{1}{2}m\left( \dot{x}^2+\dot{y}^2+\dot{z}^2 \right)-mgz $$
@@ -298,7 +400,7 @@ gdzie $L$ to moment pędu cząstki. Ponownie otrzymujemy dobrze znane równania
 $$ F_r =\frac{d}{dt}p_r$$
 $$ \Gamma = \frac{d}{dt} L. $$</p>
 
-<p>Poprzednie 2 przykłady pokazały nam, że wielkości $\partial\mathcal{L}/\partial q_i$ oraz $\partial\mathcal{L}/\partial \dot{q}_i$, gdzie $q_i$ to pewna <strong>współrzędna uogólniona</strong> (np. $x$, $r$, $\theta$, $\varphi$) pełnią role kolejno siły oraz pędu. Dlatego są one nazywane <strong>siłą uogólnioną</strong> oraz <strong>pędem uogólnionym</strong>.</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Zasada Hamiltona Rozważmy swobodną cząstkę poruszającą się między punktami $1$ i $2$ w czasie od $t_1$ do $t_2$. Droga $\vec{r}(t)$, którą wybiera cząstka jest taka, że całka działania $$ S=\int_{t_1}^{t_2}\mathcal{L}(\vec{r}, \dot{\vec{r}}, t)\,dt $$ jest minimalna (stacjonarna). $\mathcal{L}$ to lagranżjan układu zdefiniowany jako $$ \mathcal{L}(\vec{r}, \dot{\vec{r}}, t)=T-U, $$ gdzie $T$ to energia kinetyczna cząstki, a $U$ to jej energia potencjalna.]]></summary></entry><entry><title type="html">Mechanika Lagrange’a, część 1: Równanie Eulera-Lagrange’a</title><link href="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea" rel="alternate" type="text/html" title="Mechanika Lagrange’a, część 1: Równanie Eulera-Lagrange’a" /><published>2025-07-21T00:00:00+02:00</published><updated>2025-07-21T00:00:00+02:00</updated><id>http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea</id><content type="html" xml:base="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea"><![CDATA[<h2 id="motywacja">Motywacja</h2>
+<p>Poprzednie 2 przykłady pokazały nam, że wielkości $\partial\mathcal{L}/\partial q_i$ oraz $\partial\mathcal{L}/\partial \dot{q}_i$, gdzie $q_i$ to pewna <strong>współrzędna uogólniona</strong> (np. $x$, $r$, $\theta$, $\varphi$) pełnią role kolejno siły oraz pędu. Dlatego są one nazywane <strong>siłą uogólnioną</strong> oraz <strong>pędem uogólnionym</strong>.</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Zasada Hamiltona Rozważmy swobodną cząstkę poruszającą się między punktami $1$ i $2$ w czasie od $t_1$ do $t_2$. Droga $\mathbf{r}(t)$, którą wybiera cząstka jest taka, że całka działania $$ S=\int_{t_1}^{t_2}\mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)\,dt $$ jest minimalna (stacjonarna). $\mathcal{L}$ to lagranżjan układu zdefiniowany jako $$ \mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)=T-U, $$ gdzie $T$ to energia kinetyczna cząstki, a $U$ to jej energia potencjalna.]]></summary></entry><entry><title type="html">Mechanika Lagrange’a, część 1: Równanie Eulera-Lagrange’a</title><link href="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea" rel="alternate" type="text/html" title="Mechanika Lagrange’a, część 1: Równanie Eulera-Lagrange’a" /><published>2025-07-21T00:00:00+02:00</published><updated>2025-07-21T00:00:00+02:00</updated><id>http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea</id><content type="html" xml:base="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea"><![CDATA[<h2 id="motywacja">Motywacja</h2>
 <p>Rozważmy następujący problem: błonę mydlaną rozpięliśmy między dwoma współosiowymi pierścieniami o promieniach $r_1$ i $r_2$. Wiadomo, że bańka mydlana przyjmuje zawsze taki kształt, aby jej pole powierzchni było jak najmniejsze - ten kształt chcemy znaleźć.</p>
 
 <p>Bańkę mydlaną możemy traktować jak bryłę obrotową opisaną funkcją $f(x)$, przy czym $f(x_1)=r_1$ oraz $f(x_2)=r_2$.</p>
@@ -334,7 +436,7 @@ Zauważmy, że ponieważ $\eta(x_1)=\eta(x_2)=0$, pierwszy wyraz z prawej strony
 $$ \frac{\partial S}{\partial\alpha}=0=\int_{x_1}^{x_2}\eta(x)\left[ \frac{\partial f}{\partial Y}-\frac{d}{dx}\frac{\partial f}{\partial Y’} \right]\,dx$$
 Skoro $\eta(x)$ to dowolna funkcja, wybierzmy $\eta(x)$ takie, że wyrażenie podcałkowe jest zawsze nieujemne. Skoro całka z nieujemnego wyrażenia jest równa $0$, to wyrażenie podcałkowe wynosi 0. Ponieważ $\eta(x)\neq 0$, 
 $$ \frac{\partial f}{\partial y}-\frac{d}{dx}\frac{\partial f}{\partial y’} =0,$$
-gdzie $Y$ zamieniłem na $y$, ponieważ jeżeli $Y$ spełnia powyższe równanie, jest ono ,,optymalną’’ funkcją. Jest to równanie Eulera-Lagrange’a.</p>
+gdzie $Y$ zamieniłem na $y$, ponieważ jeżeli $Y$ spełnia powyższe równanie, jest ono ,,optymalną’’ funkcją. Jest to <strong>równanie Eulera-Lagrange’a</strong>.</p>
 
 <h2 id="problem-błony-mydlanej">Problem błony mydlanej</h2>
 <p>Powróćmy do wcześniejszego problemu. Doszliśmy do wniosku, że należy znaleźć funkcję $f(x)$, która minimalizuje całkę
@@ -355,7 +457,7 @@ $$  \frac{dF}{dx}-\frac{d}{dx}\left[f’\frac{\partial F}{\partial f’}\right]=
 $$ \frac{d}{dx}\left[F-f’\frac{\partial F}{\partial f’}\right]=0 $$
 $$ F-f’\frac{\partial F}{\partial f’}=const. $$</p>
 
-<p>Ten rezultat możemy uogólnić. Jeśli $f(y(x), y’(x))$ nie zależy jawnie od $x$, to równanie Eulera-Lagrange’a sprowadza się do całki pierwszej:
+<p>Ten rezultat możemy uogólnić. Jeśli $f(y(x), y’(x))$ nie zależy jawnie od $x$, to równanie Eulera-Lagrange’a sprowadza się do <strong>całki pierwszej</strong>:
 $$ f-y’\frac{\partial f}{\partial y’}=const. $$</p>
 
 <p>Wracając do problemu bańki mydlanej, mamy
@@ -373,7 +475,7 @@ $$ f(x)=\frac{1}{C_1} \cosh (C_1 x+C_2), $$
 gdzie $C_1$ i $C_2$ to pewne stałe.</p>
 
 <h2 id="przypadek-wielu-zmiennych">Przypadek wielu zmiennych</h2>
-<p>W przypadku, gdy $f=f(y_1, y_1’, y_2, y_2’, x)$, zapisujemy 2 równania Eulera-Lagrange’a, oddzielnie dla każdej zmiennej.
+<p>W przypadku, gdy $f=f(y_1, y_1’, y_2, y_2’, x)$, zapisujemy <strong>2 równania Eulera-Lagrange’a</strong>, oddzielnie dla każdej zmiennej.
 Jest tak, ponieważ jeśli rozważymy 2 funkcje 
 $$ Y_1=y_1+\alpha\eta_1 $$
 oraz

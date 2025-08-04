@@ -42,7 +42,7 @@ Zauważmy, że ponieważ $\eta(x_1)=\eta(x_2)=0$, pierwszy wyraz z prawej strony
 \$$ \frac{\partial S}{\partial\alpha}=0=\int_{x_1}^{x_2}\eta(x)\left[ \frac{\partial f}{\partial Y}-\frac{d}{dx}\frac{\partial f}{\partial Y'} \right]\,dx\$$
 Skoro $\eta(x)$ to dowolna funkcja, wybierzmy $\eta(x)$ takie, że wyrażenie podcałkowe jest zawsze nieujemne. Skoro całka z nieujemnego wyrażenia jest równa $0$, to wyrażenie podcałkowe wynosi 0. Ponieważ $\eta(x)\neq 0$, 
 \$$ \frac{\partial f}{\partial y}-\frac{d}{dx}\frac{\partial f}{\partial y'} =0,\$$
-gdzie $Y$ zamieniłem na $y$, ponieważ jeżeli $Y$ spełnia powyższe równanie, jest ono ,,optymalną'' funkcją. Jest to równanie Eulera-Lagrange'a.
+gdzie $Y$ zamieniłem na $y$, ponieważ jeżeli $Y$ spełnia powyższe równanie, jest ono ,,optymalną'' funkcją. Jest to __równanie Eulera-Lagrange'a__.
 
 ## Problem błony mydlanej
 Powróćmy do wcześniejszego problemu. Doszliśmy do wniosku, że należy znaleźć funkcję $f(x)$, która minimalizuje całkę
@@ -63,7 +63,7 @@ czyli
 \$$ \frac{d}{dx}\left[F-f'\frac{\partial F}{\partial f'}\right]=0 \$$
 \$$ F-f'\frac{\partial F}{\partial f'}=const. \$$
 
-Ten rezultat możemy uogólnić. Jeśli $f(y(x), y'(x))$ nie zależy jawnie od $x$, to równanie Eulera-Lagrange'a sprowadza się do całki pierwszej:
+Ten rezultat możemy uogólnić. Jeśli $f(y(x), y'(x))$ nie zależy jawnie od $x$, to równanie Eulera-Lagrange'a sprowadza się do __całki pierwszej__:
 \$$ f-y'\frac{\partial f}{\partial y'}=const. \$$
 
 Wracając do problemu bańki mydlanej, mamy
@@ -81,7 +81,7 @@ Całka po prawej stronie sprowadza się do $\frac{1}{C}\cosh^{-1}\left(Cf\right)
 gdzie $C_1$ i $C_2$ to pewne stałe.
 
 ## Przypadek wielu zmiennych
-W przypadku, gdy $f=f(y_1, y_1', y_2, y_2', x)$, zapisujemy 2 równania Eulera-Lagrange'a, oddzielnie dla każdej zmiennej.
+W przypadku, gdy $f=f(y_1, y_1', y_2, y_2', x)$, zapisujemy __2 równania Eulera-Lagrange'a__, oddzielnie dla każdej zmiennej.
 Jest tak, ponieważ jeśli rozważymy 2 funkcje 
 \$$ Y_1=y_1+\alpha\eta_1 \$$
 oraz

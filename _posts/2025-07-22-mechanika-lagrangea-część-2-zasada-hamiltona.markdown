@@ -7,14 +7,14 @@ katex: true
 ---
 
 ## Zasada Hamiltona 
-Rozważmy swobodną cząstkę poruszającą się między punktami $1$ i $2$ w czasie od $t_1$ do $t_2$. Droga $\vec{r}(t)$, którą wybiera cząstka jest taka, że całka działania
-\$$ S=\int_{t_1}^{t_2}\mathcal{L}(\vec{r}, \dot{\vec{r}}, t)\,dt \$$
+Rozważmy swobodną cząstkę poruszającą się między punktami $1$ i $2$ w czasie od $t_1$ do $t_2$. Droga $\mathbf{r}(t)$, którą wybiera cząstka jest taka, że całka działania
+\$$ S=\int_{t_1}^{t_2}\mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)\,dt \$$
 jest minimalna (stacjonarna). $\mathcal{L}$ to **lagranżjan** układu zdefiniowany jako
-\$$ \mathcal{L}(\vec{r}, \dot{\vec{r}}, t)=T-U, \$$
+\$$ \mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)=T-U, \$$
 gdzie $T$ to energia kinetyczna cząstki, a $U$ to jej energia potencjalna.
 
 ### Przykład - cząstka swobodna w przestrzeni 3-wymiarowej
-Rozważmy cząstkę o położeniu $\vec{r}=(x,y,z)$ oraz prędkości $\dot{\vec{r}}=(\dot{x}, \dot{y}, \dot{z})$. Jej energia potencjalna w danej chwili to $U=mgz$, a energia kinetyczna to $T=\frac{1}{2}m\left( \dot{x}^2+\dot{y}^2+\dot{z}^2 \right)$. Wyznaczmy jej równania ruchu.
+Rozważmy cząstkę o położeniu $\mathbf{r}=(x,y,z)$ oraz prędkości $\dot{\mathbf{r}}=(\dot{x}, \dot{y}, \dot{z})$. Jej energia potencjalna w danej chwili to $U=mgz$, a energia kinetyczna to $T=\frac{1}{2}m\left( \dot{x}^2+\dot{y}^2+\dot{z}^2 \right)$. Wyznaczmy jej równania ruchu.
 
 Funkcja Lagrange'a (lagranżjan) dla tej cząstki to
 \$$ \mathcal{L}=\frac{1}{2}m\left( \dot{x}^2+\dot{y}^2+\dot{z}^2 \right)-mgz \$$
