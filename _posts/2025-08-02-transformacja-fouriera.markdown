@@ -57,8 +57,9 @@ Wykres funkcji oraz pierwszych 3 i 10 wyrazów szeregu został umieszczony na po
 Nie tylko funkcje okresowe można zapisać za pomocą sinusów i cosinusów. Dla funkcji, które nie są okresowe możemy przyjąć $\tau\to\infty$ oraz $2\pi/\tau\to d\omega$. Wtedy również $\hat{a}\_n\to \hat{a}(\omega)\,d\omega$. W granicy suma przechodzi w całkę i otrzymujemy
 \$$ \boxed{f(t) = \int_{-\infty}^\infty \hat{a}(\omega)e^{i\omega t}\,d\omega} \$$
 oraz 
-\$$ \hat{a}(\omega)\,d\omega = \frac{d\omega}{2\pi}\int_0^\infty f(t)e^{-i\omega t}\,dt \$$
-\$$ \boxed{\hat{a}(\omega) = \frac{1}{2\pi}\int_0^\infty f(t)e^{-i\omega t}\,dt}. \$$
+\$$ \hat{a}(\omega)\,d\omega = \frac{d\omega}{2\pi}\int_{-\infty}^\infty f(t)e^{-i\omega t}\,dt \$$
+\$$ \boxed{\hat{a}(\omega) = \frac{1}{2\pi}\int_{-\infty}^\infty f(t)e^{-i\omega t}\,dt}, \$$
+gdzie w drugiej całce granice całkowania zmieniłem na całą funkcję.
 Drugi wzór nosi nazwę __transformacji Fouriera__, a pierwszy __odwrotnej transformacji Fouriera__.
 
 ### Przykład
