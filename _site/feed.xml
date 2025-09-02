@@ -1,4 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-08-15T18:39:11+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Mechanika Lagrange’a, część 4: Zasady zachowania</title><link href="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-4-zasady-zachowania" rel="alternate" type="text/html" title="Mechanika Lagrange’a, część 4: Zasady zachowania" /><published>2025-08-04T00:00:00+02:00</published><updated>2025-08-04T00:00:00+02:00</updated><id>http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-4-zasady-zachowania</id><content type="html" xml:base="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-4-zasady-zachowania"><![CDATA[<h2 id="uogólnienie-na-układ-wielu-cząstek">Uogólnienie na układ wielu cząstek</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-09-02T20:11:30+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Rozkład Maxwella</title><link href="http://localhost:4000/termodynamika/rozk%C5%82ad-maxwella" rel="alternate" type="text/html" title="Rozkład Maxwella" /><published>2025-09-02T00:00:00+02:00</published><updated>2025-09-02T00:00:00+02:00</updated><id>http://localhost:4000/termodynamika/rozk%C5%82ad-maxwella</id><content type="html" xml:base="http://localhost:4000/termodynamika/rozk%C5%82ad-maxwella"><![CDATA[<h2 id="wzór-barometryczny">Wzór barometryczny</h2>
+
+<p align="center">
+<img src="/assets/images/2025-09-02/cisnienie.svg" width="500" />
+</p>
+
+<p>Rozważmy gaz doskonały znajdujący się w jednorodnym polu grawitacyjnym o natężeniu $g$. Gaz ma stałą temperaturę $T$.  Rozważmy ciśnienie $p$ w punkcie na wysokości $h$ względem pewnego poziomu odniesienia, na którym $h=0$ oraz $p=p_0$ (np. powierzchni ziemi). W punkcie znajdującym się niżej o $dh$ ciśnienie będzie wynosić:
+$$ p(h-dh)=p(h)+p_{gazu}, $$
+gdzie $p_{gazu}$ to ciśnienie wynikające z masy gazu znajdującego się między wysokościami $h$ a $h-dh$. 
+Z definicji ciśnienia mamy
+$$ p_{gazu}=\frac{dF}{dS}=g\frac{dm}{dS}, $$
+gdzie $dS$ to powierzchnia, na którą napiera element gazu o masie $dm$. Skorzystałem z faktu, że ciężar gazu wyraża się wzorem $g\,dm$. Wstawmy ten wynik do wcześniejszego równania:
+$$ p(h-dh)=p(h)+g\frac{dm}{dS}. $$
+Ponieważ $dp=p(h)-p(h-dh)$, możemy zapisać 
+$$ dp=-g\frac{dm}{dS}. $$
+Zauważmy, że $dm$ możemy wyrazić jako $\rho dV$, gdzie $\rho$ to gęstość elementu gazu:
+$$ dp=-g\rho\frac{dV}{dS}. $$
+Ponieważ $dV=dS\,dh$, 
+$$ dp=-g\rho\,dh $$</p>
+
+<p>Chcielibyśmy wyrazić $\rho$ poprzez $p$. Aby to uczynić, posłużymy się równaniem stanu gazu idealnego:
+$$ pV=nRT $$
+lub przekształcając
+$$ p=\frac{nRT}{V}. $$
+Liczbę moli możemy wyrazić poprzez gęstość, korzystając z faktu, że $n=m/\mu$ (gdzie $\mu$ to masa molowa gazu) oraz $m=\rho V$:
+$$ n=\rho V/\mu. $$
+Wstawmy to do wcześniejszego równania:
+$$ p=\frac{\rho RT}{\mu} $$
+i przekształćmy
+$$ \rho=\frac{p\mu}{RT}. $$</p>
+
+<p>Możemy powrócić do równania na $dp$:
+$$ dp=-\frac{g\mu}{RT}p\,dh $$
+$$ \frac{dp}{p}=-\frac{g\mu}{RT}\,dh. $$
+Pocałkujmy obustronnie:
+$$ \int \frac{dp}{p}=\int -\frac{g\mu}{RT}\,dh $$
+$$ \ln p=-\frac{g\mu}{RT}h+C $$
+i przekształćmy aby otrzymać wyrażenie na $p$:
+$$ p=\exp\left(-\frac{g\mu}{RT}h+C\right)=C\exp\left(-\frac{g\mu}{RT}h\right). $$
+Chcemy, aby $p=p_0$, gdy $h=0$, dlatego $C=p_0$. W ten sposób otrzymujemy <strong>wzór barometryczny</strong>:
+$$ \boxed{p=p_0\exp\left(-\frac{g\mu}{RT}h\right)} $$</p>
+
+<p>Teraz za pomocą wzoru barometrycznego wyrazimy gęstość gazu jako funkcję wysokości. Z poprzednich rozważań wiemy, że
+$$ \rho=\frac{p\mu}{RT}, $$
+czyli 
+$$ p=\rho\frac{RT}{\mu}. $$
+Jeśli ograniczymy się do jednej cząstki o masie $m$, możemy zapisać 
+$$ RT=\frac{nRT}{n}=\frac{NkT}{n}=\frac{kT}{n}, $$
+ponieważ $N=1$. Wstawmy to do wzoru barometrycznego:
+$$ \rho\frac{RT}{\mu}=\rho_0\frac{RT}{\mu}\exp\left(-\frac{g\mu n}{kT}h\right), $$
+a ponieważ $\mu n=m$:
+$$ \rho=\rho_0\exp\left(-\frac{mgh}{kT}\right). $$
+Gęstość malejąca wykładniczo z wysokością oznacza również wykładniczo malejącą liczbę cząstek, ponieważ te dwie wielkości są wprost proporcjonalne.</p>
+
+<p>Wzór barometryczny pozwala nam oszacować gęstość różnych gazów na różnych wysokościach w naszej atmosferze, przy założeniu stałej temperatury. Poniższy wykres przedstawia znormalizowane gęstości dla azotu, tlenu i wodoru. Warto zauważyć, że gazy lżejsze, takie jak wodór, na dużych wysokościach występują względnie częściej niż gazy cięższe, np. tlen i azot.</p>
+
+<p align="center">
+<img src="/assets/images/2025-09-02/gazyatm.svg" width="700" />
+</p>
+
+<p>Założenie stałej temperatury (w tym przypadku $T=288\text{K}$) oczywiście nie jest poprawne na skali wysokości $0-100\text{km}$, ale daje w przybliżeniu poprawne wyniki dla wysokościach do $10\text{km}$.</p>
+
+<h2 id="rozkład-prędkości-pionowych">Rozkład prędkości pionowych</h2>
+
+<p>Naszym obecnym celem jest znalezienie rozkładu prędkości pionowych cząsteczek. Wiemy, że cząsteczki <em>muszą</em> mieć różne prędkości pionowe, ponieważ zgodnie ze wzorem barometrycznym, niektóre z nich nie mają wystarczającej prędkości (energii), aby wznieść się na wysokość $h$.
+W tym celu rozważmy dwie płaszczyzny, jedną na poziomie $h=0$, a drugą na poziomie $h=H$. Zakładamy w tej chwili, że zderzenia nie mają wpyłwu na pionowy ruch cząsteczek. Zauważmy, że liczba cząstek o prędkości pionowej $v_z&gt;v_{min}=\sqrt{2gH}$ i przebiegających w pewnym czasie przez dolną płaszczyznę <em>jest równa</em> liczbie cząstek przebiegających przez górą płaszczyznę i o prędkości pionowej $v_z&gt;0$. Wszystkie cząstki spełniające warunek $v_z&gt;v_{min}$ w $h=0$ po pewnej chwili znajdą się w $h=H$ kosztem wytracenia energii $\frac{1}{2}m v_{min}^2$. Ponieważ $\rho$ jest stałe, liczba cząstek przebiegających przez płaszczyzny musi być stała (wtedy liczba cząstek poruszających się w górę jest równa liczbie tych poruszających się w dół i wypadkowy strumień cząstek jest równy zeru).</p>
+
+<p align="center">
+<img src="/assets/images/2025-09-02/rozmax1.svg" width="700" />
+</p>
+
+<p>Niech $n(v_z^2, h)$ będzie funkcją liczącą średnią liczbę cząstek o danym kwadracie prędkości na pewnej wysokości $h$. Zauważmy, że 
+$$n(v_z^2, H)=n(v_z^2+v_{min}^2, 0), $$
+ponieważ na wysokości $h=H$ wszystkie kwadraty prędkości zostają pomniejszone o $v_{min}^2$ (patrz wykres powyżej). Wykres $n(v_z^2, 0)$ zostaje “przesunięty” w lewo, aby “obciąć” te cząstki, które nie miały wystarczającej energii, oraz aby “przesunąć” pozostałe. Ponieważ na wysokości $H$ całkowita liczba cząstek jest mniejsza o czynnik z funkcją wykładniczą niż na wysokości $h=0$, możemy stwierdzić, że 
+$$ n(v_z^2, H)=\exp\left(-\frac{mgH}{kT}\right)n(v_z^2, 0). $$
+Wstawmy to do wcześniejszego równania:
+$$ \exp\left(-\frac{mgH}{kT}\right)n(v_z^2, 0)=n(v_z^2+v_{min}^2, 0) $$
+i zamieńmy $H$ na $v_{min}^2/2g$:
+$$ \exp\left(-\frac{mv_{min}^2}{2kT}\right)n(v_z^2, 0)=n(v_z^2+v_{min}^2, 0). $$
+Niech $v_{min}^2$ będzie bardzo małe. Oznaczmy $v_z^2$ jako $u$, a $v_{min}^2$ jako $du$. Wtedy, jeśli rozwiniemy funkcję wykładniczą w szereg:
+$$ \left(1-\frac{m}{2kT}\,du\right)n(u,0)=n(u+du,0) $$
+$$ -\frac{m}{2kT}n(u,0)\,du=n(u+du,0)-n(u,0) $$
+$$ -\frac{m}{2kT}n(u,0)\,du=dn $$
+$$ \frac{dn}{du}=-\frac{m}{2kT}n(u,0). $$
+Rozwiązując to równanie otrzymujemy
+$$ n(u, 0)=n_0\exp\left(-\frac{mu}{2kT}\right) $$
+lub 
+$$ n(v_z^2, 0)=n_0\exp\left(-\frac{mv_z^2}{2kT}\right), $$
+gdzie $n_0$ to pewna stała. Zauważmy, że powyższy wynik jest prawdziwy nie tylko dla małych, ale dla <em>wszystkich</em> $du$. Oznaczmy przez $n_c(0)$ całkowitą liczbę cząstek na poziomie $h=0$. Wtedy gęstość prawdopodobieństwa wylosowania cząstki o prędkości $v_z$ to
+$$ f(v_z)=\frac{n(v_z^2,0)}{n_c(0)}=f_{0z} \exp\left(-\frac{mv_z^2}{2kT}\right), $$
+gdzie $f_{0z}$ to pewna stała normalizująca. Funkcja $f$ przestaje być funkcją $v_z^2$, a $v_z$, ponieważ uwzględniamy znak składowej prędkości. Warto zauważyć, że rozkład jest symetryczny. Prawdopodobieństwo wylosowania cząstki o prędkości w przedziale $\left[v_{z0}, v_{z1}\right]$ to 
+$$ p_z=\int_{v_{z1}}^{v_{z2}} f(v_z)\,dv_z. $$
+Zauważmy, że rozkład <em>nie zależy</em> od wysokości ani wartości przyspieszenia grawitacyjnego. Jest on w ogólności prawdziwy dla <em>wszystkich gazów doskonałych</em>.</p>
+
+<h2 id="rozkład-prędkości-cząsteczkowych-w-gazie">Rozkład prędkości cząsteczkowych w gazie</h2>
+<p>Aby rozszerzyć prawdopodobieństwo na wartość wektora prędkości, a nie tylko jego składową w kierunku $z$, posłużymy się zasadą ekwipartycji energii. Na jej podstawie możemy stwierdzić, że 
+$$ v_x^2=v_y^2=v_z^2, $$
+dlatego
+$$ p_x=\int_{v_{0x}}^{v_{1x}}f_{0x}\exp\left(-\frac{mv_x^2}{2kT}\right)\,dv_x, $$
+$$ p_y=\int_{v_{0y}}^{v_{1y}}f_{0y}\exp\left(-\frac{mv_y^2}{2kT}\right)\,dv_y. $$
+Całkowite prawdopodobieństwo, że wartość prędkości zawiera się w pewnym przedziale $\left[v_0,v_1\right]$, to iloczyn prawdopodobieństw, że składowe wektora prędkości zawierają się w takich przedziałach, że wektor $\mathbf{v}$ ma odpowiednią długość:
+$$ p=\iiint_V f_0\exp\left(-\frac{m(v_x^2+v_y^2+v_z^2)}{2kT}\right)\,dv_x\,dv_y\,dv_z=\iiint_V f_0\exp\left(-\frac{mv^2}{2kT}\right)\,dv_x\,dv_y\,dv_z, $$
+gdzie $V$ to pewna objętość w przestrzeni $(v_x, v_y, v_z)$, dla której $v$ zawiera się w odpowiednim przedziale, a stała $f_0$ jest dobrana tak, że całkowite prawdopodobieństwo po całej przestrzeni wynosi $1$.</p>
+
+<p>Łatwo jest dostrzec analogię między współrzędnymi $(v_x, v_y, v_z)$ oraz $(x, y, z)$. Wtedy $v$ pełni rolę odległości od środka układu współrzędnych $r$. Z tego powodu możemy dokonać zamiany zmiennych, a mianowicie podobnie, jak we współrzędnych sferycznych $dx\,dy\,dz=4\pi r^2\,dr$, u nas $dv_x\,dv_y\,dv_z=4\pi v^2\,dv$:
+$$ p=\int_{v_0}^{v_1}4\pi f_0 v^2\exp\left(-\frac{mv^2}{2kT}\right)\,dv. $$
+Funkcja
+$$ \boxed{f(v)=4\pi f_0v^2\exp\left(-\frac{mv^2}{2kT}\right)} $$
+to <strong>rozkład Maxwella</strong>. Aby wyznaczyć stałą $f_0$ pocałkujmy na przedziale $\left[0,\infty\right]$:
+$$ \int_{0}^{\infty}4\pi f_0 v^2\exp\left(-\frac{mv^2}{2kT}\right)\,dv=1.$$
+Aby obliczyć całkę, podstawmy $z=mv^2/(2kT)$, skąd $dz=mv/(kT)\,dv=\sqrt{2mz/(kT)}\,dv$:
+$$ 4\pi f_0 \int_0^\infty \frac{2kT}{m}z\exp\left(-z\right)\sqrt{\frac{kT}{2mz}}\,dz=4\sqrt{2}\pi f_0\left(\frac{kT}{m}\right)^{3/2}\int_0^\infty z^{1/2}e^{-z}\,dz.  $$
+Całkę rozpoznajemy jako funkcję gamma:
+$$ \int_0^\infty z^{1/2}e^{-z}\,dz=\Gamma(\frac{3}{2})=\frac{1}{2}\Gamma(\frac{1}{2})=\frac{\sqrt{\pi}}{2}, $$
+a więc
+$$ f_0\left(\frac{2\pi kT}{m}\right)^{3/2}=1,$$
+$$ \boxed{f_0=\left(\frac{m}{2\pi kT}\right)^{3/2}} $$
+Funkcja rozkładu Maxwella dla różnych temperatur dla tego samego gazu została przedstawiona na poniższym wykresie.</p>
+<p align="center">
+<img src="/assets/images/2025-09-02/rozmax2.svg" width="700" />
+</p>]]></content><author><name></name></author><category term="Termodynamika" /><summary type="html"><![CDATA[Wzór barometryczny]]></summary></entry><entry><title type="html">Mechanika Lagrange’a, część 4: Zasady zachowania</title><link href="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-4-zasady-zachowania" rel="alternate" type="text/html" title="Mechanika Lagrange’a, część 4: Zasady zachowania" /><published>2025-08-04T00:00:00+02:00</published><updated>2025-08-04T00:00:00+02:00</updated><id>http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-4-zasady-zachowania</id><content type="html" xml:base="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-4-zasady-zachowania"><![CDATA[<h2 id="uogólnienie-na-układ-wielu-cząstek">Uogólnienie na układ wielu cząstek</h2>
 <p>Do tej pory rozważaliśmy układ złożony jedynie z jednej cząstki. Wprowadzenie większej liczby cząstek daje nam więcej współrzędnych uogólnionych, które definiujemy jako zestaw najmniejszej liczby współrzędnych jednoznacznie określających stan układu. Na przykład, dla 2 cząstek w przestrzeni 3-wymiarowej mamy 6 współrzędnych uogólnionych, a dla wahadła podwójnego - jedynie 2.</p>
 
 <p>Lagrażjan dla układu $N$ cząstek o $n$ współrzędnych uogólnionych ma postać
@@ -1003,110 +1123,4 @@ Obliczamy teraz $\mathbf{k_1}, \mathbf{k_2}, \dots$:
 $$ \mathbf{k_1}=\mathbf{f}(t, \mathbf{x}) $$
 $$ \mathbf{k_2}=\mathbf{f}(t+\frac{\Delta t}{2}, \mathbf{x}+\mathbf{k_1}\frac{\Delta t}{2}) $$
 itd.
-W przypadku $n=2$ wszystko sprowadza się do opisanego wcześniej algorytmu.</p>]]></content><author><name></name></author><category term="Programowanie" /><summary type="html"><![CDATA[Algorytm Rungego-Kutty Mamy dane równanie różniczkowe 1 rzędu w postaci $$ \frac{dy}{dx}=f(x,y). $$ Najprostszą metodą, aby rozwiązać tego typu równanie numerycznie jest metoda Eulera. Pochodną możemy przybliżyć jako $$ \frac{dy}{dx}\approx\frac{y(x+\Delta x)-y(x)}{\Delta x}, $$ a stąd $$ y(x+\Delta x)\approx y(x)+\Delta x f(x,y). $$ Metoda ta jest bardzo niedokładna szczególnie dla rozwiązań oscylujących. Jest ona również nazywana algorytmem Rungego-Kutty 1 rzędu.]]></summary></entry><entry><title type="html">Wyznaczanie gęstości powietrza za pomocą wahadła matematycznego</title><link href="http://localhost:4000/mechanika/wyznaczanie-g%C4%99sto%C5%9Bci-powietrza-za-pomoc%C4%85-wahad%C5%82a-matematycznego" rel="alternate" type="text/html" title="Wyznaczanie gęstości powietrza za pomocą wahadła matematycznego" /><published>2025-06-18T00:00:00+02:00</published><updated>2025-06-18T00:00:00+02:00</updated><id>http://localhost:4000/mechanika/wyznaczanie-g%C4%99sto%C5%9Bci-powietrza-za-pomoc%C4%85-wahad%C5%82a-matematycznego</id><content type="html" xml:base="http://localhost:4000/mechanika/wyznaczanie-g%C4%99sto%C5%9Bci-powietrza-za-pomoc%C4%85-wahad%C5%82a-matematycznego"><![CDATA[<h2 id="tłumione-wahadło-matematyczne">Tłumione wahadło matematyczne</h2>
-<p>Rozważmy najprostszy model wahadła. Jest to masa punktowa $m$ zawieszona na nieważkiej lince o długości $l$. Na wahadło działa siła ciężkości $\mathbf{Q}$, która rozkłada się na składową radialną i styczną do linki oraz siła reakcji linki $\mathbf{F_r}$, która równoważy $\mathbf{Q_r}$. Na masę działa również siła oporu $\mathbf{F_o}$. Poniżej został przedstawiony schemat tego układu.</p>
-
-<p align="center">
-<img src="/assets/images/2025-06-18/wahadlotlumione.svg" width="500" />
-</p>
-
-<p>Przy małych prędkościach wartość siły oporu $\mathbf{F_o}$  działającej na naszą masę jest wprost proporcjonalna do prędkości tego ciała. Dlatego założymy, że nasze wahadło porusza się z niewielką prędkością. Pozwoli nam to zapisać 2 zasadę dynamiki jako
-$$ \mathbf{M}=\mathbf{l}\times\mathbf{Q_s}+\mathbf{l}\times\mathbf{F_o}, $$
-gdzie $\mathbf{l}$ to wektor łączący punkt zaczepienia wahadła i masę $m$.</p>
-
-<p>Niech $\hat{\mathbf{n}}$ będzie wektorem jednostkowym leżącym na tym samym kierunku co $\mathbf{Q_s}$ i o zwrocie w lewo. Wtedy $\mathbf{Q_s}=Q_s\hat{\mathbf{n}}$. Wiadomo, że $Q_s=Q\sin\theta=mg\sin\theta$, czyli $\mathbf{Q_s}=mg\sin\theta\,\hat{\mathbf{n}}$. Wtedy $\mathbf{l}\times\mathbf{Q_s}=mg\sin\theta\,\mathbf{l}\times\hat{\mathbf{n}}$. Łatwo zauważyć, że $\mathbf{l}\times\hat{\mathbf{n}}=-l\hat{\mathbf{k}}$, przy czym oś $z$ jest skierowana od ekranu. Zatem $\mathbf{l}\times\mathbf{Q_s}=-mgl\sin\theta\,\hat{\mathbf{k}}$.</p>
-
-<p>Jak wspomniano wcześniej, $\mathbf{F_o}=-2\beta m\mathbf{v}$, gdzie $\beta$ to pewna stała - współczynnik tłumienia, a czynnik $2m$ ułatwi późniejsze obliczenia. Wiemy, że $\mathbf{v}=\boldsymbol{\dot{\theta}}\times\mathbf{l}$, a $\boldsymbol{\dot{\theta}}=\dot{\theta}\hat{\mathbf{k}}$. Na podstawie reguły prawej ręki możemy stwierdzić, że $\mathbf{v}=-\dot{\theta}l\hat{\mathbf{n}}$, a co za tym idzie $\mathbf{F_o}=2\beta ml\dot{\theta}\,\hat{\mathbf{n}}$. Teraz możemy obliczyć moment siły oporów:
-$$ \mathbf{l}\times\mathbf{F_o}=2\beta ml\dot{\theta}\,{\mathbf{l}}\times\hat{\mathbf{n}}=-2\beta ml^2\dot{\theta}\,\hat{\mathbf{k}}.$$</p>
-
-<p>Wiemy również, że $\mathbf{M}=I\ddot{\theta}\hat{\mathbf{k}}$, gdzie $I$ to moment bezwładności wahadła wokół punktu zaczepienia. Dla masy punktowej będzie to $ml^2$. Możemy teraz zapisać 2 zasadę dynamiki jako
-$$ ml^2\ddot{\theta}\hat{\mathbf{k}}=-mgl\sin{\theta}\,\hat{\mathbf{k}}-2\beta ml^2\dot{\theta}\,\hat{\mathbf{k}}, $$
-a po podzieleniu przez $ml^2\hat{\mathbf{k}}$ otrzymamy
-$$ \ddot{\theta}+2\beta\dot{\theta}+\frac{g}{l}\sin{\theta}=0. $$
-Gdy $\theta$ jest małym kątem, zachodzi w przybliżeniu równość $\sin\theta\approx\theta$, co pozwala nam zapisać 
-$$ \ddot{\theta}+2\beta\dot{\theta}+\omega_0^2\theta=0, $$
-gdzie $\omega_0=\sqrt{g/l}$.</p>
-
-<p>Równanie charakterystyczne to
-$$ r^2+2\beta r+\omega_0^2=0, $$
-a jego rozwiązania to
-$$ r=-\beta\pm i\omega, $$
-gdzie $\omega=\sqrt{\omega_0^2-\beta^2}$. Rozwiązanie ogólne to wtedy
-$$ \theta=e^{-\beta t}\left(Ae^{i\omega}+Be^{-i\omega}\right), $$
-gdzie $A$ i $B$ to pewne stałe. Zapis ten jest równoważny
-$$ \theta=e^{-\beta t}\left[(A+B)\cos\omega t+(A-B)i\sin\omega t\right]. $$
-$\theta$ musi być liczbą rzeczywistą, dlatego $B=\overline{A}$. Niech $A=a+bi$, wtedy $B=a-bi$. Wstawiając to do powyższego równania otrzymamy
-$$ \theta=e^{-\beta t}\left(2a\cos\omega t-2b\sin\omega t\right). $$
-Ponieważ w nawiasie znajduje się liniowa kombinacja sinusa i cosinusa, możemy zapisać
-$$ \theta=\theta_0 e^{-\beta t}\cos(\omega t+\varphi), $$
-gdzie $\theta_0$ to amplituda drgań, a $\varphi$ to faza.</p>
-
-<h2 id="pomiar-współczynnika-tłumienia">Pomiar współczynnika tłumienia</h2>
-<p>Skonstruowano wahadło z cienkiej, w przybliżeniu nieważkiej nitki oraz śruby zamocowanej na jej końcu. Ponieważ rozmiary śruby były znacznie mniejsze niż długość wahadła, cała masa była w przybliżeniu skoncentrowana w jednym punkcie. Nitka została owinięta wokół cienkiego patyczka służącego jako punkt zaczepienia. Taki sposób zaczepienia linki umożliwił łatwą regulację długości wahadła. Zakładamy, że współczynnik tłumienia jest na tyle mały, że $\omega\approx\omega_0$.</p>
-
-<p>Mierząc wartość $\theta$, gdy $\cos(\omega t+\varphi)=1$ (gdy wahadło jest w swoim maksymalnym wychyleniu) możemy wyznaczyć $\beta$. Czas mierzymy od chwili puszczenia wahadła, więc $\varphi=0$. Warunek zachodzi w bardzo dobrym przybliżeniu dla małych wychyleń (ponieważ $T$ tak naprawdę zależy od amplitudy), gdy $t=nT$, gdzie $T$ to okres wahadła, a $n=0,1,2,\dots$.
-$$		\theta(nT)=\theta_0 e^{-\beta nT} $$
-$$		\ln{\theta(nT)}=\ln{\theta_0}+-\beta nT $$
-Sporządzając wykres $\ln{\theta(nT)}$ możemy wyznaczyć $\beta$ nawet bez znajomości $\theta_0$, ponieważ będzie to współczynnik kierunkowy prostej najlepszego dopasowania.</p>
-
-<p>Wahadło zostało umieszczone w odległości $d=2$cm od biurka, do którego została przyklejona kartka papieru w kratkę. Aby dokładnie zaznaczać kolejne maksymalne wychylenia wahadła, w odległości $d’&gt;1$m od wahadła zostało umieszczone źródło światła, zgodnie ze schematem.</p>
-<p align="center">
-<img src="/assets/images/2025-06-18/ukladpom.svg" width="500" />
-</p>
-
-<p>Cień rzucany przez linkę różnił się o $\Delta x’$ od prawdziwego jej położenia. Przy wymienionych wcześniej wartościach $d$ i $d’$, $\Delta x’&lt;0.02\Delta x$, zatem błąd jest pomijalny. Błąd związany z wyznaczeniem czasu również został pominięty, ponieważ dla tak małych wychyleń okres był w bardzo dobrym przybliżeniu stały i wahadło służyło jako zegar.</p>
-
-<p>Co 5 okresów na kartce były zaznaczane maksymalne wychylenia wahadła. Następnie została zmierzona odległość linii, na której były zaznaczane kolejne położenia wahadła, od punktu zaczepienia wahadła ($h$), aby wyznaczyć $\tan{\theta}=\Delta x/h$. Ponieważ wychylenia były małe, $\theta\approx\tan{\theta}$. Wyniki pomiarów dla $l=0.8\text{m}$ zostały zestawione na poniższych wykresach.</p>
-<p align="center">
-<img src="/assets/images/2025-06-18/wykresbeta.svg" width="700" />
-</p>
-
-<p>W tym układzie otrzymana wartość $\beta$ to
-$$	\beta = 0.01478\pm0.0002\frac{1}{\text{s}} $$
-Tak mała niepewność wynika z kilku czynników. Niepewność w pomiarze kąta była bardzo niewielka, ponieważ źródło światła umożliwiało precyzyjne wyznaczenie wychylenia wahadła, a ze względu na dużą odległość $h$ zaznaczanych punktów od osi obrotu, niewielkie zmiany kąta powodowały dużą zmianę w odległości $\Delta x$. Niepewność w pomiarze czasu była pomijalna. Niepewność związana z wzięciem logarytmu naturalnego jest dana w przybliżeniu wzorem
-$$	\Delta(\ln x)\approx\frac{\Delta x}{x}. $$
-W tym przypadku $\Delta x$ było rzędu $10^{-3}$, a $x$ rzędu $10^{-1}$, czyli niepewność była rzędu $10^{-2}$.</p>
-
-<p>Współczynniki tłumienia wyznaczone dla wielu wahadeł umieściłem na widocznym poniżej wykresie zależności $\beta(l)$. Okazało się, że w dobrym przybliżeniu punkty pomiarowe układają się na prostej o współczynniku kierunkowym $a=(0.0073\pm0.0019)\frac{1}{\text{sm}}$ i wyrazie wolnym $b=(0.0092\pm0.0012)\frac{1}{\text{s}}$. Jak wyjaśnić tę obserwację?</p>
-<p align="center">
-<img src="/assets/images/2025-06-18/wykresbetal.svg" width="700" />
-</p>
-
-<h2 id="wyjaśnienie-zaobserwowanej-zależności">Wyjaśnienie zaobserwowanej zależności</h2>
-<p>Można spekulować, że wyraz wolny to część współczynnika tłumienia pochodząca od śruby służącej jako masa na końcu wahadła, a $al$ to wkład pochodzący od nitki.</p>
-
-<p>Prawo Stokesa mówi, że wartość siły działającej na kulę o promieniu $R$ poruszającą się z małą prędkością $v$ w płynie jest dana wzorem
-$$	F_o=6\pi\mu R v, $$
-gdzie $\mu$ to lepkość dynamiczna. Nitkę można przybliżyć jako złożoną z $l/w$ kul o średnicy $w$, gdzie $w$ to również szerokość nitki, ułożonych jedna za drugą. Promień takiej kuli to wtedy $R=w/2$. Całkowita siła działająca na nitkę to suma sił pochodzących od jej wszystkich małych kul. Każda z nich ma jednak inną prędkość, ponieważ znajduje się w innej odległości od osi obrotu.
-$$	F=\sum_{i=0}^{l/w}6\pi\mu\frac{w}{2}v_i=3\pi\mu w\omega\sum_{i=0}^{l/w} r_i, $$
-gdzie $r_i$ to odległość $i$-tej kuli od osi obrotu. Aby obliczyć sumę, zapiszmy
-$$	\sum_{i=0}^{l/w} r_i=\frac{1}{w}\sum_{i=0}^{l/w} r_i w. $$
-Ponieważ $w$ jest małe w porównaniu do $l$, możemy aproksymować sumę jako całkę. Wtedy $w = \Delta r_i$, czyli
-$$	\frac{1}{w}\sum_{i=0}^{l/w} r_i w\approx\frac{1}{w}\int_{0}^{l}r\,dr=\frac{l^2}{2w}.$$
-Wstawiając ten wynik do wcześniejszego wzoru otrzymujemy
-$$	F\approx \frac{3}{2}\pi\mu lv,$$
-gdzie $v$ to prędkość końca wahadła. Ponieważ $F=2\beta m v$, zachodzi równość
-$$
-	\beta=\frac{3\pi\mu}{4m}l,
-    $$
-co wyjaśnia zaobserwowaną zależność.</p>
-
-<h2 id="wyznaczanie-lepkości-dynamicznej-powietrza">Wyznaczanie lepkości dynamicznej powietrza</h2>
-<p>Całkowita siła oporu działająca na wahadło to
-$$	F=2\beta mv=2almv+2bmv,$$
-gdzie m to masa śrubki zawieszonej na końcu wahadła (masa nitki jest pomijalna). Pierwszy wyraz po prawej stronie to siła pochodząca od nitki, czyli przyrównując to do wcześniej obliczonej siły otrzymujemy
-$$		2almv=\frac{3}{2}\pi\mu lv $$
-$$		4am=3\pi \mu $$
-$$		\mu=\frac{4am}{3\pi}. $$
-Zmierzona masa śrubki to $m=(4\pm 0.5)$g oraz $a=(0.0073\pm0.0019)\frac{1}{\text{ms}}$. Przy tych danych
-	$$ \mu=(12.4\pm4.8)\times 10^{-6}\text{ Pa s},$$
-przy czym tablicowa wartość $\mu$ dla powietrza w temperaturze $293\text{K}$ to $\mu=18.13\times 10^{-6}\text{ Pa s}$.</p>
-
-<h2 id="wyznaczanie-gęstości-powietrza">Wyznaczanie gęstości powietrza</h2>
-<p>Kinetyczna teoria gazów daje następujący wzór dla rozrzedzonych gazów:
-$$	\mu=\alpha\rho\lambda\sqrt{\frac{2k_B T}{\pi m}},$$
-gdzie bezwymiarowy współczynnik $\alpha\approx 1$, $\rho$ to gęstość gazu, $\lambda$ to średnia droga swobodna w tym gazie, $T$ to temperatura, a $m$ to masa cząsteczkowa. Przekształćmy ten wzór do postaci
-$$	\rho=\frac{\mu}{\alpha\lambda}\sqrt{\frac{\pi m}{2k_B T}}.$$
-Dla powietrza $m\approx29\text{u}\approx 4.28\times 10^{-26}\text{kg}$, $\lambda\approx6,6\times 10^{-8}$m. Temperatura podczas pomiarów wynosiła ok. $T\approx293\text{K}$. Wstawiając te dane do wzoru otrzymujemy wynik 
-$$	\rho=(0.77\pm0.30)\frac{\text{kg}}{\text{m}^3},$$
-przy czym tablicowa wartość w tej temperaturze to $\rho=1.20\frac{\text{kg}}{\text{m}^3}$. Wynik jest obarczony dużą niepewnością spowodowaną głównie niepewnością $m$ i $\mu$. Należy również zauważyć, że prawdziwa wartość $\rho$ nie mieści się w przedziale niepewności. Jest to najprawdopodobniej spowodowane przybliżeniem nitki jako złożonej z wielu kul.</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Tłumione wahadło matematyczne Rozważmy najprostszy model wahadła. Jest to masa punktowa $m$ zawieszona na nieważkiej lince o długości $l$. Na wahadło działa siła ciężkości $\mathbf{Q}$, która rozkłada się na składową radialną i styczną do linki oraz siła reakcji linki $\mathbf{F_r}$, która równoważy $\mathbf{Q_r}$. Na masę działa również siła oporu $\mathbf{F_o}$. Poniżej został przedstawiony schemat tego układu.]]></summary></entry></feed>
+W przypadku $n=2$ wszystko sprowadza się do opisanego wcześniej algorytmu.</p>]]></content><author><name></name></author><category term="Programowanie" /><summary type="html"><![CDATA[Algorytm Rungego-Kutty Mamy dane równanie różniczkowe 1 rzędu w postaci $$ \frac{dy}{dx}=f(x,y). $$ Najprostszą metodą, aby rozwiązać tego typu równanie numerycznie jest metoda Eulera. Pochodną możemy przybliżyć jako $$ \frac{dy}{dx}\approx\frac{y(x+\Delta x)-y(x)}{\Delta x}, $$ a stąd $$ y(x+\Delta x)\approx y(x)+\Delta x f(x,y). $$ Metoda ta jest bardzo niedokładna szczególnie dla rozwiązań oscylujących. Jest ona również nazywana algorytmem Rungego-Kutty 1 rzędu.]]></summary></entry></feed>

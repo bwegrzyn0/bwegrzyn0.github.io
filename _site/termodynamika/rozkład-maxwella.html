@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Rozkład Maxwella | bwegrzyn0.github.io</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Rozkład Maxwella" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Wzór barometryczny" />
+<meta property="og:description" content="Wzór barometryczny" />
+<link rel="canonical" href="http://localhost:4000/termodynamika/rozk%C5%82ad-maxwella" />
+<meta property="og:url" content="http://localhost:4000/termodynamika/rozk%C5%82ad-maxwella" />
+<meta property="og:site_name" content="bwegrzyn0.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-09-02T00:00:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Rozkład Maxwella" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-09-02T00:00:00+02:00","datePublished":"2025-09-02T00:00:00+02:00","description":"Wzór barometryczny","headline":"Rozkład Maxwella","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/termodynamika/rozk%C5%82ad-maxwella"},"url":"http://localhost:4000/termodynamika/rozk%C5%82ad-maxwella"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+	<link rel="shortcut icon" type="image/png" href="/favicon.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bwegrzyn0.github.io" /></head>
+<head>
+	  
+
+<!-- CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
+
+<!-- JavaScript -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{
+    delimiters: [
+      { left: '$$',  right: '$$',  display: true  },
+      { left: '$',   right: '$',   display: false },
+      { left: '\\[', right: '\\]', display: true  },
+      { left: '\\(', right: '\\)', display: false }
+  ]});">
+</script>
+
+
+  </head>
+
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">bwegrzyn0.github.io</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/kategorie/">Kategorie</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Rozkład Maxwella</h1>
+    <a href="/kategorie"><h3> Termodynamika </h3></a>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-09-02T00:00:00+02:00" itemprop="datePublished">2025-09-02
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody" style="text-align: justify">
+    <h2 id="wzór-barometryczny">Wzór barometryczny</h2>
+
+<p align="center">
+<img src="/assets/images/2025-09-02/cisnienie.svg" width="500" />
+</p>
+
+<p>Rozważmy gaz doskonały znajdujący się w jednorodnym polu grawitacyjnym o natężeniu $g$. Gaz ma stałą temperaturę $T$.  Rozważmy ciśnienie $p$ w punkcie na wysokości $h$ względem pewnego poziomu odniesienia, na którym $h=0$ oraz $p=p_0$ (np. powierzchni ziemi). W punkcie znajdującym się niżej o $dh$ ciśnienie będzie wynosić:
+$$ p(h-dh)=p(h)+p_{gazu}, $$
+gdzie $p_{gazu}$ to ciśnienie wynikające z masy gazu znajdującego się między wysokościami $h$ a $h-dh$. 
+Z definicji ciśnienia mamy
+$$ p_{gazu}=\frac{dF}{dS}=g\frac{dm}{dS}, $$
+gdzie $dS$ to powierzchnia, na którą napiera element gazu o masie $dm$. Skorzystałem z faktu, że ciężar gazu wyraża się wzorem $g\,dm$. Wstawmy ten wynik do wcześniejszego równania:
+$$ p(h-dh)=p(h)+g\frac{dm}{dS}. $$
+Ponieważ $dp=p(h)-p(h-dh)$, możemy zapisać 
+$$ dp=-g\frac{dm}{dS}. $$
+Zauważmy, że $dm$ możemy wyrazić jako $\rho dV$, gdzie $\rho$ to gęstość elementu gazu:
+$$ dp=-g\rho\frac{dV}{dS}. $$
+Ponieważ $dV=dS\,dh$, 
+$$ dp=-g\rho\,dh $$</p>
+
+<p>Chcielibyśmy wyrazić $\rho$ poprzez $p$. Aby to uczynić, posłużymy się równaniem stanu gazu idealnego:
+$$ pV=nRT $$
+lub przekształcając
+$$ p=\frac{nRT}{V}. $$
+Liczbę moli możemy wyrazić poprzez gęstość, korzystając z faktu, że $n=m/\mu$ (gdzie $\mu$ to masa molowa gazu) oraz $m=\rho V$:
+$$ n=\rho V/\mu. $$
+Wstawmy to do wcześniejszego równania:
+$$ p=\frac{\rho RT}{\mu} $$
+i przekształćmy
+$$ \rho=\frac{p\mu}{RT}. $$</p>
+
+<p>Możemy powrócić do równania na $dp$:
+$$ dp=-\frac{g\mu}{RT}p\,dh $$
+$$ \frac{dp}{p}=-\frac{g\mu}{RT}\,dh. $$
+Pocałkujmy obustronnie:
+$$ \int \frac{dp}{p}=\int -\frac{g\mu}{RT}\,dh $$
+$$ \ln p=-\frac{g\mu}{RT}h+C $$
+i przekształćmy aby otrzymać wyrażenie na $p$:
+$$ p=\exp\left(-\frac{g\mu}{RT}h+C\right)=C\exp\left(-\frac{g\mu}{RT}h\right). $$
+Chcemy, aby $p=p_0$, gdy $h=0$, dlatego $C=p_0$. W ten sposób otrzymujemy <strong>wzór barometryczny</strong>:
+$$ \boxed{p=p_0\exp\left(-\frac{g\mu}{RT}h\right)} $$</p>
+
+<p>Teraz za pomocą wzoru barometrycznego wyrazimy gęstość gazu jako funkcję wysokości. Z poprzednich rozważań wiemy, że
+$$ \rho=\frac{p\mu}{RT}, $$
+czyli 
+$$ p=\rho\frac{RT}{\mu}. $$
+Jeśli ograniczymy się do jednej cząstki o masie $m$, możemy zapisać 
+$$ RT=\frac{nRT}{n}=\frac{NkT}{n}=\frac{kT}{n}, $$
+ponieważ $N=1$. Wstawmy to do wzoru barometrycznego:
+$$ \rho\frac{RT}{\mu}=\rho_0\frac{RT}{\mu}\exp\left(-\frac{g\mu n}{kT}h\right), $$
+a ponieważ $\mu n=m$:
+$$ \rho=\rho_0\exp\left(-\frac{mgh}{kT}\right). $$
+Gęstość malejąca wykładniczo z wysokością oznacza również wykładniczo malejącą liczbę cząstek, ponieważ te dwie wielkości są wprost proporcjonalne.</p>
+
+<p>Wzór barometryczny pozwala nam oszacować gęstość różnych gazów na różnych wysokościach w naszej atmosferze, przy założeniu stałej temperatury. Poniższy wykres przedstawia znormalizowane gęstości dla azotu, tlenu i wodoru. Warto zauważyć, że gazy lżejsze, takie jak wodór, na dużych wysokościach występują względnie częściej niż gazy cięższe, np. tlen i azot.</p>
+
+<p align="center">
+<img src="/assets/images/2025-09-02/gazyatm.svg" width="700" />
+</p>
+
+<p>Założenie stałej temperatury (w tym przypadku $T=288\text{K}$) oczywiście nie jest poprawne na skali wysokości $0-100\text{km}$, ale daje w przybliżeniu poprawne wyniki dla wysokościach do $10\text{km}$.</p>
+
+<h2 id="rozkład-prędkości-pionowych">Rozkład prędkości pionowych</h2>
+
+<p>Naszym obecnym celem jest znalezienie rozkładu prędkości pionowych cząsteczek. Wiemy, że cząsteczki <em>muszą</em> mieć różne prędkości pionowe, ponieważ zgodnie ze wzorem barometrycznym, niektóre z nich nie mają wystarczającej prędkości (energii), aby wznieść się na wysokość $h$.
+W tym celu rozważmy dwie płaszczyzny, jedną na poziomie $h=0$, a drugą na poziomie $h=H$. Zakładamy w tej chwili, że zderzenia nie mają wpyłwu na pionowy ruch cząsteczek. Zauważmy, że liczba cząstek o prędkości pionowej $v_z&gt;v_{min}=\sqrt{2gH}$ i przebiegających w pewnym czasie przez dolną płaszczyznę <em>jest równa</em> liczbie cząstek przebiegających przez górą płaszczyznę i o prędkości pionowej $v_z&gt;0$. Wszystkie cząstki spełniające warunek $v_z&gt;v_{min}$ w $h=0$ po pewnej chwili znajdą się w $h=H$ kosztem wytracenia energii $\frac{1}{2}m v_{min}^2$. Ponieważ $\rho$ jest stałe, liczba cząstek przebiegających przez płaszczyzny musi być stała (wtedy liczba cząstek poruszających się w górę jest równa liczbie tych poruszających się w dół i wypadkowy strumień cząstek jest równy zeru).</p>
+
+<p align="center">
+<img src="/assets/images/2025-09-02/rozmax1.svg" width="700" />
+</p>
+
+<p>Niech $n(v_z^2, h)$ będzie funkcją liczącą średnią liczbę cząstek o danym kwadracie prędkości na pewnej wysokości $h$. Zauważmy, że 
+$$n(v_z^2, H)=n(v_z^2+v_{min}^2, 0), $$
+ponieważ na wysokości $h=H$ wszystkie kwadraty prędkości zostają pomniejszone o $v_{min}^2$ (patrz wykres powyżej). Wykres $n(v_z^2, 0)$ zostaje “przesunięty” w lewo, aby “obciąć” te cząstki, które nie miały wystarczającej energii, oraz aby “przesunąć” pozostałe. Ponieważ na wysokości $H$ całkowita liczba cząstek jest mniejsza o czynnik z funkcją wykładniczą niż na wysokości $h=0$, możemy stwierdzić, że 
+$$ n(v_z^2, H)=\exp\left(-\frac{mgH}{kT}\right)n(v_z^2, 0). $$
+Wstawmy to do wcześniejszego równania:
+$$ \exp\left(-\frac{mgH}{kT}\right)n(v_z^2, 0)=n(v_z^2+v_{min}^2, 0) $$
+i zamieńmy $H$ na $v_{min}^2/2g$:
+$$ \exp\left(-\frac{mv_{min}^2}{2kT}\right)n(v_z^2, 0)=n(v_z^2+v_{min}^2, 0). $$
+Niech $v_{min}^2$ będzie bardzo małe. Oznaczmy $v_z^2$ jako $u$, a $v_{min}^2$ jako $du$. Wtedy, jeśli rozwiniemy funkcję wykładniczą w szereg:
+$$ \left(1-\frac{m}{2kT}\,du\right)n(u,0)=n(u+du,0) $$
+$$ -\frac{m}{2kT}n(u,0)\,du=n(u+du,0)-n(u,0) $$
+$$ -\frac{m}{2kT}n(u,0)\,du=dn $$
+$$ \frac{dn}{du}=-\frac{m}{2kT}n(u,0). $$
+Rozwiązując to równanie otrzymujemy
+$$ n(u, 0)=n_0\exp\left(-\frac{mu}{2kT}\right) $$
+lub 
+$$ n(v_z^2, 0)=n_0\exp\left(-\frac{mv_z^2}{2kT}\right), $$
+gdzie $n_0$ to pewna stała. Zauważmy, że powyższy wynik jest prawdziwy nie tylko dla małych, ale dla <em>wszystkich</em> $du$. Oznaczmy przez $n_c(0)$ całkowitą liczbę cząstek na poziomie $h=0$. Wtedy gęstość prawdopodobieństwa wylosowania cząstki o prędkości $v_z$ to
+$$ f(v_z)=\frac{n(v_z^2,0)}{n_c(0)}=f_{0z} \exp\left(-\frac{mv_z^2}{2kT}\right), $$
+gdzie $f_{0z}$ to pewna stała normalizująca. Funkcja $f$ przestaje być funkcją $v_z^2$, a $v_z$, ponieważ uwzględniamy znak składowej prędkości. Warto zauważyć, że rozkład jest symetryczny. Prawdopodobieństwo wylosowania cząstki o prędkości w przedziale $\left[v_{z0}, v_{z1}\right]$ to 
+$$ p_z=\int_{v_{z1}}^{v_{z2}} f(v_z)\,dv_z. $$
+Zauważmy, że rozkład <em>nie zależy</em> od wysokości ani wartości przyspieszenia grawitacyjnego. Jest on w ogólności prawdziwy dla <em>wszystkich gazów doskonałych</em>.</p>
+
+<h2 id="rozkład-prędkości-cząsteczkowych-w-gazie">Rozkład prędkości cząsteczkowych w gazie</h2>
+<p>Aby rozszerzyć prawdopodobieństwo na wartość wektora prędkości, a nie tylko jego składową w kierunku $z$, posłużymy się zasadą ekwipartycji energii. Na jej podstawie możemy stwierdzić, że 
+$$ v_x^2=v_y^2=v_z^2, $$
+dlatego
+$$ p_x=\int_{v_{0x}}^{v_{1x}}f_{0x}\exp\left(-\frac{mv_x^2}{2kT}\right)\,dv_x, $$
+$$ p_y=\int_{v_{0y}}^{v_{1y}}f_{0y}\exp\left(-\frac{mv_y^2}{2kT}\right)\,dv_y. $$
+Całkowite prawdopodobieństwo, że wartość prędkości zawiera się w pewnym przedziale $\left[v_0,v_1\right]$, to iloczyn prawdopodobieństw, że składowe wektora prędkości zawierają się w takich przedziałach, że wektor $\mathbf{v}$ ma odpowiednią długość:
+$$ p=\iiint_V f_0\exp\left(-\frac{m(v_x^2+v_y^2+v_z^2)}{2kT}\right)\,dv_x\,dv_y\,dv_z=\iiint_V f_0\exp\left(-\frac{mv^2}{2kT}\right)\,dv_x\,dv_y\,dv_z, $$
+gdzie $V$ to pewna objętość w przestrzeni $(v_x, v_y, v_z)$, dla której $v$ zawiera się w odpowiednim przedziale, a stała $f_0$ jest dobrana tak, że całkowite prawdopodobieństwo po całej przestrzeni wynosi $1$.</p>
+
+<p>Łatwo jest dostrzec analogię między współrzędnymi $(v_x, v_y, v_z)$ oraz $(x, y, z)$. Wtedy $v$ pełni rolę odległości od środka układu współrzędnych $r$. Z tego powodu możemy dokonać zamiany zmiennych, a mianowicie podobnie, jak we współrzędnych sferycznych $dx\,dy\,dz=4\pi r^2\,dr$, u nas $dv_x\,dv_y\,dv_z=4\pi v^2\,dv$:
+$$ p=\int_{v_0}^{v_1}4\pi f_0 v^2\exp\left(-\frac{mv^2}{2kT}\right)\,dv. $$
+Funkcja
+$$ \boxed{f(v)=4\pi f_0v^2\exp\left(-\frac{mv^2}{2kT}\right)} $$
+to <strong>rozkład Maxwella</strong>. Aby wyznaczyć stałą $f_0$ pocałkujmy na przedziale $\left[0,\infty\right]$:
+$$ \int_{0}^{\infty}4\pi f_0 v^2\exp\left(-\frac{mv^2}{2kT}\right)\,dv=1.$$
+Aby obliczyć całkę, podstawmy $z=mv^2/(2kT)$, skąd $dz=mv/(kT)\,dv=\sqrt{2mz/(kT)}\,dv$:
+$$ 4\pi f_0 \int_0^\infty \frac{2kT}{m}z\exp\left(-z\right)\sqrt{\frac{kT}{2mz}}\,dz=4\sqrt{2}\pi f_0\left(\frac{kT}{m}\right)^{3/2}\int_0^\infty z^{1/2}e^{-z}\,dz.  $$
+Całkę rozpoznajemy jako funkcję gamma:
+$$ \int_0^\infty z^{1/2}e^{-z}\,dz=\Gamma(\frac{3}{2})=\frac{1}{2}\Gamma(\frac{1}{2})=\frac{\sqrt{\pi}}{2}, $$
+a więc
+$$ f_0\left(\frac{2\pi kT}{m}\right)^{3/2}=1,$$
+$$ \boxed{f_0=\left(\frac{m}{2\pi kT}\right)^{3/2}} $$
+Funkcja rozkładu Maxwella dla różnych temperatur dla tego samego gazu została przedstawiona na poniższym wykresie.</p>
+<p align="center">
+<img src="/assets/images/2025-09-02/rozmax2.svg" width="700" />
+</p>
+
+
+  </div><a class="u-url" href="/termodynamika/rozk%C5%82ad-maxwella" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">bwegrzyn0.github.io</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bwegrzyn0"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bwegrzyn0</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Fizyka i programowanie</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
