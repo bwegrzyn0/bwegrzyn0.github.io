@@ -1,4 +1,87 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-09-02T20:11:30+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Rozkład Maxwella</title><link href="http://localhost:4000/termodynamika/rozk%C5%82ad-maxwella" rel="alternate" type="text/html" title="Rozkład Maxwella" /><published>2025-09-02T00:00:00+02:00</published><updated>2025-09-02T00:00:00+02:00</updated><id>http://localhost:4000/termodynamika/rozk%C5%82ad-maxwella</id><content type="html" xml:base="http://localhost:4000/termodynamika/rozk%C5%82ad-maxwella"><![CDATA[<h2 id="wzór-barometryczny">Wzór barometryczny</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-11-17T20:19:18+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Aparat otworkowy na film</title><link href="http://localhost:4000/fotografia/aparat-otwrokowy-na-film" rel="alternate" type="text/html" title="Aparat otworkowy na film" /><published>2025-11-17T00:00:00+01:00</published><updated>2025-11-17T00:00:00+01:00</updated><id>http://localhost:4000/fotografia/aparat-otwrokowy-na-film</id><content type="html" xml:base="http://localhost:4000/fotografia/aparat-otwrokowy-na-film"><![CDATA[<p>Aparat składa się z kilku części:</p>
+<ul>
+  <li>rolki na naświetlony film,</li>
+  <li>miejsca na puszkę z filmem,</li>
+  <li>pokręteł do zwijania filmu,</li>
+  <li>obiektywu, czyli folii aluminiowej z małą dziurką,</li>
+  <li>ręcznie otwieranej i zamykanej przesłony,</li>
+  <li>pokrywy, która magnetycznie przyczepia się do obudowy,</li>
+  <li>magnesu w obudowie.</li>
+</ul>
+
+<p align="center">
+<img src="/assets/images/2025-11-17/aparat.jpg" width="700" />
+</p>
+
+<p>Z puszki należy wysunąć trochę filmu i przykleić go taśmą do rolki. Całość następnie należy włożyć do aparatu i zamknąć go. Pokrywa zamyka się magnetycznie, lecz dla bezpieczeństwa dociskam ją gumkami recepturkami, które również pomagają w trzymaniu pokręteł.</p>
+
+<p>Ogniskowa aparatu (odległość dziurki od filmu) to około $30\text{mm}$, a rozmiary otworku to około $0.3\text{mm}$. Światłosiła aparatu to w takim razie $0.01$, a liczba przesłony to $f/100$.</p>
+
+<p>Aby poprawnie naświetlić film, fotografowaną scenę najpierw oglądałem przez aparat telefonu. Po ustawieniu takiego samego ISO, jak kliszy (w moim przypadku 200), ustawiałem odpowiedni czas ekspozycji, $t_t$. Wiedząc, że aparat telefonu ma przesłonę $f/1.8$, mogłem obliczyć ekspozycję aparatu otworkowego ze wzoru
+$$ t_a=t_t\left(\frac{100}{1.8}\right)^2\approx 3000t_t $$
+Należy również wziąć pod uwagę efekt Schwarzschilda. Używany przeze mnie Fomapan 200 miał następującą charakterystykę:</p>
+
+<p align="center">
+<img src="/assets/images/2025-11-17/fomapan200ch.png" width="700" />
+</p>
+
+<p>W słoneczny dzień przeciętne czasy naświetlania wynosiły od 2 do 5 sekund, a w ciemniejszą pogodę lub wewnątrz pomieszczeń do 10 sekund. Z tego powodu aparat ustawiałem na statywie od teleskopu.</p>
+
+<p>Pierwsze rezultaty:</p>
+<p align="center">
+<img src="/assets/images/2025-11-17/imgA.jpg" width="700" />
+</p>
+<p align="center">
+<img src="/assets/images/2025-11-17/imgB.jpg" width="700" />
+</p>
+<p align="center">
+<img src="/assets/images/2025-11-17/imgC.jpg" width="700" />
+</p>
+<p align="center">
+<img src="/assets/images/2025-11-17/imgD.jpg" width="700" />
+</p>
+<p align="center">
+<img src="/assets/images/2025-11-17/imgE.jpg" width="700" />
+</p>
+<p align="center">
+<img src="/assets/images/2025-11-17/imgF.jpg" width="700" />
+</p>
+<p align="center">
+<img src="/assets/images/2025-11-17/imgG.jpg" width="700" />
+</p>
+<p align="center">
+<img src="/assets/images/2025-11-17/imgH.jpg" width="700" />
+</p>
+<p align="center">
+<img src="/assets/images/2025-11-17/imgI.jpg" width="700" />
+</p>
+<p>Ku mojemu zdziwieniu obliczone czasy ekspozycji okazały się być dość dobre. Niektóre zdjęcia robiłem trzymając aparat w ręku i dlatego są rozmazane. Nie pomyślałem również wtedy o ściance wewnątrz aparatu, przez co już naświetlony film naświetlał się ponownie co dawało dziwne, krótkie obrazy. Film przykładałem do lampki (ostatni do ekranu laptopa, dlatego widać piksele) i zdjęcia robiłem telefonem.</p>
+
+<p>Zdjęcia kolejnym filmem robiłem głównie ze statywem. Tym razem wywołałem go sam, a nie u fotografa, ze względu na cenę. Zbudowałem również mały podświetlacz, aby móc lepiej skanować film i jego zdjęcia robiłem aparatem w trybie makro.</p>
+
+<p align="center">
+<img src="/assets/images/2025-11-17/img1.jpg" width="700" />
+</p>
+<p align="center">
+<img src="/assets/images/2025-11-17/img2.jpg" width="700" /> <br />
+(Zdjęcie Księżyca przez teleskop)
+</p>
+<p align="center">
+<img src="/assets/images/2025-11-17/img3.jpg" width="700" />
+</p>
+<p align="center">
+<img src="/assets/images/2025-11-17/img4.jpg" width="700" />
+</p>
+<p align="center">
+<img src="/assets/images/2025-11-17/img5.jpg" width="700" />
+</p>
+<p align="center">
+<img src="/assets/images/2025-11-17/img6.jpg" width="700" />
+</p>
+<p align="center">
+<img src="/assets/images/2025-11-17/img7.jpg" width="700" />
+</p>
+<p>Rozdzielczość aparatu jest ograniczona przez użycie otworku jako soczewki. Najbardziej optymalna średnica otworu to wg. Wikipedii dla tej ogniskowej $0.2\text{mm}$ (wtedy efekty falowe powodują delikatne skupienie światła), lecz ciężko jest uzyskać dokładnie taki rozmiar.</p>]]></content><author><name></name></author><category term="Fotografia" /><summary type="html"><![CDATA[Aparat składa się z kilku części: rolki na naświetlony film, miejsca na puszkę z filmem, pokręteł do zwijania filmu, obiektywu, czyli folii aluminiowej z małą dziurką, ręcznie otwieranej i zamykanej przesłony, pokrywy, która magnetycznie przyczepia się do obudowy, magnesu w obudowie.]]></summary></entry><entry><title type="html">Rozkład Maxwella</title><link href="http://localhost:4000/termodynamika/rozk%C5%82ad-maxwella" rel="alternate" type="text/html" title="Rozkład Maxwella" /><published>2025-09-02T00:00:00+02:00</published><updated>2025-09-02T00:00:00+02:00</updated><id>http://localhost:4000/termodynamika/rozk%C5%82ad-maxwella</id><content type="html" xml:base="http://localhost:4000/termodynamika/rozk%C5%82ad-maxwella"><![CDATA[<h2 id="wzór-barometryczny">Wzór barometryczny</h2>
 
 <p align="center">
 <img src="/assets/images/2025-09-02/cisnienie.svg" width="500" />
@@ -962,165 +1045,4 @@ Aby zmiana położenia kamery miała efekt, jej położenie musimy odjąć od po
 </code></pre></div></div>
 
 <h2 id="co-dalej">Co dalej?</h2>
-<p>Powyższy program wyświetla okno, a w nim biały prostokąt na czerwonym tle. W następnej części opiszę proces rysowania kół i okręgów za pomocą algorytmu midpoint oraz to, jak dodałem planety.</p>]]></content><author><name></name></author><category term="Programowanie" /><summary type="html"><![CDATA[Cel projektu Celem tego projektu jest stworzenie programu w C++, który będzie pozwalał użytkownikowi: dodawać do sceny ciała niebieskie, które będą oddziaływać ze sobą grawitacyjnie modyfikować ich parametry, takie jak masa, prędkość, położenie, jasność itd. za pomocą prostego interfejsu pauzować, przyspieszać, cofać, resetować symulację poruszać się kamerą po scenie za pomocą myszki, przybliżać i oddalać widok wykreślać i przewidywać trajektorie obiektów ustalać punkt odniesienia dla trajektorii zablokować widok na jednym obiekcie.]]></summary></entry><entry><title type="html">Numeryczne rozwiązywanie równań różniczkowych 2 rzędu za pomocą algorytmu Rungego-Kutty</title><link href="http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty" rel="alternate" type="text/html" title="Numeryczne rozwiązywanie równań różniczkowych 2 rzędu za pomocą algorytmu Rungego-Kutty" /><published>2025-06-30T00:00:00+02:00</published><updated>2025-06-30T00:00:00+02:00</updated><id>http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty</id><content type="html" xml:base="http://localhost:4000/programowanie/numeryczne-rozwi%C4%85zywanie-r%C3%B3wna%C5%84-r%C3%B3%C5%BCniczkowych-2-rz%C4%99du-metod%C4%85-rungego-kutty"><![CDATA[<h2 id="algorytm-rungego-kutty">Algorytm Rungego-Kutty</h2>
-<p>Mamy dane równanie różniczkowe 1 rzędu w postaci
-$$ \frac{dy}{dx}=f(x,y). $$
-Najprostszą metodą, aby rozwiązać tego typu równanie numerycznie jest metoda Eulera. Pochodną możemy przybliżyć jako
-$$ \frac{dy}{dx}\approx\frac{y(x+\Delta x)-y(x)}{\Delta x}, $$
-a stąd
-$$ y(x+\Delta x)\approx y(x)+\Delta x f(x,y). $$
-Metoda ta jest bardzo niedokładna szczególnie dla rozwiązań oscylujących. Jest ona również nazywana algorytmem Rungego-Kutty 1 rzędu.</p>
-
-<p>O wiele lepsze przybliżenie daje algorytm Rungego-Kutty 4 rzędu. W pierwszej kolejności należy obliczyć 4 wielkości:
-$$ k_1=f(x,y) $$
-$$ k_2=f(x+\frac{\Delta x}{2}, y+\frac{\Delta x}{2}k_1) $$
-$$ k_3=f(x+\frac{\Delta x}{2}, y+\frac{\Delta x}{2}k_2) $$
-$$ k_4=f(x+\Delta x, y+\Delta x\,k_3), $$
-a następnie możemy obliczyć wartość szukanej funkcji w kolejnym kroku:
-$$ y(x+\Delta x)\approx y(x)+\frac{\Delta x}{6}(k_1+2k_2+2k_3+k_4). $$</p>
-<h3 id="przykład">Przykład</h3>
-<p>Rozważmy równanie nieliniowe
-$$ \frac{dy}{dx}=y\cos x$$
-z warunkiem początkowym $ y(0)=1 $. Łatwo jest sprawdzić, że jego rozwiązaniem jest $ y=e^{\sin x}$.</p>
-
-<p>Program rozwiązujący to równanie numerycznie został napisany w C++.</p>
-
-<p>W pierwszej kolejności definiujemy zmienne i warunki początkowe:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">float</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// ustawiamy y na wartość początkową</span>
-<span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// ustawiamy x na wartość początkową</span>
-<span class="kt">float</span> <span class="n">x_max</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span> <span class="c1">// końcowa wartość x</span>
-<span class="kt">float</span> <span class="n">step</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span> <span class="c1">// krok - Delta x</span>
-</code></pre></div></div>
-
-<p>Następnie zdefiniujmy naszą funkcję $f(x,y)$:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">float</span> <span class="nf">dy_dx</span><span class="p">(</span><span class="kt">float</span> <span class="n">y</span><span class="p">,</span> <span class="kt">float</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="n">y</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>Teraz musimy wykonać <code class="language-plaintext highlighter-rouge">(x_max-x_min)/step</code> kroków, a w każdym z nich wykonać procedurę opisaną na początku artykułu:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">x_max</span><span class="o">-</span><span class="n">x_min</span><span class="p">)</span><span class="o">/</span><span class="n">step</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-		<span class="kt">float</span> <span class="n">k_1</span> <span class="o">=</span> <span class="n">dy_dx</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
-		<span class="kt">float</span> <span class="n">k_2</span> <span class="o">=</span> <span class="n">dy_dx</span><span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="n">step</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">k_1</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">step</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
-		<span class="kt">float</span> <span class="n">k_3</span> <span class="o">=</span> <span class="n">dy_dx</span><span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="n">step</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">k_2</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">step</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
-		<span class="kt">float</span> <span class="n">k_4</span> <span class="o">=</span> <span class="n">dy_dx</span><span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="n">step</span><span class="o">*</span><span class="n">k_3</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">step</span><span class="p">);</span>
-
-		<span class="n">x</span> <span class="o">+=</span> <span class="n">step</span><span class="p">;</span> <span class="c1">// zwiększamy x o jeden krok</span>
-		<span class="n">y</span> <span class="o">+=</span> <span class="n">step</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="p">(</span><span class="n">k_1</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">k_2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">k_3</span><span class="o">+</span><span class="n">k_4</span><span class="p">);</span> <span class="c1">// obliczamy y(x+Delta x)</span>
-		<span class="n">file</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span> <span class="c1">// zapisujemy wynik do pliku </span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>Wyniki zapisałem do pliku <code class="language-plaintext highlighter-rouge">.csv</code>, a następnie naniosłem w pythonie na widoczny poniżej wykres:</p>
-
-<p align="center">
-<img src="/assets/images/2025-06-30/przyklad1.svg" width="500" />
-</p>
-<p>Czerwona linia przedstawia rozwiązanie analityczne, a niebieskie krzyżyki rozwiązanie numeryczne. Widzimy, że algorytm Rungego-Kutty 4 rzędu nawet przy dużych wartościach $ \Delta x $ daje bardzo dobre rezultaty.</p>
-
-<h2 id="równanie-różniczkowe-2-rzędu-jako-układ-równań-1-rzędu">Równanie różniczkowe 2 rzędu jako układ równań 1 rzędu</h2>
-<p>Niech będzie dane równanie różniczkowe 2 rzędu:
-$$ \frac{d^2 y}{dx^2}=f(x, y, y’). $$
-Podstawienie $ u=y’ $ daje nam układ równań pierwszego rzędu
-$$
-\begin{cases} u’ = f(x, y, u) \\ u=y’=g(x,y,u) \end{cases} 
-$$</p>
-
-<h3 id="przykład-1">Przykład</h3>
-<p>Rozważmy równanie ruchu tłumionego oscylatora harmonicznego:
-$$ \ddot{x}+2\beta m\dot{x}+\omega_0^2 x = 0. $$
-Podstawienie $v=\dot{x}$ daje nam układ równań
-$$
-\begin{cases} \dot{v}=-2\beta v-\omega_0^2 x \\ v=\dot{x}  \end{cases}
-$$</p>
-
-<h2 id="numeryczne-rozwiązywanie-równań-2-rzędu">Numeryczne rozwiązywanie równań 2 rzędu</h2>
-<p>Aby numerycznie rozwiązać równanie 2 rzędu musimy mieć dane $y(x_0)$ oraz $u(x_0)$, gdzie $x_0$ to pewna wartość początkowa zmiennej.</p>
-
-<p>W pierwszej kolejności obliczamy $k_1$ dla obydwu równań:
-$$ k_{1y}=g(x, y, u), $$
-gdzie $g(x, y, u)=u$.
-$$ k_{1u}=f(x, y, u) $$
-Aby obliczyć $k_{2y}$, za $u$ podstawiamy $u+k_{1u}\Delta x/2$:
-$$ k_{2y}=g(x+\frac{\Delta x}{2}, y+k_{1y}\frac{\Delta x}{2}, u+k_{1u}\frac{\Delta x}{2}) $$
-i podobnie obliczamy $k_{2u}$:
-$$ k_{2u}=f(x+\frac{\Delta x}{2}, y+k_{1y}\frac{\Delta x}{2}, u+k_{1u}\frac{\Delta x}{2}). $$
-Prodecura wygląda analogicznie dla $k_3$ i $k_4$. Finalnie możemy obliczyć $y(x+\Delta x)$:
-$$ y(x+\Delta x)=y(x)+\frac{\Delta x}{6}(k_{1y}+2k_{2y}+2k_{3y}+k_{4y}) $$
-i analogicznie $u$.</p>
-
-<h3 id="przykład-2">Przykład</h3>
-<p>Rozważmy wcześniejsze równanie ruchu tłumionego oscylatora harmonicznego z warunkami początkowymi $x(0)=0$ i $v(0)=1$ oraz parametrami $\omega_0=2$, $\beta=0.5$, $m=1$.</p>
-
-<p>Zdefiniujmy zmienne i warunki początkowe:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// warunki początkowe</span>
-<span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">v</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">t_min</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">t</span> <span class="o">=</span> <span class="n">t_min</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">t_max</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// jak daleko ma sięgać symulacja</span>
-<span class="kt">float</span> <span class="n">step</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">;</span> <span class="c1">// Delta x</span>
-<span class="c1">// parametry układu</span>
-<span class="kt">float</span> <span class="n">omega_0</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="kt">float</span> <span class="n">beta</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
-</code></pre></div></div>
-<p>Następnie zdefiniujmy funkcje $f(x)$ i $g(x)$:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// funkcja obliczająca dv/dt</span>
-<span class="kt">float</span> <span class="nf">f</span><span class="p">(</span><span class="kt">float</span> <span class="n">t</span><span class="p">,</span> <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">beta</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">v</span><span class="o">-</span><span class="n">omega_0</span><span class="o">*</span><span class="n">omega_0</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">// funkcja obliczająca dx/dt</span>
-<span class="kt">float</span> <span class="nf">g</span><span class="p">(</span><span class="kt">float</span> <span class="n">t</span><span class="p">,</span> <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">return</span> <span class="n">v</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>Utwórzmy funkcję, która oblicza kolejne wartości $x$ i $v$:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// funkcja obliczająca następną wartość x  z użyciem metody Rungego-Kutty</span>
-<span class="kt">void</span> <span class="nf">next</span><span class="p">(</span><span class="kt">float</span> <span class="n">t</span><span class="p">,</span> <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-	<span class="c1">// obliczamy wszystkie k dla obu równań</span>
-	<span class="kt">float</span> <span class="n">k_1x</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
-	<span class="kt">float</span> <span class="n">k_1v</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
-
-	<span class="kt">float</span> <span class="n">k_2x</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">step</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">k_1x</span><span class="o">*</span><span class="n">step</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">v</span><span class="o">+</span><span class="n">k_1v</span><span class="o">*</span><span class="n">step</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
-	<span class="kt">float</span> <span class="n">k_2v</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">step</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">k_1x</span><span class="o">*</span><span class="n">step</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">v</span><span class="o">+</span><span class="n">k_1v</span><span class="o">*</span><span class="n">step</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
-
-	<span class="kt">float</span> <span class="n">k_3x</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">step</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">k_2x</span><span class="o">*</span><span class="n">step</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">v</span><span class="o">+</span><span class="n">k_2v</span><span class="o">*</span><span class="n">step</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
-	<span class="kt">float</span> <span class="n">k_3v</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">step</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">k_2x</span><span class="o">*</span><span class="n">step</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">v</span><span class="o">+</span><span class="n">k_2v</span><span class="o">*</span><span class="n">step</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
-
-	<span class="kt">float</span> <span class="n">k_4x</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">step</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">k_3x</span><span class="o">*</span><span class="n">step</span><span class="p">,</span> <span class="n">v</span><span class="o">+</span><span class="n">k_3v</span><span class="o">*</span><span class="n">step</span><span class="p">);</span>
-	<span class="kt">float</span> <span class="n">k_4v</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">step</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="n">k_3x</span><span class="o">*</span><span class="n">step</span><span class="p">,</span> <span class="n">v</span><span class="o">+</span><span class="n">k_3v</span><span class="o">*</span><span class="n">step</span><span class="p">);</span>
-	
-	<span class="c1">// obliczamy kolejne wartości dla x oraz v</span>
-	<span class="o">::</span><span class="n">x</span> <span class="o">+=</span> <span class="n">step</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="p">(</span><span class="n">k_1x</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">k_2x</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">k_3x</span><span class="o">+</span><span class="n">k_4x</span><span class="p">);</span>
-	<span class="o">::</span><span class="n">v</span> <span class="o">+=</span> <span class="n">step</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="p">(</span><span class="n">k_1v</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">k_2v</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">k_3v</span><span class="o">+</span><span class="n">k_4v</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>Należy pamiętać, aby również obliczać kolejne wartości dla $v$, ponieważ w przeciwnym razie pochodna będzie cały czas stała. Możemy teraz utworzyć pętlę w funkcji <code class="language-plaintext highlighter-rouge">main()</code>:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">t_max</span><span class="o">-</span><span class="n">t_min</span><span class="p">)</span><span class="o">/</span><span class="n">step</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">t</span> <span class="o">+=</span> <span class="n">step</span><span class="p">;</span>
-    <span class="n">next</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
-    <span class="n">file</span> <span class="o">&lt;&lt;</span> <span class="n">t</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span> <span class="o">&lt;&lt;</span> <span class="n">v</span> <span class="o">&lt;&lt;</span>  <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span> <span class="c1">// zapisujemy wyniki do pliku</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>Podobnie jak wcześniej wyniki oraz rozwiązanie analityczne naniosłem na jeden wykres, otrzymując idealną zgodność:</p>
-<p align="center">
-<img src="/assets/images/2025-06-30/przyklad2.svg" width="500" />
-</p>
-
-<p>Pełne pliki źródłowe są dostępne do pobrania tutaj: <br />
-<a href="/assets/downloads/2025-06-30/przykład1.cpp" target="_blank">przykład1.cpp</a> <br />
-<a href="/assets/downloads/2025-06-30/przykład2.cpp" target="_blank">przykład2.cpp</a></p>
-
-<h2 id="uogólnienie-na-równania-wyższych-rzędów">Uogólnienie na równania wyższych rzędów</h2>
-<p>W takim przypadku ponownie rozpisujemy równanie $n$-tego rzędu jako układ $n$ równań różniczkowych 1 rzędu, np.
-$$
-\begin{cases} \dot{x_1}=f_1(t, x_1, x_2, \dots, x_n) \\ \dot{x_2}=f_2(t, x_1, x_2, \dots, x_n) \\ \dots \\ \dot{x_n}=f_n(t, x_1, x_2, \dots, x_n) \end{cases}
-$$
-Niech $\mathbf{x}=(x_1,x_2,\dots,x_n)^\intercal$ oraz $\mathbf{f}(t, \mathbf{x})=(f_1(t, \mathbf{x}), f_2(t, \mathbf{x}), \dots, f_n(t, \mathbf{x}))^\intercal$. Wtedy układ równań możemy zapisać jako 
-$$ \dot{\mathbf{x}}=\mathbf{f}(t, \mathbf{x}) $$
-Obliczamy teraz $\mathbf{k_1}, \mathbf{k_2}, \dots$:
-$$ \mathbf{k_1}=\mathbf{f}(t, \mathbf{x}) $$
-$$ \mathbf{k_2}=\mathbf{f}(t+\frac{\Delta t}{2}, \mathbf{x}+\mathbf{k_1}\frac{\Delta t}{2}) $$
-itd.
-W przypadku $n=2$ wszystko sprowadza się do opisanego wcześniej algorytmu.</p>]]></content><author><name></name></author><category term="Programowanie" /><summary type="html"><![CDATA[Algorytm Rungego-Kutty Mamy dane równanie różniczkowe 1 rzędu w postaci $$ \frac{dy}{dx}=f(x,y). $$ Najprostszą metodą, aby rozwiązać tego typu równanie numerycznie jest metoda Eulera. Pochodną możemy przybliżyć jako $$ \frac{dy}{dx}\approx\frac{y(x+\Delta x)-y(x)}{\Delta x}, $$ a stąd $$ y(x+\Delta x)\approx y(x)+\Delta x f(x,y). $$ Metoda ta jest bardzo niedokładna szczególnie dla rozwiązań oscylujących. Jest ona również nazywana algorytmem Rungego-Kutty 1 rzędu.]]></summary></entry></feed>
+<p>Powyższy program wyświetla okno, a w nim biały prostokąt na czerwonym tle. W następnej części opiszę proces rysowania kół i okręgów za pomocą algorytmu midpoint oraz to, jak dodałem planety.</p>]]></content><author><name></name></author><category term="Programowanie" /><summary type="html"><![CDATA[Cel projektu Celem tego projektu jest stworzenie programu w C++, który będzie pozwalał użytkownikowi: dodawać do sceny ciała niebieskie, które będą oddziaływać ze sobą grawitacyjnie modyfikować ich parametry, takie jak masa, prędkość, położenie, jasność itd. za pomocą prostego interfejsu pauzować, przyspieszać, cofać, resetować symulację poruszać się kamerą po scenie za pomocą myszki, przybliżać i oddalać widok wykreślać i przewidywać trajektorie obiektów ustalać punkt odniesienia dla trajektorii zablokować widok na jednym obiekcie.]]></summary></entry></feed>
