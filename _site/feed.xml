@@ -1,4 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-11-17T20:19:18+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Aparat otworkowy na film</title><link href="http://localhost:4000/fotografia/aparat-otwrokowy-na-film" rel="alternate" type="text/html" title="Aparat otworkowy na film" /><published>2025-11-17T00:00:00+01:00</published><updated>2025-11-17T00:00:00+01:00</updated><id>http://localhost:4000/fotografia/aparat-otwrokowy-na-film</id><content type="html" xml:base="http://localhost:4000/fotografia/aparat-otwrokowy-na-film"><![CDATA[<p>Aparat składa się z kilku części:</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-12-13T11:27:53+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Dipol w kuli z dielektryka liniowego</title><link href="http://localhost:4000/elektromagnetyzm/dipol-w-kuli-z-dielektryka-liniowego" rel="alternate" type="text/html" title="Dipol w kuli z dielektryka liniowego" /><published>2025-12-13T00:00:00+01:00</published><updated>2025-12-13T00:00:00+01:00</updated><id>http://localhost:4000/elektromagnetyzm/dipol-w-kuli-z-dielektryka-liniowego</id><content type="html" xml:base="http://localhost:4000/elektromagnetyzm/dipol-w-kuli-z-dielektryka-liniowego"><![CDATA[<p>Rozważmy kulę wykonaną z dielektryka liniowego o względnej przenikalności $\varepsilon_r$ i promieniu $R$. W środku kuli zostaje umiejscowiony dipol o momencie $\mathbf{p}$. Chcemy wyznaczyć potencjał w środku i na zewnątrz kuli.</p>
+
+<p>Poprzez $V_z$ oznaczamy potencjał zewnętrzny, a $V_w$ wewnętrzny.</p>
+
+<p>Rozpoczniemy od zadania warunków brzegowych. Jedynym źródłem potencjału jest kula, więc w nieskończoności potencjał powinien zanikać:
+$$ r\to \infty\implies V_{z}\to 0. $$</p>
+
+<p>Potencjał musi być również ciągły na powierzchni kuli:
+$$ V_{z}(R)=V_{w}(R). $$</p>
+
+<p>Chcemy również, aby na powierzchni kuli było spełnione prawo Gaussa:
+$$ \oint_\mathcal{S}\mathbf{D}\cdot \hat{\mathbf{n}}\,dS=Q_{sw}, $$
+a ponieważ jedyne ładunki swobodne w układzie wchodzą w skład dipola, na powierzchni kuli możemy mieć tylko ładunki związane. Z tego powodu
+$$  \oint_\mathcal{S}\mathbf{D}\cdot \hat{\mathbf{n}}\,dS=0, $$
+gdzie $\mathcal{S}$ to powierzchnia pudełka Gaussa znajdującego się częściowo wewnątrz i częściowo na zewnątrz kuli. Ponieważ jest to dielektryk liniowy, $\nabla\times\mathbf{P}=0$, a zatem również $\nabla\times\mathbf{D}=0$, więc nie musimy martwić się składową $\mathbf{D}$ styczną do powierzchni kuli. Jeśli uczynimy pudełko Gaussa bardzo małym, warunek przybiera postać
+$$ D_{wew}(R)=D_{zew}(R). $$
+Pamiętając, że $D=\varepsilon E$, a $E=\frac{\partial V}{\partial n}=\frac{\partial V}{\partial r}$ (bo $\hat{\mathbf{n}}=\hat{\mathbf{r}}$), otrzymujemy
+$$ \varepsilon_r \left.\frac{\partial V_w}{\partial r}\right|_R =\left.\frac{\partial V_z}{\partial r}\right|_R, $$
+ponieważ wewnątrz $\varepsilon=\varepsilon_0\varepsilon_r$, a na zewnątrz $\varepsilon=\varepsilon_0$.</p>
+
+<p>Pozostaje nam wziąć pod uwagę obecność dipola wewnątrz kuli. Wyznaczmy najpierw gęstość ładunku związanego w zależności od gęstości ładunków swobodnych. Z definicji mamy
+$$ \rho_{zw}=-\nabla\cdot\mathbf{P}. $$
+W dielektrykach
+$$ \mathbf{P}=\varepsilon_0\chi_e \mathbf{E}=\varepsilon_0(\varepsilon_r-1)\mathbf{E}=\varepsilon_0(\varepsilon_r-1)\frac{\mathbf{D}}{\varepsilon_0\varepsilon_r}=\mathbf{D}\left(\frac{\varepsilon_r-1}{\varepsilon_r}\right),$$
+więc
+$$ \rho_{zw}=-\left(\frac{\varepsilon_r-1}{\varepsilon_r}\right)\nabla\cdot\mathbf{D}=-\left(\frac{\varepsilon_r-1}{\varepsilon_r}\right)\rho_{sw}.$$</p>
+
+<p>Widzimy zatem, że dwa ładunki wchodzące w skład dipola $\mathbf{p}$ wyindukują w swoich położeniach ładunki o przeciwnych znakach i mniejsze o czynnik w powyższym wzorze. Dwa wyindukowane ładunki wytworzą związany moment dipolowy:
+$$ \mathbf{p}_{zw}=-\mathbf{p}\left(\frac{\varepsilon_r-1}{\varepsilon_r}\right). $$
+Całkowity moment dipolowy wewnątrz kuli to
+$$ \mathbf{p}_c=\mathbf{p}+\mathbf{p}_{zw}=\frac{1}{\varepsilon_r}\mathbf{p}. $$</p>
+
+<p>Przejdźmy do wyznaczenia potencjału. Wiemy, że potencjał wewnątrz kuli w najogólniejszej postaci to
+$$ V_{wew}=\sum_{l=0}^\infty \left(A_l r^l +\frac{B_l}{r^{l+1}}\right)P_l(\cos\theta). $$
+Osobliwość potencjału w $r=0$ nie może pochodzić od powierzchniowych ładunków związanych, a tylko i wyłącznie od całkowitego momentu dipolowego. Dlatego wszystkie człony potencjału, dla których potęga $r$ jest mniejsza od $0$ muszą pochodzić tylko od dipola. Potencjał dipola to
+$$ V_{dip}=\frac{p_c\cos\theta}{4\pi\varepsilon_0 r^2}=\frac{p\cos\theta}{4\pi\varepsilon r^2}, $$
+więc widzimy, że
+$$ B_l=\begin{cases}
+0\text{, jeśli } l\neq 1 \\ \frac{p}{4\pi\varepsilon}\text{, jeśli } l=1. \end{cases} $$</p>
+
+<p>Potencjał na zewnątrz kuli jest podobnie opisany równaniem
+$$ V_{zew}=\sum_{l=0}^\infty \left(C_l r^l +\frac{D_l}{r^{l+1}}\right)P_l(\cos\theta). $$
+Ponieważ $V\to 0$ jak $r\to\infty$, $C_l=0$ dla wszystkich $l$.</p>
+
+<p>Rozpatrzmy przypadek $l\neq 1$. Warunek ciągłości potencjału daje nam ($B_l=0$ dla $l\neq 1$):
+$$ \frac{D_l}{R^{l+1}}=A_l R^l, $$
+a warunek wynikający z prawa Gaussa
+$$ -\frac{D_l(l+1)}{R^{l+2}}=\varepsilon_r A_l lR^{l-1}. $$
+Pierwsze z równań daje nam
+$$ D_l=A_l R^{2l+1}, $$
+a drugie
+$$ D_l=-\varepsilon_r A_l \frac{l}{l+1} R^{2l+1}. $$
+Ponieważ $R,l, \varepsilon_r&gt;0$, pierwsze równanie oznacza, że $A_l$ i $D_l$ mają ten sam znak, a równanie drugie, że mają przeciwny. Obywda warunki oczywiście mogą być spełnione jedynie, gdy $D_l=A_l=0$.</p>
+
+<p>Rozważmy teraz przypadek $l=1$. Warunek ciągłości:
+$$ \frac{D_1}{R^{2}}=A_1 R+\frac{p}{4\pi\varepsilon R^2}\rightarrow D_1=A_1R^3+\frac{p}{4\pi\varepsilon}. $$
+Warunek prawa Gaussa:
+$$ -\frac{2D_1}{R^3}=\varepsilon_r A_1-\frac{2p\varepsilon_r}{4\pi\varepsilon R^3}\rightarrow D_1=\frac{p}{4\pi\varepsilon_0}-\frac{A_1\varepsilon_r R^3}{2}.$$
+Z równań tych dostajemy
+$$ A_1=\frac{2p}{4\pi\varepsilon R^3}\left(\frac{\varepsilon_r-1}{\varepsilon_r+2}\right) $$
+oraz
+$$ D_1=\frac{p}{4\pi\varepsilon_0}\left(\frac{3}{\varepsilon_r+2}\right). $$</p>
+
+<p>Ostatecznie, potencjał wewnątrz kuli to dla $r\le R$:
+$$ V=\frac{p\cos\theta}{4\pi\varepsilon r^2}\left[1+\frac{2r^3}{R^3}\left(\frac{\varepsilon_r-1}{\varepsilon_r+2}\right)\right], $$ 
+a dla $r\ge R$:
+$$ V=\frac{p\cos\theta}{4\pi\varepsilon_0 r^2}\left(\frac{3}{2+\varepsilon_r}\right). $$</p>]]></content><author><name></name></author><category term="Elektromagnetyzm" /><summary type="html"><![CDATA[Rozważmy kulę wykonaną z dielektryka liniowego o względnej przenikalności $\varepsilon_r$ i promieniu $R$. W środku kuli zostaje umiejscowiony dipol o momencie $\mathbf{p}$. Chcemy wyznaczyć potencjał w środku i na zewnątrz kuli.]]></summary></entry><entry><title type="html">Aparat otworkowy na film</title><link href="http://localhost:4000/fotografia/aparat-otwrokowy-na-film" rel="alternate" type="text/html" title="Aparat otworkowy na film" /><published>2025-11-17T00:00:00+01:00</published><updated>2025-11-17T00:00:00+01:00</updated><id>http://localhost:4000/fotografia/aparat-otwrokowy-na-film</id><content type="html" xml:base="http://localhost:4000/fotografia/aparat-otwrokowy-na-film"><![CDATA[<p>Aparat składa się z kilku części:</p>
 <ul>
   <li>rolki na naświetlony film,</li>
   <li>miejsca na puszkę z filmem,</li>
@@ -897,152 +963,4 @@ Aby zmiana położenia kamery miała efekt, jej położenie musimy odjąć od po
 <img src="/assets/images/2025-07-13/dzialanie-programu.gif" width="500" />
 </p>
 
-<p>W następnej części zostanie zaimplementowana ulepszona pętla programu oraz algorytm Rungego-Kutty do obliczania trajektorii planet. Kod źródłowy projektu jest dostępny na <a href="https://github.com/bwegrzyn0/grav-sim" target="_blank">GitHub</a>.</p>]]></content><author><name></name></author><category term="Programowanie" /><summary type="html"><![CDATA[Rysowanie kół Aby obserwować interakcję grawitacyjną, potrzebujemy obiekty, które będą w taki sposób oddziaływać. W tej symulacji będą one nazywane planetami, chociaż nie będą miały ściśle określonego przedziału na masę, gęstość i rozmiary. Będziemy je traktować jak kule, czyli w tym wypadku tak samo, jak masy punktowe. Aby reprezentować je na ekranie, będzie konieczna możliwość rysowania kół. Niestety SDL nie posiada funkcji wykonującej takie zadanie, więc trzeba ją stworzyć samodzielnie.]]></summary></entry><entry><title type="html">Tworzenie prostej symulacji grawitacji w C++, część 1: SDL2</title><link href="http://localhost:4000/programowanie/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2" rel="alternate" type="text/html" title="Tworzenie prostej symulacji grawitacji w C++, część 1: SDL2" /><published>2025-07-06T00:00:00+02:00</published><updated>2025-07-06T00:00:00+02:00</updated><id>http://localhost:4000/programowanie/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2</id><content type="html" xml:base="http://localhost:4000/programowanie/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-1-sdl2"><![CDATA[<h2 id="cel-projektu">Cel projektu</h2>
-<p>Celem tego projektu jest stworzenie programu w C++, który będzie pozwalał użytkownikowi:</p>
-<ul>
-  <li>dodawać do sceny ciała niebieskie, które będą oddziaływać ze sobą grawitacyjnie</li>
-  <li>modyfikować ich parametry, takie jak masa, prędkość, położenie, jasność itd. za pomocą prostego interfejsu</li>
-  <li>pauzować, przyspieszać, cofać, resetować symulację</li>
-  <li>poruszać się kamerą po scenie za pomocą myszki, przybliżać i oddalać widok</li>
-  <li>wykreślać i przewidywać trajektorie obiektów</li>
-  <li>ustalać punkt odniesienia dla trajektorii</li>
-  <li>zablokować widok na jednym obiekcie.</li>
-</ul>
-
-<p>Program ma spełniać również następujące założenia:</p>
-<ul>
-  <li>ruch planet ma być dokładnie obliczany za pomocą algorytmu Rungego-Kutty (opisanego w <a href="/programowanie/numeryczne-rozwiązywanie-równań-różniczkowych-2-rzędu-metodą-rungego-kutty" target="_blank">tym</a> artykule)</li>
-  <li>program ma być zoptymalizowany</li>
-  <li>ruch będzie odbywał się w jednej płaszczyźnie i przedstawiany będzie widok z góry</li>
-  <li>oświetlenie planet, zaćmienia (gdy jedna planeta przechodzi za drugą)</li>
-  <li>planety będą przedstawiane jako koła o różnych kolorach</li>
-  <li>anti-aliasing planet</li>
-  <li>zarządzanie obiektami w kodzie powinno być łatwe i uporządkowane.</li>
-</ul>
-
-<h2 id="kod-źródłowy">Kod źródłowy</h2>
-<p>Kod źródłowy projektu jest dostępny w <a href="https://github.com/bwegrzyn0/grav-sim" target="_blank">repozytorium GitHub</a>.</p>
-
-<h2 id="wyświetlanie-okna---sdl2">Wyświetlanie okna - SDL2</h2>
-<p>Do wyświetlania okna i rysowania na nim w tym projekcie użyłem bibliotekę <a href="https://www.libsdl.org/" target="_blank">SDL2</a>. Dobry poradnik, jak ją używać, można znaleźć <a href="https://lazyfoo.net/tutorials/SDL/index.php" target="_blank">tutaj</a>.</p>
-
-<h3 id="inicjalizacja-sdl">Inicjalizacja SDL</h3>
-<p>W pliku <code class="language-plaintext highlighter-rouge">main.cpp</code> dodałem bibliotekę SDL2:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;SDL2/SDL.h&gt;</span><span class="cp">
-</span></code></pre></div></div>
-<p>a następnie utworzyłem zmienne i obiekty:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// wymiary okna</span>
-<span class="k">const</span> <span class="kt">int</span> <span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">800</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">int</span> <span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">600</span><span class="p">;</span>
-
-<span class="c1">// okno</span>
-<span class="n">SDL_Window</span><span class="o">*</span> <span class="n">window</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-<span class="c1">// renderer</span>
-<span class="n">SDL_Renderer</span><span class="o">*</span> <span class="n">renderer</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-</code></pre></div></div>
-<p>Obiekt <code class="language-plaintext highlighter-rouge">renderer</code> będzie odpowiedzialny za rysowanie pikseli w oknie <code class="language-plaintext highlighter-rouge">window</code>. Stworzyłem funkcję inicjalizującą SDL:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// funkcja odpowiadająca za inicjalizację SDL</span>
-<span class="kt">bool</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
-	<span class="kt">bool</span> <span class="n">success</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-	<span class="c1">// inicjalizuj SDL</span>
-	<span class="k">if</span> <span class="p">(</span><span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_VIDEO</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">printf</span><span class="p">(</span><span class="s">"Could not init SDL: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">SDL_GetError</span><span class="p">());</span>
-		<span class="n">success</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-		<span class="c1">// utwórz okno</span>
-		<span class="n">window</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s">"grav-sim"</span><span class="p">,</span> <span class="n">SDL_WINDOWPOS_UNDEFINED</span><span class="p">,</span> <span class="n">SDL_WINDOWPOS_UNDEFINED</span><span class="p">,</span> <span class="n">WIDTH</span><span class="p">,</span> <span class="n">HEIGHT</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">);</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">window</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">printf</span><span class="p">(</span><span class="s">"Could not create window: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">SDL_GetError</span><span class="p">());</span>
-			<span class="n">success</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="c1">// stwórz renderer</span>
-			<span class="n">renderer</span> <span class="o">=</span> <span class="n">SDL_CreateRenderer</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">SDL_RENDERER_ACCELERATED</span><span class="p">);</span>
-			<span class="k">if</span> <span class="p">(</span><span class="n">renderer</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
-				<span class="n">printf</span><span class="p">(</span><span class="s">"Could not create renderer: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">SDL_GetError</span><span class="p">());</span>
-				<span class="n">success</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="n">success</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>Jeśli inicjalizacja nie przebiegnie pomyślnie, funkcja zwróci <code class="language-plaintext highlighter-rouge">false</code>. Potrzebna jest również funkcja “sprzątająca” po wszystkim:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// funkcja odpowiadająca za "posprzątanie" po wszystkim</span>
-<span class="kt">void</span> <span class="nf">close</span><span class="p">()</span> <span class="p">{</span>
-	<span class="c1">// zniszcz okno, zwolnij miejsce w pamięci, zamknij SDL</span>
-	<span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">window</span><span class="p">);</span>
-	<span class="n">window</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-	<span class="n">SDL_Quit</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h3 id="rejestrowanie-wejścia-od-użytkownika">Rejestrowanie wejścia od użytkownika</h3>
-<p>W tym celu utworzyłem obiekt <code class="language-plaintext highlighter-rouge">SDL_Event</code>, który będzie wykrywał zdarzenia, takie jak wciśnięcie klawiatury, myszki itd. oraz funkcję, która na podstawie wykrytego zdarzenia wypisze informację do konsoli:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="n">running</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-<span class="n">SDL_Event</span> <span class="n">event</span><span class="p">;</span>
-
-<span class="kt">void</span> <span class="nf">handleEvents</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">while</span><span class="p">(</span><span class="n">SDL_PollEvent</span><span class="p">(</span><span class="o">&amp;</span><span class="n">event</span><span class="p">))</span> <span class="p">{</span> <span class="c1">// funkcja sprawdzająca zdarzenia</span>
-        <span class="k">switch</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// typ zdarzenia</span>
-            <span class="k">case</span> <span class="n">SDL_KEYDOWN</span><span class="p">:</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">"Key press</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> <span class="c1">// wciśnięcie klawisza na klawiaturze</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="k">case</span> <span class="n">SDL_KEYUP</span><span class="p">:</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">"Key up</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> <span class="c1">// puszczenie klawisza na klawiaturze</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="k">case</span> <span class="n">SDL_QUIT</span><span class="p">:</span>
-                <span class="n">running</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// zamknięcie okna</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">"Quitting</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="nl">default:</span>
-                <span class="k">break</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>Zmienna <code class="language-plaintext highlighter-rouge">running</code> mówi, czy program jest uruchomiony. Przyda się ona w jednym z kolejnych kroków.</p>
-
-<h3 id="rysowanie">Rysowanie</h3>
-<p>Utworzyłem funkcję, która będzie odpowiedzialna za rysowanie na ekranie. Dodałem w niej również rysowanie białego prostokąta:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">draw</span><span class="p">()</span> <span class="p">{</span>
-	<span class="n">SDL_SetRenderDrawColor</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">);</span> <span class="c1">// ustawiamy kolor tła (RGBA)</span>
-	<span class="n">SDL_RenderClear</span><span class="p">(</span><span class="n">renderer</span><span class="p">);</span> <span class="c1">// zapełniamy tło</span>
-
-	<span class="n">SDL_Rect</span> <span class="n">rect</span><span class="p">;</span> <span class="c1">// tworzymy nowy obiekt typu prostokąt</span>
-	<span class="n">rect</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="c1">// ustalamy jego położenie i rozmiary</span>
-	<span class="n">rect</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-	<span class="n">rect</span><span class="p">.</span><span class="n">w</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-	<span class="n">rect</span><span class="p">.</span><span class="n">h</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-
-	<span class="n">SDL_SetRenderDrawColor</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">);</span> <span class="c1">// ustawiamy kolor prostokąta</span>
-	<span class="n">SDL_RenderFillRect</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rect</span><span class="p">);</span> <span class="c1">// rysujemy wypełniony prostokąt</span>
-
-	<span class="n">SDL_RenderPresent</span><span class="p">(</span><span class="n">renderer</span><span class="p">);</span> <span class="c1">// wyświetlamy obraz na ekranie</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h3 id="pętla-programu">Pętla programu</h3>
-<p>Utworzyłem funkcję zawierającą główną pętlę programu:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
-	<span class="k">while</span> <span class="p">(</span><span class="n">running</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">handleEvents</span><span class="p">();</span>
-		<span class="n">draw</span><span class="p">();</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>Na razie kod jest uruchamiany w pętli while, czyli jak najszybciej jest to możliwe. Jest to oczywiście nieopłacalne i niestabilne. Zostanie to naprawione później.</p>
-
-<p>Tak wygląda moja funkcja <code class="language-plaintext highlighter-rouge">main()</code>:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">init</span><span class="p">())</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="n">loop</span><span class="p">();</span>
-	<span class="n">close</span><span class="p">();</span>
-	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="co-dalej">Co dalej?</h2>
-<p>Powyższy program wyświetla okno, a w nim biały prostokąt na czerwonym tle. W następnej części opiszę proces rysowania kół i okręgów za pomocą algorytmu midpoint oraz to, jak dodałem planety.</p>]]></content><author><name></name></author><category term="Programowanie" /><summary type="html"><![CDATA[Cel projektu Celem tego projektu jest stworzenie programu w C++, który będzie pozwalał użytkownikowi: dodawać do sceny ciała niebieskie, które będą oddziaływać ze sobą grawitacyjnie modyfikować ich parametry, takie jak masa, prędkość, położenie, jasność itd. za pomocą prostego interfejsu pauzować, przyspieszać, cofać, resetować symulację poruszać się kamerą po scenie za pomocą myszki, przybliżać i oddalać widok wykreślać i przewidywać trajektorie obiektów ustalać punkt odniesienia dla trajektorii zablokować widok na jednym obiekcie.]]></summary></entry></feed>
+<p>W następnej części zostanie zaimplementowana ulepszona pętla programu oraz algorytm Rungego-Kutty do obliczania trajektorii planet. Kod źródłowy projektu jest dostępny na <a href="https://github.com/bwegrzyn0/grav-sim" target="_blank">GitHub</a>.</p>]]></content><author><name></name></author><category term="Programowanie" /><summary type="html"><![CDATA[Rysowanie kół Aby obserwować interakcję grawitacyjną, potrzebujemy obiekty, które będą w taki sposób oddziaływać. W tej symulacji będą one nazywane planetami, chociaż nie będą miały ściśle określonego przedziału na masę, gęstość i rozmiary. Będziemy je traktować jak kule, czyli w tym wypadku tak samo, jak masy punktowe. Aby reprezentować je na ekranie, będzie konieczna możliwość rysowania kół. Niestety SDL nie posiada funkcji wykonującej takie zadanie, więc trzeba ją stworzyć samodzielnie.]]></summary></entry></feed>
