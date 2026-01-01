@@ -1,4 +1,134 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-12-13T11:27:53+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Dipol w kuli z dielektryka liniowego</title><link href="http://localhost:4000/elektromagnetyzm/dipol-w-kuli-z-dielektryka-liniowego" rel="alternate" type="text/html" title="Dipol w kuli z dielektryka liniowego" /><published>2025-12-13T00:00:00+01:00</published><updated>2025-12-13T00:00:00+01:00</updated><id>http://localhost:4000/elektromagnetyzm/dipol-w-kuli-z-dielektryka-liniowego</id><content type="html" xml:base="http://localhost:4000/elektromagnetyzm/dipol-w-kuli-z-dielektryka-liniowego"><![CDATA[<p>Rozważmy kulę wykonaną z dielektryka liniowego o względnej przenikalności $\varepsilon_r$ i promieniu $R$. W środku kuli zostaje umiejscowiony dipol o momencie $\mathbf{p}$. Chcemy wyznaczyć potencjał w środku i na zewnątrz kuli.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-01T14:08:41+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Tensor momentu bezwładności</title><link href="http://localhost:4000/mechanika/tensor-momentu-bezwladnosci" rel="alternate" type="text/html" title="Tensor momentu bezwładności" /><published>2026-01-01T00:00:00+01:00</published><updated>2026-01-01T00:00:00+01:00</updated><id>http://localhost:4000/mechanika/tensor-momentu-bezwladnosci</id><content type="html" xml:base="http://localhost:4000/mechanika/tensor-momentu-bezwladnosci"><![CDATA[<h2 id="ruch-ciała-sztywnego">Ruch ciała sztywnego</h2>
+<p>Niech $\mathbf{R}$ będzie wektorem położenia środka masy ciała sztywnego, a $\mathbf{r_i}$ położeniem elementu masy $m_i$ wchodzącego w jego skład. Niech $\mathbf{r_i}’=\mathbf{r_i}-\mathbf{R}$ będzie położeniem $m_i$ względem środka masy. Niech ciało wykonuje obrót wokół osi $z$ z prędkością kątową $\mathbf{\Omega}$ oraz porusza się z prędkością $\mathbf{V}$. Po pewnym krótkim czasie $dt$ ciało obróci się o kąt $d\theta$ i przemieści o wektor $\mathbf{dR}$.</p>
+
+<p align="center">
+<img src="/assets/images/2026-01-01/fig1.svg" width="500" />
+</p>
+
+<p>Wyznaczmy wynikające z tego obrotu przesunięcie $\mathbf{dr_i}’$ elementu masy $m_i$. Jeśli poprzez $\phi_i$ oznaczymy kąt tworzony przez $\mathbf{r_i}’$ i oś $z$, to widzimy, że $dr_i’$ to długość łuku okręgu o promieniu $r_i’\sin\phi_i$ określonego przez kąt $d\theta$. Dlatego:
+$$ dr_i’=r_i’\sin\phi_i\,d\theta. $$
+Niech wektor $\mathbf{d\theta}$ będzie skierowany tak, jak $\mathbf{\Omega}$. Ponieważ obrót zachodzi w płaszczyźnie prostopadłej zarówno do wektora kąta, jak i wektora położenia $\mathbf{r_i}’$, a wartość wektora $\mathbf{dr}$ jest taka sama, jak ich iloczynu wektorowego, możemy określić go jako ich iloczyn wektorowy:
+$$ \mathbf{dr_i}’=\mathbf{d\theta}\times\mathbf{r_i}’, $$
+gdzie kolejność mnożenia wynika z reguły prawej dłoni - przyjmujemy, że jeśli $\mathbf{\Omega}$ jest skierowane zgodnie z osią $z$, to obrót następuje przeciwnie do ruchu wskazówek zegara. Całkowite przesunięcie, biorąc pod uwagę ruch środka masy, to
+$$ \mathbf{dr_i}=\mathbf{dr_i}’+\mathbf{dR}=\mathbf{d\theta}\times\mathbf{r_i}’+\mathbf{dR}. $$
+Po podzieleniu powyższego wyrażenia przez $dt$ otrzymujemy
+$$ \mathbf{v_i}=\mathbf{\Omega}\times \mathbf{r_i}’+\mathbf{V}. $$
+Wynika z tego, że ruch ciała sztywnego możemy zawsze rozpatrywać jako ruch obrotowy wokół środka masy oraz ruch postępowy środka masy.</p>
+
+<h2 id="energia-kinetyczna-ciała-sztywnego">Energia kinetyczna ciała sztywnego</h2>
+<p>Obliczmy teraz energię kinetyczną ciała sztywnego. Będzie ona oczywiście równa sumie energii kinetycznych wszystkich jego elementów:
+$$ T=\frac{1}{2}\sum_i m_i\left|\mathbf{v_i}\right|^2. $$
+Skorzystamy z wyprowadzonego wcześniej wzoru na $\mathbf{v_i}$:
+$$ T=\frac{1}{2}\sum_i m_i \left(\mathbf{\Omega}\times \mathbf{r_i}’+\mathbf{V}\right)^2. $$
+Rozpiszmy wyrażenie w nawiasie:
+$$  \left(\mathbf{\Omega}\times \mathbf{r_i}’+\mathbf{V}\right)^2=\left|\mathbf{\Omega}\times\mathbf{r_i}’\right|^2r+2\mathbf{V}\cdot\left(\mathbf{\Omega}\times\mathbf{r_i}’\right)+V^2. $$
+W drugim członie możemy cyklicznie przestawić wyrazy:
+$$ \mathbf{V}\cdot\left(\mathbf{\Omega}\times\mathbf{r_i}’\right)=\mathbf{r_i}’\cdot\left(\mathbf{V}\times\mathbf{\Omega}\right), $$
+a w pierwszym członie możemy obliczyć wartość iloczynu wektorowego:
+$$ \left|\mathbf{\Omega}\times\mathbf{r_i}’\right|^2=\Omega^2r_i’^2\sin^2\phi=\Omega^2r_i’^2-\Omega^2r_i’^2\cos^2\phi=\Omega^2r_i’^2-\left(\mathbf{\Omega}\cdot\mathbf{r_i}’\right)^2. $$
+Wracając do $T$, dostajemy
+$$ T=\frac{1}{2}V^2\sum_i m_i+\left(\mathbf{V}\times\mathbf{\Omega}\right)\cdot\sum_i m_i\mathbf{r_i}’+\frac{1}{2}\sum_i m_i\left[\Omega^2r_i’^2-\left(\mathbf{\Omega}\cdot\mathbf{r_i}’\right)^2\right]. $$
+Suma w pierwszym członie to oczywiście masa całkowita ciała, czyli $M$. Suma w drugim członie to
+$$ \sum_i m_i\mathbf{r_i}’=\sum_i m_i \left(\mathbf{r_i}-\mathbf{R}\right)=\sum_i m_i\mathbf{r_i}-M\mathbf{R}. $$
+Pierwszy wyraz rozpoznajemy jako definicję środka masy pomnożoną razy $M$, więc suma wynosi $M\mathbf{R}-M\mathbf{R}=0$.</p>
+
+<p>Ostatni człon przepiszemy następująco. Niech indeksy $1,2,3$ oznaczają kolejne składowe wektora. Składowe $\mathbf{r_i}’$ będziemy oznaczać jako $x_i$. Wtedy pierwszy wyraz w nawiasie kwadratowym to
+$$ \left(\sum_j \Omega_j^2\right)\left(\sum_k x_k^2\right)=\Omega_j^2 x_k^2 $$
+Dla przejrzystości zapisu będziemy pomijać symbole sumy, wiedząc że sumowanie odbywa się po wskaźnikach $1,2,3$. Podobnie w przypadku iloczynu wektorowego:
+$$ \mathbf{\Omega}\cdot\mathbf{r_i}’=\sum_l \Omega_l x_l=\Omega_l x_l, $$
+a jego kwadrat to $\Omega_l \Omega_m x_l x_m$. Zauważmy, że $\Omega_j^2$ możemy przepisać jako
+$$ \Omega_l \Omega_m \delta_{lm}, $$
+gdzie $\delta_{lm}$ to delta Kroneckera.
+Możemy teraz przepisać wyrażenie w nawiasie kwadratowym jako
+$$ \Omega_l\Omega_m \delta_{lm}x_k^2 -\Omega_l\Omega_m x_l x_m = \Omega_l\Omega_m\left(x_k^2\delta_{lm}-x_l x_m\right). $$
+Cała suma to teraz
+$$ \frac{1}{2}\Omega_l \Omega_m \sum_i m_i\left(x_k^2\delta_{lm}-x_l x_m\right), $$
+gdzie $\Omega_l \Omega_m$ wyciągnęliśmy przed sumę, ponieważ jest to wielkość niezależna od $i$.</p>
+
+<p>Energia kinetycza to
+$$ \boxed{T=\frac{1}{2}MV^2+\frac{1}{2}\Omega_l\Omega_m I_{lm},} $$
+gdzie $I_{lm}$ to <strong>tensor momentu bezwładności</strong>. Możemy zapisać go w postaci macierzy:
+$$ \mathbf{I}=\begin{pmatrix}
+\sum_i m_i(y^2+z^2) &amp; -\sum_i m_ixy &amp; -\sum_i m_ixz \\ -\sum_i m_ixy &amp; \sum_i m_i(x^2+z^2) &amp; -\sum_i m_iyz \\ -\sum_i m_ixz &amp; -\sum_i m_iyz &amp; \sum_i m_i(x^2+y^2)
+\end{pmatrix}. $$
+Widzimy, że tensor jest symetryczny, tzn. $I_{lm}=I_{ml}$. Oczywiście, dla ciał rozciągłych sumę zastępujemy całką.</p>
+
+<h2 id="moment-pędu-ciała-sztywnego">Moment pędu ciała sztywnego</h2>
+<p>Za pomocą tensora bezwładności możemy również wyrazić wektor momentu pędu ciała sztywnego. Moment pędu to z definicji
+$$ \mathbf{L}=\sum_i m_i \mathbf{r_i}’\times \mathbf{v_i}. $$
+Korzystając ze wcześniejszych wyników, możemy postawić za $ \mathbf{v_i}$:
+$$ \mathbf{L}=\sum_i m_i \mathbf{r_i}’\times\left(\mathbf{V}+ \mathbf{\Omega}\times \mathbf{r_i}’\right). $$
+Pierwszy człon sumy daje 
+$$ \left(\sum_i m_i \mathbf{r_i}’\right)\times \mathbf{V}=0 $$
+(wyrażenie w nawiasie zostało obliczone wcześniej), a wyraz z drugiego możemy przepisać, korzystając ze wzoru na potrójny iloczyn wektorowy:
+$$ \mathbf{r_i}’\times\left(\mathbf{\Omega}\times \mathbf{r_i}’\right)= \mathbf{\Omega}\left( \mathbf{r_i}’\cdot \mathbf{r_i}’\right)- \mathbf{r_i}’\left( \mathbf{r_i}’\cdot \mathbf{\Omega}\right). $$
+$k$-ta składowa wektora momentu pędu to wtedy
+$$ L_k=\sum_i m_i\left(\Omega_k x_j^2-x_k x_j\Omega_j \right). $$
+Zauważmy, że $\Omega_k=\Omega_j\delta_{jk}$, więc
+$$ L_k=\Omega_j\sum_i m_i\left(x_j^2\delta_{jk}-x_jx_k\right). $$
+Sumę rozpoznajemy jako tensor momentu bezwładności. Ostatecznie,
+$$ \boxed{L_k=\Omega_j I_{jk}} $$
+lub
+$$ \boxed{ \mathbf{L}= \mathbf{I}\cdot \mathbf{\Omega}.} $$</p>
+
+<h2 id="tensor-symetryczny">Tensor symetryczny</h2>
+<p>Tensor $ \mathbf{I}$ jest symetryczną macierzą kwadratową, więc możemy wyznaczyć jego wartości i wektory własne. Będą one odpowiadać kierunkom, dla których zwrot wektora momentu pędu będzie taki sam, jak zwrot wektora prędkości kątowej.</p>
+
+<p>Tensory symetryczne mają wiele użytecznych własności. Pierwsza z nich to fakt, że wszystkie rzeczywiste tensory symetryczne mają rzeczywiste wartości własne. Aby to udowodnić, zapiszmy zagadnienie własne dla macierzy $ \mathbf{A}$:
+$$ A_{ij} v_j=\lambda v_i. $$
+Weźmy teraz sprzężenie zespolone obu stron i skorzystajmy z własności $(ab)^*=a^*b^*$:
+$$ A_{ij} v_j^*=\lambda^* v_i^*, $$
+gdzie skorzystaliśmy również z faktu, że tensor $ \mathbf{A}$ jest rzeczywisty.
+Weźmy teraz iloczyn skalarny $ \mathbf{v}^* $ i pierwszego równania oraz $ \mathbf{v}$ i drugiego równania:
+$$ v_i^* A_{ij}v_j=\lambda v_i^*v_i \text{, } v_i A_{ij}v_j^*=\lambda^* v_iv_i^*.$$
+Korzystając z faktu, że $A_{ij}=A_{ji}$, $\lambda v_i^*v_i=v_i^* A_{ij}v_j=v_i^* A_{ji}v_j=v_jA_{ji}v_i^*$, a zamiania miejscami wskaźników $i$ oraz $j$ (co nic nie zmienia) daje $v_iA_{ij}v_j^*=\lambda^* v_iv_i^*$. Stąd
+$$ \lambda^* v_iv_i^*=\lambda v_i^*v_i. $$
+$v_iv_i^*=v_i^*v_i$, więc $\lambda=\lambda^*$, a to jest możliwe tylko, gdy $ \text{Im }\lambda=0$.</p>
+
+<p>Druga z własności to fakt, że wszystkie wektory własne, odpowiadające różnym wartością własnym są ortogonalne. Załóżmy, że mamy różne wartości własne $\lambda$ i $\mu$ oraz wektory własne $ \mathbf{x}$ oraz $ \mathbf{y}$. Odpowiadające im równania to
+$$ A_{ij}x_j=\lambda x_i \text{ oraz } A_{ij}y_j=\mu y_i. $$
+Aby udowodnić ortogonalność, musimy udowodnić, że $x_i y_i=0$. Aby to uczynić, przekształćmy następujące wyrażenie:
+$$ \lambda x_i y_i=A_{ij}x_j y_i, $$
+a korzystając z $A_{ij}=A_{ji}$:
+$$ =x_jA_{ji}y_i=x_j\mu y_j. $$
+Doszliśmy do związku:
+$$ \lambda x_i y_i=\mu x_j y_j. $$
+Ponieważ $\lambda\neq\mu$, a $x_iy_i=x_jy_j$, to iloczyn skalarny jest równy $0$.</p>
+
+<p>Łatwo jest zauważyć, dlaczego powyższa zależność jest prawdziwa, patrząc na przekształcenie wektorów na płaszczyźnie. Wiemy, że pierwsza kolumna macierzy wskazuje, gdzie po transformacji “idzie” wektor jednostkowy osi $x$, a druga - $y$. Ponieważ macierz jest symetryczna, wektory jednostkowe są swoimi odbiciami względem prostej $y=x$. Zauważmy teraz, że wszystkie wektory leżące na prostej $y=x$ są złożone z takiej samej liczby wektorów jednostkowych $x$ oraz $y$, co pozostaje prawdą po transformacji. Zauważmy również, że suma dwóch wektorów, będących swoimi odbiciami względem prostej $y=x$ zawsze ląduje na tej prostej (niech będą to wektory $(a,b)$ oraz $(b,a)$. Widzimy, że ich suma to $(a+b,a+b)$, więc $y=x$). Wektory wchodzące w skład wektora leżącego na $y=x$ możemy pogrupować parami, a każda z nich daje wektor leżący na $y=x$, zatem kierunek wszystkich wektorów na tejże prostej się nie zmienia - są to wektory własne przypadające pierwszej wartości własnej. Dla wektorów leżących na $y=-x$ możemy przeprowadzić podobne rozumowanie i dojść do wniosku, że one również są wektorami własnymi przypadającymi drugiej wartości własnej. Teraz widzimy, że oczywiście proste $y=x$ i $y=-x$ są prostopadłe, więc wektory własne również.</p>
+
+<p>Często macierze przybierają o wiele prostszą postać w innych układach współrzędnych. Okazuje się, że istnieje taki wybór osi układu współrzędnych, dla którego macierz symetryczna staje się diagonalna. Innymi słowy,
+$$ \mathbf{A}= \mathbf{P}^{-1} \mathbf{B} \mathbf{P}, $$
+gdzie $ \mathbf{B}$ to macierz diagonalna, a macierz $ \mathbf{P}$ jest macierzą ortogonalną, tzn. złożoną z wektorów ortogonalnych (np. wektorów wskazujących osie kartezjańskiego układu współrzędnych). Wyrażenie po prawej stronie odpowiada transformacji układu współrzędnych, następnie zastosowaniu transformacji macierzy $ \mathbf{B}$, która odpowiada transformacji $ \mathbf{A}$, lecz ma prostszą postać, a następnie powrotowi do pierwotnego układu współrzędnych (macierz odwrotna do $ \mathbf{P}$). Zastanówmy się, dla jakiej macierzy $ \mathbf{P}$, czyli wyboru osi układu współrzędnych, macierz $ \mathbf{B}$ zmienia jedynie długość wektorów jednostkowych osi (ponieważ $ \mathbf{B}$ jest diagonalna, a takie macierze zmieniają tylko długość wektorów jednostkowych wskazujących osie układu współrzędnych). Własność taką mają oczywiście wektory własne macierzy $ \mathbf{A}$, więc spodziewamy się, że $ \mathbf{P}$ będzie właśnie z nich złożona. Z kolei, wektory własne są wydłużane o czynnik wartości własnej, więc na przekątnej $ \mathbf{B}$ będą wartości własne odpowiadające każdemu z wektorów własnych. Innymi słowy,
+$$ \mathbf{B}=\begin{pmatrix}
+\lambda_1 &amp; \cdots &amp; 0 \\ \vdots &amp; \ddots &amp; \vdots \\ 0 &amp; \cdots &amp; \lambda_n \end{pmatrix}
+$$
+oraz 
+$$ \mathbf{P} = \begin{pmatrix} \mathbf{x_1} &amp; \cdots &amp;  \mathbf{x_n} \end{pmatrix}, $$
+gdzie $ \mathbf{x}_i$ to wektory własne odpowiadające wartościom własnym $\lambda_i$. Jak udowodniono wcześniej, wektory własne są ortogonalne, więc $ \mathbf{P}$ jest macierzą ortogonalną.</p>
+
+<p>Wracając do tensora momentu bezwładności, możemy wyznaczyć jego wektory własne, które będą wskazywać kierunki nazywane <strong>głównymi osiami bezwładności</strong>. Zauważmy, że jeśli kierunek wektora prędkości kątowej $ \mathbf{\Omega}$ będzie pokrywał się z kierunkiem którejkolwiek z głównych osi bezwładności (czyli $ \mathbf{\Omega}$ jest wektorem własnym tensora bezwładności) wektor momentu pędu również będzie pokrywał się z tą osią.</p>
+
+<p>Przy wyborze osi wskazywanych przez wektory własne tensora bezwładności, wyrażenia na energię i moment pędu przybierają prostą postać:
+$$ \boxed{T=\frac{1}{2}I_i\Omega_i^2,} $$
+gdzie $I_i=I_{ij}\delta_{ij}$ (w przekształconym układzie współrzędnych) oraz
+$$ \boxed{L_i=I_i\Omega_i.} $$</p>
+
+<h2 id="precesja-regularna-bąka-symetrycznego">Precesja regularna bąka symetrycznego</h2>
+<p><strong>Bąkiem symetrycznym</strong> nazywamy ciało, dla którego dwa główne momenty bezwładności są równe, $I_1=I_2\neq I_3$. Oznacza to, że płaszczyzna, w której zawierają się wektory własne $ \mathbf{x}_1$ oraz $ \mathbf{x}_2$, jest “rozciągana” przez macierz (tensor) $ \mathbf{I}$ równomiernie w dwóch prostopadłych kierunkach. W takim przypadku, oczywiste jest, że zmieniają się jedynie długości wektorów, a ich kierunki pozostają stałe - i jest to prawdziwe dla wszystkich wektorów w płaszczyźnie. Zatem dowolna para prostopadłych wektorów $ \mathbf{x}_1’$ oraz $ \mathbf{x}_2’$ w rozważanej płaszczyźnie może służyć za kierunki osi układu współrzędnych.</p>
+
+<p>W ogólności wektor $ \mathbf{L}$ nie będzie miał zwrotu zgodnego z którąkolwiek z głównych osi bezwładności. Skorzystajmy ze swobody wyboru osi prostopadłych do $x_3$ i wybierzmy oś $x_2$ taką, że jest ona prostopadła do płaszczyzny, w której zawiera się $x_3$ oraz $ \mathbf{L}$. Wtedy $L_2=0$ i z wcześniejszych rozważań, $\Omega_2=0$. Wiemy więc, że wektory $ \mathbf{L}$, $ \mathbf{\Omega}$ i oś $x_3$, będącą osią symetrii bąka, leżą w jednej płaszczyźnie. Rozważmy teraz prędkości punktów leżących na osi $x_3$. Są one dane wzorem
+$$ \mathbf{v}_i= \mathbf{\Omega}\times \mathbf{r}_i’. $$
+Widzimy więc, że prędkości będą zwrócone prostopadle do tej płaszczyny, a co za tym idzie, oś bąka będzie obracać się jednostanie wokół wektora $ \mathbf{L}$. Wyznaczmy prędkość kątową obrotu i precesji bąka. Niech $\theta$ oznacza kąt między $ \mathbf{L}$ a $x_3$. Ze wcześniejszych zależności
+$$ \Omega_3=\Omega_{obr}= \frac{M_3}{I_3}, $$
+a $M_3=M\cos\theta$, więc
+$$ \Omega_{obr}= \frac{M}{I_3}\cos\theta. $$
+Z kolei, z rysunku widzimy, że po rozłożeniu wektora $ \mathbf{\Omega}$ na składową w kierunku $x_3$ (oznaczoną znakiem prim, ponieważ nie jest ona tym samym, co $ \mathbf{\Omega_3}$!) oraz na składową w kierunku $ \mathbf{L}$, $\Omega_{pr}\sin\theta=\Omega_1$, więc
+$$ \Omega_{pr}= \frac{\Omega_1}{\sin\theta}= \frac{M_1}{I_1\sin\theta}= \frac{M\sin\theta}{I_1\sin\theta}= \frac{M}{I_1}. $$</p>
+
+<p align="center">
+<img src="/assets/images/2026-01-01/fig2.svg" width="500" />
+</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Ruch ciała sztywnego Niech $\mathbf{R}$ będzie wektorem położenia środka masy ciała sztywnego, a $\mathbf{r_i}$ położeniem elementu masy $m_i$ wchodzącego w jego skład. Niech $\mathbf{r_i}’=\mathbf{r_i}-\mathbf{R}$ będzie położeniem $m_i$ względem środka masy. Niech ciało wykonuje obrót wokół osi $z$ z prędkością kątową $\mathbf{\Omega}$ oraz porusza się z prędkością $\mathbf{V}$. Po pewnym krótkim czasie $dt$ ciało obróci się o kąt $d\theta$ i przemieści o wektor $\mathbf{dR}$.]]></summary></entry><entry><title type="html">Dipol w kuli z dielektryka liniowego</title><link href="http://localhost:4000/elektromagnetyzm/dipol-w-kuli-z-dielektryka-liniowego" rel="alternate" type="text/html" title="Dipol w kuli z dielektryka liniowego" /><published>2025-12-13T00:00:00+01:00</published><updated>2025-12-13T00:00:00+01:00</updated><id>http://localhost:4000/elektromagnetyzm/dipol-w-kuli-z-dielektryka-liniowego</id><content type="html" xml:base="http://localhost:4000/elektromagnetyzm/dipol-w-kuli-z-dielektryka-liniowego"><![CDATA[<p>Rozważmy kulę wykonaną z dielektryka liniowego o względnej przenikalności $\varepsilon_r$ i promieniu $R$. W środku kuli zostaje umiejscowiony dipol o momencie $\mathbf{p}$. Chcemy wyznaczyć potencjał w środku i na zewnątrz kuli.</p>
 
 <p>Poprzez $V_z$ oznaczamy potencjał zewnętrzny, a $V_w$ wewnętrzny.</p>
 
@@ -237,7 +367,7 @@ lub
 $$ n(v_z^2, 0)=n_0\exp\left(-\frac{mv_z^2}{2kT}\right), $$
 gdzie $n_0$ to pewna stała. Zauważmy, że powyższy wynik jest prawdziwy nie tylko dla małych, ale dla <em>wszystkich</em> $du$. Oznaczmy przez $n_c(0)$ całkowitą liczbę cząstek na poziomie $h=0$. Wtedy gęstość prawdopodobieństwa wylosowania cząstki o prędkości $v_z$ to
 $$ f(v_z)=\frac{n(v_z^2,0)}{n_c(0)}=f_{0z} \exp\left(-\frac{mv_z^2}{2kT}\right), $$
-gdzie $f_{0z}$ to pewna stała normalizująca. Funkcja $f$ przestaje być funkcją $v_z^2$, a $v_z$, ponieważ uwzględniamy znak składowej prędkości. Warto zauważyć, że rozkład jest symetryczny. Prawdopodobieństwo wylosowania cząstki o prędkości w przedziale $\left[v_{z0}, v_{z1}\right]$ to 
+gdzie $f_{0z}$ to pewna stała normalizująca. Funkcja $f$ przestaje być funkcją $v_z^2$, a $v_z$, ponieważ znak składowej prędkości nie ma znaczenia. Warto zauważyć, że rozkład jest symetryczny. Prawdopodobieństwo wylosowania cząstki o prędkości w przedziale $\left[v_{z0}, v_{z1}\right]$ to 
 $$ p_z=\int_{v_{z1}}^{v_{z2}} f(v_z)\,dv_z. $$
 Zauważmy, że rozkład <em>nie zależy</em> od wysokości ani wartości przyspieszenia grawitacyjnego. Jest on w ogólności prawdziwy dla <em>wszystkich gazów doskonałych</em>.</p>
 
@@ -785,182 +915,4 @@ $$ \frac{\partial S}{\partial \beta}=0. $$
 W obu przypadkach zniknie albo $Y_1$ albo $Y_2$, co da nam 2 równania:
 $$ \frac{\partial f}{\partial y_1}-\frac{d}{dx}\frac{\partial f}{\partial y_1’}=0 $$
 $$ \frac{\partial f}{\partial y_2}-\frac{d}{dx}\frac{\partial f}{\partial y_2’}=0. $$
-Wynik ten łatwo uogólnia się na większą liczbę zmiennych.</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Motywacja Rozważmy następujący problem: błonę mydlaną rozpięliśmy między dwoma współosiowymi pierścieniami o promieniach $r_1$ i $r_2$. Wiadomo, że bańka mydlana przyjmuje zawsze taki kształt, aby jej pole powierzchni było jak najmniejsze - ten kształt chcemy znaleźć.]]></summary></entry><entry><title type="html">Tworzenie prostej symulacji grawitacji w C++, część 2: Rysowanie kół, planety</title><link href="http://localhost:4000/programowanie/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-2-rysowanie-k%C3%B3%C5%82-planety" rel="alternate" type="text/html" title="Tworzenie prostej symulacji grawitacji w C++, część 2: Rysowanie kół, planety" /><published>2025-07-13T00:00:00+02:00</published><updated>2025-07-13T00:00:00+02:00</updated><id>http://localhost:4000/programowanie/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-2-rysowanie-k%C3%B3%C5%82-planety</id><content type="html" xml:base="http://localhost:4000/programowanie/tworzenie-prostej-symulacji-grawitacji-w-cpp-cz%C4%99%C5%9B%C4%87-2-rysowanie-k%C3%B3%C5%82-planety"><![CDATA[<h2 id="rysowanie-kół">Rysowanie kół</h2>
-<p>Aby obserwować interakcję grawitacyjną, potrzebujemy obiekty, które będą w taki sposób oddziaływać. W tej symulacji będą one nazywane planetami, chociaż nie będą miały ściśle określonego przedziału na masę, gęstość i rozmiary. Będziemy je traktować jak kule, czyli w tym wypadku tak samo, jak masy punktowe. Aby reprezentować je na ekranie, będzie konieczna możliwość rysowania kół. Niestety SDL nie posiada funkcji wykonującej takie zadanie, więc trzeba ją stworzyć samodzielnie.</p>
-
-<p>Wydajnym algorytmem do rysowania kół i okręgów jest <a href="https://en.wikipedia.org/wiki/Midpoint_circle_algorithm" target="_blank">algorytm midpoint</a>. Jego implementację dla SDL znalazłem <a href="https://gist.github.com/Gumichan01/332c26f6197a432db91cc4327fcabb1c" target="_blank">tutaj</a>.</p>
-
-<p>W funkcji <code class="language-plaintext highlighter-rouge">draw()</code> przeniesionej do osobnego pliku dodałem następujące linijki rysujące okrąg i koło:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SDL_RenderDrawCircle</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-<span class="n">SDL_RenderFillCircle</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-</code></pre></div></div>
-<p>Rezultat jest następujący:</p>
-<p align="center">
-<img src="/assets/images/2025-07-13/okrag-i-kolo-test.png" width="500" />
-</p>
-
-<h2 id="planety">Planety</h2>
-<h3 id="obiekt-planeta">Obiekt planeta</h3>
-<p>W pliku <code class="language-plaintext highlighter-rouge">planet.h</code> utworzyłem klasę <code class="language-plaintext highlighter-rouge">Planet</code>, a w niej potrzebne zmienne i funkcje.</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#ifndef PLANET_H
-#define PLANET_H
-</span><span class="k">class</span> <span class="nc">Planet</span> <span class="p">{</span>
-    <span class="nl">public:</span>
-        <span class="c1">// położenie planety</span>
-        <span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
-        <span class="kt">float</span> <span class="n">y</span><span class="p">;</span>
-        <span class="c1">// prędkość planety</span>
-        <span class="kt">float</span> <span class="n">v_x</span><span class="p">;</span>
-        <span class="kt">float</span> <span class="n">v_y</span><span class="p">;</span>
-        <span class="c1">// masa planety</span>
-        <span class="kt">float</span> <span class="n">mass</span><span class="p">;</span>
-        <span class="c1">// gęstość planety</span>
-        <span class="kt">float</span> <span class="n">density</span><span class="p">;</span>
-        <span class="c1">// promień planety </span>
-        <span class="kt">float</span> <span class="n">radius</span><span class="p">;</span>
-        <span class="c1">// przyspieszenie planety</span>
-        <span class="kt">float</span> <span class="n">a_x</span><span class="p">;</span>
-        <span class="kt">float</span> <span class="n">a_y</span><span class="p">;</span>
-        <span class="c1">// indentyfikator</span>
-        <span class="kt">float</span> <span class="n">ID</span><span class="p">;</span>
-        <span class="c1">// konstruktor</span>
-        <span class="n">Planet</span><span class="p">(</span><span class="kt">float</span> <span class="n">_x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_y</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_v_x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_v_y</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_mass</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_density</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_ID</span><span class="p">);</span>
-        <span class="c1">// funkcja aktualizująca położenie planety</span>
-        <span class="kt">void</span> <span class="n">updatePos</span><span class="p">();</span>
-<span class="p">};</span>
-<span class="cp">#endif
-</span></code></pre></div></div>
-<p>Identyfikator będzie potrzebny do obliczania przyspieszenia.</p>
-
-<p>Następnie w pliku <code class="language-plaintext highlighter-rouge">planet.cpp</code> utworzyłem konstruktor, w którym obliczam promień na podstawie masy i gęstości ze wzoru
-$$R = \left(\frac{3M}{4\pi\rho}\right)^{1/3}$$</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Planet</span><span class="o">::</span><span class="n">Planet</span><span class="p">(</span><span class="kt">float</span> <span class="n">_x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_y</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_v_x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_v_y</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_mass</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_density</span><span class="p">,</span> <span class="kt">float</span> <span class="n">_ID</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// przyporządkowujemy zmienne lokalne przekazane do konstruktora zmiennym globalnym 		</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">_x</span><span class="p">;</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">_y</span><span class="p">;</span>
-    <span class="n">v_x</span> <span class="o">=</span> <span class="n">_v_x</span><span class="p">;</span>
-    <span class="n">v_y</span> <span class="o">=</span> <span class="n">_v_y</span><span class="p">;</span>
-    <span class="n">mass</span> <span class="o">=</span> <span class="n">_mass</span><span class="p">;</span>
-    <span class="n">density</span> <span class="o">=</span> <span class="n">_density</span><span class="p">;</span>
-    <span class="n">ID</span> <span class="o">=</span> <span class="n">_ID</span><span class="p">;</span> 
-    <span class="n">a_x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">a_y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="c1">// R = [3M/(4*PI*rho)]^(1/3) dla jednorodnej kuli</span>
-    <span class="n">radius</span> <span class="o">=</span> <span class="n">pow</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span> <span class="p">(</span><span class="mf">3.0f</span><span class="o">*</span><span class="n">mass</span><span class="o">/</span><span class="p">(</span><span class="mf">4.0f</span><span class="o">*</span><span class="mf">3.1415f</span><span class="o">*</span><span class="n">density</span><span class="p">)),</span> <span class="mx">0.333d</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>W funkcji <code class="language-plaintext highlighter-rouge">updatePos()</code> zaimplementowałem proste obliczanie kolejnych położeń i prędkości planety za pomocą algorytmu Eulera.</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">Planet</span><span class="o">::</span><span class="n">updatePos</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Planet</span><span class="o">&gt;</span> <span class="n">planets</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// OBLICZANIE POŁOŻENIA</span>
-        <span class="n">x</span> <span class="o">+=</span> <span class="n">v_x</span> <span class="o">*</span> <span class="n">dT</span><span class="p">;</span>
-        <span class="c1">// dT to krok czasowy zdefiniowany w pliku main.h</span>
-        <span class="n">y</span> <span class="o">+=</span> <span class="n">v_y</span> <span class="o">*</span> <span class="n">dT</span><span class="p">;</span>
-
-        <span class="c1">// OBLICZANIE PRĘDKOŚCI</span>
-        <span class="c1">// musimy zresetować przyspieszenie, aby obliczyć je na nowo</span>
-        <span class="n">a_x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="n">a_y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-        <span class="c1">// obliczanie przyspieszenia ...</span>
-
-        <span class="c1">// aktualizujemy prędkość</span>
-        <span class="n">v_x</span> <span class="o">+=</span> <span class="n">a_x</span> <span class="o">*</span> <span class="n">dT</span><span class="p">;</span>
-        <span class="n">v_y</span> <span class="o">+=</span> <span class="n">a_y</span> <span class="o">*</span> <span class="n">dT</span><span class="p">;</span>
-    <span class="p">}</span>
-</code></pre></div></div>
-
-<p>$dT$ to pewien krok czasowy ustalony w pliku <code class="language-plaintext highlighter-rouge">main.h</code>. W przyszłości zostanie zaimplementowany algorytm Rungego-Kutty.</p>
-
-<p>Ponieważ krok czasowy jest stały, w przypadku spowolnienia działania programu, zostanie również spowolniona symulacja. Rozważmy to na przykładzie. Załóżmy że program działa z szybkością 60 klatek na sekundę. Wtedy w ciągu sekundy przy kroku czasowym równym $1/60\text{s}$ symulacja postąpi o $1\text{s}$. Jeśli program będzie działał z szybkością 30 klatek na sekundę, aby w tym samym czasie symulacja postąpiła o czas $1\text{s}$, krok czasowy musiałby być 2 razy dłuższy.
-Zostanie to w przyszłości naprawione implementując inną postać pętli programu.</p>
-
-<h3 id="zarządzanie-planetami">Zarządzanie planetami</h3>
-<p>Aby sprawnie zarządzać wszystkimi obiektami utworzyłem plik <code class="language-plaintext highlighter-rouge">handler.cpp</code>, którego zadaniem będzie aktualizowanie wszystkich planet. W nim utworzyłem wektor ze wszystkimi planetami i funkcję, która będzie je aktualizować.</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">updatePlanets</span><span class="p">()</span> <span class="p">{</span>
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">planets</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">updatePos</span><span class="p">();</span>	
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>Warto zauważyć, że nie zadziała tutaj pętla for each, ponieważ tworzy ona nowe obiekty planet i aktualizuje parametry tych nowych, a nie już istniejących obiektów.</p>
-
-<p>W pliku <code class="language-plaintext highlighter-rouge">main.cpp</code> utworzyłem funkcję:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">setupEnvironment</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">planets</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="k">new</span> <span class="n">Planet</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">5.47</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)));</span>
-    <span class="n">planets</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="k">new</span> <span class="n">Planet</span><span class="p">(</span><span class="mi">595</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1</span><span class="p">)));</span>
-    <span class="n">planets</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="k">new</span> <span class="n">Planet</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.033</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2</span><span class="p">)));</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p>oraz dodałem <code class="language-plaintext highlighter-rouge">updatePlanets()</code> z <code class="language-plaintext highlighter-rouge">handler.cpp</code> do pętli.</p>
-
-<p>Należy pamiętać, aby wyświetlać planety na ekranie, dlatego zmodyfikowałem funkcję <code class="language-plaintext highlighter-rouge">draw()</code> w następujący sposób:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">draw</span><span class="p">(</span><span class="n">SDL_Renderer</span><span class="o">*</span> <span class="n">renderer</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// ustal kolor tła i je zapełń</span>
-    <span class="n">SDL_SetRenderDrawColor</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">);</span>
-    <span class="n">SDL_RenderClear</span><span class="p">(</span><span class="n">renderer</span><span class="p">);</span>
-
-    <span class="c1">// renderujemy po kolei wszystkie planety</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">planets</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">SDL_SetRenderDrawColor</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">);</span>
-        <span class="n">SDL_RenderFillCircle</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">radius</span> <span class="o">*</span> <span class="mi">100</span><span class="p">));</span>
-    <span class="p">}</span>
-
-    <span class="c1">// wyświetl to, co zostało narysowane </span>
-    <span class="n">SDL_RenderPresent</span><span class="p">(</span><span class="n">renderer</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h3 id="interakcja-grawitacyjna">Interakcja grawitacyjna</h3>
-<p>Potrzebujemy w funkcji <code class="language-plaintext highlighter-rouge">updatePlanets()</code> dostęp do wektora <code class="language-plaintext highlighter-rouge">planets</code>, więc będzie on przekazywany jako argument tej funkcji. Następnie utwórzmy w niej pętlę sumującą przyspieszenia pochodzące od wszystkich innych planet, aby obliczyć siłę wypadkową. Oczywiście musimy sumować rzuty przyspieszeń na poszczególne osie.</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">planets</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">ID</span> <span class="o">!=</span> <span class="n">ID</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// nie chcemy żeby planeta przyciągała sama siebie</span>
-        <span class="c1">// obliczamy r^2</span>
-        <span class="kt">float</span> <span class="n">distance_squared</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">y</span><span class="p">);</span>
-        <span class="c1">// obliczamy wartość przyspieszenia</span>
-        <span class="kt">float</span> <span class="n">a</span> <span class="o">=</span> <span class="n">G</span><span class="o">*</span><span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">mass</span><span class="o">/</span><span class="n">distance_squared</span><span class="p">;</span>
-        <span class="c1">// obliczamy wartość sinusa i cosinusa kąta między planetami</span>
-        <span class="kt">float</span> <span class="n">cos</span> <span class="o">=</span> <span class="p">(</span><span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">x</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">pow</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span> <span class="n">distance_squared</span><span class="p">,</span> <span class="mx">0.5d</span><span class="p">);</span>
-        <span class="kt">float</span> <span class="n">sin</span> <span class="o">=</span> <span class="p">(</span><span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">y</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">pow</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span> <span class="n">distance_squared</span><span class="p">,</span> <span class="mx">0.5d</span><span class="p">);</span>
-        <span class="c1">// dodajemy składowe przyspieszenia</span>
-        <span class="n">a_x</span> <span class="o">+=</span> <span class="n">a</span><span class="o">*</span><span class="n">cos</span><span class="p">;</span>
-        <span class="n">a_y</span> <span class="o">+=</span> <span class="n">a</span><span class="o">*</span><span class="n">sin</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h2 id="poruszanie-kamerą">Poruszanie kamerą</h2>
-<p>Planety mogą szybko uciec z pola widzenia, dlatego ważna jest możliwość poruszania kamerą.</p>
-
-<p>Utworzyłem tablicę boolów <code class="language-plaintext highlighter-rouge">keysDown</code> o 4 elementach, które opisują stan wciśnięcia strzałek na klawiaturze. Są one ustalane w funkcji <code class="language-plaintext highlighter-rouge">handleEvents()</code> w <code class="language-plaintext highlighter-rouge">main.cpp</code>. Na ich podstawie mogę zmieniać aktualną prędkość i położenie kamery:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">updateCam</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// ustawiamy prędkość kamery na postawie wciśniętych klawiszy</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">keysDown</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">cam_vy</span> <span class="o">=</span> <span class="o">-</span><span class="n">cam_v</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">keysDown</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">cam_vy</span> <span class="o">=</span> <span class="n">cam_v</span><span class="p">;</span>
-    <span class="k">else</span> 
-        <span class="n">cam_vy</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">keysDown</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-        <span class="n">cam_vx</span> <span class="o">=</span> <span class="n">cam_v</span><span class="p">;</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">keysDown</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-        <span class="n">cam_vx</span> <span class="o">=</span> <span class="o">-</span><span class="n">cam_v</span><span class="p">;</span>
-    <span class="k">else</span> 
-        <span class="n">cam_vx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="c1">// aktualizujemy położenie kamery</span>
-    <span class="n">cam_x</span> <span class="o">+=</span> <span class="n">cam_vx</span><span class="p">;</span>
-    <span class="n">cam_y</span> <span class="o">+=</span> <span class="n">cam_vy</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-<p><code class="language-plaintext highlighter-rouge">cam_v</code> to pewna odgórnie ustalona (później dostępna do regulacji dla użytkownika) prędkość kamery.
-Aby zmiana położenia kamery miała efekt, jej położenie musimy odjąć od położenia planet:</p>
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SDL_RenderFillCircle</span><span class="p">(</span><span class="n">renderer</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">x</span> <span class="o">-</span> <span class="n">cam_x</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">y</span> <span class="o">-</span> <span class="n">cam_y</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="n">planets</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">radius</span> <span class="o">*</span> <span class="mi">100</span><span class="p">));</span>
-</code></pre></div></div>
-<p>Dlaczego tak jest? Załóżmy, że planeta jest w pozycji $(200, 200)$, a kamera w pozycji $(100, 100)$. Oznacza to, że planeta jest o $100$ pikseli niżej i o $100$ pikseli na prawo od kamery. Położenie planety na ekranie powinno zatem wynosić $(100, 100)$, a więc $(200, 200)-(100,100)$.</p>
-
-<p>W chwili obecnej program prezentuje się następująco:</p>
-<p align="center">
-<img src="/assets/images/2025-07-13/dzialanie-programu.gif" width="500" />
-</p>
-
-<p>W następnej części zostanie zaimplementowana ulepszona pętla programu oraz algorytm Rungego-Kutty do obliczania trajektorii planet. Kod źródłowy projektu jest dostępny na <a href="https://github.com/bwegrzyn0/grav-sim" target="_blank">GitHub</a>.</p>]]></content><author><name></name></author><category term="Programowanie" /><summary type="html"><![CDATA[Rysowanie kół Aby obserwować interakcję grawitacyjną, potrzebujemy obiekty, które będą w taki sposób oddziaływać. W tej symulacji będą one nazywane planetami, chociaż nie będą miały ściśle określonego przedziału na masę, gęstość i rozmiary. Będziemy je traktować jak kule, czyli w tym wypadku tak samo, jak masy punktowe. Aby reprezentować je na ekranie, będzie konieczna możliwość rysowania kół. Niestety SDL nie posiada funkcji wykonującej takie zadanie, więc trzeba ją stworzyć samodzielnie.]]></summary></entry></feed>
+Wynik ten łatwo uogólnia się na większą liczbę zmiennych.</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Motywacja Rozważmy następujący problem: błonę mydlaną rozpięliśmy między dwoma współosiowymi pierścieniami o promieniach $r_1$ i $r_2$. Wiadomo, że bańka mydlana przyjmuje zawsze taki kształt, aby jej pole powierzchni było jak najmniejsze - ten kształt chcemy znaleźć.]]></summary></entry></feed>

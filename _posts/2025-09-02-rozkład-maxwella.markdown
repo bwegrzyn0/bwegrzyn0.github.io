@@ -96,7 +96,7 @@ lub
 \$$ n(v_z^2, 0)=n_0\exp\left(-\frac{mv_z^2}{2kT}\right), \$$
 gdzie $n_0$ to pewna stała. Zauważmy, że powyższy wynik jest prawdziwy nie tylko dla małych, ale dla _wszystkich_ $du$. Oznaczmy przez $n_c(0)$ całkowitą liczbę cząstek na poziomie $h=0$. Wtedy gęstość prawdopodobieństwa wylosowania cząstki o prędkości $v_z$ to
 \$$ f(v_z)=\frac{n(v_z^2,0)}{n_c(0)}=f_{0z} \exp\left(-\frac{mv_z^2}{2kT}\right), \$$
-gdzie $f_{0z}$ to pewna stała normalizująca. Funkcja $f$ przestaje być funkcją $v_z^2$, a $v_z$, ponieważ uwzględniamy znak składowej prędkości. Warto zauważyć, że rozkład jest symetryczny. Prawdopodobieństwo wylosowania cząstki o prędkości w przedziale $\left[v_{z0}, v_{z1}\right]$ to 
+gdzie $f_{0z}$ to pewna stała normalizująca. Funkcja $f$ przestaje być funkcją $v_z^2$, a $v_z$, ponieważ znak składowej prędkości nie ma znaczenia. Warto zauważyć, że rozkład jest symetryczny. Prawdopodobieństwo wylosowania cząstki o prędkości w przedziale $\left[v_{z0}, v_{z1}\right]$ to 
 \$$ p_z=\int_{v_{z1}}^{v_{z2}} f(v_z)\,dv_z. \$$
 Zauważmy, że rozkład _nie zależy_ od wysokości ani wartości przyspieszenia grawitacyjnego. Jest on w ogólności prawdziwy dla _wszystkich gazów doskonałych_.
 
