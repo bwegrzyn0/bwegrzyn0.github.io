@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-01T14:08:41+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Tensor momentu bezwładności</title><link href="http://localhost:4000/mechanika/tensor-momentu-bezwladnosci" rel="alternate" type="text/html" title="Tensor momentu bezwładności" /><published>2026-01-01T00:00:00+01:00</published><updated>2026-01-01T00:00:00+01:00</updated><id>http://localhost:4000/mechanika/tensor-momentu-bezwladnosci</id><content type="html" xml:base="http://localhost:4000/mechanika/tensor-momentu-bezwladnosci"><![CDATA[<h2 id="ruch-ciała-sztywnego">Ruch ciała sztywnego</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-01T16:50:38+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Tensor momentu bezwładności</title><link href="http://localhost:4000/mechanika/tensor-momentu-bezwladnosci" rel="alternate" type="text/html" title="Tensor momentu bezwładności" /><published>2026-01-01T00:00:00+01:00</published><updated>2026-01-01T00:00:00+01:00</updated><id>http://localhost:4000/mechanika/tensor-momentu-bezwladnosci</id><content type="html" xml:base="http://localhost:4000/mechanika/tensor-momentu-bezwladnosci"><![CDATA[<h2 id="ruch-ciała-sztywnego">Ruch ciała sztywnego</h2>
 <p>Niech $\mathbf{R}$ będzie wektorem położenia środka masy ciała sztywnego, a $\mathbf{r_i}$ położeniem elementu masy $m_i$ wchodzącego w jego skład. Niech $\mathbf{r_i}’=\mathbf{r_i}-\mathbf{R}$ będzie położeniem $m_i$ względem środka masy. Niech ciało wykonuje obrót wokół osi $z$ z prędkością kątową $\mathbf{\Omega}$ oraz porusza się z prędkością $\mathbf{V}$. Po pewnym krótkim czasie $dt$ ciało obróci się o kąt $d\theta$ i przemieści o wektor $\mathbf{dR}$.</p>
 
 <p align="center">
@@ -120,11 +120,11 @@ $$ \boxed{L_i=I_i\Omega_i.} $$</p>
 <p>W ogólności wektor $ \mathbf{L}$ nie będzie miał zwrotu zgodnego z którąkolwiek z głównych osi bezwładności. Skorzystajmy ze swobody wyboru osi prostopadłych do $x_3$ i wybierzmy oś $x_2$ taką, że jest ona prostopadła do płaszczyzny, w której zawiera się $x_3$ oraz $ \mathbf{L}$. Wtedy $L_2=0$ i z wcześniejszych rozważań, $\Omega_2=0$. Wiemy więc, że wektory $ \mathbf{L}$, $ \mathbf{\Omega}$ i oś $x_3$, będącą osią symetrii bąka, leżą w jednej płaszczyźnie. Rozważmy teraz prędkości punktów leżących na osi $x_3$. Są one dane wzorem
 $$ \mathbf{v}_i= \mathbf{\Omega}\times \mathbf{r}_i’. $$
 Widzimy więc, że prędkości będą zwrócone prostopadle do tej płaszczyny, a co za tym idzie, oś bąka będzie obracać się jednostanie wokół wektora $ \mathbf{L}$. Wyznaczmy prędkość kątową obrotu i precesji bąka. Niech $\theta$ oznacza kąt między $ \mathbf{L}$ a $x_3$. Ze wcześniejszych zależności
-$$ \Omega_3=\Omega_{obr}= \frac{M_3}{I_3}, $$
-a $M_3=M\cos\theta$, więc
-$$ \Omega_{obr}= \frac{M}{I_3}\cos\theta. $$
+$$ \Omega_3=\Omega_{obr}= \frac{L_3}{I_3}, $$
+a $L_3=L\cos\theta$, więc
+$$ \Omega_{obr}= \frac{L}{I_3}\cos\theta. $$
 Z kolei, z rysunku widzimy, że po rozłożeniu wektora $ \mathbf{\Omega}$ na składową w kierunku $x_3$ (oznaczoną znakiem prim, ponieważ nie jest ona tym samym, co $ \mathbf{\Omega_3}$!) oraz na składową w kierunku $ \mathbf{L}$, $\Omega_{pr}\sin\theta=\Omega_1$, więc
-$$ \Omega_{pr}= \frac{\Omega_1}{\sin\theta}= \frac{M_1}{I_1\sin\theta}= \frac{M\sin\theta}{I_1\sin\theta}= \frac{M}{I_1}. $$</p>
+$$ \Omega_{pr}= \frac{\Omega_1}{\sin\theta}= \frac{L_1}{I_1\sin\theta}= \frac{L\sin\theta}{I_1\sin\theta}= \frac{L}{I_1}. $$</p>
 
 <p align="center">
 <img src="/assets/images/2026-01-01/fig2.svg" width="500" />
