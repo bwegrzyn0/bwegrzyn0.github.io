@@ -93,12 +93,12 @@ $$ p\approx 5.9 \times 10^{-10}. $$
 Wszystkich par na niebie jest 
 $$ N_2={6000\choose 2}= \frac{6000!}{2!\cdot 5998!}= \frac{6000\cdot5999}{2}\approx \frac{6000^2}{2}=1.8 \times 10^{7}. $$
 Wstawiając to wszystko do rozkładu Bernoulliego z $k=1$ (tylko jedna para) dostajemy
-$$ p_2 = N_2 p (1-p)^{6000-1} $$
+$$ p_1 = N_2 p (1-p)^{N_2-1} $$
 (${N_2\choose 1}=N_2$).
-Ponieważ $p$ jest małe, możemy przybliżyć $(1+x)^\alpha\approx 1+\alpha x$, $6000-1\approx 6000$:
-$$ p_2 \approx N_2 p(1-6000p). $$
+Ponieważ $p$ jest małe, możemy przybliżyć $(1+x)^\alpha\approx 1+\alpha x$, $N_2-1\approx N_2$:
+$$ p_1 \approx N_2 p(1-N_2p). $$
 Wstawiając dane liczbowe dostajemy
-$$ p_2\approx 1.1\%. $$</p>
+$$ p_1\approx 1.1\%. $$</p>
 
 <h2 id="rozkład-poissona">Rozkład Poissona</h2>
 <p>W tym przypadku postać tego rozkładu będzie motywowana następującym problemem.</p>
