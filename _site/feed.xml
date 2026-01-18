@@ -1,4 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-01T16:50:38+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Tensor momentu bezwładności</title><link href="http://localhost:4000/mechanika/tensor-momentu-bezwladnosci" rel="alternate" type="text/html" title="Tensor momentu bezwładności" /><published>2026-01-01T00:00:00+01:00</published><updated>2026-01-01T00:00:00+01:00</updated><id>http://localhost:4000/mechanika/tensor-momentu-bezwladnosci</id><content type="html" xml:base="http://localhost:4000/mechanika/tensor-momentu-bezwladnosci"><![CDATA[<h2 id="ruch-ciała-sztywnego">Ruch ciała sztywnego</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-18T15:02:32+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Rozkład Bernoulliego i Poissona w astronomii sferycznej</title><link href="http://localhost:4000/astronomia%20sferyczna/rozklad-bernoulliego-i-poissona-w-astronomii-sferycznej" rel="alternate" type="text/html" title="Rozkład Bernoulliego i Poissona w astronomii sferycznej" /><published>2026-01-18T00:00:00+01:00</published><updated>2026-01-18T00:00:00+01:00</updated><id>http://localhost:4000/astronomia%20sferyczna/rozklad-bernoulliego-i-poissona-w-astronomii-sferycznej</id><content type="html" xml:base="http://localhost:4000/astronomia%20sferyczna/rozklad-bernoulliego-i-poissona-w-astronomii-sferycznej"><![CDATA[<h2 id="rozkład-bernoulliego-dwumianowy">Rozkład Bernoulliego (dwumianowy)</h2>
+<p>Najprostszym przykładem ilustrującym ten rozkład jest rzut monetą. Niech prawdopodobieństwo wyrzucenia reszki wynosi $p$, a prawdopodobieństwo wyrzucenia orła - $1-p$ (jeśli $p=1/2$, moneta jest ,,uczciwa’’, a w przeciwnym przypadku jest ,,stronnicza’’). Niech będzie w sumie $N$ rzutów. Interesuje nas prawdopodobieństwo wyrzucenia reszki $k$ razy.</p>
+
+<p>Rozważmy pewną sekwencję rzutów (permutację), w której reszka wypadła $k$ razy. Prawdopodobieństwo, że reszka wypadnie dokładnie $k$ razy, a orzeł dokładnie $N-k$ (bo suma rzutów to $N$) to z podstawowego rachunku prawdopodobieństwa
+$$ p^k(1-p)^{N-k}. $$
+Jest to prawdobodobieństwo, że trafiona przez nas sekwencja rzutów ma akurat $k$ reszek i $N-k$ orłów. Wszystkich takich możliwych sekwencji jest tyle, na ile sposobów możemy wybrać $k$ rzutów z $N$ rzutów, czyli
+$$ {N\choose k}. $$
+Z tego powodu całkowite prawdopodobieństwo zwiększa się o ten czynnik. Wynosi ono:
+$$ \boxed{p_k = {N\choose k} p^k (1-p)^{N-k}.} $$
+Jest to szukany przez nas <strong>rozkład dwumianowy (Bernoulliego)</strong>.</p>
+
+<h3 id="przykładowe-zastosowanie-w-astronomii">Przykładowe zastosowanie w astronomii</h3>
+<p><strong>Problem:</strong> Na niebie jest około $6000$ gwiazd widocznych gołym okiem. Jakie jest prawdopodobieństwo, że tylko dwie z nich znajdą się nie dalej niż $10’’$ (sekund kątowych)? Zakładamy, że gwiazdy są rozmieszone na całej sferze niebieskiej losowo i niezależnie od siebie oraz nie są związane fizycznie. (32 OA, II etap, zadanie 2)</p>
+
+<p>W tym przypadku nasz jeden rzut monetą to sprawdzenie jednej pary gwiazd, a wylosowanie reszki to ich wzajemne położenie bliższe niż $10’’$. Wyznaczmy najpierw prawdopodobieństwo, że dwie gwiazdy znajdą się w odległości mniejszej niż $10’’$. Kąt bryłowy opisany przez stożek o kącie rozwarcia $\theta$ (w radianach) to
+$$ \Omega=2\pi(1-\cos\theta)\approx \pi\theta^2, $$
+gdzie przybliżenie jest prawdziwe, jeśli $\theta$ jest małe. $10’’$ jest o wiele mniejsze niż $1$ rad, więc przybliżenie będzie słuszne. Cała sfera niebieska obejmuje kąt $4\pi$, więc szukane prawdopodobieństwo to
+$$ p= \frac{\Omega}{4\pi}= \frac{\theta^2}{4}. $$
+Wstawiając dane otrzymujemy 
+$$ p\approx 5.9 \times 10^{-10}. $$
+Wszystkich par na niebie jest 
+$$ N_2={6000\choose 2}= \frac{6000!}{2!\cdot 5998!}= \frac{6000\cdot5999}{2}\approx \frac{6000^2}{2}=1.8 \times 10^{7}. $$
+Wstawiając to wszystko do rozkładu Bernoulliego z $k=1$ (tylko jedna para) dostajemy
+$$ p_2 = N_2 p (1-p)^{6000-1} $$
+(${N_2\choose 1}=N_2$).
+Ponieważ $p$ jest małe, możemy przybliżyć $(1+x)^\alpha\approx 1+\alpha x$, $6000-1\approx 6000$:
+$$ p_2 \approx N_2 p(1-6000p). $$
+Wstawiając dane liczbowe dostajemy
+$$ p_2\approx 1.1\%. $$</p>
+
+<h2 id="rozkład-poissona">Rozkład Poissona</h2>
+<p>W tym przypadku postać tego rozkładu będzie motywowana następującym problemem.</p>
+
+<p><strong>Problem:</strong> Pewnej nocy prowadzono obserwacje meteorów. W kącie bryłowym o rozwarciu $45\degree$ w otoczeniu zenitu w ciągu godziny zaobserwowano średnio $n=6$ meteorów. Zakładając, że rozbłysk meteoru jest zjawiskiem losowym zachodzącym z tym samym prawdopodobieństwem dla całej sfery niebieskiej, oblicz prawdopodobieństwo, że w ciągu godziny w podanym kącie bryłowym a) pojawi się co najmniej jeden meteor, b) nie pojawi się żaden, c) pojawi się ich dokładnie 6. (30 OA, II etap, zadanie 2)</p>
+
+<p>Podzielmy czas $t=1$h na $N$ interwałów o długości $\Delta t=t/N$ każdy. Załóżmy, że jak $N\to\infty$, prawdopodobieństwo, że w ciągu tego samego interwału zajdą 2 rozbłyski meteoru jest pomijalnie małe. Oznacza to, że ponownie mamy rzut monetą, tym razem dla rozbłysków. Niech prawdopodobieństwo, że rozbłysk zajdzie w rozpatrywanym kącie bryłowym w interwale $\Delta t$ wynosi $p$. Interwałów czasu mamy $N$, czyli $N$ ,,rzutów’’, a rozbłysków niech będzie $k$. Wstawiając to do rozkładu Bernoulliego otrzymujemy prawdopodobieństwo, że w czasie $t$ w rozpatrywanym kącie bryłowym zajdzie dokładnie $k$ rozbłysków:
+$$ p_k= {N\choose k} p^k (1-p)^{N-k}. $$
+Weźmy teraz granicę jak $N\to\infty$, czyli przedziały czasu $\Delta t$ stają się bardzo małe oraz $k\ll N$ (stąd $N-k\approx N$). Jeśli rozpiszemy symbol Newtona otrzymamy:
+$$ {N\choose k}= \frac{N(N-1)\cdots (N-k+1)}{k!} \approx \frac{N^k}{k!}, $$
+bo $k\ll N$.</p>
+
+<p>Zajmiemy się teraz prawdopodobieństwem. Ponieważ każdy interwał czasu jest równy i rozbłyski są w pełni losowe, prawdopodobieństwo, że rozbłysk zajdzie akurat w tym interwale w kącie bryłowym $\Omega$ to
+$$ p = \frac{n}{N}, $$ 
+gdzie, jak pamiętamy, $n$ to średnia liczba rozbłysków na godzinę. Wstawiając to do rozkładu otrzymujemy
+$$ p_k\approx \frac{N^k}{k!} \frac{n^k}{N^k}(1-p)^N= \frac{ n^k}{k!}(1-\frac{n}{N})^N.$$
+Ponieważ $N\to\infty$, wyrażenie w nawiasie z potęgą rozpozajemy jako jedną z definicji $e^{-n}$, zatem:
+$$ p_k= \frac{n^k}{k!}e^{-n}. $$
+Prawdopodobieństwo z podpunktu a) to $1-P(\text{nie pojawi się żaden meteor})=1-p_0$, czyli
+$$ p_a=1-e^{-6}=99.75\%. $$
+Od razu wynika stąd odpowiedź do podpunktu b), $p_b=0.25\%$. Dla podpunktu c):
+$$ p_c=p_6\approx 16\%. $$</p>
+
+<p>Jak wyprowadziliśmy wyżej na przykładzie, <strong>rozkład Poissona</strong>, opisujący prawdopodobieństwo zajścia $k$ wydarzeń, które zachodzą z pewną średnią częstością $\lambda$ w pewnym interwale czasu, w tym interwale to
+$$ \boxed{p_k = \frac{\lambda^k}{k!}e^{-\lambda}.} $$</p>]]></content><author><name></name></author><category term="Astronomia sferyczna" /><summary type="html"><![CDATA[Rozkład Bernoulliego (dwumianowy) Najprostszym przykładem ilustrującym ten rozkład jest rzut monetą. Niech prawdopodobieństwo wyrzucenia reszki wynosi $p$, a prawdopodobieństwo wyrzucenia orła - $1-p$ (jeśli $p=1/2$, moneta jest ,,uczciwa’’, a w przeciwnym przypadku jest ,,stronnicza’’). Niech będzie w sumie $N$ rzutów. Interesuje nas prawdopodobieństwo wyrzucenia reszki $k$ razy.]]></summary></entry><entry><title type="html">Tensor momentu bezwładności</title><link href="http://localhost:4000/mechanika/tensor-momentu-bezwladnosci" rel="alternate" type="text/html" title="Tensor momentu bezwładności" /><published>2026-01-01T00:00:00+01:00</published><updated>2026-01-01T00:00:00+01:00</updated><id>http://localhost:4000/mechanika/tensor-momentu-bezwladnosci</id><content type="html" xml:base="http://localhost:4000/mechanika/tensor-momentu-bezwladnosci"><![CDATA[<h2 id="ruch-ciała-sztywnego">Ruch ciała sztywnego</h2>
 <p>Niech $\mathbf{R}$ będzie wektorem położenia środka masy ciała sztywnego, a $\mathbf{r_i}$ położeniem elementu masy $m_i$ wchodzącego w jego skład. Niech $\mathbf{r_i}’=\mathbf{r_i}-\mathbf{R}$ będzie położeniem $m_i$ względem środka masy. Niech ciało wykonuje obrót wokół osi $z$ z prędkością kątową $\mathbf{\Omega}$ oraz porusza się z prędkością $\mathbf{V}$. Po pewnym krótkim czasie $dt$ ciało obróci się o kąt $d\theta$ i przemieści o wektor $\mathbf{dR}$.</p>
 
 <p align="center">
@@ -828,91 +881,4 @@ gdzie $L$ to moment pędu cząstki. Ponownie otrzymujemy dobrze znane równania
 $$ F_r =\frac{d}{dt}p_r$$
 $$ \Gamma = \frac{d}{dt} L. $$</p>
 
-<p>Poprzednie 2 przykłady pokazały nam, że wielkości $\partial\mathcal{L}/\partial q_i$ oraz $\partial\mathcal{L}/\partial \dot{q}_i$, gdzie $q_i$ to pewna <strong>współrzędna uogólniona</strong> (np. $x$, $r$, $\theta$, $\varphi$) pełnią role kolejno siły oraz pędu. Dlatego są one nazywane <strong>siłą uogólnioną</strong> oraz <strong>pędem uogólnionym</strong>.</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Zasada Hamiltona Rozważmy swobodną cząstkę poruszającą się między punktami $1$ i $2$ w czasie od $t_1$ do $t_2$. Droga $\mathbf{r}(t)$, którą wybiera cząstka jest taka, że całka działania $$ S=\int_{t_1}^{t_2}\mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)\,dt $$ jest minimalna (stacjonarna). $\mathcal{L}$ to lagranżjan układu zdefiniowany jako $$ \mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)=T-U, $$ gdzie $T$ to energia kinetyczna cząstki, a $U$ to jej energia potencjalna.]]></summary></entry><entry><title type="html">Mechanika Lagrange’a, część 1: Równanie Eulera-Lagrange’a</title><link href="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea" rel="alternate" type="text/html" title="Mechanika Lagrange’a, część 1: Równanie Eulera-Lagrange’a" /><published>2025-07-21T00:00:00+02:00</published><updated>2025-07-21T00:00:00+02:00</updated><id>http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea</id><content type="html" xml:base="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea"><![CDATA[<h2 id="motywacja">Motywacja</h2>
-<p>Rozważmy następujący problem: błonę mydlaną rozpięliśmy między dwoma współosiowymi pierścieniami o promieniach $r_1$ i $r_2$. Wiadomo, że bańka mydlana przyjmuje zawsze taki kształt, aby jej pole powierzchni było jak najmniejsze - ten kształt chcemy znaleźć.</p>
-
-<p>Bańkę mydlaną możemy traktować jak bryłę obrotową opisaną funkcją $f(x)$, przy czym $f(x_1)=r_1$ oraz $f(x_2)=r_2$.</p>
-<p align="center">
-<img src="/assets/images/2025-07-21/blona_mydlana.svg" width="600" />
-</p>
-
-<p>Aby policzyć powierzchnię bryły obrotowej, podzielmy ją na nieskończenie małe okręgi o promieniach $f(x)$ i o środkach na osi $x$. Obwód takiego okręgu to $2\pi f(x)$.</p>
-<p align="center">
-<img src="/assets/images/2025-07-21/bryla_obrotowa.svg" width="500" />
-</p>
-<p>Element powierzchni rozciągającej się między dwoma bliskimi okręgami to $2\pi f(x)\,dl$. Jak widać na rysunku, $dl=\sqrt{dx^2+(f’(x)\,dx)^2}=\sqrt{1+f’(x)^2}\,dx$. Zatem element powierzchni to $dS=2\pi f(x)\sqrt{1+f’(x)^2}\,dx$. Całkowita powierzchnia takiej bryły to wtedy
-$$ S=2\pi\int_{x_1}^{x_2}f(x)\sqrt{1+f’(x)^2}\,dx.$$
-Dążymy do zminimalizowania tej całki.</p>
-
-<h2 id="wyprowadzenie-równania-eulera-lagrangea">Wyprowadzenie równania Eulera-Lagrange’a</h2>
-<p>Rozważmy ogólniejszy przypadek. Chcemy zminimalizować całkę
-$$ S=\int_{x_1}^{x_2}f(Y(x), Y’(x), x)\,dx. $$</p>
-
-<p>Niech $y(x)$ będzie funkcją minimalizującą całkę $S$. Rozważmy funkcję $Y(x)=y(x)+\alpha \eta(x)$, gdzie $\eta(x)$ to dowolna funkcja, która spełnia warunek $\eta(x_1)=\eta(x_2)=0$. Wtedy $Y(x)$ spełnia te same warunki brzegowe co $y(x)$, lecz jest tą ,,mniej optymalną’’, w przypadku błony mydlanej powierzchnią między $x_1$ a $x_2$, czyli powierzchnia dla niej będzie nieco większa niż dla $y(x)$.</p>
-
-<p>Spodziewamy się, że dla małych wartości $\alpha$, czyli małych odchyleń od optymalnej powierzchni, całka $S$ nie będzie ulegać zmianie (podobnie jest w przypadku zwykłych funkcji - gdy $f(x)$ ma minimum w $x_0$, $f’(x_0)=0$. Oznacza to, że w przybliżeniu dla małych $\varepsilon$ zachodzi $f(x_0+\varepsilon)-f(x_0)=f’(x_0)\varepsilon=0$). Innymi słowy
-$$ \frac{\partial S}{\partial \alpha}=0. $$
-Obliczmy tę pochodną:
-$$ \frac{\partial S}{\partial \alpha}=\int_{x_1}^{x_2}\frac{\partial f}{\partial \alpha}\,dx$$
-Z reguły łańcuchowej dla wielu zmiennych:
-$$ \frac{\partial f}{\partial \alpha}=\frac{\partial f}{\partial Y}\frac{\partial Y}{\partial \alpha}+\frac{\partial f}{\partial Y’}\frac{\partial Y’}{\partial \alpha}+\frac{\partial f}{\partial x}\frac{\partial x}{\partial \alpha}   $$
-Łatwo obliczyć, że $\partial Y/\partial \alpha=\eta(x)$, $\partial Y’/\partial \alpha=\eta’(x)$ oraz $\partial x/\partial\alpha=0$. Daje nam to
-$$ \frac{\partial S}{\partial \alpha}=\int_{x_1}^{x_2}\left[\frac{\partial f}{\partial Y}\eta(x)+\frac{\partial f}{\partial Y’}\eta’(x)\right]\,dx $$
-Aby zamienić $\eta’(x)$ na $\eta(x)$, pocałkujmy przez części:
-$$ \int_{x_1}^{x_2}\frac{\partial f}{\partial Y’}\eta’(x)\,dx = \left[\eta(x)\frac{\partial f}{\partial Y’}\right]_{x_1}^{x_2}- \int_{x_1}^{x_2} \eta(x) \frac{d}{dx} \frac{\partial f}{\partial Y’}\,dx$$
-Zauważmy, że ponieważ $\eta(x_1)=\eta(x_2)=0$, pierwszy wyraz z prawej strony się zeruje. To pozostawia nas z 
-$$ \frac{\partial S}{\partial\alpha}=0=\int_{x_1}^{x_2}\eta(x)\left[ \frac{\partial f}{\partial Y}-\frac{d}{dx}\frac{\partial f}{\partial Y’} \right]\,dx$$
-Skoro $\eta(x)$ to dowolna funkcja, wybierzmy $\eta(x)$ takie, że wyrażenie podcałkowe jest zawsze nieujemne. Skoro całka z nieujemnego wyrażenia jest równa $0$, to wyrażenie podcałkowe wynosi 0. Ponieważ $\eta(x)\neq 0$, 
-$$ \frac{\partial f}{\partial y}-\frac{d}{dx}\frac{\partial f}{\partial y’} =0,$$
-gdzie $Y$ zamieniłem na $y$, ponieważ jeżeli $Y$ spełnia powyższe równanie, jest ono ,,optymalną’’ funkcją. Jest to <strong>równanie Eulera-Lagrange’a</strong>.</p>
-
-<h2 id="problem-błony-mydlanej">Problem błony mydlanej</h2>
-<p>Powróćmy do wcześniejszego problemu. Doszliśmy do wniosku, że należy znaleźć funkcję $f(x)$, która minimalizuje całkę
-$$ S=2\pi\int_{x_1}^{x_2}f(x)\sqrt{1+f’(x)^2}\,dx.$$
-Niech $F(f(x), f’(x))=f(x)\sqrt{1+f’(x)^2}$. Wtedy równanie Eulera-Lagrange’a przyjmuje postać
-$$ \frac{\partial F}{\partial f}-\frac{d}{dx}\frac{\partial F}{\partial f’} =0 $$</p>
-
-<p>Zauważmy jednak, że $F(f(x), f’(x))$ nie zależy w jawny sposób od $x$. Pomnóżmy powyższe równanie przez $df/dx$:
-$$ \frac{\partial F}{\partial f}\frac{df}{dx}-f’\frac{d}{dx}\frac{\partial F}{\partial f’}=0$$
-Możemy obliczyć pierwszy wyraz po lewej stronie:
-$$ \frac{\partial F}{\partial f}\frac{df}{dx}=\frac{dF}{dx}-\frac{\partial F}{\partial f’}\frac{df’}{dx}$$
-i wstawić go spowrotem:
-$$ \frac{dF}{dx}-\frac{\partial F}{\partial f’}\frac{df’}{dx}-f’\frac{d}{dx}\frac{\partial F}{\partial f’}=0 $$
-Nietrudno zauważyć, że
-$$-\frac{\partial F}{\partial f’}\frac{df’}{dx}-f’\frac{d}{dx}\frac{\partial F}{\partial f’}=-\frac{d}{dx}\left[f’\frac{\partial F}{\partial f’}\right] $$
-czyli
-$$  \frac{dF}{dx}-\frac{d}{dx}\left[f’\frac{\partial F}{\partial f’}\right]=0 $$
-$$ \frac{d}{dx}\left[F-f’\frac{\partial F}{\partial f’}\right]=0 $$
-$$ F-f’\frac{\partial F}{\partial f’}=const. $$</p>
-
-<p>Ten rezultat możemy uogólnić. Jeśli $f(y(x), y’(x))$ nie zależy jawnie od $x$, to równanie Eulera-Lagrange’a sprowadza się do <strong>całki pierwszej</strong>:
-$$ f-y’\frac{\partial f}{\partial y’}=const. $$</p>
-
-<p>Wracając do problemu bańki mydlanej, mamy
-$$ \frac{\partial F}{\partial f’}=f\frac{f’}{\sqrt{1+f’^2}} $$
-Wstawmy to do całki pierwszej:
-$$ f\sqrt{1+f’^2}-\frac{ff’^2}{\sqrt{1+f’^2}} = C $$
-$$ f(1+f’^2)-ff’^2=C\sqrt{1+f’^2} $$
-Dostajemy równanie różniczkowe 1 rzędu, które można rozwiązać za pomocą separacji zmiennych:
-$$ f=C\sqrt{1+f’^2} $$
-$$ 1+f’^2=Cf^2 $$
-$$ \frac{df}{dx}=\sqrt{Cf^2-1} $$
-$$ x+C_1=\int \frac{df}{\sqrt{C_2f^2-1} }$$
-Całka po prawej stronie sprowadza się do $\frac{1}{C}\cosh^{-1}\left(Cf\right)$, a stąd
-$$ f(x)=\frac{1}{C_1} \cosh (C_1 x+C_2), $$
-gdzie $C_1$ i $C_2$ to pewne stałe.</p>
-
-<h2 id="przypadek-wielu-zmiennych">Przypadek wielu zmiennych</h2>
-<p>W przypadku, gdy $f=f(y_1, y_1’, y_2, y_2’, x)$, zapisujemy <strong>2 równania Eulera-Lagrange’a</strong>, oddzielnie dla każdej zmiennej.
-Jest tak, ponieważ jeśli rozważymy 2 funkcje 
-$$ Y_1=y_1+\alpha\eta_1 $$
-oraz
-$$ Y_2=y_2+\beta\eta_2 $$
-gdzie $\eta_1$ i $\eta_2$ spełniają takie warunki, jak wcześniejsze $\eta$, dostajemy 2 równania
-$$ \frac{\partial S}{\partial \alpha}=0 $$
-oraz 
-$$ \frac{\partial S}{\partial \beta}=0. $$
-W obu przypadkach zniknie albo $Y_1$ albo $Y_2$, co da nam 2 równania:
-$$ \frac{\partial f}{\partial y_1}-\frac{d}{dx}\frac{\partial f}{\partial y_1’}=0 $$
-$$ \frac{\partial f}{\partial y_2}-\frac{d}{dx}\frac{\partial f}{\partial y_2’}=0. $$
-Wynik ten łatwo uogólnia się na większą liczbę zmiennych.</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Motywacja Rozważmy następujący problem: błonę mydlaną rozpięliśmy między dwoma współosiowymi pierścieniami o promieniach $r_1$ i $r_2$. Wiadomo, że bańka mydlana przyjmuje zawsze taki kształt, aby jej pole powierzchni było jak najmniejsze - ten kształt chcemy znaleźć.]]></summary></entry></feed>
+<p>Poprzednie 2 przykłady pokazały nam, że wielkości $\partial\mathcal{L}/\partial q_i$ oraz $\partial\mathcal{L}/\partial \dot{q}_i$, gdzie $q_i$ to pewna <strong>współrzędna uogólniona</strong> (np. $x$, $r$, $\theta$, $\varphi$) pełnią role kolejno siły oraz pędu. Dlatego są one nazywane <strong>siłą uogólnioną</strong> oraz <strong>pędem uogólnionym</strong>.</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Zasada Hamiltona Rozważmy swobodną cząstkę poruszającą się między punktami $1$ i $2$ w czasie od $t_1$ do $t_2$. Droga $\mathbf{r}(t)$, którą wybiera cząstka jest taka, że całka działania $$ S=\int_{t_1}^{t_2}\mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)\,dt $$ jest minimalna (stacjonarna). $\mathcal{L}$ to lagranżjan układu zdefiniowany jako $$ \mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)=T-U, $$ gdzie $T$ to energia kinetyczna cząstki, a $U$ to jej energia potencjalna.]]></summary></entry></feed>
