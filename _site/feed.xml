@@ -1,4 +1,122 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-18T15:44:48+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Rozkład Bernoulliego i Poissona w astronomii sferycznej</title><link href="http://localhost:4000/astronomia%20sferyczna/rozklad-bernoulliego-i-poissona-w-astronomii-sferycznej" rel="alternate" type="text/html" title="Rozkład Bernoulliego i Poissona w astronomii sferycznej" /><published>2026-01-18T00:00:00+01:00</published><updated>2026-01-18T00:00:00+01:00</updated><id>http://localhost:4000/astronomia%20sferyczna/rozklad-bernoulliego-i-poissona-w-astronomii-sferycznej</id><content type="html" xml:base="http://localhost:4000/astronomia%20sferyczna/rozklad-bernoulliego-i-poissona-w-astronomii-sferycznej"><![CDATA[<h2 id="rozkład-bernoulliego-dwumianowy">Rozkład Bernoulliego (dwumianowy)</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-26T13:25:56+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Prawa Keplera</title><link href="http://localhost:4000/mechanika/prawa-keplera" rel="alternate" type="text/html" title="Prawa Keplera" /><published>2026-01-26T00:00:00+01:00</published><updated>2026-01-26T00:00:00+01:00</updated><id>http://localhost:4000/mechanika/prawa-keplera</id><content type="html" xml:base="http://localhost:4000/mechanika/prawa-keplera"><![CDATA[<h2 id="problem-dwóch-ciał">Problem dwóch ciał</h2>
+<p>Rozważmy dwa ciała oddziałujące ze sobą klasycznym potencjałem grawitacyjnym, tzn. ich energia potencjalna wzajemnych oddziaływań to
+$$ U(r)= -\frac{Gm_1m_2}{r}, $$
+gdzie wprowadzamy oznaczenia $ \mathbf{r}\equiv \mathbf{r_1}- \mathbf{r_2}$, $ \mathbf{r_1}$ - wektor wodzący ciała o masie $m_1$ i analogicznie dla $m_2$. Zapiszemy lagranżjan dla układu:
+$$ \mathcal{L} = \frac{1}{2}m_1v_1^2+ \frac{1}{2}m_2 v_2^2+ \frac{Gm_1m_2}{r}, $$
+gdzie $v_1=|\dot{ \mathbf{r}}_1|$ i analogicznie dla 2.</p>
+
+<p>Oznaczymy jako $\mathbf{R}$ wektor wodzący środka masy dwóch ciał, który jest zdefiniowany jako
+$$ \mathbf{R}= \frac{1}{M}\left(m_1 \mathbf{r_1}+m_2 \mathbf{r_2}\right), $$
+gdzie $M=m_1+m_2$. Powyższe równanie i definicja $ \mathbf{r}$ tworzą układ dwóch równań, które możemy rozwiązać, aby otrzymać $ \mathbf{r_1}$ i $ \mathbf{r_2}$:
+$$ \begin{cases} \mathbf{r_1} = \mathbf{R} + \frac{m_2}{M} \mathbf{r} \\ \mathbf{r_2}= \mathbf{R} - \frac{m_1}{M} \mathbf{r}. \end{cases} $$
+Obliczając pochodne i wstawiając do lagranżjanu otrzymujemy:
+$$ \mathcal{L} = \frac{1}{2}m_1\left(\mathbf{\dot{R}} + \frac{m_2}{M} \mathbf{\dot{r}}\right)^2+ \frac{1}{2}m_2 \left(\mathbf{\dot{R}} - \frac{m_1}{M} \mathbf{\dot{r}}\right)^2+ \frac{Gm_1 m_2}{r}. $$
+Po rozpisaniu i wymnożeniu nawiasów środkowe wyrazy się skracają, co pozostawia nas z 
+$$ \mathcal{L} = \frac{1}{2}M\mathbf{\dot{R}}^2+ \frac{1}{2} \frac{m_1 m_2}{M} \mathbf{\dot{r}}^2+ \frac{Gm_1m_2}{r}. $$
+Widzimy, że ruch możemy rozpatrywać jako ruch środka masy (jednostajny i prostoliniowy) oraz ruch masy zredukowanej $\mu\equiv m_1m_2/M$ wokół środka masy. Iloczyn $m_1m_2$ możemy wyrazić jako $\mu M$, a wybierając inercjalny układ odniesienia związany ze środkiem masy, czyli $ \mathbf{\dot{R}}=0$, lagranżjan przyjmie najprostszą postać
+$$ \mathcal{L} = \frac{1}{2}\mu \mathbf{\dot{r}}^2+ \frac{GM\mu}{r}. $$
+Wektor $ \mathbf{\dot{r}}$ możemy rozdzielić na składową radialną i styczną, a z twierdzenia Pitagorasa $ \mathbf{\dot{r}}^2=\dot{r}^2+r^2\dot{\theta}^2$, gdzie $\theta$ to kąt azymutalny tworzony przez wektor $ \mathbf{r}$ z pewnym kierunkiem odniesienia, a więc
+$$ \mathcal{L} = \frac{1}{2}\mu \dot{r}^2 + \frac{1}{2}\mu r^2\dot{\theta}^2+ \frac{GM\mu}{r}. $$
+Lagranżjan nie zależy od kąta biegunowego, więc moment pędu z nim związany jest równy zero ($ L_\phi=\partial\mathcal{L}/\partial \dot{\phi}=0$). Z tego powodu ruch odbywa się w jednej płaszczyźnie. Zachodzi również zależność
+$$ L_\theta= \frac{\partial \mathcal{L}}{\partial \dot{\theta}}=\mu r^2\dot{\theta}=const. $$
+która wynika bezpośrednio z <a href="https://bwegrzyn0.github.io/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-2-zasada-hamiltona" target="_blank">równania Eulera-Lagrange’a</a> dla współrzędnej $\theta$.</p>
+
+<h2 id="pierwsze-prawo-keplera">Pierwsze prawo Keplera</h2>
+<p>Chcielibyśmy znaleźć teraz ogólne wyrażenie na kształt toru cząstki. W tym celu naszym punktem wyjścia nie będzie równanie ruchu wynikające bezpośrednio z równania Eulera-Lagrange’a, a zasada zachowania energii. Zamieniając drugi znak plus na minus w lagranżjanie otrzymamy całkowitą energię:
+$$ E=\frac{1}{2}\mu \dot{r}^2 + \frac{1}{2}\mu r^2\dot{\theta}^2- \frac{GM\mu}{r}. $$
+Korzystając z zachowania momentu pędu (gdzie $L_\theta$ to od teraz po prostu $L$):
+$$ \dot{\theta}= \frac{L}{\mu r^2}, $$
+oraz z reguły łańcuchowej
+$$ \dot{r}= \frac{dr}{d\theta} \dot{\theta}= \frac{L}{\mu r^2} \frac{dr}{d\theta}. $$
+Wstawiając to do energii otrzymujemy
+$$ \frac{1}{2}\mu \left( \frac{L}{\mu r^2} \frac{dr}{d\theta} \right)^2=E- \frac{1}{2}\mu r^2 \left( \frac{L}{mr^2}\right)^2+ \frac{GM\mu}{r}. $$
+Przekształcając,
+$$ \frac{L}{\mu r^2} \frac{dr}{d\theta}= \sqrt{ \frac{2}{\mu}\left(E- \frac{1}{2}\mu r^2 \left( \frac{L}{\mu r^2}\right)^2+ \frac{GM\mu}{r}\right)}, $$
+separując zmienne i całkując:
+$$ \theta=\int \frac{L\,dr}{\mu r^2 \sqrt{ \frac{2}{\mu}\left(E-\frac{L^2}{2\mu r^2}+ \frac{GM\mu}{r}\right)}}. $$
+Widzimy, że mamy wiele wyrazów postaci $1/r$, a $dr/r^2=-d(1/r)$. Dlatego wykonamy podstawienie $u=-1/r$, co da nam
+$$ \theta=-\int \frac{L\,du}{\mu \sqrt{ \frac{2}{\mu}\left(E-\frac{L^2}{2\mu} u^2- GM\mu u\right)}}. $$
+Wyrażenie pod pierwiastkiem dopełnimy do kwadratu:
+$$ E-\frac{L^2}{2\mu} u^2- GM\mu u=E+ \frac{G^2 M^2 \mu^3}{2L^2}- \left( \frac{L}{\sqrt{2\mu}}u+ \frac{GM\mu^{3/2}}{L\sqrt{2}}\right)^2, $$
+więc
+$$ \theta=-\int\frac{L\,du}{\mu \sqrt{ \frac{2}{\mu}\left(E+ \frac{G^2 M^2 \mu^3}{2L^2}- \left( \frac{L}{\sqrt{2\mu}}u+ \frac{GM\mu^{3/2}}{L\sqrt{2}}\right)^2\right)}}. $$
+Podstawimy
+$$ v=\frac{1}{\sqrt{E+ \frac{G^2 M^2 \mu^3}{2L^2}}}\left(\frac{L}{\sqrt{2\mu}}u+ \frac{GM\mu^{3/2}}{L\sqrt{2}}\right), $$
+skąd
+$$ \theta=-\int \frac{L}{\sqrt{2\mu\left(E+ \frac{G^2 M^2 \mu^3}{2L^2}\right)}} \frac{1}{\sqrt{1-v^2}} \frac{\sqrt{2\mu\left(E+ \frac{G^2 M^2 \mu^3}{2L^2}\right)}\,dv}{L}=-\int \frac{dv}{\sqrt{1-v^2}}=\arccos{v}+\theta_0, $$ 
+gdzie $\theta_0$ to stała całkowania. Przekształcając i wstawiając definicję $v$ i $u$:
+$$ r= \frac{p}{1-e\cos\left(\theta-\theta_0\right)}, $$
+gdzie $p$ wynosi
+$$ \boxed{p= \frac{L^2}{GM\mu^2}} $$
+oraz
+$$ \boxed{e= \sqrt{1+ \frac{2EL^2}{G^2 M^2 \mu^3}}.} $$
+Równanie to jest oczywiście definicją elipsy o mimośrodzie $e$ i <em>semilatus rectum</em> $p$ we współrzędnych biegunowych. W ognisku elipsy znajduje się zatem środek masy dwóch ciał. Jeśli chcemy, aby $\theta=0$ w perygeum (najniższym punkcie orbity), mianownik musi być jak największy, więc $\cos\theta_0$ musi wynosić $-1$, skąd $\theta_0=\pi$. Wtedy
+$$ \boxed{r= \frac{p}{1+e\cos\theta}.} $$</p>
+
+<p>W przypadku ciał Układu Słonecznego, $m_1\gg m_2$, gdzie $m_1$ to masa Słońca, a $m_2$ to masa planety. Wtedy $M=m_1+m_2\approx m_1$, $\mu\approx m_2$, a środek masy układu leży w Słońcu, zatem Słońce leży w ognisku orbity planety. Daje nam to <strong>I prawo Keplera</strong>:</p>
+<blockquote>
+  <p><strong>Wszystkie planety poruszają się po elipsach ze Słońcem w jednym z ognisk.</strong></p>
+</blockquote>
+
+<h2 id="drugie-prawo-keplera">Drugie prawo Keplera</h2>
+<p align="center">
+<img src="/assets/images/2026-01-26/2prawokeplera.svg" width="500" />
+</p>
+<p>Obliczmy, jakie pole elipsy zakreśla wektor wodzący ciała w przedziale czasu $dt$. Z powyższego rysunku widzimy, że zakreślone pole to w przybliżeniu pole sektora okręgu o promieniu $r$ i kącie rozwarcia $d\theta$, ponieważ $r(\theta+d\theta)\approx r(\theta)$. Pole takie wyraża się wzorem
+$$ dA= \frac{1}{2}r^2\,d\theta. $$
+Dzieląc przez $dt$ otrzymamy:
+$$ \dot{A}= \frac{1}{2}r^2\dot{\theta}= \frac{1}{2}r^2 \frac{L}{\mu r^2}= \frac{L}{2\mu}=const.$$
+ponieważ jak przekonaliśmy się wcześniej,
+$$ L=\mu r^2\dot{\theta}=const. $$
+Fakt, że wielkość $\dot{A}$ jest stała, jest równoważny z <strong>II prawem Keplera</strong>:</p>
+<blockquote>
+  <p><strong>W jednakowych przedziałach czasu wektor wodzący planety zakreśla jednakowe pole powierzchni.</strong></p>
+</blockquote>
+
+<h2 id="trzecie-prawo-keplera">Trzecie prawo Keplera</h2>
+<h3 id="pierwsza-metoda">Pierwsza metoda</h3>
+<p>Jak wyprowadziliśmy wcześniej, 
+$$ \frac{dA}{dt}= \frac{L}{2\mu}. $$
+Możemy rodzielić zmienne i pocałkować obustronnie:
+$$ \int dA = \int \frac{L}{2\mu}\,dt. $$
+Jeśli pocałkujemy po przedziale $t\in\langle 0,P\rangle$, gdzie $P$ to okres orbity, to całka po $dA$ to po prostu pole całej elipsy, które wynosi $\pi ab$, gdzie $a$ to półoś wielka, a $b$ to półoś mała:
+$$ \pi ab= \frac{L}{2\mu}P. $$
+Półoś mała elipsy to
+$$ b=a\sqrt{1-e^2}. $$
+Jak obliczyliśmy wcześniej,
+$$ p= \frac{L^2}{GM\mu^2}, $$
+więc
+$$ L=\mu\sqrt{GMp}. $$
+<em>Semilatus rectum</em> elipsy to
+$$ p=a(1-e^2), $$
+więc łącząc to wszystko:
+$$ \pi a^2\sqrt{1-e^2}= \frac{\mu \sqrt{GMa(1-e^2)}}{2\mu}P. $$
+Podnosząc obustronnie do kwadratu i skracając wyrazy otrzymujemy
+$$ \boxed{P^2 = \frac{4\pi^2}{GM}a^3,} $$
+więc
+$$ \boxed{P^2\propto a^3.} $$
+<strong>III prawo Keplera</strong> brzmi zatem następująco:</p>
+<blockquote>
+  <p><strong>Kwadraty okresów orbitalnych planet mają się do siebie jak sześciany półosi wielkich orbit tych planet.</strong></p>
+</blockquote>
+
+<h3 id="druga-metoda">Druga metoda</h3>
+<p>Istnieje inna metoda wyprowadzenia III prawa Keplera, opierająca się na podobieństwie mechanicznym.</p>
+
+<p>Zauważmy, że pomnożenie lagranżjanu przez stały czynnik nie zmienia w żaden sposób równań ruchu, ponieważ jeśli do równania Eulera-Lagrange’a wstawimy $a\mathcal{L}$ zamiast $\mathcal{L}$, stały czynnik $a$ skraca się.</p>
+
+<p>Zauważmy teraz, że grawitacyjna energia potencjalna jest funkcją jednorodną stopnia $k=-1$, tzn.
+$$ U(\alpha r)= \alpha^{k} U(r). $$
+Jeśli dokonamy zamiany zmiennych, tak, że $r$ zamieniamy na $\alpha r$, a czas zamieniamy na $\beta t$, gdzie $\beta$ to inna stała, wszystkie prędkości zostaną pomnożone przez czynnik $\alpha/\beta$, energie kinetyczne ($\propto v$) razy $\alpha^2/\beta^2$, a energia potencjalna razy $1/\alpha$. Da nam to lagranżjan
+$$ \mathcal{L}= \frac{\alpha^2}{\beta^2}T- \frac{1}{\alpha}U. $$
+Aby równania ruchu były nienaruszone, musimy być w stanie wyciągnąć stały czynnik przed nawias, co jest możliwe tylko wtedy, gdy
+$$ \frac{\alpha^2}{\beta^2}= \frac{1}{\alpha} $$
+lub równoważnie:
+$$ \alpha^3=\beta^2. $$</p>
+
+<p>Rozważymy teraz dwie cząstki poruszające się na dwóch geometrycznie podobnych torach. Na podstawie wcześniejszego rozumowania możemy stwierdzić, że czasy ruchu na tych torach mają się do siebie jak
+$$ \frac{t_2}{t_1}=\left( \frac{l_2}{l_1}\right)^{3/2}, $$
+gdzie $l$ to miara liniowych rozmiarów toru. Miarą liniowych rozmiarów toru jest półoś wielka, a czasem ruchu jest okres orbitalny, więc powyższe stwierdzenie jest równoważne z III prawem Keplera.</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Problem dwóch ciał Rozważmy dwa ciała oddziałujące ze sobą klasycznym potencjałem grawitacyjnym, tzn. ich energia potencjalna wzajemnych oddziaływań to $$ U(r)= -\frac{Gm_1m_2}{r}, $$ gdzie wprowadzamy oznaczenia $ \mathbf{r}\equiv \mathbf{r_1}- \mathbf{r_2}$, $ \mathbf{r_1}$ - wektor wodzący ciała o masie $m_1$ i analogicznie dla $m_2$. Zapiszemy lagranżjan dla układu: $$ \mathcal{L} = \frac{1}{2}m_1v_1^2+ \frac{1}{2}m_2 v_2^2+ \frac{Gm_1m_2}{r}, $$ gdzie $v_1=|\dot{ \mathbf{r}}_1|$ i analogicznie dla 2.]]></summary></entry><entry><title type="html">Rozkład Bernoulliego i Poissona w astronomii sferycznej</title><link href="http://localhost:4000/astronomia%20sferyczna/rozklad-bernoulliego-i-poissona-w-astronomii-sferycznej" rel="alternate" type="text/html" title="Rozkład Bernoulliego i Poissona w astronomii sferycznej" /><published>2026-01-18T00:00:00+01:00</published><updated>2026-01-18T00:00:00+01:00</updated><id>http://localhost:4000/astronomia%20sferyczna/rozklad-bernoulliego-i-poissona-w-astronomii-sferycznej</id><content type="html" xml:base="http://localhost:4000/astronomia%20sferyczna/rozklad-bernoulliego-i-poissona-w-astronomii-sferycznej"><![CDATA[<h2 id="rozkład-bernoulliego-dwumianowy">Rozkład Bernoulliego (dwumianowy)</h2>
 <p>Najprostszym przykładem ilustrującym ten rozkład jest rzut monetą. Niech prawdopodobieństwo wyrzucenia reszki wynosi $p$, a prawdopodobieństwo wyrzucenia orła - $1-p$ (jeśli $p=1/2$, moneta jest ,,uczciwa’’, a w przeciwnym przypadku jest ,,stronnicza’’). Niech będzie w sumie $N$ rzutów. Interesuje nas prawdopodobieństwo wyrzucenia reszki $k$ razy.</p>
 
 <p>Rozważmy pewną sekwencję rzutów (permutację), w której reszka wypadła $k$ razy. Prawdopodobieństwo, że reszka wypadnie dokładnie $k$ razy, a orzeł dokładnie $N-k$ (bo suma rzutów to $N$) to z podstawowego rachunku prawdopodobieństwa
@@ -822,63 +940,4 @@ $$ m\ddot{x}=-mg\sin\theta. $$</p>
 <p>Masa jest ograniczona siłą reakcji linki i jej ruch można opisać za pomocą tylko zmiennej $\theta$. Lagranżjan tego wahadła to
 $$ \mathcal{L}=\frac{1}{2}ml^2\dot{\theta}^2+mgl\cos{\theta}, $$
 a wynikające z niego równanie ruchu to
-$$ ml^2\ddot{\theta}+mgl\sin{\theta}=0. $$</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Układ nieswobodny Do tej pory opisywalśmy ruch cząstki przy założeniu, że jej ruch jest swobodny. Teraz zajmiemy się przypadkiem, gdy jej ruch jest ograniczony więzami.]]></summary></entry><entry><title type="html">Mechanika Lagrange’a, część 2: Zasada Hamiltona</title><link href="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-2-zasada-hamiltona" rel="alternate" type="text/html" title="Mechanika Lagrange’a, część 2: Zasada Hamiltona" /><published>2025-07-22T00:00:00+02:00</published><updated>2025-07-22T00:00:00+02:00</updated><id>http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-2-zasada-hamiltona</id><content type="html" xml:base="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-2-zasada-hamiltona"><![CDATA[<h2 id="zasada-hamiltona">Zasada Hamiltona</h2>
-<p>Rozważmy swobodną cząstkę poruszającą się między punktami $1$ i $2$ w czasie od $t_1$ do $t_2$. Droga $\mathbf{r}(t)$, którą wybiera cząstka jest taka, że całka działania
-$$ S=\int_{t_1}^{t_2}\mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)\,dt $$
-jest minimalna (stacjonarna). $\mathcal{L}$ to <strong>lagranżjan</strong> układu zdefiniowany jako
-$$ \mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)=T-U, $$
-gdzie $T$ to energia kinetyczna cząstki, a $U$ to jej energia potencjalna.</p>
-
-<h3 id="przykład---cząstka-swobodna-w-przestrzeni-3-wymiarowej">Przykład - cząstka swobodna w przestrzeni 3-wymiarowej</h3>
-<p>Rozważmy cząstkę o położeniu $\mathbf{r}=(x,y,z)$ oraz prędkości $\dot{\mathbf{r}}=(\dot{x}, \dot{y}, \dot{z})$. Jej energia potencjalna w danej chwili to $U=mgz$, a energia kinetyczna to $T=\frac{1}{2}m\left( \dot{x}^2+\dot{y}^2+\dot{z}^2 \right)$. Wyznaczmy jej równania ruchu.</p>
-
-<p>Funkcja Lagrange’a (lagranżjan) dla tej cząstki to
-$$ \mathcal{L}=\frac{1}{2}m\left( \dot{x}^2+\dot{y}^2+\dot{z}^2 \right)-mgz $$
-<a href="https://bwegrzyn0.github.io/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-1-r%C3%B3wnanie-eulera-lagrangea" target="_blank">W poprzednim artykule</a> dowiedzieliśmy się, że jeśli funkcja $\mathcal{L}$ sprawia, że całka jest minimalna, to spełnia ona równanie Eulera-Lagrange’a. W naszym przypadku mamy do czynienia z trzema zmiennymi, $x$, $y$ i $z$, więc potrzebujemy trzech równań:
-$$ \frac{\partial \mathcal{L}}{\partial x}-\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial\dot{x}}=0$$
-$$ \frac{\partial \mathcal{L}}{\partial y}-\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial\dot{y}}=0$$
-$$ \frac{\partial \mathcal{L}}{\partial z}-\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial\dot{z}}=0$$
-Obliczmy wszystkie pochodne:
-$$ \frac{\partial \mathcal{L}}{\partial x}=\frac{\partial \mathcal{L}}{\partial y}=0 $$
-$$ \frac{\partial \mathcal{L}}{\partial z}=mg $$
-$$ \frac{d}{dt}\frac{\partial \mathcal{L}}{\partial\dot{x}}=\frac{d}{dt}\left(m\dot{x}\right)=m\ddot{x} $$
-i analogicznie dla $y$ i $z$. Po wstawieniu mamy:
-$$ m\ddot{x}=0 $$
-$$ m\ddot{y}=0 $$
-$$ m\ddot{z}=mg $$
-Widzimy, że otrzymujemy 3 równania ruchu, takie same jak otrzymalibyśmy w przypadku użycia mechaniki Newtona. Zauważmy również, że pochodna $\mathcal{L}$ po współrzędnej jest równa dokładnie składowej siły działającej na cząstkę, a pochodna po składowej prędkości to składowa pędu:
-$$\frac{\partial \mathcal{L}}{\partial x}=F_x$$
-$$\frac{\partial \mathcal{L}}{\partial \dot{x}}=p_x$$
-i analogicznie dla $y$ i $z$. Możemy wstawić to do równania Lagrange’a i otrzymamy dobrze znany wzór
-$$ F_x=\frac{d}{dt}p_x, $$
-co pokazuje, że w tym przypadku sformułowanie mechaniki Lagrange’a jest równoważne sformułowaniu Newtona.</p>
-
-<h3 id="przykład---cząstka-poruszająca-się-pod-wpływem-potencjału-centralnego">Przykład - cząstka poruszająca się pod wpływem potencjału centralnego</h3>
-<p>Rozważmy cząstkę swobodną o masie $m$ poruszającą się w potencjale $U=-GMm/r$, gdzie $r$ to odległość cząstki od początku układu współrzędnych. W tym przypadku najwygodniej będzie posłużyć się współrzędnymi biegunowymi (nie potrzebujemy wsp. sferycznych, ponieważ wiadomo że ruch będzie ograniczony do płaszczyzny) $r$ i $\theta$. Okazuje się, że mimo tego, że $\theta$ jest kątem, wciąż możemy traktować go jak inne współrzędne, np. $x$. Oznacza to, że 2 równania Lagrange’a, które otrzymamy to
-$$ \frac{\partial \mathcal{L}}{\partial r}-\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial\dot{r}}=0$$
-$$ \frac{\partial \mathcal{L}}{\partial \theta}-\frac{d}{dt}\frac{\partial \mathcal{L}}{\partial\dot{\theta}}=0$$
-Obliczmy lagranżjan. Energia kinetyczna to
-$$ T=\frac{1}{2}m\left[\dot{r}^2+(r\dot{\theta})^2\right], $$
-a energię potencjalną znamy. Zatem
-$$ \mathcal{L}=T-U=\frac{1}{2}m\left[\dot{r}^2+(r\dot{\theta})^2\right]+GMm\frac{1}{r}.$$
-Obliczmy pochodne:
-$$ \frac{\partial \mathcal{L}}{\partial r}=mr\dot{\theta}^2-GMm\frac{1}{r^2} $$
-$$ \frac{\partial \mathcal{L}}{\partial \theta}=0$$
-$$ \frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{r}}=m\ddot{r} $$
-$$ \frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{\theta}}=mr^2\ddot{\theta} $$
-i wstawmy je do naszych równań:
-$$ m\ddot{r}=mr\dot{\theta}^2-GMm\frac{1}{r^2} $$
-$$ mr^2\ddot{\theta}=0 $$
-Otrzymujemy ponownie wyniki zgodne z mechaniką Newtona. Zauważmy, że ponownie 
-$$\frac{\partial \mathcal{L}}{\partial r}=F_r, $$
-gdzie $F_r$ to suma wszystkich sił radialnych działających na cząstkę. Możemy rozpoznać w niej siłę grawitacji oraz fikcyjną siłę odśrodkową.
-$$ \frac{\partial \mathcal{L}}{\partial \dot{r}}=p_r,$$
-gdzie $p_r$ to radialna składowa pędu cząstki. W przypadku kąta mamy
-$$ \frac{\partial \mathcal{L}}{\partial \theta}=\Gamma, $$
-gdzie $\Gamma$ to moment siły działający na cząstkę (w tym przypadku 0) oraz 
-$$ \frac{\partial \mathcal{L}}{\partial \dot{\theta}}=L, $$
-gdzie $L$ to moment pędu cząstki. Ponownie otrzymujemy dobrze znane równania
-$$ F_r =\frac{d}{dt}p_r$$
-$$ \Gamma = \frac{d}{dt} L. $$</p>
-
-<p>Poprzednie 2 przykłady pokazały nam, że wielkości $\partial\mathcal{L}/\partial q_i$ oraz $\partial\mathcal{L}/\partial \dot{q}_i$, gdzie $q_i$ to pewna <strong>współrzędna uogólniona</strong> (np. $x$, $r$, $\theta$, $\varphi$) pełnią role kolejno siły oraz pędu. Dlatego są one nazywane <strong>siłą uogólnioną</strong> oraz <strong>pędem uogólnionym</strong>.</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Zasada Hamiltona Rozważmy swobodną cząstkę poruszającą się między punktami $1$ i $2$ w czasie od $t_1$ do $t_2$. Droga $\mathbf{r}(t)$, którą wybiera cząstka jest taka, że całka działania $$ S=\int_{t_1}^{t_2}\mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)\,dt $$ jest minimalna (stacjonarna). $\mathcal{L}$ to lagranżjan układu zdefiniowany jako $$ \mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)=T-U, $$ gdzie $T$ to energia kinetyczna cząstki, a $U$ to jej energia potencjalna.]]></summary></entry></feed>
+$$ ml^2\ddot{\theta}+mgl\sin{\theta}=0. $$</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Układ nieswobodny Do tej pory opisywalśmy ruch cząstki przy założeniu, że jej ruch jest swobodny. Teraz zajmiemy się przypadkiem, gdy jej ruch jest ograniczony więzami.]]></summary></entry></feed>
