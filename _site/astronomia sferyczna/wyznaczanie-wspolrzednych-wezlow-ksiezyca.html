@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Wyznaczanie współrzędnych węzłów Księżyca | bwegrzyn0.github.io</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Wyznaczanie współrzędnych węzłów Księżyca" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Naszym celem jest wyznaczenie aktualnej rektascensji i deklinacji węzłów Księżyca na podstawie zdjęcia Księżyca z widocznymi gwiazdami. Wiele takich obserwacji w ciągu roku pozwoli wyznaczyć tempo precesji węzłów Księżyca." />
+<meta property="og:description" content="Naszym celem jest wyznaczenie aktualnej rektascensji i deklinacji węzłów Księżyca na podstawie zdjęcia Księżyca z widocznymi gwiazdami. Wiele takich obserwacji w ciągu roku pozwoli wyznaczyć tempo precesji węzłów Księżyca." />
+<link rel="canonical" href="http://localhost:4000/astronomia%20sferyczna/wyznaczanie-wspolrzednych-wezlow-ksiezyca" />
+<meta property="og:url" content="http://localhost:4000/astronomia%20sferyczna/wyznaczanie-wspolrzednych-wezlow-ksiezyca" />
+<meta property="og:site_name" content="bwegrzyn0.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-01-28T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Wyznaczanie współrzędnych węzłów Księżyca" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-01-28T00:00:00+01:00","datePublished":"2026-01-28T00:00:00+01:00","description":"Naszym celem jest wyznaczenie aktualnej rektascensji i deklinacji węzłów Księżyca na podstawie zdjęcia Księżyca z widocznymi gwiazdami. Wiele takich obserwacji w ciągu roku pozwoli wyznaczyć tempo precesji węzłów Księżyca.","headline":"Wyznaczanie współrzędnych węzłów Księżyca","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/astronomia%20sferyczna/wyznaczanie-wspolrzednych-wezlow-ksiezyca"},"url":"http://localhost:4000/astronomia%20sferyczna/wyznaczanie-wspolrzednych-wezlow-ksiezyca"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+	<link rel="shortcut icon" type="image/png" href="/favicon.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bwegrzyn0.github.io" /></head>
+<head>
+	  
+
+<!-- CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
+
+<!-- JavaScript -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{
+    delimiters: [
+      { left: '$$',  right: '$$',  display: true  },
+      { left: '$',   right: '$',   display: false },
+      { left: '\\[', right: '\\]', display: true  },
+      { left: '\\(', right: '\\)', display: false }
+  ]});">
+</script>
+
+
+  </head>
+
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">bwegrzyn0.github.io</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/kategorie/">Kategorie</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Wyznaczanie współrzędnych węzłów Księżyca</h1>
+    <a href="/kategorie"><h3> Astronomia sferyczna </h3></a>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-01-28T00:00:00+01:00" itemprop="datePublished">2026-01-28
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Naszym celem jest wyznaczenie aktualnej rektascensji i deklinacji węzłów Księżyca na podstawie zdjęcia Księżyca z widocznymi gwiazdami. Wiele takich obserwacji w ciągu roku pozwoli wyznaczyć tempo precesji węzłów Księżyca.</p>
+
+<h2 id="wyznaczanie-współrzędnych-ekliptycznych-księżyca">Wyznaczanie współrzędnych ekliptycznych Księżyca</h2>
+<p>Mając dane współrzędne Księżyca, $(\alpha, \delta)$ i nachylenie ekliptyki $\varepsilon$, możemy wyznaczyć współrzędne równikowe Księżyca w układzie współrzędnych ekliptycznych, korzystając z trójkąta sferycznego przedstawionego (schematycznie) na poniższym rysunku.</p>
+
+<p align="center">
+<img src="/assets/images/2026-01-28/sfer1.svg" width="500" /> <br /> <br />
+<em>BN - biegun niebieski, BE - biegun ekliptyczny</em>
+</p>
+
+<p>Z twierdzenia cosinusów:
+$$ \sin\beta=\cos\varepsilon\sin\delta-\sin\varepsilon\cos\delta\sin\alpha, $$
+a z twierdzenia sinusów:
+$$ \cos\lambda= \frac{\cos\alpha \cos\delta}{\cos\beta}. $$</p>
+
+<h2 id="wyznaczanie-współrzędnych-ekliptycznych-węzłów">Wyznaczanie współrzędnych ekliptycznych węzłów</h2>
+
+<p align="center">
+<img src="/assets/images/2026-01-28/sfer2.svg" width="500" /> 
+</p>
+
+<p>Orbita Księżyca, która zakładamy, że jest w przybliżeniu kołowa ($e\approx 0.0549$), jest nachylona pod kątem $i$ do ekliptyki. Naszym celem jest wyznaczenie $\lambda_w$ (węzła wstępującego). Z <a href="https://en.wikipedia.org/wiki/Spherical_trigonometry#Napier's_rules_for_right_spherical_triangles" target="_blank">koła Napiera</a> dla prostokątnego trójkąta sferycznego schematycznie przedstawionego na powyższym rysunku mamy:
+$$ \sin(\lambda-\lambda_w)=\cot{i}\tan{\beta}, $$
+co wystarcza do obliczenia $\lambda_w$ znając $\lambda$, $\beta$ oraz $i$. Węzeł zstępujący będzie miał oczywiście współrzędną $\lambda_w+180\degree$. Szerokość ekliptyczna obu węzłów to z definicji $\beta=0\degree$.</p>
+
+<p>Korzystając z trójkąta sferycznego z wcześniejszego rysunku, możemy wyznaczyć rektascensję i deklinację węzłów. Z twierdzenia cosinusów:
+$$ \sin\delta_w=\cos\varepsilon\sin\beta_w+\sin\varepsilon\cos\beta_w\sin\lambda_w, $$
+co po wstawieniu $\beta=0\degree$ daje
+$$ \sin\delta_w=\sin\varepsilon\sin\lambda_w, $$
+a z twierdzenia sinusów:
+$$ \cos\alpha_w=- \frac{\cos\lambda_w\cos\beta_w}{\cos\delta_w}=- \frac{\cos\lambda_w}{\cos\delta_w}. $$
+Dla węzła zstępującego podstawiamy $\lambda_w\rightarrow \lambda_w+180\degree$, co daje nam
+$$ \sin\delta_z=-\sin\delta_w, $$
+więc $\delta_w=-\delta_z$ oraz
+$$ \cos\alpha_z=-\cos\alpha_w, $$
+więc $\alpha_z=\alpha_w+180\degree$, zatem jest on dokładnie po przeciwnej stronie sfery niebieskiej.</p>
+
+<h2 id="obserwacje">Obserwacje</h2>
+
+<p align="center">
+<img src="/assets/images/2026-01-28/obs.jpg" width="500" />
+<img src="/assets/images/2026-01-28/wyzn.jpg" width="500" />
+</p>
+<p>Powyżej znajduje się zdjęcie, na którego podstawie wyznaczamy współrzędne Księżyca oraz jego przybliżony fragment. Na zdjęciu widzimy m. in. Plejady (M45) - bardzo blisko Księżyca, Byka, Oriona, Woźnicę, Wieloryba, fragment Perseusza. Znaleziono 2 pary gwiazd, takie, że jeśli poprowadzimy przez nie prostą, to przechodzi ona w dobrym przybliżeniu przez środek tarczy Księżyca. Ich przecięcie w atlasie będzie wtedy punktem o szukanych współrzędnych równikowych.</p>
+<p align="center">
+<img src="/assets/images/2026-01-28/atlas.jpg" width="500" />
+</p>
+<p>Wyznaczając współrzędne pogrubionego punktu na powyższym zdjęciu otrzymujemy:
+$$ (\alpha, \delta)=(3^h37^m, 24\degree 20’), $$
+co daje praktycznie idealną zgodność w porównaniu z danymi z programu Stellarium.</p>
+
+<p>Korzystając ze wcześniejszych wzorów wyznaczamy współrzędne ekliptyczne Księżyca:
+$$ (\lambda, \beta)=(57\degree 43’, 4\degree 49’), $$
+gdzie przyjąłem $\varepsilon=23\degree 26’$.</p>
+
+<p>Przyjmując $i=5\degree 09’$, mamy:
+$$ \lambda_w=348\degree 23’ $$
+i przekształcając układy współrzędnych:
+$$ \boxed{(\alpha_w, \delta_w)=(23^h 17^m, -4\degree 35’),} $$
+gdzie wzięliśmy wartość funkcji $\arccos$ plus $180\degree$, aby być w odpowiedniej ćwiartce układu współrzędnych. Mamy również:
+$$ \boxed{(\alpha_z, \delta_z)=(11^h 17^m, 4\degree 35’).} $$
+Porównując to ze współrzędnymi Księżyca, kiedy ostatni raz znalazł się w węźle (dane z programu Stellarium), różnica w rektascensji to około $10’$, a w deklinacji $1\degree$. Tak duża rozbieżność w deklinacji może wynikać np. z przybliżenia orbity Księżyca jako okręgu, co nie jest prawdą i może wprowadzić taką niedokładność do obliczeń. Efekt precesji węzłów nie powinien grać tutaj bardzo dużej roli, biorąc pod uwagę krótki czas od ostatniego węzła oraz to, że wpływa on o wiele znaczniej na rektasencję węzłów.</p>
+
+  </div><a class="u-url" href="/astronomia%20sferyczna/wyznaczanie-wspolrzednych-wezlow-ksiezyca" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">bwegrzyn0.github.io</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bwegrzyn0"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bwegrzyn0</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Fizyka i programowanie</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
