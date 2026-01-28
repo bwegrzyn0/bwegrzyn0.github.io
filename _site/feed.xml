@@ -1,4 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-26T13:25:56+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Prawa Keplera</title><link href="http://localhost:4000/mechanika/prawa-keplera" rel="alternate" type="text/html" title="Prawa Keplera" /><published>2026-01-26T00:00:00+01:00</published><updated>2026-01-26T00:00:00+01:00</updated><id>http://localhost:4000/mechanika/prawa-keplera</id><content type="html" xml:base="http://localhost:4000/mechanika/prawa-keplera"><![CDATA[<h2 id="problem-dwóch-ciał">Problem dwóch ciał</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-28T14:33:14+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Wyznaczanie współrzędnych węzłów Księżyca</title><link href="http://localhost:4000/astronomia%20sferyczna/wyznaczanie-wspolrzednych-wezlow-ksiezyca" rel="alternate" type="text/html" title="Wyznaczanie współrzędnych węzłów Księżyca" /><published>2026-01-28T00:00:00+01:00</published><updated>2026-01-28T00:00:00+01:00</updated><id>http://localhost:4000/astronomia%20sferyczna/wyznaczanie-wspolrzednych-wezlow-ksiezyca</id><content type="html" xml:base="http://localhost:4000/astronomia%20sferyczna/wyznaczanie-wspolrzednych-wezlow-ksiezyca"><![CDATA[<p>Naszym celem jest wyznaczenie aktualnej rektascensji i deklinacji węzłów Księżyca na podstawie zdjęcia Księżyca z widocznymi gwiazdami. Wiele takich obserwacji w ciągu roku pozwoli wyznaczyć tempo precesji węzłów Księżyca.</p>
+
+<h2 id="wyznaczanie-współrzędnych-ekliptycznych-księżyca">Wyznaczanie współrzędnych ekliptycznych Księżyca</h2>
+<p>Mając dane współrzędne Księżyca, $(\alpha, \delta)$ i nachylenie ekliptyki $\varepsilon$, możemy wyznaczyć współrzędne równikowe Księżyca w układzie współrzędnych ekliptycznych, korzystając z trójkąta sferycznego przedstawionego (schematycznie) na poniższym rysunku.</p>
+
+<p align="center">
+<img src="/assets/images/2026-01-28/sfer1.svg" width="500" /> <br /> <br />
+<em>BN - biegun niebieski, BE - biegun ekliptyczny</em>
+</p>
+
+<p>Z twierdzenia cosinusów:
+$$ \sin\beta=\cos\varepsilon\sin\delta-\sin\varepsilon\cos\delta\sin\alpha, $$
+a z twierdzenia sinusów:
+$$ \cos\lambda= \frac{\cos\alpha \cos\delta}{\cos\beta}. $$</p>
+
+<h2 id="wyznaczanie-współrzędnych-ekliptycznych-węzłów">Wyznaczanie współrzędnych ekliptycznych węzłów</h2>
+
+<p align="center">
+<img src="/assets/images/2026-01-28/sfer2.svg" width="500" /> 
+</p>
+
+<p>Orbita Księżyca, która zakładamy, że jest w przybliżeniu kołowa ($e\approx 0.0549$), jest nachylona pod kątem $i$ do ekliptyki. Naszym celem jest wyznaczenie $\lambda_w$ (węzła wstępującego). Z <a href="https://en.wikipedia.org/wiki/Spherical_trigonometry#Napier's_rules_for_right_spherical_triangles" target="_blank">koła Napiera</a> dla prostokątnego trójkąta sferycznego schematycznie przedstawionego na powyższym rysunku mamy:
+$$ \sin(\lambda-\lambda_w)=\cot{i}\tan{\beta}, $$
+co wystarcza do obliczenia $\lambda_w$ znając $\lambda$, $\beta$ oraz $i$. Węzeł zstępujący będzie miał oczywiście współrzędną $\lambda_w+180\degree$. Szerokość ekliptyczna obu węzłów to z definicji $\beta=0\degree$.</p>
+
+<p>Korzystając z trójkąta sferycznego z wcześniejszego rysunku, możemy wyznaczyć rektascensję i deklinację węzłów. Z twierdzenia cosinusów:
+$$ \sin\delta_w=\cos\varepsilon\sin\beta_w+\sin\varepsilon\cos\beta_w\sin\lambda_w, $$
+co po wstawieniu $\beta=0\degree$ daje
+$$ \sin\delta_w=\sin\varepsilon\sin\lambda_w, $$
+a z twierdzenia sinusów:
+$$ \cos\alpha_w=- \frac{\cos\lambda_w\cos\beta_w}{\cos\delta_w}=- \frac{\cos\lambda_w}{\cos\delta_w}. $$
+Dla węzła zstępującego podstawiamy $\lambda_w\rightarrow \lambda_w+180\degree$, co daje nam
+$$ \sin\delta_z=-\sin\delta_w, $$
+więc $\delta_w=-\delta_z$ oraz
+$$ \cos\alpha_z=-\cos\alpha_w, $$
+więc $\alpha_z=\alpha_w+180\degree$, zatem jest on dokładnie po przeciwnej stronie sfery niebieskiej.</p>
+
+<h2 id="obserwacje">Obserwacje</h2>
+
+<p align="center">
+<img src="/assets/images/2026-01-28/obs.jpg" width="500" />
+<img src="/assets/images/2026-01-28/wyzn.jpg" width="500" />
+</p>
+<p>Powyżej znajduje się zdjęcie, na którego podstawie wyznaczamy współrzędne Księżyca oraz jego przybliżony fragment. Na zdjęciu widzimy m. in. Plejady (M45) - bardzo blisko Księżyca, Byka, Oriona, Woźnicę, Wieloryba, fragment Perseusza. Znaleziono 2 pary gwiazd, takie, że jeśli poprowadzimy przez nie prostą, to przechodzi ona w dobrym przybliżeniu przez środek tarczy Księżyca. Ich przecięcie w atlasie będzie wtedy punktem o szukanych współrzędnych równikowych.</p>
+<p align="center">
+<img src="/assets/images/2026-01-28/atlas.jpg" width="500" />
+</p>
+<p>Wyznaczając współrzędne pogrubionego punktu na powyższym zdjęciu otrzymujemy:
+$$ (\alpha, \delta)=(3^h37^m, 24\degree 20’), $$
+co daje praktycznie idealną zgodność w porównaniu z danymi z programu Stellarium.</p>
+
+<p>Korzystając ze wcześniejszych wzorów wyznaczamy współrzędne ekliptyczne Księżyca:
+$$ (\lambda, \beta)=(57\degree 43’, 4\degree 49’), $$
+gdzie przyjąłem $\varepsilon=23\degree 26’$.</p>
+
+<p>Przyjmując $i=5\degree 09’$, mamy:
+$$ \lambda_w=348\degree 23’ $$
+i przekształcając układy współrzędnych:
+$$ \boxed{(\alpha_w, \delta_w)=(23^h 17^m, -4\degree 35’),} $$
+gdzie wzięliśmy wartość funkcji $\arccos$ plus $180\degree$, aby być w odpowiedniej ćwiartce układu współrzędnych. Mamy również:
+$$ \boxed{(\alpha_z, \delta_z)=(11^h 17^m, 4\degree 35’).} $$
+Porównując to ze współrzędnymi Księżyca, kiedy ostatni raz znalazł się w węźle (dane z programu Stellarium), różnica w rektascensji to około $10’$, a w deklinacji $1\degree$. Tak duża rozbieżność w deklinacji może wynikać np. z przybliżenia orbity Księżyca jako okręgu, co nie jest prawdą i może wprowadzić taką niedokładność do obliczeń. Efekt precesji węzłów nie powinien grać tutaj bardzo dużej roli, biorąc pod uwagę krótki czas od ostatniego węzła oraz to, że wpływa on o wiele znaczniej na rektasencję węzłów.</p>]]></content><author><name></name></author><category term="Astronomia sferyczna" /><summary type="html"><![CDATA[Naszym celem jest wyznaczenie aktualnej rektascensji i deklinacji węzłów Księżyca na podstawie zdjęcia Księżyca z widocznymi gwiazdami. Wiele takich obserwacji w ciągu roku pozwoli wyznaczyć tempo precesji węzłów Księżyca.]]></summary></entry><entry><title type="html">Prawa Keplera</title><link href="http://localhost:4000/mechanika/prawa-keplera" rel="alternate" type="text/html" title="Prawa Keplera" /><published>2026-01-26T00:00:00+01:00</published><updated>2026-01-26T00:00:00+01:00</updated><id>http://localhost:4000/mechanika/prawa-keplera</id><content type="html" xml:base="http://localhost:4000/mechanika/prawa-keplera"><![CDATA[<h2 id="problem-dwóch-ciał">Problem dwóch ciał</h2>
 <p>Rozważmy dwa ciała oddziałujące ze sobą klasycznym potencjałem grawitacyjnym, tzn. ich energia potencjalna wzajemnych oddziaływań to
 $$ U(r)= -\frac{Gm_1m_2}{r}, $$
 gdzie wprowadzamy oznaczenia $ \mathbf{r}\equiv \mathbf{r_1}- \mathbf{r_2}$, $ \mathbf{r_1}$ - wektor wodzący ciała o masie $m_1$ i analogicznie dla $m_2$. Zapiszemy lagranżjan dla układu:
@@ -857,87 +918,4 @@ Jeśli potrzebne są jedynie np. 2 transformacje, należy ustawić prawdopodobie
 </p>
 
 <h2 id="licencja">Licencja</h2>
-<p>Program nie posiada licencji i może być używany w dowolny sposób.</p>]]></content><author><name></name></author><category term="Programowanie" /><summary type="html"><![CDATA[Obraz wygenerowany z użyciem programu]]></summary></entry><entry><title type="html">Mechanika Lagrange’a, część 3: Układy nieswobodne</title><link href="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-3-uk%C5%82ady-nieswobodne" rel="alternate" type="text/html" title="Mechanika Lagrange’a, część 3: Układy nieswobodne" /><published>2025-07-25T00:00:00+02:00</published><updated>2025-07-25T00:00:00+02:00</updated><id>http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-3-uk%C5%82ady-nieswobodne</id><content type="html" xml:base="http://localhost:4000/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-3-uk%C5%82ady-nieswobodne"><![CDATA[<h2 id="układ-nieswobodny">Układ nieswobodny</h2>
-<p>Do tej pory opisywalśmy ruch cząstki przy założeniu, że jej ruch jest swobodny. Teraz zajmiemy się przypadkiem, gdy jej ruch jest ograniczony <strong>więzami</strong>.</p>
-
-<p>Rozważmy cząstkę poruszającą się w 3 wymiarach, której ruch jest ograniczony do pewnej powierzchni (na przykład kula znajdująca się między dwoma płytkami uniemożliwiającymi jej ruch w kierunku prostopadłym do ich powierzchni). W mechanice Newtona oznacza to, że na kulę działa siła reakcji prostopadła do powierzchni ograniczającej jej ruch, jak zostało pokazane na rysunku. $\hat{T}$ oznacza wektor styczny do kierunku ruchu i zarazem płaszczyzny.</p>
-
-<p align="center">
-<img src="/assets/images/2025-07-25/siła_reakcji.svg" width="500" />
-</p>
-
-<p>Mimo tego, że cząstka porusza się w przestrzeni 3-wymiarowej, do opisania jej położenia potrzebujemy jedynie 2 współrzędnych $q_1$ i $q_2$ (ponieważ jej ruch jest ograniczony do powierzchni). Spodziewamy się zatem, że jej ruch będą w pełni opisywać równania Lagrange’a
-$$ \frac{\partial\mathcal{L}}{\partial q_i}-\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial \dot{q_i}}=0, $$
-dla których lagranżjan jest dany wzorem
-$$ \mathcal{L}=T-U, $$
-gdzie $U$ jest energią potencjalną wszystkich sił (przy założeniu, że da się je zapisać jako jej gradient) <strong>oprócz sił reakcji</strong>. Innymi słowy
-$$ \mathbf{F}_{cał.}=\mathbf{F}+\mathbf{F}_R=-\nabla U+\mathbf{F}_R, $$
-gdzie $\mathbf{F}_R$ to siła reakcji, a $\mathbf{F}_{cał.}$ to siła całkowita działająca na cząstkę.</p>
-
-<p>Chcielibyśmy udowodnić, że to sformułowanie jest równoważne sformułowaniu newtonowskiemu.</p>
-
-<h3 id="dowód">Dowód</h3>
-<p>Rozważmy ruch cząstki w czasie od $t_1$ do $t_2$ po torze $\mathbf{r}$.
-Powyższe twierdzenie jest równoważne temu, że wariacja działania wynosi 0:
-$$ \delta S=\delta \int_{t_1}^{t_2}\mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)\,dt =0$$
-Rozważmy zatem tor $\mathbf{R}=\mathbf{r}+\boldsymbol{\varepsilon}$, gdzie $\boldsymbol{\varepsilon}$ wynosi $\mathbf{0}$ dla $t_1$ i $t_2$ oraz nie wychodzi poza powierzchnię ruchu cząstki (cząstka dalej pozostaje ograniczona). Zostało to zilustrowane na poniższym rysunku, gdzie kolorem białym została oznaczona prawdziwa trajektoria cząstki, a niebieskim $\mathbf{R}$. Ruch cząstki jest ograniczony do zielonej płaszczyzny.</p>
-
-<p align="center">
-<img src="/assets/images/2025-07-25/wykres_powierzchnia.svg" width="500" />
-</p>
-
-<p>Wariacja działania to wtedy
-$$ \delta S=\int_{t_1}^{t_2}\left[\mathcal{L}(\mathbf{R}, \dot{\mathbf{R}}, t)-\mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)\right]\,dt$$
-Obliczmy różnicę znajdującą się pod całką:
-$$ \mathcal{L}(\mathbf{R}, \dot{\mathbf{R}}, t)-\mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)=T(\dot{\mathbf{R}})-U(\mathbf{R}, t)-T( \dot{\mathbf{r}})+U(\mathbf{r}, t)$$
-Wyznaczmy poszczególne wyrazy:
-$$ T(\dot{\mathbf{R}})=\frac{1}{2}m\dot{R}^2=\frac{1}{2}m\left(\dot{\mathbf{r}}+\dot{\boldsymbol{\varepsilon}}\right)^2=\frac{1}{2}m\left(\dot{r}^2+2\dot{\mathbf{r}}\cdot\dot{\boldsymbol{\varepsilon}}+\dot{\varepsilon}^2\right)$$
-$$ T(\dot{\mathbf{R}})-T( \dot{\mathbf{r}})=\frac{1}{2}m\left(\dot{r}^2+2\dot{\mathbf{r}}\cdot\dot{\boldsymbol{\varepsilon}}+\dot{\varepsilon}^2\right)-\frac{1}{2}m\dot{r}^2=m\dot{\mathbf{r}}\cdot\dot{\boldsymbol{\varepsilon}}+\frac{1}{2}m\dot{\varepsilon}^2$$
-Ponieważ $\varepsilon$ oraz $\dot{\varepsilon}$ są małe
-$$ T(\dot{\mathbf{R}})-T(\dot{\mathbf{r}})\approx m\dot{\mathbf{r}}\cdot\dot{\boldsymbol{\varepsilon}}.$$
-Obliczmy teraz różnicę 
-$$ -U(\mathbf{R}, t)+U(\mathbf{r}, t)=-\left[ U(\mathbf{r}+\boldsymbol{\varepsilon}, t)-U(\mathbf{r}, t) \right]\approx-\left[ U(\mathbf{r}, t)+\boldsymbol{\varepsilon}\cdot\nabla U(\mathbf{r}, t)-U(\mathbf{r}, t)\right]=-\boldsymbol{\varepsilon}\cdot\nabla U(\mathbf{r}, t)$$
-Wracając, mamy
-$$ \mathcal{L}(\mathbf{R}, \dot{\mathbf{R}}, t)-\mathcal{L}(\mathbf{r}, \dot{\mathbf{r}}, t)\approx m\dot{\mathbf{r}}\cdot\dot{\boldsymbol{\varepsilon}}-\boldsymbol{\varepsilon}\cdot\nabla U(\mathbf{r}, t)$$
-Wstawmy to do całki:
-$$ \delta S=\int_{t_1}^{t_2}\left[ m\dot{\mathbf{r}}\cdot\dot{\boldsymbol{\varepsilon}}-\boldsymbol{\varepsilon}\cdot\nabla U(\mathbf{r}, t) \right]\,dt $$
-Aby pozbyć się $\dot{\boldsymbol{\varepsilon}}$, pocałkujmy pierwszy wyraz przez części:
-$$ \int_{t_1}^{t_2} m\dot{\mathbf{r}}\cdot\dot{\boldsymbol{\varepsilon}} \,dt =\underbrace{\left[m\dot{\mathbf{r}}\cdot\boldsymbol{\varepsilon} \right]_{t_1}^{t_2}}_{=0} -\int_{t_1}^{t_2} m\ddot{\mathbf{r}}\cdot\boldsymbol{\varepsilon}\,dt, $$
-co daje nam 
-$$ \delta S=\int_{t_1}^{t_2}\boldsymbol{\varepsilon}\cdot\left[-m\ddot{\mathbf{r}} -\nabla U(\mathbf{r}, t) \right]\,dt. $$
-Zauważmy teraz, że $m\ddot{\mathbf{r}}=\mathbf{F}_{cał.}$ oraz $-\nabla U(\mathbf{r}, t)=\mathbf{F}$:
-$$ \delta S=\int_{t_1}^{t_2}\boldsymbol{\varepsilon}\cdot\left[-\mathbf{F}_{cał.}+\mathbf{F}\right]\,dt$$
-Wiemy, że $-\mathbf{F}_{cał.}+\mathbf{F}=-\mathbf{F}-\mathbf{F}_R+\mathbf{F}=-\mathbf{F}_R$, zatem
-$$ \delta S =-\int_{t_1}^{t_2}\boldsymbol{\varepsilon}\cdot\mathbf{F}_R\,dt. $$
-Jak wspomnieliśmy wcześniej, siły reakcji są <strong>zawsze prostopadłe</strong> do powierzchni ruchu cząstki, a $\boldsymbol{\varepsilon}$ wybraliśmy takie, aby w tej powierzchni leżało. Oznacza to, że $\boldsymbol{\varepsilon}\cdot\mathbf{F}_R=0$, a co za tym idzie
-$$ \delta S = 0, $$
-co kończy dowód.</p>
-
-<p>Analogiczny dowód można przeprowadzić dla cząstki ograniczonej do ruchu jedynie po krzywej.</p>
-
-<h2 id="przykład">Przykład</h2>
-<p>Rozważmy piłkę toczącą się po równi pochyłej. Jej położenie można jednoznacznie określić za pomocą jednej zmiennej $x$. Jeśli oś $x$ wybierzemy tak, aby przebiegała równolegle do równi oraz $x=0$, gdy piłka jest u podstawy równi, jej energia potencjalna będzie dana wzorem
-$$ U=mgh=mgx\sin\theta, $$
-gdzie $\theta$ to kąt nachylenia równi (patrz rysunek poniżej).</p>
-
-<p align="center">
-<img src="/assets/images/2025-07-25/równia.svg" width="300" />
-</p>
-
-<p>W tym przypadku cząstka poruszająca się w 2 wymiarach jest ograniczona do 1 wymiaru poprzez siłę reakcji równi.
-Lagranżjan piłki będzie wynosił
-$$ \mathcal{L}=\frac{1}{2}m\dot{x}^2-mgx\sin\theta, $$
-co po wstawieniu do równania Lagrange’a da nam
-$$ m\ddot{x}=-mg\sin\theta. $$</p>
-
-<h2 id="przykład-1">Przykład</h2>
-<p>Rozważmy wahadło matematyczne o długości $l$, na którego końcu jest zawieszona masa $m$ o energii potencjalnej $U=-mgy=-mgl\cos{\theta}$ (patrz rysunek).</p>
-
-<p align="center">
-<img src="/assets/images/2025-07-25/wahadło.svg" width="600" />
-</p>
-
-<p>Masa jest ograniczona siłą reakcji linki i jej ruch można opisać za pomocą tylko zmiennej $\theta$. Lagranżjan tego wahadła to
-$$ \mathcal{L}=\frac{1}{2}ml^2\dot{\theta}^2+mgl\cos{\theta}, $$
-a wynikające z niego równanie ruchu to
-$$ ml^2\ddot{\theta}+mgl\sin{\theta}=0. $$</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Układ nieswobodny Do tej pory opisywalśmy ruch cząstki przy założeniu, że jej ruch jest swobodny. Teraz zajmiemy się przypadkiem, gdy jej ruch jest ograniczony więzami.]]></summary></entry></feed>
+<p>Program nie posiada licencji i może być używany w dowolny sposób.</p>]]></content><author><name></name></author><category term="Programowanie" /><summary type="html"><![CDATA[Obraz wygenerowany z użyciem programu]]></summary></entry></feed>
