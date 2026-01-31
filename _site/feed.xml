@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-28T14:33:14+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Wyznaczanie współrzędnych węzłów Księżyca</title><link href="http://localhost:4000/astronomia%20sferyczna/wyznaczanie-wspolrzednych-wezlow-ksiezyca" rel="alternate" type="text/html" title="Wyznaczanie współrzędnych węzłów Księżyca" /><published>2026-01-28T00:00:00+01:00</published><updated>2026-01-28T00:00:00+01:00</updated><id>http://localhost:4000/astronomia%20sferyczna/wyznaczanie-wspolrzednych-wezlow-ksiezyca</id><content type="html" xml:base="http://localhost:4000/astronomia%20sferyczna/wyznaczanie-wspolrzednych-wezlow-ksiezyca"><![CDATA[<p>Naszym celem jest wyznaczenie aktualnej rektascensji i deklinacji węzłów Księżyca na podstawie zdjęcia Księżyca z widocznymi gwiazdami. Wiele takich obserwacji w ciągu roku pozwoli wyznaczyć tempo precesji węzłów Księżyca.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-31T18:18:32+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Równanie czasu</title><link href="http://localhost:4000/astronomia%20sferyczna/rownanie-czasu" rel="alternate" type="text/html" title="Równanie czasu" /><published>2026-01-31T00:00:00+01:00</published><updated>2026-01-31T00:00:00+01:00</updated><id>http://localhost:4000/astronomia%20sferyczna/rownanie-czasu</id><content type="html" xml:base="http://localhost:4000/astronomia%20sferyczna/rownanie-czasu"><![CDATA[<h2 id="motywacja">Motywacja</h2>
+<p>Okazuje się, że Słońce nie porusza się w ciągu roku po ekliptyce ze stałą prędkością. Wynika to głównie z dwóch czynników: nachylenia ekliptyki oraz ekscentryczności orbity Ziemi. Ponieważ zegary nie są w stanie mierzyć zmiennego czasu, wprowadzono pojęcie <strong>Słońca średniego</strong> (ang. <em>mean Sun</em>), czyli punktu, który porusza się po <em>równiku</em> niebieskim ze stałą prędkością, zakreślając kąt $360\degree$ w ciągu roku zwrotnikowego (od równonocy do równonocy). Kąt godzinny Słońca średniego to czas wskazywany przez nasze zegarki (minus $12^h$ bo $h=0^h$ w chwili górowania). Różnicę między kątem godzinnym Słońca średniego (MS) i Słońca prawdziwego (TS - od <em>true Sun</em>), czyli między czasem Słonecznym średnim a prawdziwym wyraża <strong>równanie czasu</strong>:
+$$ \boxed{\tau=h_{MS}-h_{TS}.} $$
+W tym artykule wyprowadzimy przybliżone równanie czasu dla Ziemi, zakładając, że zarówno nachylenie ekliptyki, jak i ekscentryczność orbity są na tyle małe, że zezwalają na pewne przybliżenia, które znacznie uproszczą wzory. Wcześniej jednak, przekształcimy równanie czasu korzystając z zależności $\Theta=\alpha+h$, gdzie $\Theta$ to lokalny czas gwiazdowy, a $\alpha$ to rektascencja obiektu o kącie godzinnym $h$:
+$$ \tau=\alpha_{TS}-\alpha_{TS}. $$</p>
+
+<h2 id="wkład-nachylenia-ekliptyki">Wkład nachylenia ekliptyki</h2>
+<p align="center">
+<img src="/assets/images/2026-01-31/rys1.svg" width="500" />
+</p>
+<p>Korzystając z prostokątego trójkąta sferycznego przedstawionego schematycznie na powyższym rysunku, koła Napiera i reguły SIN-TAAD, otrzymujemy zależność
+$$ \cos\varepsilon=\cot\lambda_{TS}\tan\alpha_{TS} \rightarrow \alpha_{TS}=\arctan\left(\cos\varepsilon\tan\lambda_{TS}\right), $$
+gdzie $\varepsislon$ oznacza nachylenie ekliptyki, a poprzez $\lambda$ będziemy oznaczać zawsze długość ekliptyczną (mierzoną od punktu Barana, w tym samym kierunku, co rektascensja).</p>
+
+<p>$\varepsilon=23\degree 26’$, a $\cos$ tego kąta jest bardzo bliski $1$. Możemy zapisać więc $\cos\varepsilon$ jako $1-\delta$, gdzie $\delta$ jest małą liczbą. W ogólnym przypadku:
+$$ \arctan((1-\delta)x)=\arctan(x-x\delta), $$
+a poniewaz $\delta\ll 1$, to $x\delta \ll x$, więc możemy przybliżyć wyrażenie jako
+$$ \arctan(x-x\delta)\approx \arctan x- x\delta\frac{d}{dx}(\arctan x). $$
+Pochodna to $1/(1+x^2)$, więc
+$$ \arctan((1-\delta)x)\approx \arctan x- \frac{x\delta}{1+x^2}. $$
+U nas $1-\delta=\cos\varepsilon$, skąd $\delta=1-\cos\varepsilon$, a $x=\tan\lambda_{TS}$, więc
+$$ \arctan(\cos\varepsilon\tan\lambda_{TS})= \lambda_{TS}-(1-\cos\varepsilon) \frac{\tan\lambda_{TS}}{1+\tan^2\lambda_{TS}}, $$
+a korzystając z tożsamości pitagorejskiej $1+\tan^2 x=\sec^2 x$, rozpisując tangens i skracając, mamy
+$$ \lambda_{TS}-(1-\cos\varepsilon) \sin\lambda_{TS}\cos\lambda_{TS}. $$
+Z tożsamości trygonometrycznej $\sin x\cos x= \frac{1}{2}\sin 2x$, mamy
+$$ \alpha_{TS}\approx \lambda_{TS}- \frac{1-\cos\varepsilon}{2}\sin 2\lambda_{TS}. $$</p>
+
+<h2 id="wkład-ekscentryczności">Wkład ekscentryczności</h2>
+<p align="center">
+<img src="/assets/images/2026-01-31/rys2.svg" width="500" />
+</p>
+<p>Wkład ekscentryczności objawia się faktem, że długość ekliptyczna Słońca prawdziwego nie rośnie jednostajnie. Z powyższego rysunku widzimy, że długość ekliptyczna Słońca to $\lambda_{TS}=f-(2\pi-\varpi)$ (kąty wierzchołkowe) $=\varpi+f-2\pi$, gdzie $\varpi$ to <a href="https://en.wikipedia.org/wiki/Longitude_of_periapsis" target="_blank">długość peryhelium</a> orbity Ziemi (kąt między kierunkiem do punktu Barana a kierunkiem do peryhelium), a $f$ to anomalia prawdziwa Ziemi. Punkt w ognisku elipsy to oczywiście Słońce.</p>
+
+<p>Do wyznaczenia anomalii prawdziwej potrzebujemy anomalię mimośrodową $E$, którą możemy obliczyć rozwiązując <em>równanie Keplera</em>:
+$$ E-e\sin E=M, $$
+gdzie $e$ to mimośród orbity Ziemi, a $M$ to anomalia średnia, która jest zdefiniowana jako
+$$ M = \frac{2\pi}{T_a}t_p, $$
+gdzie $T_a$ to rok anomalistyczny, czyli czas od peryhelium do peryhelium, a $t_p$ to czas od ostatniego przejścia przez peryhelium. Możemy powiązać ją z rektascencją Słońca średniego, która dana jest wzorem
+$$ \alpha_{MS} = \frac{2\pi}{T_z}t, $$
+gdzie $T_z$ to rok zwrotnikowy (od równonocy wiosennej do równonocy wiosennej), a $t$ to czas od ostatniej równonocy wiosennej. W naszym przypadku możemy założyć, że $T_z\approx T_a=T$. Z tego powodu $\alpha_{MS}$ i $M$ rosną w tym samym tempie, tzn. muszą być równe z dokładnością co do stałej. Wiemy ponadto, że w chwili, gdy Ziemia jest w perygeum, czyli $M=0$, $\alpha_{MS}$ będzie równe w przybliżeniu $\varpi$ - jeśli założymy, że nachylenie równika i ekscentryczność (w tym przypadku) są pomijanie małe, co jest prawdą w przypadku Ziemi. Mamy wtedy
+$$ \alpha_{MS}=M+\varpi. $$</p>
+
+<p>Wracając do równania Keplera, przybliżymy jego rozwiązanie iteracją prostą. Ponieważ orbita Ziemi jest mało eliptyczna, czyli $e\approx 0$, możemy oszacować początkową wartość $E$ jako
+$$ E_0=M+e\sin E_0\approx M. $$
+Pierwsza iteracja daje nam
+$$ E_1=M+e\sin M\approx E, $$
+na czym przystaniemy, ponieważ będziemy pomijać wyrazy rzędu $O(e^2)$. Anomalię prawdziwą możemy wyznaczyć ze wzoru:
+$$ \sin f= \sqrt{1-e^2}\frac{\sin E}{1-e\cos E}. $$
+Ponieważ pomijamy wyrazy rzędu $O(e^2)$, $\sqrt{1-e^2}\approx 1$, a drugi wyraz w mianowniku jest mały, więc możemy przybliżyć:
+$$ \sin f \approx \sin E(1+e\cos E) \rightarrow f=\arcsin\left((1+e\cos E)\sin E\right). $$
+Z podobną sytuacją spotkaliśmy się wcześniej, lecz z tangensem. Postąpimy podobnie:
+$$ \arcsin\left((1+\delta)\sin{x}\right)\approx \arcsin\sin x + \frac{1}{\sqrt{1-\sin^2 x}}\delta\sin x=x+ \frac{\delta\sin x}{\cos x}, $$
+a u nas $x=E$ i $\delta=e \cos E$, więc
+$$ f \approx E + e\sin E. $$
+Wstawiając $E(M)$:
+$$ f= M+e\sin M+e\sin\left(M+e\sin M\right). $$
+Jeśli przybliżylibyśmy powyższego sinusa, otrzymalibyśmy wyrazy rzędu $O(e^2)$, więc pominiemy po prostu drugi wyraz w jego argumencie, co daje
+$$ f\approx M+2e\sin M. $$</p>
+
+<p>Wracając do długości Słońca prawidzwego, mamy
+$$ \lambda_{TS}\approx \varpi+M+2e\sin M-2\pi. $$</p>
+
+<h2 id="przybliżona-forma-równania-czasu">Przybliżona forma równania czasu</h2>
+<p>Wszystkie wyniki możemy wstawić teraz do równania czasu:
+$$ \tau \approx \varpi+M+2e\sin M-2\pi- \frac{1-\cos\varepsilon}{2}\sin 2(\varpi+M+2e\sin M-\pi)-\alpha_{MS}. $$
+Pamiętając, że $M=\alpha_{MS}-\varpi=2\pi+\alpha_{MS} -\varpi $ (dodanie kąta pełnego nic nie zmienia, a uprości wyrażenie), wiele wyrazów się skraca i upraszcza:
+$$ \tau= 2e\sin (\alpha_{MS}-\varpi) - \frac{1-\cos\varepsilon}{2}\sin 2(\alpha_{MS}+2e\sin M), $$
+gdzie wszystkie kąty wyrażone są oczywiście w radianach (ze względu na stosowane przybliżenia). Ponieważ $e$ jest małe, możemy pominąć drugi wyraz wewnątrz drugiego sinusa:
+$$ \tau\approx  2e\sin (\alpha_{MS}-\varpi) - \frac{1-\cos\varepsilon}{2}\sin 2\alpha_{MS}. $$
+Ostatecznie $\alpha_{MS}=2\pi t/T$, więc
+$$ \boxed{\tau = 2e\sin ( 2\pi\frac{t}{T}-\varpi) - \frac{1-\cos\varepsilon}{2}\sin \left(4\pi \frac{t}{T}\right).} $$
+Wynik jest wyrażony w radianach, więc przekształcamy go na godziny mnożąc razy $12^h/\pi$.</p>
+
+<p>Dla Ziemi $\varepsilon=23\degree 26’$, $e=0.0167$ (są małe, więc nasze przybliżenia będą prawidłowe), $\varpi = 283\degree$ oraz $T=365.25^d$. Jeśli wstawimy te dane do powyższego wzoru i zależność $\tau(t)$ umieścimy na wykresie, otrzymamy następujący rezultat:</p>
+<p align="center">
+<img src="/assets/images/2026-01-31/wykres.svg" width="800" />
+</p>
+<p>Chwila $t=0$ odpowiada równonocy wiosennej, która ma przeważnie miejsce 80 dni po 1 stycznia, więc wykres został przesunięty tak, aby zaczynał się z początkiem roku.</p>
+
+<p>Można również postąpić na odwrót: w ciągu roku prowadzić obserwacje równania czasu, a następnie przeprowadzić <a href="https://bwegrzyn0.github.io/narz%C4%99dzia%20matematyczne/transformacja-fouriera" target="_blank">transformację Fouriera</a> otrzymanej funkcji - możemy wyznaczyć wtedy $e$, $\varepsilon$ oraz $\varpi$.</p>]]></content><author><name></name></author><category term="Astronomia sferyczna" /><summary type="html"><![CDATA[Motywacja Okazuje się, że Słońce nie porusza się w ciągu roku po ekliptyce ze stałą prędkością. Wynika to głównie z dwóch czynników: nachylenia ekliptyki oraz ekscentryczności orbity Ziemi. Ponieważ zegary nie są w stanie mierzyć zmiennego czasu, wprowadzono pojęcie Słońca średniego (ang. mean Sun), czyli punktu, który porusza się po równiku niebieskim ze stałą prędkością, zakreślając kąt $360\degree$ w ciągu roku zwrotnikowego (od równonocy do równonocy). Kąt godzinny Słońca średniego to czas wskazywany przez nasze zegarki (minus $12^h$ bo $h=0^h$ w chwili górowania). Różnicę między kątem godzinnym Słońca średniego (MS) i Słońca prawdziwego (TS - od true Sun), czyli między czasem Słonecznym średnim a prawdziwym wyraża równanie czasu: $$ \boxed{\tau=h_{MS}-h_{TS}.} $$ W tym artykule wyprowadzimy przybliżone równanie czasu dla Ziemi, zakładając, że zarówno nachylenie ekliptyki, jak i ekscentryczność orbity są na tyle małe, że zezwalają na pewne przybliżenia, które znacznie uproszczą wzory. Wcześniej jednak, przekształcimy równanie czasu korzystając z zależności $\Theta=\alpha+h$, gdzie $\Theta$ to lokalny czas gwiazdowy, a $\alpha$ to rektascencja obiektu o kącie godzinnym $h$: $$ \tau=\alpha_{TS}-\alpha_{TS}. $$]]></summary></entry><entry><title type="html">Wyznaczanie współrzędnych węzłów Księżyca</title><link href="http://localhost:4000/astronomia%20sferyczna/wyznaczanie-wspolrzednych-wezlow-ksiezyca" rel="alternate" type="text/html" title="Wyznaczanie współrzędnych węzłów Księżyca" /><published>2026-01-28T00:00:00+01:00</published><updated>2026-01-28T00:00:00+01:00</updated><id>http://localhost:4000/astronomia%20sferyczna/wyznaczanie-wspolrzednych-wezlow-ksiezyca</id><content type="html" xml:base="http://localhost:4000/astronomia%20sferyczna/wyznaczanie-wspolrzednych-wezlow-ksiezyca"><![CDATA[<p>Naszym celem jest wyznaczenie aktualnej rektascensji i deklinacji węzłów Księżyca na podstawie zdjęcia Księżyca z widocznymi gwiazdami. Wiele takich obserwacji w ciągu roku pozwoli wyznaczyć tempo precesji węzłów Księżyca.</p>
 
 <h2 id="wyznaczanie-współrzędnych-ekliptycznych-księżyca">Wyznaczanie współrzędnych ekliptycznych Księżyca</h2>
 <p>Mając dane współrzędne Księżyca, $(\alpha, \delta)$ i nachylenie ekliptyki $\varepsilon$, możemy wyznaczyć współrzędne równikowe Księżyca w układzie współrzędnych ekliptycznych, korzystając z trójkąta sferycznego przedstawionego (schematycznie) na poniższym rysunku.</p>
@@ -843,79 +922,4 @@ Zostało ono przedstawione dla wcześniejszych fal na poniższym wykresie:</p>
 </p>
 <p>Funkcje $S(\omega)$ na wykresie zostały znormalizowane, aby można było dostrzec ich kształt i wzajemne powiązanie.</p>
 
-<p>Jak widać, jest ono symetryczne względem osi $y$. Jest tak, ponieważ rozważane fale zawierają tylko składową parzystą $\cos$. Dla funkcji $\cos$ nie ma znaczenia znak częstotliwości, a więc moc jest rozłożona równomiernie między $\omega$ i $-\omega$. Zgodnie z oczekiwaniami najwięcej mocy jest skupionej w częstotliwości $\omega_0$. Zauważmy również, że im bardziej ,,rozwlekła’’ fala, tym bardziej moc jest skupiona wokół $\omega_0$ (czerwony wykres). Jest to spodwodowane faktem, że bardziej ,,rozwlekła’’ fala bardziej ,,przypomina’’ zwykłą falę.</p>]]></content><author><name></name></author><category term="Narzędzia matematyczne" /><summary type="html"><![CDATA[Szeregi Fouriera Fourier zaproponował, że funkcje okresowe (tzn. $f(t)=f(t+\tau)$) spełniające dostateczne warunki (znaczna większość funkcji występujących w zastosowaniach je spełnia) można przedstawić w postaci szeregu Fouriera $$ f(t)=\sum_{n=0}^\infty a_n\cos\left(n\omega t\right)+b_n\sin\left(n\omega t\right), $$ gdzie $\omega=2\pi/\tau$. Wiadomo, że dowolna liniowa kombinacja sinusa i cosinusa to cosinus z przesunięciem fazowym, zatem $$ f(t)=\sum_{n=0}^\infty c_n\cos\left(n\omega t+\phi_n\right). $$ Wygodniej jest operować na funkcji wykładniczej niż trygonometrycznej. Ponieważ $\cos x=(e^{ix}+e^{-ix})/2$, $$ c_n\cos\left(n\omega t+\phi_n\right)=\frac{c_n}{2}\left(e^{i(n\omega_0 t+\phi_n)}+e^{-i(n\omega_0 t+\phi_n)}\right)=a_n e^{\phi_n}e^{in\omega_0 t}+a_{-n}e^{\phi_{-n}}e^{-in\omega_0 t}=\hat{a}_n e^{in\omega_0 t}+\hat{a}_{-n}e^{-in\omega_0 t} $$ gdzie $a_n$ i $a_{-n}$ to pewne współczynniki. To pozwala nam zapisać $$ \boxed{f(t)=\sum_{n=-\infty}^\infty \hat{a}_n e^{i n\omega t},} $$ gdzie $n$ zaczyna się w $-\infty$, ponieważ musimy wziąć pod uwagę oba wyrazy. Chcemy wyznaczyć współczynniki $\hat{a}_n$. W tym celu pomnóżmy obie strony powyższej równości przez $e^{-i m\omega t}$, gdzie $m$ to liczba całkowita: $$ f(t)e^{-i m\omega t}=\sum_{n=-\infty}^\infty \hat{a}_n e^{i n\omega t}e^{-i m\omega t}=\sum_{n=-\infty}^\infty \hat{a}_n e^{i (n-m)\omega t} $$ Pocałkujmy teraz obustronnie po czasie na przedziale $[0, \tau]$: $$ \int_0^\tau f(t)e^{-i m\omega t}\,dt=\sum_{n=0}^\infty\int_0^\tau\hat{a}_n e^{i (n-m)\omega t}\,dt. $$ Zajmijmy się całką wewnątrz sumy. Gdy $n=m$, całka ta wynosi $\hat{a}_n\tau$, a w przeciwnym wypadku $$ \int_0^\tau\hat{a}_n e^{i (n-m)\omega t}\,dt=\hat{a}_n\left[\frac{1}{i\omega(n-m)}e^{i (n-m)\omega t}\right]_0^\tau=\frac{\hat{a}_n}{i\omega(n-m)}\left[e^{i(n-m)\cdot 2\pi}-1\right],$$ gdzie skorzystałem z faktu, że $\omega\tau=2\pi$ oraz $e^0=1$. Zauważmy, że $2\pi(n-m)$ będzie zawsze całkowitą wielokrotnością $2\pi$, przez co $e^{i(n-m)\cdot 2\pi}=1$. Z tego powodu całka ta wynosić będzie 0. Ponieważ stwierdziliśmy, że wyrażenie pod sumą zeruje się dla $n\neq m$, pozostaje nam tylko $n=m$: $$ \int_0^\tau f(t)e^{-i n\omega t}\,dt=\tau\hat{a}_n, $$ a stąd $$ \boxed{\hat{a}_n=\frac{1}{\tau}\int_0^\tau f(t)e^{-i n\omega t}\,dt.} $$ $\hat{a}_n$ są nazywane współczynnikami Fouriera.]]></summary></entry><entry><title type="html">fraktale-obrazy: Program umożliwiąjący generowanie fraktali</title><link href="http://localhost:4000/programowanie/fraktale-obrazy-program-umo%C5%BCliwiaj%C4%85cy-generowanie-fraktali" rel="alternate" type="text/html" title="fraktale-obrazy: Program umożliwiąjący generowanie fraktali" /><published>2025-07-31T00:00:00+02:00</published><updated>2025-07-31T00:00:00+02:00</updated><id>http://localhost:4000/programowanie/fraktale-obrazy-program-umo%C5%BCliwiaj%C4%85cy-generowanie-fraktali</id><content type="html" xml:base="http://localhost:4000/programowanie/fraktale-obrazy-program-umo%C5%BCliwiaj%C4%85cy-generowanie-fraktali"><![CDATA[<p align="center">
-<img src="/assets/images/2025-07-31/readme_image.jpg" width="700" />
-<br />
-<em>Obraz wygenerowany z użyciem programu</em>
-</p>
-
-<h1 id="fraktale-obrazy">fraktale-obrazy</h1>
-<p>Prosty program napisany w C++ z użyciem biblioteki SDL2, który umożliwia generowanie i zapisywanie obrazów fraktali.</p>
-
-<blockquote>
-  <p><strong>Uwaga!</strong> <br />
-Początkowo miał być to mały projekt, lecz nieco się rozrósł. Program może być niewydajny i zbugowany.</p>
-</blockquote>
-
-<p>Jest to <a href="https://github.com/bwegrzyn0/fraktale-obrazy" target="_blank">plik README z repozytorium GitHub</a> przetłumaczony na język polski.</p>
-
-<h2 id="instalacja-programu">Instalacja programu</h2>
-<p>Zklonuj repozytorium GitHub:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/bwegrzyn0/fraktale-obrazy
-</code></pre></div></div>
-<p>i uruchom program za pomocą komendy <code class="language-plaintext highlighter-rouge">./run.out</code>.</p>
-
-<h2 id="użytkowanie">Użytkowanie</h2>
-<p>W oknie zobaczysz następujący interfejs:</p>
-
-<p align="center">
-<img src="/assets/images/2025-07-31/interface_image.jpg" width="600" />
-</p>
-
-<p>Radzę samodzielnie wypróbować poszczególne opcje aby zobaczyć ich efekt na obrazie. Tutaj po krótce omówię każdą z nich:</p>
-<ul>
-  <li><strong>Brightness multiplier</strong>: mnoży jasność wszystkich pikseli przez zadaną wartość.</li>
-  <li><strong>Resolution</strong>: liczba pikseli na jednostkę długosci. Na przykład, jeśli szerokość obszaru (omawiana dalej) wynosi 10, a rozdzielczość wynosi 100, obraz będzie miał szerokość 100 * 10 = 1000 pikseli. Bardzo duże wartości negatywnie wpływają na wydajność programu. Z tego powodu przy oddalaniu widoku rozdzielczość jest dynamicznie zminiejszana (nie ma to wpływu na zapisywany obraz).</li>
-  <li><strong>Number of iterations</strong>: liczba iteracji algorytmu IFSP.</li>
-  <li><strong>Number of points</strong>: liczba punktów w algorytmie IFSP.</li>
-  <li><strong>Area X and Area Y</strong>: współrzędne X i Y obszaru generacji fraktala.</li>
-  <li><strong>Area width and Area height</strong>: szerokość i wysokość obszaru generacji fraktala.</li>
-  <li><strong>Show area border</strong>: pozwala przełączać widoczność czerwonej granicy wokół obszaru generacji fraktala.</li>
-  <li>
-    <p><strong>Transformation parameters</strong>: maksymalnie można mieć 4 transformacje. Każdą z nich charakteryzuje 7 liczb. Współrzędne są transformowane według następujących zależności:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>transformowane_x = a_x * x + b_x * y + c_x
-transformowane_y = a_y * x + b_y * y + c_y
-</code></pre></div>    </div>
-    <p>Każda transformacja ma swoje prawdopodobieństwo, które nie wpływa na kształt fraktala. Zmienia ono jedynie gęstość rozłożenia punktów na nim.</p>
-    <blockquote>
-      <p><strong>Wskazówka</strong> <br />
-Jeśli potrzebne są jedynie np. 2 transformacje, należy ustawić prawdopodobieństwa pozostałych dwóch na zero.</p>
-    </blockquote>
-  </li>
-  <li><strong>Image file name</strong>: nazwa pliku z obrazem fraktala (bez rozszerzenia).</li>
-</ul>
-
-<p>Obrazy są zapisywane w formacie <code class="language-plaintext highlighter-rouge">.bmp</code> w katalogu, w którym znajduje się program.</p>
-
-<p>Można poruszać się i przybliżać obraz fraktala w programie za pomocą strzałek i scrolla.</p>
-
-<h2 id="jak-działa-ten-program">Jak działa ten program?</h2>
-<p>Wybrana liczba puntków jest jednorodnie rozłożona w kwadracie, po czym są one poddawane algorytmowi IFSP. Każdy piksel posiada gęstość równą liczbie punktów, która w nim wylądowała. Jego jasność jest ustalana na podstawie gęstości - piksele z 0 punktami są czarne, a piksele z największą ich liczbą białe.</p>
-
-<h2 id="przykładowe-obrazy">Przykładowe obrazy</h2>
-<p align="center">
-<img src="/assets/images/2025-07-31/bazia.jpg" width="600" />
-</p>
-<p align="center">
-<img src="/assets/images/2025-07-31/choinka.jpg" width="600" />
-</p>
-<p align="center">
-<img src="/assets/images/2025-07-31/sierpinsk.jpg" width="600" />
-</p>
-<p align="center">
-<img src="/assets/images/2025-07-31/dragon.jpg" width="600" />
-</p>
-
-<h2 id="licencja">Licencja</h2>
-<p>Program nie posiada licencji i może być używany w dowolny sposób.</p>]]></content><author><name></name></author><category term="Programowanie" /><summary type="html"><![CDATA[Obraz wygenerowany z użyciem programu]]></summary></entry></feed>
+<p>Jak widać, jest ono symetryczne względem osi $y$. Jest tak, ponieważ rozważane fale zawierają tylko składową parzystą $\cos$. Dla funkcji $\cos$ nie ma znaczenia znak częstotliwości, a więc moc jest rozłożona równomiernie między $\omega$ i $-\omega$. Zgodnie z oczekiwaniami najwięcej mocy jest skupionej w częstotliwości $\omega_0$. Zauważmy również, że im bardziej ,,rozwlekła’’ fala, tym bardziej moc jest skupiona wokół $\omega_0$ (czerwony wykres). Jest to spodwodowane faktem, że bardziej ,,rozwlekła’’ fala bardziej ,,przypomina’’ zwykłą falę.</p>]]></content><author><name></name></author><category term="Narzędzia matematyczne" /><summary type="html"><![CDATA[Szeregi Fouriera Fourier zaproponował, że funkcje okresowe (tzn. $f(t)=f(t+\tau)$) spełniające dostateczne warunki (znaczna większość funkcji występujących w zastosowaniach je spełnia) można przedstawić w postaci szeregu Fouriera $$ f(t)=\sum_{n=0}^\infty a_n\cos\left(n\omega t\right)+b_n\sin\left(n\omega t\right), $$ gdzie $\omega=2\pi/\tau$. Wiadomo, że dowolna liniowa kombinacja sinusa i cosinusa to cosinus z przesunięciem fazowym, zatem $$ f(t)=\sum_{n=0}^\infty c_n\cos\left(n\omega t+\phi_n\right). $$ Wygodniej jest operować na funkcji wykładniczej niż trygonometrycznej. Ponieważ $\cos x=(e^{ix}+e^{-ix})/2$, $$ c_n\cos\left(n\omega t+\phi_n\right)=\frac{c_n}{2}\left(e^{i(n\omega_0 t+\phi_n)}+e^{-i(n\omega_0 t+\phi_n)}\right)=a_n e^{\phi_n}e^{in\omega_0 t}+a_{-n}e^{\phi_{-n}}e^{-in\omega_0 t}=\hat{a}_n e^{in\omega_0 t}+\hat{a}_{-n}e^{-in\omega_0 t} $$ gdzie $a_n$ i $a_{-n}$ to pewne współczynniki. To pozwala nam zapisać $$ \boxed{f(t)=\sum_{n=-\infty}^\infty \hat{a}_n e^{i n\omega t},} $$ gdzie $n$ zaczyna się w $-\infty$, ponieważ musimy wziąć pod uwagę oba wyrazy. Chcemy wyznaczyć współczynniki $\hat{a}_n$. W tym celu pomnóżmy obie strony powyższej równości przez $e^{-i m\omega t}$, gdzie $m$ to liczba całkowita: $$ f(t)e^{-i m\omega t}=\sum_{n=-\infty}^\infty \hat{a}_n e^{i n\omega t}e^{-i m\omega t}=\sum_{n=-\infty}^\infty \hat{a}_n e^{i (n-m)\omega t} $$ Pocałkujmy teraz obustronnie po czasie na przedziale $[0, \tau]$: $$ \int_0^\tau f(t)e^{-i m\omega t}\,dt=\sum_{n=0}^\infty\int_0^\tau\hat{a}_n e^{i (n-m)\omega t}\,dt. $$ Zajmijmy się całką wewnątrz sumy. Gdy $n=m$, całka ta wynosi $\hat{a}_n\tau$, a w przeciwnym wypadku $$ \int_0^\tau\hat{a}_n e^{i (n-m)\omega t}\,dt=\hat{a}_n\left[\frac{1}{i\omega(n-m)}e^{i (n-m)\omega t}\right]_0^\tau=\frac{\hat{a}_n}{i\omega(n-m)}\left[e^{i(n-m)\cdot 2\pi}-1\right],$$ gdzie skorzystałem z faktu, że $\omega\tau=2\pi$ oraz $e^0=1$. Zauważmy, że $2\pi(n-m)$ będzie zawsze całkowitą wielokrotnością $2\pi$, przez co $e^{i(n-m)\cdot 2\pi}=1$. Z tego powodu całka ta wynosić będzie 0. Ponieważ stwierdziliśmy, że wyrażenie pod sumą zeruje się dla $n\neq m$, pozostaje nam tylko $n=m$: $$ \int_0^\tau f(t)e^{-i n\omega t}\,dt=\tau\hat{a}_n, $$ a stąd $$ \boxed{\hat{a}_n=\frac{1}{\tau}\int_0^\tau f(t)e^{-i n\omega t}\,dt.} $$ $\hat{a}_n$ są nazywane współczynnikami Fouriera.]]></summary></entry></feed>
