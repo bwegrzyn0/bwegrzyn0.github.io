@@ -37,7 +37,9 @@ Z tożsamości trygonometrycznej $\sin x\cos x= \frac{1}{2}\sin 2x$, mamy
 <p align="center">
 <img src="/assets/images/2026-01-31/rys2.svg" width="500" />
 </p>
-Wkład ekscentryczności objawia się faktem, że długość ekliptyczna Słońca prawdziwego nie rośnie jednostajnie. Z powyższego rysunku widzimy, że długość ekliptyczna Słońca to $\lambda_{TS}=f-(2\pi-\varpi)$ (kąty wierzchołkowe) $=\varpi+f-2\pi$, gdzie $\varpi$ to <a href="https://en.wikipedia.org/wiki/Longitude_of_periapsis" target=_blank>długość peryhelium</a> orbity Ziemi (kąt między kierunkiem do punktu Barana a kierunkiem do peryhelium), a $f$ to anomalia prawdziwa Ziemi. Punkt w ognisku elipsy to oczywiście Słońce.
+Wkład ekscentryczności objawia się faktem, że długość ekliptyczna Słońca prawdziwego nie rośnie jednostajnie. 
+
+Z powyższego rysunku widzimy, że $-\lambda_{TS}-(2\pi-\varpi)=\pi-f$, skąd $\lambda_{TS}=f+\varpi-\pi$ (znak minus przy $\lambda_{TS}$, ponieważ jest to tak naprawdę kąt $2\pi-\lambda_{TS}$, ze względu na kierunek w którym zwiększa się długość ekliptyczna), gdzie $\varpi$ to <a href="https://en.wikipedia.org/wiki/Longitude_of_periapsis" target=_blank>długość peryhelium</a> orbity Ziemi (kąt między kierunkiem do punktu Barana a kierunkiem do peryhelium), a $f$ to anomalia prawdziwa Ziemi. Punkt w ognisku elipsy to oczywiście Słońce.
 
 Do wyznaczenia anomalii prawdziwej potrzebujemy anomalię mimośrodową $E$, którą możemy obliczyć rozwiązując *równanie Keplera*:
 \$$ E-e\sin E=M, \$$
@@ -45,9 +47,10 @@ gdzie $e$ to mimośród orbity Ziemi, a $M$ to anomalia średnia, która jest zd
 \$$ M = \frac{2\pi}{T_a}t_p, \$$
 gdzie $T_a$ to rok anomalistyczny, czyli czas od peryhelium do peryhelium, a $t_p$ to czas od ostatniego przejścia przez peryhelium. Możemy powiązać ją z rektascencją Słońca średniego, która dana jest wzorem
 \$$ \alpha_{MS} = \frac{2\pi}{T_z}t, \$$
-gdzie $T_z$ to rok zwrotnikowy (od równonocy wiosennej do równonocy wiosennej), a $t$ to czas od ostatniej równonocy wiosennej. W naszym przypadku możemy założyć, że $T_z\approx T_a=T$. Z tego powodu $\alpha_{MS}$ i $M$ rosną w tym samym tempie, tzn. muszą być równe z dokładnością co do stałej. Wiemy ponadto, że w chwili, gdy Ziemia jest w perygeum, czyli $M=0$, $\alpha_{MS}$ będzie równe w przybliżeniu $\varpi$ - jeśli założymy, że nachylenie równika i ekscentryczność (w tym przypadku) są pomijanie małe, co jest prawdą w przypadku Ziemi. Mamy wtedy
-\$$ \alpha_{MS}=M+\varpi. \$$
-
+gdzie $T_z$ to rok zwrotnikowy (od równonocy wiosennej do równonocy wiosennej), a $t$ to czas od ostatniej równonocy wiosennej. W naszym przypadku możemy założyć, że $T_z\approx T_a=T$. Możemy wtedy zapisać
+\$$ M = \frac{2\pi}{T}t_p + \frac{2\pi}{T}t - \frac{2\pi}{T}t = \frac{2\pi}{T}(t_p-t)+\alpha_{MS}. \$$
+$t_p-t$ to czas, jaki mija między perygeum a równonocą. Z powyższego rysunku widzimy, że między perygeum a równonocą (która ma miejsce, gdy Ziemia jest *po drugiej stronie Słońca od punktu Barana*) Ziemia przebywa kąt $\pi+2\pi-\varpi=\pi-\varpi$. Zajmie jej to w przybliżeniu (zakładając stałą prędkość) $T(\pi-\varpi)/2\pi$, więc wstawiając to do wyrażenia na $M$:
+\$$ M= \pi-\varpi+\alpha_{MS}. \$$
 
 Wracając do równania Keplera, przybliżymy jego rozwiązanie iteracją prostą. Ponieważ orbita Ziemi jest mało eliptyczna, czyli $e\approx 0$, możemy oszacować początkową wartość $E$ jako
 \$$ E_0=M+e\sin E_0\approx M. \$$
@@ -67,12 +70,12 @@ Jeśli przybliżylibyśmy powyższego sinusa, otrzymalibyśmy wyrazy rzędu $O(e
 \$$ f\approx M+2e\sin M. \$$
 
 Wracając do długości Słońca prawidzwego, mamy
-\$$ \lambda_{TS}\approx \varpi+M+2e\sin M-2\pi. \$$
+\$$ \lambda_{TS}\approx \varpi+M+2e\sin M-\pi. \$$
 
 ## Przybliżona forma równania czasu
 Wszystkie wyniki możemy wstawić teraz do równania czasu:
-\$$ \tau \approx \varpi+M+2e\sin M-2\pi- \frac{1-\cos\varepsilon}{2}\sin 2(\varpi+M+2e\sin M-\pi)-\alpha_{MS}. \$$
-Pamiętając, że $M=\alpha_{MS}-\varpi=2\pi+\alpha_{MS} -\varpi $ (dodanie kąta pełnego nic nie zmienia, a uprości wyrażenie), wiele wyrazów się skraca i upraszcza:
+\$$ \tau \approx \varpi+M+2e\sin M-\pi- \frac{1-\cos\varepsilon}{2}\sin 2(\varpi+M+2e\sin M-\pi)-\alpha_{MS}. \$$
+Pamiętając, że $M=\alpha_{MS}-\varpi+\pi$, wiele wyrazów się skraca i upraszcza:
 \$$ \tau= 2e\sin (\alpha_{MS}-\varpi) - \frac{1-\cos\varepsilon}{2}\sin 2(\alpha_{MS}+2e\sin M), \$$
 gdzie wszystkie kąty wyrażone są oczywiście w radianach (ze względu na stosowane przybliżenia). Ponieważ $e$ jest małe, możemy pominąć drugi wyraz wewnątrz drugiego sinusa:
 \$$ \tau\approx  2e\sin (\alpha_{MS}-\varpi) - \frac{1-\cos\varepsilon}{2}\sin 2\alpha_{MS}. \$$
