@@ -18,7 +18,7 @@ W tym artykule wyprowadzimy przybliżone równanie czasu dla Ziemi, zakładając
 </p>
 Korzystając z prostokątego trójkąta sferycznego przedstawionego schematycznie na powyższym rysunku, koła Napiera i reguły SIN-TAAD, otrzymujemy zależność
 \$$ \cos\varepsilon=\cot\lambda_{TS}\tan\alpha_{TS} \rightarrow \alpha_{TS}=\arctan\left(\cos\varepsilon\tan\lambda_{TS}\right), \$$
-gdzie $\varepsislon$ oznacza nachylenie ekliptyki, a poprzez $\lambda$ będziemy oznaczać zawsze długość ekliptyczną (mierzoną od punktu Barana, w tym samym kierunku, co rektascensja). 
+gdzie $\varepsilon$ oznacza nachylenie ekliptyki, a poprzez $\lambda$ będziemy oznaczać zawsze długość ekliptyczną (mierzoną od punktu Barana, w tym samym kierunku, co rektascensja). 
 
 $\varepsilon=23\degree 26'$, a $\cos$ tego kąta jest bardzo bliski $1$. Możemy zapisać więc $\cos\varepsilon$ jako $1-\delta$, gdzie $\delta$ jest małą liczbą. W ogólnym przypadku:
 \$$ \arctan((1-\delta)x)=\arctan(x-x\delta), \$$
