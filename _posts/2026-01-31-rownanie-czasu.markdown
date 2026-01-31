@@ -10,7 +10,7 @@ katex: true
 Okazuje się, że Słońce nie porusza się w ciągu roku po ekliptyce ze stałą prędkością. Wynika to głównie z dwóch czynników: nachylenia ekliptyki oraz ekscentryczności orbity Ziemi. Ponieważ zegary nie są w stanie mierzyć zmiennego czasu, wprowadzono pojęcie **Słońca średniego** (ang. *mean Sun*), czyli punktu, który porusza się po *równiku* niebieskim ze stałą prędkością, zakreślając kąt $360\degree$ w ciągu roku zwrotnikowego (od równonocy do równonocy). Kąt godzinny Słońca średniego to czas wskazywany przez nasze zegarki (minus $12^h$ bo $h=0^h$ w chwili górowania). Różnicę między kątem godzinnym Słońca średniego (MS) i Słońca prawdziwego (TS - od *true Sun*), czyli między czasem Słonecznym średnim a prawdziwym wyraża **równanie czasu**:
 \$$ \boxed{\tau=h_{MS}-h_{TS}.} \$$
 W tym artykule wyprowadzimy przybliżone równanie czasu dla Ziemi, zakładając, że zarówno nachylenie ekliptyki, jak i ekscentryczność orbity są na tyle małe, że zezwalają na pewne przybliżenia, które znacznie uproszczą wzory. Wcześniej jednak, przekształcimy równanie czasu korzystając z zależności $\Theta=\alpha+h$, gdzie $\Theta$ to lokalny czas gwiazdowy, a $\alpha$ to rektascencja obiektu o kącie godzinnym $h$:
-\$$ \tau=\alpha_{TS}-\alpha_{TS}. \$$
+\$$ \tau=\alpha_{TS}-\alpha_{MS}. \$$
 
 ## Wkład nachylenia ekliptyki
 <p align="center">
