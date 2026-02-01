@@ -5,13 +5,13 @@ title: Kategorie
 ---
 
 <div id="archives">
+
 	<h1 class="post-title">Kategorie</h1>
 	{% for category in site.categories %}
 	<div class="archive-group">
 		{% capture category_name %}{{ category | first }}{% endcapture %}
 		<div id="#{{ category_name }}"></div>
-		<h1 class="category-head">{{ category_name }}</h1>
-		<a name="{{ category_name }}"></a>
+		<details><summary><h2 class="category-head" style="display:inline">{{ category_name }}</h2></summary>
 		<ul class="post-list">
 			{% for post in site.categories[category_name] %}
 			<li>
@@ -27,7 +27,8 @@ title: Kategorie
 				{%- endif -%}
 			</li>
 			{% endfor %}
-		</ul>
+		</ul> </details>
 	</div>
+	<br>
 	{% endfor %}
 </div>

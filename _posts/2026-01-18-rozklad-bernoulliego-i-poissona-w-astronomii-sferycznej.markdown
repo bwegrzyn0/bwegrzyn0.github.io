@@ -2,7 +2,7 @@
 layout: post
 title: "Rozkład Bernoulliego i Poissona w astronomii sferycznej"
 date: 2026-01-18
-categories: [Astronomia sferyczna]
+categories: Astronomia
 katex: true
 ---
 

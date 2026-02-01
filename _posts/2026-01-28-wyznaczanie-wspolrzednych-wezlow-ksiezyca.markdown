@@ -2,7 +2,7 @@
 layout: post
 title: "Wyznaczanie współrzędnych węzłów Księżyca"
 date: 2026-01-28
-categories: [Astronomia sferyczna]
+categories: Astronomia 
 katex: true
 ---
 
