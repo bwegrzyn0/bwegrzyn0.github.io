@@ -1,4 +1,116 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-02-01T11:34:38+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Równanie czasu</title><link href="http://localhost:4000/astronomia/rownanie-czasu" rel="alternate" type="text/html" title="Równanie czasu" /><published>2026-01-31T00:00:00+01:00</published><updated>2026-01-31T00:00:00+01:00</updated><id>http://localhost:4000/astronomia/rownanie-czasu</id><content type="html" xml:base="http://localhost:4000/astronomia/rownanie-czasu"><![CDATA[<h2 id="motywacja">Motywacja</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-02-08T10:52:13+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Wyznaczenie promienia oribty Jowisza</title><link href="http://localhost:4000/astronomia/wyznaczanie-promienia-orbity-jowisza" rel="alternate" type="text/html" title="Wyznaczenie promienia oribty Jowisza" /><published>2026-02-08T00:00:00+01:00</published><updated>2026-02-08T00:00:00+01:00</updated><id>http://localhost:4000/astronomia/wyznaczanie-promienia-orbity-jowisza</id><content type="html" xml:base="http://localhost:4000/astronomia/wyznaczanie-promienia-orbity-jowisza"><![CDATA[<p>Naszym celem jest wyznaczenie promienia oribty Jowisza na podstawie dwóch zdjęć, na których planeta ta jest widoczna na tle pobliskich gwiazd, wykonanych w odstępie nieco ponad roku.</p>
+
+<p align="center">
+<img src="/assets/images/2026-02-08/23_11_2024.jpg" width="500" />
+<img src="/assets/images/2026-02-08/05_02_2026.jpg" width="500" /> <br /> <br />
+<em> (a) Niebo dnia 23.11.2024 (b) Niebo dnia 05.02.2026 </em>
+</p>
+
+<h2 id="współrzędne-równikowe-i-ekliptyczne-jowisza">Współrzędne równikowe i ekliptyczne Jowisza</h2>
+<p>Na zdjęciu a) Jowisz znajduje się tuż obok gwiazdy w niewielkim ,,trójkącie’’ w gwiazdozbiorze Byka. Odnajdując tę gwiazdę w atlasie możemy z łatwością nanieść obok niej położenie planety i odczytać współrzędne równikowe, co daje
+$$ (\alpha_1, \delta_1) = (5^h07^m, 22\degree 24’). $$</p>
+
+<p>Na zdjęciu b) z łatwością odnajdujemy 2 pary gwiazd takie, że poprowadzone przez nie proste przecinają się w położeniu Jowisza: $\delta$ Gem i $\varepsilon$ Gem oraz $\zeta$ Gem i gwiazda leżąca pomiędzy $\delta$ Gem i $\iota$ Gem. Prowadząc wspomniane proste w atlasie i odczytując współrzędne punktu przecięcia otrzymujemy
+$$ (\alpha_2, \delta_2) = (7^h12^m, 22\degree 33’). $$</p>
+
+<p align="center">
+<img src="/assets/images/2026-02-08/atlas.jpg" width="700" /> <br />
+<em>Fragment atlasu nieba z zaznaczonymi położeniami Jowisza</em>
+</p>
+
+<p align="center">
+<img src="/assets/images/2026-01-28/sfer1.svg" width="500" /> <br /> <br />
+<em>BN - biegun niebieski, BE - biegun ekliptyczny</em>
+</p>
+
+<p>Znając współrzędne równikowe Jowisza i korzystając z trójkąta paralaktycznego przedstawionego na powyższym rysunku, możemy wyznaczyć współrzędne ekliptyczne planety.</p>
+
+<p>Z twierdzenia cosinusów:
+$$ \sin\beta=\cos\varepsilon\sin\delta-\sin\varepsilon\cos\delta\sin\alpha, $$
+a z twierdzenia sinusów:
+$$ \cos\lambda= \frac{\cos\alpha \cos\delta}{\cos\beta}. $$</p>
+
+<p>Wstawiając współrzędne równikowe otrzymujemy:
+$$ (\lambda_1, \beta_1) = (77.77\degree, -0.44\degree) $$
+oraz
+$$ (\lambda_2, \beta_2) = (106.58\degree, 0.18\degree). $$</p>
+
+<p>Widzimy, że szerokość ekliptyczna planety jest stale bliska $0\degree$, więc słuszne będzie przybliżenie, że jej oribta leży w płaszczyźnie ekliptyki.</p>
+
+<h2 id="promień-oribty-jowisza">Promień oribty Jowisza</h2>
+<p align="center">
+<img src="/assets/images/2026-02-08/rys.svg" width="700" /> <br />
+</p>
+<p>Założymy, że oribta Jowisza wokół Słońca jest okręgiem o promieniu $r_j$, a orbita Ziemi jest okręgiem o promieniu $r_z=1.0 \text{au}$. Dla trójkąta z powyższego rysunku możemy zapisać twierdzenie sinusów (kąt rozwarty trójkąta to $\pi-\lambda_j+\lambda_z-\pi$ - przenosimy kąt $\lambda_z-\pi$ jako wierzchołkowy, a następnie naprzemianległy):
+$$ \frac{\sin\theta}{d_j}= \frac{\sin(\lambda_z-\lambda_j)}{r_j} $$ 
+i twierdzenie cosinusów:
+$$ d_j = \sqrt{r_z^2+r_j^2-2r_z r_j\cos\theta}, $$
+skąd
+$$ \theta=\arcsin\left( \frac{\sqrt{r_z^2+r_j^2-2r_z r_j\cos\theta}}{r_j}\sin(\lambda_z-\lambda_j)\right). $$
+Równanie w powyższej postaci można łatwo rozwiązać iteracją prostą. Tak naprawdę mamy 2 równania, jedno dla każdej z dat. $\lambda_j$ znamy, potrzebujemy jedynie $\lambda_z$. Znając dzień roku, $t$, możemy wznaczyć $\lambda_z$ ze wzoru:
+$$ \lambda_z = \frac{2\pi}{365.25^d}(t-80^d), $$
+gdzie $80^d$ wynika z faktu, że równonoc wiosenna ma miejsce $80$-tego dnia roku. Brakuje nam jednego równania łączącego kąty $\theta_1$ i $\theta_2$ (dla poszczególnych dat) z $r_j$. Będzie to <a href="https://bwegrzyn0.github.io/mechanika/prawa-keplera" target="_blank">3 prawo Keplera</a>. Okres orbity Jowisza (w jednostkach au i yr) to
+$$ P_j=\sqrt{r_j^3}, $$
+a w czasie $\delta t$ (pomiędzy wykonaniem zdjęć) Jowisz przebył kąt $\theta_2+\lambda_{z2}-180\degree-\theta_1-\lambda_{z1}+180\degree=\theta_2+\lambda_{z2}-\theta_1-\lambda_{z1}$. Stąd
+$$ \theta_2-\theta_1= \frac{2\pi}{P_j}\Delta t, $$
+więc
+$$ r_j = \sqrt[3]{\left( \frac{2\pi\Delta t}{\theta_2+\lambda_{z2}-\theta_1-\lambda_{z1}}\right)^2}. $$
+Wykonując iterację prostą kolejno tych trzech równań, $r_j$ powinno zbiegać do szukanej wartości.</p>
+
+<h3 id="implementacja-algorytmu">Implementacja algorytmu</h3>
+<p>Następujący kod w C++ wykonuje wyżej opisany algorytm:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">float</span> <span class="n">r_j</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="c1">// początkowa wartość dla r_j</span>
+<span class="kt">float</span> <span class="n">r_z</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="c1">// promień oribty Ziemi</span>
+<span class="kt">float</span> <span class="n">delta_t</span> <span class="o">=</span> <span class="mf">1.202</span><span class="p">;</span> <span class="c1">// odstęp czasu między 23.11.2024 a 05.02.2026</span>
+<span class="c1">// (w latach, bo III prawo Keplera używa tych jednostek)</span>
+<span class="kt">float</span> <span class="n">t_1</span> <span class="o">=</span> <span class="mi">327</span><span class="p">;</span> <span class="c1">// 23.11 - liczba dni po 1 stycznia</span>
+<span class="kt">float</span> <span class="n">t_2</span> <span class="o">=</span> <span class="mi">36</span><span class="p">;</span> <span class="c1">// 05.02</span>
+<span class="kt">float</span> <span class="n">lambda_j1</span> <span class="o">=</span> <span class="mf">77.77</span> <span class="o">*</span> <span class="mf">3.1415</span> <span class="o">/</span> <span class="mi">180</span><span class="p">;</span> <span class="c1">// długość ekliptyczna Jowisza dla odpowiednich dat</span>
+<span class="kt">float</span> <span class="n">lambda_j2</span> <span class="o">=</span> <span class="mf">106.58</span> <span class="o">*</span> <span class="mf">3.1415</span> <span class="o">/</span> <span class="mi">180</span><span class="p">;</span>
+
+<span class="c1">// początkowe wartości dla kątów</span>
+<span class="kt">float</span> <span class="n">theta_1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">float</span> <span class="n">theta_2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">// iterujemy 10 razy, aby mieć pewność zbieżności</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// iterujemy kąty</span>
+    <span class="n">theta_1</span> <span class="o">=</span> <span class="n">calc_theta</span><span class="p">(</span><span class="n">r_z</span><span class="p">,</span> <span class="n">r_j</span><span class="p">,</span> <span class="n">t_1</span><span class="p">,</span> <span class="n">lambda_j1</span><span class="p">,</span> <span class="n">theta_1</span><span class="p">);</span>	
+    <span class="n">theta_2</span> <span class="o">=</span> <span class="n">calc_theta</span><span class="p">(</span><span class="n">r_z</span><span class="p">,</span> <span class="n">r_j</span><span class="p">,</span> <span class="n">t_2</span><span class="p">,</span> <span class="n">lambda_j2</span><span class="p">,</span> <span class="n">theta_2</span><span class="p">);</span>	
+
+    <span class="c1">// obliczamy dłguość ekliptyczną Słońca z Ziemi </span>
+    <span class="kt">float</span> <span class="n">lambda_z1</span> <span class="o">=</span> <span class="n">clamp</span><span class="p">((</span><span class="n">t_1</span> <span class="o">-</span> <span class="mf">80.0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="mf">3.1415</span> <span class="o">/</span> <span class="mf">365.25</span><span class="p">);</span>
+    <span class="kt">float</span> <span class="n">lambda_z2</span> <span class="o">=</span> <span class="n">clamp</span><span class="p">((</span><span class="n">t_2</span> <span class="o">-</span> <span class="mf">80.0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="mf">3.1415</span> <span class="o">/</span> <span class="mf">365.25</span><span class="p">);</span>
+
+    <span class="c1">// obliczamy i wyświetlamy r_j</span>
+    <span class="n">r_j</span> <span class="o">=</span> <span class="n">pow</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mf">3.1415</span> <span class="o">*</span> <span class="n">delta_t</span> <span class="o">/</span> <span class="p">(</span><span class="n">theta_2</span> <span class="o">+</span> <span class="n">lambda_z2</span> <span class="o">-</span> <span class="n">theta_1</span> <span class="o">-</span> <span class="n">lambda_z1</span><span class="p">),</span> <span class="mf">2.0</span><span class="p">);</span>
+    <span class="n">r_j</span> <span class="o">=</span> <span class="n">pow</span><span class="p">(</span><span class="n">r_j</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">r_j</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Funkcja <code class="language-plaintext highlighter-rouge">clamp()</code> ogranicza kąt do przedziału $\langle 0, 2\pi)$. Funkcja <code class="language-plaintext highlighter-rouge">calc_theta()</code> oblicza kąt zgodnie ze wcześniejszym wzorem:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">float</span> <span class="nf">calc_theta</span><span class="p">(</span><span class="kt">float</span> <span class="n">r_z</span><span class="p">,</span> <span class="kt">float</span> <span class="n">r_j</span><span class="p">,</span> <span class="kt">float</span> <span class="n">t</span><span class="p">,</span> <span class="kt">float</span> <span class="n">lambda_j</span><span class="p">,</span> <span class="kt">float</span> <span class="n">theta</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">float</span> <span class="n">lambda_z</span> <span class="o">=</span> <span class="n">clamp</span><span class="p">((</span><span class="n">t</span> <span class="o">-</span> <span class="mf">80.0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="mf">3.1415</span> <span class="o">/</span> <span class="mf">365.25</span><span class="p">);</span>
+    <span class="kt">float</span> <span class="n">part1</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="p">(</span><span class="n">r_z</span> <span class="o">/</span> <span class="n">r_j</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">r_z</span> <span class="o">/</span> <span class="n">r_j</span><span class="p">)</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">r_z</span> <span class="o">/</span> <span class="n">r_j</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">));</span>
+    <span class="kt">float</span> <span class="n">part2</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">lambda_z</span> <span class="o">-</span> <span class="n">lambda_j</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">asin</span><span class="p">(</span><span class="n">part1</span> <span class="o">*</span> <span class="n">part2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Wyjście programu prezentuje się następująco:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3.26988
+4.66455
+5.04167
+5.11907
+5.13377
+5.13651
+5.13702
+5.13712
+5.13714
+</code></pre></div></div>
+<p>Widzimy, że wynik zmierza do stabilnej wartości
+$$\boxed{r_j=5.14 \text{au}.}$$
+Dla porównania, <a href="https://en.wikipedia.org/wiki/Jupiter" target="_blank">literaturowa wartość</a> półosi wielkiej Jowisza to $5.2 \text{au}$. Na niewielką rozbieżność wyników wpływają oczywiście niepewność wyznaczenia współrzędnych planety oraz założenie o kołowości i współpłaszczyznowości orbit.</p>]]></content><author><name></name></author><category term="Astronomia" /><summary type="html"><![CDATA[Naszym celem jest wyznaczenie promienia oribty Jowisza na podstawie dwóch zdjęć, na których planeta ta jest widoczna na tle pobliskich gwiazd, wykonanych w odstępie nieco ponad roku.]]></summary></entry><entry><title type="html">Równanie czasu</title><link href="http://localhost:4000/astronomia/rownanie-czasu" rel="alternate" type="text/html" title="Równanie czasu" /><published>2026-01-31T00:00:00+01:00</published><updated>2026-01-31T00:00:00+01:00</updated><id>http://localhost:4000/astronomia/rownanie-czasu</id><content type="html" xml:base="http://localhost:4000/astronomia/rownanie-czasu"><![CDATA[<h2 id="motywacja">Motywacja</h2>
 <p>Okazuje się, że Słońce nie porusza się w ciągu roku po ekliptyce ze stałą prędkością. Wynika to głównie z dwóch czynników: nachylenia ekliptyki oraz ekscentryczności orbity Ziemi. Ponieważ zegary nie są w stanie mierzyć zmiennego czasu, wprowadzono pojęcie <strong>Słońca średniego</strong> (ang. <em>mean Sun</em>), czyli punktu, który porusza się po <em>równiku</em> niebieskim ze stałą prędkością, zakreślając kąt $360\degree$ w ciągu roku zwrotnikowego (od równonocy do równonocy). Kąt godzinny Słońca średniego to czas wskazywany przez nasze zegarki (minus $12^h$ bo $h=0^h$ w chwili górowania). Różnicę między kątem godzinnym Słońca średniego (MS) i Słońca prawdziwego (TS - od <em>true Sun</em>), czyli między czasem Słonecznym średnim a prawdziwym wyraża <strong>równanie czasu</strong>:
 $$ \boxed{\tau=h_{MS}-h_{TS}.} $$
 W tym artykule wyprowadzimy przybliżone równanie czasu dla Ziemi, zakładając, że zarówno nachylenie ekliptyki, jak i ekscentryczność orbity są na tyle małe, że zezwalają na pewne przybliżenia, które znacznie uproszczą wzory. Wcześniej jednak, przekształcimy równanie czasu korzystając z zależności $\Theta=\alpha+h$, gdzie $\Theta$ to lokalny czas gwiazdowy, a $\alpha$ to rektascencja obiektu o kącie godzinnym $h$:
@@ -840,90 +952,4 @@ gdy współrzędne są naturalne (lagranżjan nie zależy jawnie od czasu).</p>
 
 <p>$T$ jest zależne od czasu np. w sytuacji, gdy wagon, na którego suficie przyczepione jest wahadło, porusza się z przyspieszeniem $a$ wzdłuż osi $x$. Położenie wahadła względem ziemi charakteryzują wtedy współrzędne $x$ oraz $\theta$. Energia kinetyczna tego wahadła będzie wyrażała się wzorem
 $$ T=\frac{1}{2}ml^2\dot{\theta}^2+\frac{1}{2}ma^2t^2, $$
-gdzie $l$ to długość wahadła, a $m$ to masa zaczepiona na jego końcu. Lagranżjan zależy jawnie od czasu, a energia oczywiście nie jest zachowana, ponieważ wahadło zyskuje wraz z wagonem energię kinetyczną. Bardziej <em>naturalnym</em> wyborem układu współrzędnych w tej sytuacji jest układ związany z wagonem (w tym układzie współrzędne są faktycznie <em>naturalne</em>). Siłę bezwładności możemy modelować wtedy jak zadaną potencjałem proporcjonalnym do $x$.</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Uogólnienie na układ wielu cząstek Do tej pory rozważaliśmy układ złożony jedynie z jednej cząstki. Wprowadzenie większej liczby cząstek daje nam więcej współrzędnych uogólnionych, które definiujemy jako zestaw najmniejszej liczby współrzędnych jednoznacznie określających stan układu. Na przykład, dla 2 cząstek w przestrzeni 3-wymiarowej mamy 6 współrzędnych uogólnionych, a dla wahadła podwójnego - jedynie 2.]]></summary></entry><entry><title type="html">Transformacja Fouriera</title><link href="http://localhost:4000/narz%C4%99dzia%20matematyczne/transformacja-fouriera" rel="alternate" type="text/html" title="Transformacja Fouriera" /><published>2025-08-02T00:00:00+02:00</published><updated>2025-08-02T00:00:00+02:00</updated><id>http://localhost:4000/narz%C4%99dzia%20matematyczne/transformacja-fouriera</id><content type="html" xml:base="http://localhost:4000/narz%C4%99dzia%20matematyczne/transformacja-fouriera"><![CDATA[<h2 id="szeregi-fouriera">Szeregi Fouriera</h2>
-<p>Fourier zaproponował, że funkcje okresowe (tzn. $f(t)=f(t+\tau)$) spełniające dostateczne warunki (znaczna większość funkcji występujących w zastosowaniach je spełnia) można przedstawić w postaci <strong>szeregu Fouriera</strong>
-$$ f(t)=\sum_{n=0}^\infty a_n\cos\left(n\omega t\right)+b_n\sin\left(n\omega t\right), $$
-gdzie $\omega=2\pi/\tau$.
-Wiadomo, że dowolna liniowa kombinacja sinusa i cosinusa to cosinus z przesunięciem fazowym, zatem
-$$ f(t)=\sum_{n=0}^\infty c_n\cos\left(n\omega t+\phi_n\right). $$
-Wygodniej jest operować na funkcji wykładniczej niż trygonometrycznej. Ponieważ $\cos x=(e^{ix}+e^{-ix})/2$, 
-$$ c_n\cos\left(n\omega t+\phi_n\right)=\frac{c_n}{2}\left(e^{i(n\omega_0 t+\phi_n)}+e^{-i(n\omega_0 t+\phi_n)}\right)=a_n e^{\phi_n}e^{in\omega_0 t}+a_{-n}e^{\phi_{-n}}e^{-in\omega_0 t}=\hat{a}_n e^{in\omega_0 t}+\hat{a}_{-n}e^{-in\omega_0 t} $$
-gdzie $a_n$ i $a_{-n}$ to pewne współczynniki. To pozwala nam zapisać
-$$ \boxed{f(t)=\sum_{n=-\infty}^\infty \hat{a}_n e^{i n\omega t},} $$
-gdzie $n$ zaczyna się w $-\infty$, ponieważ musimy wziąć pod uwagę oba wyrazy.
-Chcemy wyznaczyć współczynniki $\hat{a}_n$. W tym celu pomnóżmy obie strony powyższej równości przez $e^{-i m\omega t}$, gdzie $m$ to liczba całkowita:
-$$ f(t)e^{-i m\omega t}=\sum_{n=-\infty}^\infty \hat{a}_n e^{i n\omega t}e^{-i m\omega t}=\sum_{n=-\infty}^\infty \hat{a}_n e^{i (n-m)\omega t} $$
-Pocałkujmy teraz obustronnie po czasie na przedziale $[0, \tau]$:
-$$ \int_0^\tau f(t)e^{-i m\omega t}\,dt=\sum_{n=0}^\infty\int_0^\tau\hat{a}_n e^{i (n-m)\omega t}\,dt. $$
-Zajmijmy się całką wewnątrz sumy. Gdy $n=m$, całka ta wynosi $\hat{a}_n\tau$, a w przeciwnym wypadku 
-$$ \int_0^\tau\hat{a}_n e^{i (n-m)\omega t}\,dt=\hat{a}_n\left[\frac{1}{i\omega(n-m)}e^{i (n-m)\omega t}\right]_0^\tau=\frac{\hat{a}_n}{i\omega(n-m)}\left[e^{i(n-m)\cdot 2\pi}-1\right],$$
-gdzie skorzystałem z faktu, że $\omega\tau=2\pi$ oraz $e^0=1$. Zauważmy, że $2\pi(n-m)$ będzie <strong>zawsze całkowitą wielokrotnością $2\pi$</strong>, przez co $e^{i(n-m)\cdot 2\pi}=1$. Z tego powodu całka ta wynosić będzie 0. Ponieważ stwierdziliśmy, że wyrażenie pod sumą zeruje się dla $n\neq m$, pozostaje nam tylko $n=m$:
-$$ \int_0^\tau f(t)e^{-i n\omega t}\,dt=\tau\hat{a}_n, $$
-a stąd
-$$ \boxed{\hat{a}_n=\frac{1}{\tau}\int_0^\tau f(t)e^{-i n\omega t}\,dt.} $$
-$\hat{a}_n$ są nazywane <strong>współczynnikami Fouriera</strong>.</p>
-
-<h3 id="przykład">Przykład</h3>
-<p>Niech będzie dana funkcja opisująca falę kwadratową:
-$$ f(t) = \begin{cases}
-1\quad t\in\left[n\tau, \left(n+\frac{1}{2}\right)\tau\right] \\ 0\quad\text{ dla innych } t,
-\end{cases} $$
-gdzie $n$ to liczba całkowita.</p>
-
-<p>Zacznijmy od przypadku $n=0$, ponieważ wtedy funkcja wykładnicza pod całką wynosi $1$. Pozostawia to nas z
-$$ \hat{a}_0=\frac{1}{\tau}\int_0^\tau f(t)\,dt=\frac{1}{\tau}\int_0^{\tau/2} \,dt=\frac{1}{2}, $$
-gdzie skorzystałem z faktu, że na przedziale $\left[0,\tau\right]$ $f(t)$ jest różne od $0$ tylko dla $\left[0,\tau/2\right]$. Z tego samego faktu możemy skorzystać rozważając przypadek $n\neq 0$:
-$$ \hat{a}_n=\frac{1}{\tau}\int_0^{\tau/2}e^{-i n\omega t}\,dt=-\frac{1}{\tau in\omega}\left[ e^{-i n\omega t}\right]_0^{\tau/2}=-\frac{1}{\tau in\omega}\left[e^{-in\pi}-1\right]=-\frac{1}{2\pi in}\left[e^{-in\pi}-1\right].$$
-Dla $n$ parzystych $e^{-in\pi}=1$, a dla nieparzystych $-1$, zatem
-$$ \hat{a}_n=\begin{cases}
-\frac{1}{2}\quad n=0 \\ 0 \quad n \text{ parzyste} \\ \frac{1}{in\pi} \quad n\text{ nieparzyste}.
-\end{cases} $$
-Współczynniki te dają nam szereg
-$$ f(t)=\frac{1}{2}+\frac{1}{i\pi}e^{i\omega t}-\frac{1}{i\pi}e^{-i\omega t}+\frac{1}{3i\pi}e^{3i\omega t}-\frac{1}{3i\pi}e^{-3i\omega t}+\dots, $$
-co po przekształceniach daje nam
-$$ f(t)=\frac{1}{2}+\frac{2}{\pi}\sin\omega t+\frac{2}{3\pi}\sin 3\omega t+\frac{2}{5\pi}\sin 5\omega t+\dots $$
-Wykres funkcji oraz pierwszych 3 i 10 wyrazów szeregu został umieszczony na poniższym rysunku.</p>
-<p align="center">
-<img src="/assets/images/2025-08-02/falaKwadratowa.svg" width="700" />
-</p>
-
-<h2 id="transformacja-fouriera">Transformacja Fouriera</h2>
-<p>Nie tylko funkcje okresowe można zapisać za pomocą sinusów i cosinusów. Dla funkcji, które nie są okresowe możemy przyjąć $\tau\to\infty$ oraz $2\pi/\tau\to d\omega$. Wtedy również $\hat{a}_n\to \hat{a}(\omega)\,d\omega$. W granicy suma przechodzi w całkę i otrzymujemy
-$$ \boxed{f(t) = \int_{-\infty}^\infty \hat{a}(\omega)e^{i\omega t}\,d\omega} $$
-oraz 
-$$ \hat{a}(\omega)\,d\omega = \frac{d\omega}{2\pi}\int_{-\infty}^\infty f(t)e^{-i\omega t}\,dt $$
-$$ \boxed{\hat{a}(\omega) = \frac{1}{2\pi}\int_{-\infty}^\infty f(t)e^{-i\omega t}\,dt}, $$
-gdzie w drugiej całce granice całkowania zmieniłem na całą funkcję.
-Drugi wzór nosi nazwę <strong>transformacji Fouriera</strong>, a pierwszy <strong>odwrotnej transformacji Fouriera</strong>.</p>
-
-<h3 id="przykład-1">Przykład</h3>
-<p>Rozważmy falę modulowaną przez funkcję Gaussa
-$$ f(t)=e^{-t^2/2\sigma^2}\cos \omega_0 t, $$
-której wykres dla róznych wartości $\sigma$ i $\omega_0$ przedstawiony jest poniżej. Widzimy, że zwiększając $\sigma$ ,,poszerzamy’’ falę, a zwiększając $\omega_0$ zwiększamy częstotliwość.</p>
-<p align="center">
-<img src="/assets/images/2025-08-02/falaModulowana.svg" width="700" />
-</p>
-<p>Aby znaleźć transformację Fouriera powyższej funkcji, zapiszymy $\cos$ w postaci zespolonej:
-$$ f(t)=\frac{1}{2}e^{-t^2/2\sigma^2}\left(e^{i\omega_0 t}+e^{-i\omega_0 t}\right) $$
-i wstawmy do wzoru na transformację
-$$ \hat{a}(\omega)=\frac{1}{2\pi}\int_{-\infty}^\infty f(t) e^{-i\omega t}\,dt=\frac{1}{4\pi} \int_{-\infty}^\infty e^{-t^2/2\sigma^2}e^{i\omega_0 t}e^{-i\omega t}+\frac{1}{4\pi}\int_{-\infty}^\infty e^{-t^2/2\sigma^2}e^{-i\omega_0 t}e^{-i\omega t}\,dt  $$
-Rozważmy teraz całkę
-$$ \int_{-\infty}^\infty e^{-t^2/2\sigma^2} e^{-i\omega’ t}\,dt. $$
-W naszym przypadku dla pierwszej całki $\omega’ =\omega-\omega_0$, a dla drugiej $\omega’ =\omega+\omega_0$. Aby obliczyć powyższą całkę dopełnijmy kwadrat:
-$$ \int_{-\infty}^\infty e^{-t^2/2\sigma^2-i\omega’ t}\,dt=\int_{-\infty}^\infty e^{-(t/\sqrt{2}\sigma+i\omega’\sigma/\sqrt{2})^2-\omega’^2\sigma^2/2}\,dt= $$
-$$ =e^{-\omega’^2\sigma^2/2}\int_{-\infty}^\infty e^{-(t/\sqrt{2}\sigma+i\omega’\sigma/\sqrt{2})^2}\,dt. $$
-Podstawmy $u=t/\sqrt{2}\sigma+i\omega’\sigma/\sqrt{2}$, czyli $dt=\sqrt{2}\sigma\,du$. Granice całkowania pozostają niezmienione:
-$$ e^{-\omega’^2\sigma^2/2}\int_{-\infty}^\infty e^{-u^2}\sqrt{2}\sigma\,du = \sqrt{2\pi}\sigma e^{-\omega’^2\sigma^2/2}. $$
-Wstawmy ten wynik do wzoru na $\hat{a}$:
-$$ \hat{a}(\omega)=\frac{\sigma}{2\sqrt{2\pi}}\left(e^{-(\omega_0+\omega)^2\sigma^2/2}+e^{-(\omega_0-\omega)^2\sigma^2/2}\right) $$
-Powyższe wyrażenie można uprościć do
-$$ \hat{a}(\omega)=\frac{\sigma}{\sqrt{2\pi}}e^{-(\omega_0^2+\omega^2)\sigma^2/2}\cosh\left(\omega\omega_0\sigma^2\right). $$
-$\hat{a}$ możemy podnieść do kwadratu aby otrzymać <strong>widmo mocy</strong> $S(\omega)$:
-$$ S(\omega)=\frac{\sigma^2}{2\pi}e^{-(\omega_0^2+\omega^2)\sigma^2}\cosh^2\left(\omega\omega_0\sigma^2\right). $$
-Zostało ono przedstawione dla wcześniejszych fal na poniższym wykresie:</p>
-<p align="center">
-<img src="/assets/images/2025-08-02/widmoMocy.svg" width="700" />
-</p>
-<p>Funkcje $S(\omega)$ na wykresie zostały znormalizowane, aby można było dostrzec ich kształt i wzajemne powiązanie.</p>
-
-<p>Jak widać, jest ono symetryczne względem osi $y$. Jest tak, ponieważ rozważane fale zawierają tylko składową parzystą $\cos$. Dla funkcji $\cos$ nie ma znaczenia znak częstotliwości, a więc moc jest rozłożona równomiernie między $\omega$ i $-\omega$. Zgodnie z oczekiwaniami najwięcej mocy jest skupionej w częstotliwości $\omega_0$. Zauważmy również, że im bardziej ,,rozwlekła’’ fala, tym bardziej moc jest skupiona wokół $\omega_0$ (czerwony wykres). Jest to spodwodowane faktem, że bardziej ,,rozwlekła’’ fala bardziej ,,przypomina’’ zwykłą falę.</p>]]></content><author><name></name></author><category term="Narzędzia matematyczne" /><summary type="html"><![CDATA[Szeregi Fouriera Fourier zaproponował, że funkcje okresowe (tzn. $f(t)=f(t+\tau)$) spełniające dostateczne warunki (znaczna większość funkcji występujących w zastosowaniach je spełnia) można przedstawić w postaci szeregu Fouriera $$ f(t)=\sum_{n=0}^\infty a_n\cos\left(n\omega t\right)+b_n\sin\left(n\omega t\right), $$ gdzie $\omega=2\pi/\tau$. Wiadomo, że dowolna liniowa kombinacja sinusa i cosinusa to cosinus z przesunięciem fazowym, zatem $$ f(t)=\sum_{n=0}^\infty c_n\cos\left(n\omega t+\phi_n\right). $$ Wygodniej jest operować na funkcji wykładniczej niż trygonometrycznej. Ponieważ $\cos x=(e^{ix}+e^{-ix})/2$, $$ c_n\cos\left(n\omega t+\phi_n\right)=\frac{c_n}{2}\left(e^{i(n\omega_0 t+\phi_n)}+e^{-i(n\omega_0 t+\phi_n)}\right)=a_n e^{\phi_n}e^{in\omega_0 t}+a_{-n}e^{\phi_{-n}}e^{-in\omega_0 t}=\hat{a}_n e^{in\omega_0 t}+\hat{a}_{-n}e^{-in\omega_0 t} $$ gdzie $a_n$ i $a_{-n}$ to pewne współczynniki. To pozwala nam zapisać $$ \boxed{f(t)=\sum_{n=-\infty}^\infty \hat{a}_n e^{i n\omega t},} $$ gdzie $n$ zaczyna się w $-\infty$, ponieważ musimy wziąć pod uwagę oba wyrazy. Chcemy wyznaczyć współczynniki $\hat{a}_n$. W tym celu pomnóżmy obie strony powyższej równości przez $e^{-i m\omega t}$, gdzie $m$ to liczba całkowita: $$ f(t)e^{-i m\omega t}=\sum_{n=-\infty}^\infty \hat{a}_n e^{i n\omega t}e^{-i m\omega t}=\sum_{n=-\infty}^\infty \hat{a}_n e^{i (n-m)\omega t} $$ Pocałkujmy teraz obustronnie po czasie na przedziale $[0, \tau]$: $$ \int_0^\tau f(t)e^{-i m\omega t}\,dt=\sum_{n=0}^\infty\int_0^\tau\hat{a}_n e^{i (n-m)\omega t}\,dt. $$ Zajmijmy się całką wewnątrz sumy. Gdy $n=m$, całka ta wynosi $\hat{a}_n\tau$, a w przeciwnym wypadku $$ \int_0^\tau\hat{a}_n e^{i (n-m)\omega t}\,dt=\hat{a}_n\left[\frac{1}{i\omega(n-m)}e^{i (n-m)\omega t}\right]_0^\tau=\frac{\hat{a}_n}{i\omega(n-m)}\left[e^{i(n-m)\cdot 2\pi}-1\right],$$ gdzie skorzystałem z faktu, że $\omega\tau=2\pi$ oraz $e^0=1$. Zauważmy, że $2\pi(n-m)$ będzie zawsze całkowitą wielokrotnością $2\pi$, przez co $e^{i(n-m)\cdot 2\pi}=1$. Z tego powodu całka ta wynosić będzie 0. Ponieważ stwierdziliśmy, że wyrażenie pod sumą zeruje się dla $n\neq m$, pozostaje nam tylko $n=m$: $$ \int_0^\tau f(t)e^{-i n\omega t}\,dt=\tau\hat{a}_n, $$ a stąd $$ \boxed{\hat{a}_n=\frac{1}{\tau}\int_0^\tau f(t)e^{-i n\omega t}\,dt.} $$ $\hat{a}_n$ są nazywane współczynnikami Fouriera.]]></summary></entry></feed>
+gdzie $l$ to długość wahadła, a $m$ to masa zaczepiona na jego końcu. Lagranżjan zależy jawnie od czasu, a energia oczywiście nie jest zachowana, ponieważ wahadło zyskuje wraz z wagonem energię kinetyczną. Bardziej <em>naturalnym</em> wyborem układu współrzędnych w tej sytuacji jest układ związany z wagonem (w tym układzie współrzędne są faktycznie <em>naturalne</em>). Siłę bezwładności możemy modelować wtedy jak zadaną potencjałem proporcjonalnym do $x$.</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Uogólnienie na układ wielu cząstek Do tej pory rozważaliśmy układ złożony jedynie z jednej cząstki. Wprowadzenie większej liczby cząstek daje nam więcej współrzędnych uogólnionych, które definiujemy jako zestaw najmniejszej liczby współrzędnych jednoznacznie określających stan układu. Na przykład, dla 2 cząstek w przestrzeni 3-wymiarowej mamy 6 współrzędnych uogólnionych, a dla wahadła podwójnego - jedynie 2.]]></summary></entry></feed>
