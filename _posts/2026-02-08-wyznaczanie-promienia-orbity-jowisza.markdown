@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Wyznaczenie promienia oribty Jowisza"
+title: "Wyznaczanie promienia oribty Jowisza"
 date: 2026-02-08
 categories: Astronomia
 katex: true
@@ -59,7 +59,7 @@ Równanie w powyższej postaci można łatwo rozwiązać iteracją prostą. Tak 
 \$$ \lambda_z = \frac{2\pi}{365.25^d}(t-80^d), \$$
 gdzie $80^d$ wynika z faktu, że równonoc wiosenna ma miejsce $80$-tego dnia roku. Brakuje nam jednego równania łączącego kąty $\theta_1$ i $\theta_2$ (dla poszczególnych dat) z $r_j$. Będzie to <a href="https://bwegrzyn0.github.io/mechanika/prawa-keplera" target=_blank>3 prawo Keplera</a>. Okres orbity Jowisza (w jednostkach au i yr) to
 \$$ P_j=\sqrt{r_j^3}, \$$
-a w czasie $\delta t$ (pomiędzy wykonaniem zdjęć) Jowisz przebył kąt $\theta_2+\lambda_{z2}-180\degree-\theta_1-\lambda_{z1}+180\degree=\theta_2+\lambda_{z2}-\theta_1-\lambda_{z1}$. Stąd
+a w czasie $\Delta t$ (pomiędzy wykonaniem zdjęć) Jowisz przebył kąt $\theta_2+\lambda_{z2}-180\degree-\theta_1-\lambda_{z1}+180\degree=\theta_2+\lambda_{z2}-\theta_1-\lambda_{z1}$. Stąd
 \$$ \theta_2-\theta_1= \frac{2\pi}{P_j}\Delta t, \$$
 więc
 \$$ r_j = \sqrt[3]{\left( \frac{2\pi\Delta t}{\theta_2+\lambda_{z2}-\theta_1-\lambda_{z1}}\right)^2}. \$$

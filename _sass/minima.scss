@@ -3,7 +3,7 @@
 // Define defaults for each variable.
 
 $base-font-family: 'Georgia', serif;
-$base-font-size:   16px !default;
+$base-font-size:   20px !default;
 $base-font-weight: 400 !default;
 $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
@@ -21,7 +21,7 @@ $grey-color-dark:  darken($grey-color, 25%) !default;
 $table-text-align: left !default;
 
 // Width of the content area
-$content-width:    1200px !default;
+$content-width:    1500px !default;
 
 $on-palm:          600px !default;
 $on-laptop:        1200px !default;
