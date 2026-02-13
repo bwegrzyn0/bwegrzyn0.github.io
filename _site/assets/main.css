@@ -192,7 +192,7 @@
   color: #a6e22e;
 } /* Generic.Inserted & Diff Inserted */
 html {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 /**
@@ -209,7 +209,7 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font: 400 20px/1.5 "Georgia", serif;
+  font: 400 15px/1.5 "Georgia", serif;
   color: white;
   background-color: #181818;
   -webkit-text-size-adjust: 100%;
@@ -262,7 +262,7 @@ figure > img {
 }
 
 figcaption {
-  font-size: 17.5px;
+  font-size: 13.125px;
 }
 
 /**
@@ -442,7 +442,7 @@ table td {
   border-top: 5px solid #999999;
   border-bottom: 1px solid rgb(63.75, 63.75, 63.75);
   min-height: 55.95px;
-  line-height: 67.5px;
+  line-height: 50.625px;
   position: relative;
 }
 
@@ -633,7 +633,7 @@ table td {
 }
 
 .post-meta {
-  font-size: 17.5px;
+  font-size: 13.125px;
   color: #999999;
 }
 
