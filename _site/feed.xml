@@ -1,9 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-02-22T19:10:13+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Symulacje falowe, część 1</title><link href="http://localhost:4000/programowanie/symulacje-falowe-cz-1" rel="alternate" type="text/html" title="Symulacje falowe, część 1" /><published>2026-02-22T00:00:00+01:00</published><updated>2026-02-22T00:00:00+01:00</updated><id>http://localhost:4000/programowanie/symulacje-falowe-cz-1</id><content type="html" xml:base="http://localhost:4000/programowanie/symulacje-falowe-cz-1"><![CDATA[<h2 id="równanie-falowe">Równanie falowe</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-02-22T19:17:39+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Symulacje falowe, część 1</title><link href="http://localhost:4000/programowanie/symulacje-falowe-cz-1" rel="alternate" type="text/html" title="Symulacje falowe, część 1" /><published>2026-02-22T00:00:00+01:00</published><updated>2026-02-22T00:00:00+01:00</updated><id>http://localhost:4000/programowanie/symulacje-falowe-cz-1</id><content type="html" xml:base="http://localhost:4000/programowanie/symulacje-falowe-cz-1"><![CDATA[<h2 id="równanie-falowe">Równanie falowe</h2>
 <p>Rozważmy $N$ mas $m$ połączonych $N-1$ sprężynkami o współczynniku sprężystości $k$ i długości swobodnej $x_0$. Jeśli sprężyny są sztywne, może być to np. model sztywnego pręta. Wyznaczymy teraz prędkość rozchodzenia się zaburzeń w tym układzie i równanie je opisujące.</p>
 
-<h1 id="rysunek">RYSUNEK</h1>
-
-<p>Rozważmy siły działające na $i$-tą masę. Niech $u_i$ oznacza jej wychylenie z położenia równowagi, dodatnie w prawo. Siła pochodząca od sprężyny z prawej strony to
+<p>Rozważmy siły działające na $i$-tą masę. Niech $u_i$ oznacza jej wychylenie z położenia równowagi, dodatnie w prawo, a $x_i$ odległość jej położenia równowagi od początku pręta. Siła pochodząca od sprężyny z prawej strony to
 $$ F_1=-k(u_i-u_{i+1}), $$
 a siła pochodząca od tej z lewej to
 $$ F_2=-k(u_i-u_{i-1}), $$
@@ -13,7 +11,7 @@ Załóżmy, że $N$ jest duże, czyli $m$ oraz wszystkie $u$ są małe. Zauważm
 $$ \frac{d^2 y}{dx^2}= \frac{y(x+dx)-2y(x)+y(x-dx)}{dx^2}, $$
 gdzie u nas $y\rightarrow u$, a $x$ to również $x$. Mamy:
 $$ m\ddot{u}= k\frac{\partial^2 u}{\partial x^2}u_0^2, $$
-gdzie mamy pochodną cząstnową, ponieważ $u$ to również funkcja czasu oraz $u_0$, ponieważ jest ono równe $x_{i+1}-x_i$. Pochodna $u$ po czasie to:
+gdzie mamy pochodną cząstkową, ponieważ $u$ to również funkcja czasu oraz $u_0$, ponieważ jest ono równe $x_{i+1}-x_i$. Pochodna $u$ po czasie to:
 $$ \frac{du}{dt}= \frac{\partial u}{\partial t}+ \frac{\partial u}{\partial x} \frac{dx}{dt}, $$
 ale położenie równowagi każdej masy jest ustalone, więc pozostaje tylko pierwszy człon. Stąd mamy
 $$ \frac{\partial^2 u}{\partial^2 t}= \frac{k u_0^2}{m} \frac{\partial^2 u}{\partial x^2}. $$

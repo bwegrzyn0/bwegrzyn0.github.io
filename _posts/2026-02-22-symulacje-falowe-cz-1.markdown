@@ -9,9 +9,7 @@ katex: true
 ## Równanie falowe
 Rozważmy $N$ mas $m$ połączonych $N-1$ sprężynkami o współczynniku sprężystości $k$ i długości swobodnej $x_0$. Jeśli sprężyny są sztywne, może być to np. model sztywnego pręta. Wyznaczymy teraz prędkość rozchodzenia się zaburzeń w tym układzie i równanie je opisujące.
 
-# RYSUNEK
-
-Rozważmy siły działające na $i$-tą masę. Niech $u_i$ oznacza jej wychylenie z położenia równowagi, dodatnie w prawo. Siła pochodząca od sprężyny z prawej strony to
+Rozważmy siły działające na $i$-tą masę. Niech $u_i$ oznacza jej wychylenie z położenia równowagi, dodatnie w prawo, a $x_i$ odległość jej położenia równowagi od początku pręta. Siła pochodząca od sprężyny z prawej strony to
 \$$ F_1=-k(u_i-u_{i+1}), \$$
 a siła pochodząca od tej z lewej to
 \$$ F_2=-k(u_i-u_{i-1}), \$$
@@ -21,7 +19,7 @@ Załóżmy, że $N$ jest duże, czyli $m$ oraz wszystkie $u$ są małe. Zauważm
 \$$ \frac{d^2 y}{dx^2}= \frac{y(x+dx)-2y(x)+y(x-dx)}{dx^2}, \$$
 gdzie u nas $y\rightarrow u$, a $x$ to również $x$. Mamy:
 \$$ m\ddot{u}= k\frac{\partial^2 u}{\partial x^2}u_0^2, \$$
-gdzie mamy pochodną cząstnową, ponieważ $u$ to również funkcja czasu oraz $u_0$, ponieważ jest ono równe $x_{i+1}-x_i$. Pochodna $u$ po czasie to:
+gdzie mamy pochodną cząstkową, ponieważ $u$ to również funkcja czasu oraz $u_0$, ponieważ jest ono równe $x_{i+1}-x_i$. Pochodna $u$ po czasie to:
 \$$ \frac{du}{dt}= \frac{\partial u}{\partial t}+ \frac{\partial u}{\partial x} \frac{dx}{dt}, \$$
 ale położenie równowagi każdej masy jest ustalone, więc pozostaje tylko pierwszy człon. Stąd mamy
 \$$ \frac{\partial^2 u}{\partial^2 t}= \frac{k u_0^2}{m} \frac{\partial^2 u}{\partial x^2}. \$$
