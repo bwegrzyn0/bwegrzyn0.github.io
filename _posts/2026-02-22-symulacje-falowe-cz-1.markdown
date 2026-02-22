@@ -172,4 +172,9 @@ Fala stojąca po chwili zanika, a potem ponownie się pojawi, ponieważ ze wzgl�
 <source src="/assets/videos/2026-02-23/anim7.mp4" type="video/mp4">
 </video>
 </p>
-
+Możemy zrobić również animację 3d:
+<p align="center">
+<video width="800" controls="controls">
+<source src="/assets/videos/2026-02-23/anim8.mp4" type="video/mp4">
+</video>
+</p>
