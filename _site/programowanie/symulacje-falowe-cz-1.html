@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Symulacje falowe, część 1 | bwegrzyn0.github.io</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Symulacje falowe, część 1" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Równanie falowe Rozważmy $N$ mas $m$ połączonych $N-1$ sprężynkami o współczynniku sprężystości $k$ i długości swobodnej $x_0$. Jeśli sprężyny są sztywne, może być to np. model sztywnego pręta. Wyznaczymy teraz prędkość rozchodzenia się zaburzeń w tym układzie i równanie je opisujące." />
+<meta property="og:description" content="Równanie falowe Rozważmy $N$ mas $m$ połączonych $N-1$ sprężynkami o współczynniku sprężystości $k$ i długości swobodnej $x_0$. Jeśli sprężyny są sztywne, może być to np. model sztywnego pręta. Wyznaczymy teraz prędkość rozchodzenia się zaburzeń w tym układzie i równanie je opisujące." />
+<link rel="canonical" href="http://localhost:4000/programowanie/symulacje-falowe-cz-1" />
+<meta property="og:url" content="http://localhost:4000/programowanie/symulacje-falowe-cz-1" />
+<meta property="og:site_name" content="bwegrzyn0.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-02-22T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Symulacje falowe, część 1" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-22T00:00:00+01:00","datePublished":"2026-02-22T00:00:00+01:00","description":"Równanie falowe Rozważmy $N$ mas $m$ połączonych $N-1$ sprężynkami o współczynniku sprężystości $k$ i długości swobodnej $x_0$. Jeśli sprężyny są sztywne, może być to np. model sztywnego pręta. Wyznaczymy teraz prędkość rozchodzenia się zaburzeń w tym układzie i równanie je opisujące.","headline":"Symulacje falowe, część 1","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/programowanie/symulacje-falowe-cz-1"},"url":"http://localhost:4000/programowanie/symulacje-falowe-cz-1"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+	<link rel="shortcut icon" type="image/png" href="/favicon.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bwegrzyn0.github.io" /></head>
+<head>
+	  
+
+<!-- CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
+
+<!-- JavaScript -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{
+    delimiters: [
+      { left: '$$',  right: '$$',  display: true  },
+      { left: '$',   right: '$',   display: false },
+      { left: '\\[', right: '\\]', display: true  },
+      { left: '\\(', right: '\\)', display: false }
+  ]});">
+</script>
+
+
+  </head>
+
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">bwegrzyn0.github.io</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/kategorie/">Kategorie</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Symulacje falowe, część 1</h1>
+    <a href="/kategorie"><h3> Programowanie </h3></a>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-02-22T00:00:00+01:00" itemprop="datePublished">2026-02-22
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="równanie-falowe">Równanie falowe</h2>
+<p>Rozważmy $N$ mas $m$ połączonych $N-1$ sprężynkami o współczynniku sprężystości $k$ i długości swobodnej $x_0$. Jeśli sprężyny są sztywne, może być to np. model sztywnego pręta. Wyznaczymy teraz prędkość rozchodzenia się zaburzeń w tym układzie i równanie je opisujące.</p>
+
+<h1 id="rysunek">RYSUNEK</h1>
+
+<p>Rozważmy siły działające na $i$-tą masę. Niech $u_i$ oznacza jej wychylenie z położenia równowagi, dodatnie w prawo. Siła pochodząca od sprężyny z prawej strony to
+$$ F_1=-k(u_i-u_{i+1}), $$
+a siła pochodząca od tej z lewej to
+$$ F_2=-k(u_i-u_{i-1}), $$
+więc
+$$ m\ddot{u}_i=F_1+F_2=k(u_{i+1}-2u_i+u_{i-1}). $$
+Załóżmy, że $N$ jest duże, czyli $m$ oraz wszystkie $u$ są małe. Zauważmy, że wyrażenie w nawiasie przypomina wzór na drugą pochodną:
+$$ \frac{d^2 y}{dx^2}= \frac{y(x+dx)-2y(x)+y(x-dx)}{dx^2}, $$
+gdzie u nas $y\rightarrow u$, a $x$ to również $x$. Mamy:
+$$ m\ddot{u}= k\frac{\partial^2 u}{\partial x^2}u_0^2, $$
+gdzie mamy pochodną cząstnową, ponieważ $u$ to również funkcja czasu oraz $u_0$, ponieważ jest ono równe $x_{i+1}-x_i$. Pochodna $u$ po czasie to:
+$$ \frac{du}{dt}= \frac{\partial u}{\partial t}+ \frac{\partial u}{\partial x} \frac{dx}{dt}, $$
+ale położenie równowagi każdej masy jest ustalone, więc pozostaje tylko pierwszy człon. Stąd mamy
+$$ \frac{\partial^2 u}{\partial^2 t}= \frac{k u_0^2}{m} \frac{\partial^2 u}{\partial x^2}. $$
+Niech $M=Nm$ oznacza całkowitą masę pręta, a $L=u_0 N$ jego długość. Mamy wtedy
+$$ \frac{k u_0^2}{m}= \frac{k L^2}{N M}. $$
+Sprężyny są pewną analogią do kondensatorów, ponieważ połączone ,,szeregowo’’ dają zastępczy współczynnik spręzystości równy
+$$ \frac{1}{k_z}=\sum_i \frac{1}{k_i}. $$
+U nas $k_i=k$, więc współczynnik sprężytości całego pręta to $K=k/N$, więc ostatecznie:
+$$ \frac{\partial^2 u}{\partial t^2}= \frac{KL^2}{M} \frac{\partial u^2}{\partial x^2}. $$  <br />
+Jest to <strong>równanie falowe</strong>, które w najogólniejszej postaci dla 1 wymiaru ma postać:
+$$ \boxed{\frac{\partial^2 u}{\partial t^2}= c^2 \frac{\partial^2 u}{\partial x^2},} $$
+gdzie $c$ to prędkość rozchodzenia się fal w ośrodku. Widzimy zatem, że dla pręta
+$$ c=\sqrt{ \frac{KL^2}{M}}. $$</p>
+
+<p>Podobne rozumowanie możemy przeprowadzić dla większej liczby wymiarów, np. dla dwóch:
+$$ \frac{\partial u}{\partial t^2}= c^2\left( \frac{\partial^2 u}{\partial x^2}+  \frac{\partial^2 u}{\partial y^2}\right) $$
+lub w ogólności:
+$$ \boxed{\frac{\partial u}{\partial t^2}= c^2\nabla^2 u.} $$
+W tym artykule zajmiemy się równaniem falowym dla dwóch wymiarów.</p>
+
+<h2 id="numeryczne-rozwiązywanie-równania-falowego">Numeryczne rozwiązywanie równania falowego</h2>
+<p>Aby numerycznie rozwiązać równianie falowe w dwóch wymiarach, utworzymy tablicę dwuwymiarową $N\times N$ reprezentującą siatkę komórek o wymiarach $\Delta x\times\Delta x$. Komórka $(i,j)$ ma przypisaną wartość $u_{ij}$. Do obliczenia drugich pochodnych w przestrzeni wykorzystamy dobrze znany wzór:
+$$ \frac{\partial^2 u_{ij}}{\partial x^2}\approx \frac{u_{(i+1)j}-2u_{ij}+u_{(i-1)j}}{\Delta x^2} $$
+i podobnie dla pochodnej po $y$. Dla pochodnych czasowych:
+$$ \frac{\partial^2 u_{ij}}{\partial t^2} \approx \frac{u_{ij}(t+\Delta t)-2u_{ij}(t)+u_{ij}(t-\Delta t)}{\Delta t^2}. $$
+Wstawiając do równania falowego, mamy
+$$ \frac{u_{ij}(t+\Delta t)-2u_{ij}(t)+u_{ij}(t-\Delta t)}{\Delta t^2}=c^2\left(\frac{\partial^2 u_{ij}}{\partial x^2}+\frac{\partial^2 u_{ij}}{\partial y^2}\right), $$
+co, aby obliczyć $u_{ij}(t+\Delta t)$, przekształcamy do postaci:
+$$ u_{ij}(t+\Delta t)=c^2\Delta t^2\left(\frac{\partial^2 u_{ij}}{\partial x^2}+\frac{\partial^2 u_{ij}}{\partial y^2}\right)+2u_{ij}(t)-u_{ij}(t-\Delta t). $$
+Zauważmy, że potrzebujemy zapisywać w pamięci również $u_{ij}(t-\Delta t)$.</p>
+
+<p>Napotykamy jednak problem związany z brzegami obszaru. W tym artykule założymy, że $u$ zawsze $=0$ na brzegach, co ma efekt podobny do ściany - fale będą się od nich odbijać. W drugiej części artykułu zaimplementujemy warunki brzegowe, które będą absorbować fale, co da nam efekt fali opuszczającej obszar. Z tego powodu tablica w programie będzie miała tak naprawdę wymiary $(N+2)\times(N+2)$, aby pomieścić również brzegi.</p>
+
+<h3 id="implementacja-w-c">Implementacja w C++</h3>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">size_x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size_y</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">u</span><span class="p">[</span><span class="n">size_x</span><span class="o">+</span><span class="mi">2</span><span class="p">][</span><span class="n">size_y</span><span class="o">+</span><span class="mi">2</span><span class="p">];</span>
+<span class="kt">double</span> <span class="n">old_u</span><span class="p">[</span><span class="n">size_x</span><span class="o">+</span><span class="mi">2</span><span class="p">][</span><span class="n">size_y</span><span class="o">+</span><span class="mi">2</span><span class="p">];</span>
+<span class="kt">double</span> <span class="n">c</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">dx</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">calculate_u</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">new_u</span><span class="p">[</span><span class="n">size_x</span><span class="o">+</span><span class="mi">2</span><span class="p">][</span><span class="n">size_y</span><span class="o">+</span><span class="mi">2</span><span class="p">];</span> 
+    <span class="n">std</span><span class="o">::</span><span class="n">memset</span><span class="p">(</span><span class="n">new_u</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">new_u</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size_x</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">size_y</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">double</span> <span class="n">d2u_dx2</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">dx</span><span class="o">*</span><span class="n">dx</span><span class="p">);</span>
+            <span class="kt">double</span> <span class="n">d2u_dy2</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">dx</span><span class="o">*</span><span class="n">dx</span><span class="p">);</span>
+            <span class="n">new_u</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">d2u_dx2</span> <span class="o">+</span> <span class="n">d2u_dy2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">old_u</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">old_u</span><span class="p">,</span> <span class="n">u</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">new_u</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Na początku programu tworzymy potrzebne zmienne i tablice (czas, $u$ i $u$ z poprzedniej iteracji), ustalamy rozmiary symulacji (<code class="language-plaintext highlighter-rouge">size_x</code> i <code class="language-plaintext highlighter-rouge">size_y</code>, <code class="language-plaintext highlighter-rouge">dx</code> to krok w przestrzeni - ten sam dla $x$ i $y$, a <code class="language-plaintext highlighter-rouge">dt</code> to krok w czasie) i jej parametry (<code class="language-plaintext highlighter-rouge">c</code> - prędkość fali). W funkcji <code class="language-plaintext highlighter-rouge">calculate_u()</code> tworzymy pustą tablicę, do której obliczmy nowe wartości $u$ dla wszystkich komórek (nie możemy modyfikować $u$, ponieważ później używalibyśmy nowych, a nie aktualnych wartości do obliczeń). Po obliczeniach zapisujemy stare wartości (potrzebne do symulacji) do tablicy <code class="language-plaintext highlighter-rouge">old_u</code>, a nowe wartości do <code class="language-plaintext highlighter-rouge">u</code>.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">memset</span><span class="p">(</span><span class="n">old_u</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">old_u</span><span class="p">);</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">memset</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">u</span><span class="p">);</span>
+
+	<span class="n">u</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+	<span class="n">old_u</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+
+	<span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">data</span><span class="p">;</span>
+	<span class="n">data</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">"data.csv"</span><span class="p">);</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">calculate_u</span><span class="p">();</span>
+		<span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span><span class="p">;</span>
+		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size_x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">size_y</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+				<span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">!=</span> <span class="n">size_y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+					<span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
+				<span class="k">else</span>
+					<span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+			<span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">data</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>W funkcji <code class="language-plaintext highlighter-rouge">main</code> inicjalizujemy tablice <code class="language-plaintext highlighter-rouge">u</code> i <code class="language-plaintext highlighter-rouge">old_u</code>, dodajemy chwilowe zaburzenie w $(5,5)$, a następnie dla 500 kroków w czasie iterujemy algorytm i wyniki zapisujemy w pliku <code class="language-plaintext highlighter-rouge">.csv</code>. Korzystając z biblioteki <code class="language-plaintext highlighter-rouge">matplotlib</code> w pythonie możemy wyniki obliczeń zwizualizować w postaci animacji:</p>
+<p align="center">
+<video width="800" controls="controls">
+<source src="/assets/videos/2026-02-23/anim5.mp4" type="video/mp4" />
+</video>
+</p>
+
+<p>Aby działo się coś więcej, możemy dodać na środku siatki 2 źródła oscylujące w zgodnej fazie. W pętli <code class="language-plaintext highlighter-rouge">for</code> przed <code class="language-plaintext highlighter-rouge">calculate_u()</code> dodajemy:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">u</span><span class="p">[</span><span class="mi">45</span><span class="p">][</span><span class="mi">50</span><span class="p">]</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<span class="n">u</span><span class="p">[</span><span class="mi">55</span><span class="p">][</span><span class="mi">50</span><span class="p">]</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+</code></pre></div></div>
+<p>Efekt jest następujący.</p>
+<p align="center">
+<video width="800" controls="controls">
+<source src="/assets/videos/2026-02-23/anim2.mp4" type="video/mp4" />
+</video>
+</p>
+<p>Widzimy wyraźne tworzenie się minimów interferencyjnych. Ze wzoru na interferencję na dwóch szczelinach pierwsze minimum powinno być pod kątem:
+$$ \alpha= \arcsin \frac{\lambda}{d}. $$
+U nas $d=10$, a $\lambda=c/f$. $c=1$ (ustalone w programie), a $f$ możemy obliczyć ze wzoru $\omega/2\pi$. U nas $\omega=1$, bo mamy $\sin t$. Stąd $\lambda=2\pi$ oraz $\alpha\approx 40\deg$. Bardzo podobny kąt odczytujemy również z animacji.</p>
+
+<p>Dodając w pętli <code class="language-plaintext highlighter-rouge">for</code> w funkcji <code class="language-plaintext highlighter-rouge">calculate_u()</code> warunek</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">50</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">47</span> <span class="o">||</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">53</span><span class="p">))</span>
+    <span class="k">continue</span><span class="p">;</span>
+</code></pre></div></div>
+<p>możemy utworzyć po środku obszaru ścianę z przesłoną:</p>
+<p align="center">
+<video width="800" controls="controls">
+<source src="/assets/videos/2026-02-23/anim1.mp4" type="video/mp4" />
+</video>
+</p>
+<p>Wyraźnie widzimy zjawisko ugięcia na szczelinie. Widzimy również wadę przyjętych warunków brzegowych - fale odbijają się od ścian i coraz bardziej się wzmacniają tworząc fale stojące (na brzegach) i ciekawe wzory.</p>
+
+<p>W ścianie umieścimy również dwie szczeliny:</p>
+<p align="center">
+<video width="800" controls="controls">
+<source src="/assets/videos/2026-02-23/anim3.mp4" type="video/mp4" />
+</video>
+</p>
+<p>i widzimy dobrze znane prążki. Szczeliny możemy również umiejscowić w różnych odległościach od źródła, aby zmienić fazę w każdej ze szczelin:</p>
+<p align="center">
+<video width="800" controls="controls">
+<source src="/assets/videos/2026-02-23/anim4.mp4" type="video/mp4" />
+</video>
+</p>
+<p>Fale w każdej ze szczelin są w przybliżeniu w przeciwfazie, a ta wychodząca z dolnej szczeliny ma większą amplitudę, ponieważ jest bliżej źródła. Prążki nie są teraz idealnie równe.</p>
+
+<p>Nasze warunki brzegowe można jednak wykorzystać na własną korzyść, tworząc np. okrągłą ścianę i tak dobierając parametry, aby powstała fala stojąca:</p>
+<p align="center">
+<video width="800" controls="controls">
+<source src="/assets/videos/2026-02-23/anim6.mp4" type="video/mp4" />
+</video>
+</p>
+<p>Fala stojąca po chwili zanika, a potem ponownie się pojawi, ponieważ ze względu na skończoną prezycję, parametrów nie można dobrać idealnie i będą zachodzić dudnienia.</p>
+<p align="center">
+<video width="800" controls="controls">
+<source src="/assets/videos/2026-02-23/anim7.mp4" type="video/mp4" />
+</video>
+</p>
+
+
+  </div><a class="u-url" href="/programowanie/symulacje-falowe-cz-1" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">bwegrzyn0.github.io</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bwegrzyn0"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bwegrzyn0</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Fizyka i programowanie</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

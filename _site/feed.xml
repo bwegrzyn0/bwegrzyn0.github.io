@@ -1,4 +1,165 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-02-13T11:42:21+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Ruch wsteczny Słońca na niebie</title><link href="http://localhost:4000/astronomia/ruch-wsteczny-slonca-na-niebie" rel="alternate" type="text/html" title="Ruch wsteczny Słońca na niebie" /><published>2026-02-12T00:00:00+01:00</published><updated>2026-02-12T00:00:00+01:00</updated><id>http://localhost:4000/astronomia/ruch-wsteczny-slonca-na-niebie</id><content type="html" xml:base="http://localhost:4000/astronomia/ruch-wsteczny-slonca-na-niebie"><![CDATA[<p>Czy możliwe jest, aby na którejkolwiek z planet Układu Słonecznego Słońce zaszło, a następnie od razu wzeszło, wszystko po zachodniej stronie nieba? Aby zjawisko takie miało miejsce, chwilowa prędkość ruchu Słońca po ekliptyce planety musi być większa niż prędkość obrotu sfery niebieskiej, wynikającej z obrotu planety wokół własnej osi.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-02-22T16:49:49+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Symulacje falowe, część 1</title><link href="http://localhost:4000/programowanie/symulacje-falowe-cz-1" rel="alternate" type="text/html" title="Symulacje falowe, część 1" /><published>2026-02-22T00:00:00+01:00</published><updated>2026-02-22T00:00:00+01:00</updated><id>http://localhost:4000/programowanie/symulacje-falowe-cz-1</id><content type="html" xml:base="http://localhost:4000/programowanie/symulacje-falowe-cz-1"><![CDATA[<h2 id="równanie-falowe">Równanie falowe</h2>
+<p>Rozważmy $N$ mas $m$ połączonych $N-1$ sprężynkami o współczynniku sprężystości $k$ i długości swobodnej $x_0$. Jeśli sprężyny są sztywne, może być to np. model sztywnego pręta. Wyznaczymy teraz prędkość rozchodzenia się zaburzeń w tym układzie i równanie je opisujące.</p>
+
+<h1 id="rysunek">RYSUNEK</h1>
+
+<p>Rozważmy siły działające na $i$-tą masę. Niech $u_i$ oznacza jej wychylenie z położenia równowagi, dodatnie w prawo. Siła pochodząca od sprężyny z prawej strony to
+$$ F_1=-k(u_i-u_{i+1}), $$
+a siła pochodząca od tej z lewej to
+$$ F_2=-k(u_i-u_{i-1}), $$
+więc
+$$ m\ddot{u}_i=F_1+F_2=k(u_{i+1}-2u_i+u_{i-1}). $$
+Załóżmy, że $N$ jest duże, czyli $m$ oraz wszystkie $u$ są małe. Zauważmy, że wyrażenie w nawiasie przypomina wzór na drugą pochodną:
+$$ \frac{d^2 y}{dx^2}= \frac{y(x+dx)-2y(x)+y(x-dx)}{dx^2}, $$
+gdzie u nas $y\rightarrow u$, a $x$ to również $x$. Mamy:
+$$ m\ddot{u}= k\frac{\partial^2 u}{\partial x^2}u_0^2, $$
+gdzie mamy pochodną cząstnową, ponieważ $u$ to również funkcja czasu oraz $u_0$, ponieważ jest ono równe $x_{i+1}-x_i$. Pochodna $u$ po czasie to:
+$$ \frac{du}{dt}= \frac{\partial u}{\partial t}+ \frac{\partial u}{\partial x} \frac{dx}{dt}, $$
+ale położenie równowagi każdej masy jest ustalone, więc pozostaje tylko pierwszy człon. Stąd mamy
+$$ \frac{\partial^2 u}{\partial^2 t}= \frac{k u_0^2}{m} \frac{\partial^2 u}{\partial x^2}. $$
+Niech $M=Nm$ oznacza całkowitą masę pręta, a $L=u_0 N$ jego długość. Mamy wtedy
+$$ \frac{k u_0^2}{m}= \frac{k L^2}{N M}. $$
+Sprężyny są pewną analogią do kondensatorów, ponieważ połączone ,,szeregowo’’ dają zastępczy współczynnik spręzystości równy
+$$ \frac{1}{k_z}=\sum_i \frac{1}{k_i}. $$
+U nas $k_i=k$, więc współczynnik sprężytości całego pręta to $K=k/N$, więc ostatecznie:
+$$ \frac{\partial^2 u}{\partial t^2}= \frac{KL^2}{M} \frac{\partial u^2}{\partial x^2}. $$  <br />
+Jest to <strong>równanie falowe</strong>, które w najogólniejszej postaci dla 1 wymiaru ma postać:
+$$ \boxed{\frac{\partial^2 u}{\partial t^2}= c^2 \frac{\partial^2 u}{\partial x^2},} $$
+gdzie $c$ to prędkość rozchodzenia się fal w ośrodku. Widzimy zatem, że dla pręta
+$$ c=\sqrt{ \frac{KL^2}{M}}. $$</p>
+
+<p>Podobne rozumowanie możemy przeprowadzić dla większej liczby wymiarów, np. dla dwóch:
+$$ \frac{\partial u}{\partial t^2}= c^2\left( \frac{\partial^2 u}{\partial x^2}+  \frac{\partial^2 u}{\partial y^2}\right) $$
+lub w ogólności:
+$$ \boxed{\frac{\partial u}{\partial t^2}= c^2\nabla^2 u.} $$
+W tym artykule zajmiemy się równaniem falowym dla dwóch wymiarów.</p>
+
+<h2 id="numeryczne-rozwiązywanie-równania-falowego">Numeryczne rozwiązywanie równania falowego</h2>
+<p>Aby numerycznie rozwiązać równianie falowe w dwóch wymiarach, utworzymy tablicę dwuwymiarową $N\times N$ reprezentującą siatkę komórek o wymiarach $\Delta x\times\Delta x$. Komórka $(i,j)$ ma przypisaną wartość $u_{ij}$. Do obliczenia drugich pochodnych w przestrzeni wykorzystamy dobrze znany wzór:
+$$ \frac{\partial^2 u_{ij}}{\partial x^2}\approx \frac{u_{(i+1)j}-2u_{ij}+u_{(i-1)j}}{\Delta x^2} $$
+i podobnie dla pochodnej po $y$. Dla pochodnych czasowych:
+$$ \frac{\partial^2 u_{ij}}{\partial t^2} \approx \frac{u_{ij}(t+\Delta t)-2u_{ij}(t)+u_{ij}(t-\Delta t)}{\Delta t^2}. $$
+Wstawiając do równania falowego, mamy
+$$ \frac{u_{ij}(t+\Delta t)-2u_{ij}(t)+u_{ij}(t-\Delta t)}{\Delta t^2}=c^2\left(\frac{\partial^2 u_{ij}}{\partial x^2}+\frac{\partial^2 u_{ij}}{\partial y^2}\right), $$
+co, aby obliczyć $u_{ij}(t+\Delta t)$, przekształcamy do postaci:
+$$ u_{ij}(t+\Delta t)=c^2\Delta t^2\left(\frac{\partial^2 u_{ij}}{\partial x^2}+\frac{\partial^2 u_{ij}}{\partial y^2}\right)+2u_{ij}(t)-u_{ij}(t-\Delta t). $$
+Zauważmy, że potrzebujemy zapisywać w pamięci również $u_{ij}(t-\Delta t)$.</p>
+
+<p>Napotykamy jednak problem związany z brzegami obszaru. W tym artykule założymy, że $u$ zawsze $=0$ na brzegach, co ma efekt podobny do ściany - fale będą się od nich odbijać. W drugiej części artykułu zaimplementujemy warunki brzegowe, które będą absorbować fale, co da nam efekt fali opuszczającej obszar. Z tego powodu tablica w programie będzie miała tak naprawdę wymiary $(N+2)\times(N+2)$, aby pomieścić również brzegi.</p>
+
+<h3 id="implementacja-w-c">Implementacja w C++</h3>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">size_x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size_y</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">u</span><span class="p">[</span><span class="n">size_x</span><span class="o">+</span><span class="mi">2</span><span class="p">][</span><span class="n">size_y</span><span class="o">+</span><span class="mi">2</span><span class="p">];</span>
+<span class="kt">double</span> <span class="n">old_u</span><span class="p">[</span><span class="n">size_x</span><span class="o">+</span><span class="mi">2</span><span class="p">][</span><span class="n">size_y</span><span class="o">+</span><span class="mi">2</span><span class="p">];</span>
+<span class="kt">double</span> <span class="n">c</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">dx</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">calculate_u</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">new_u</span><span class="p">[</span><span class="n">size_x</span><span class="o">+</span><span class="mi">2</span><span class="p">][</span><span class="n">size_y</span><span class="o">+</span><span class="mi">2</span><span class="p">];</span> 
+    <span class="n">std</span><span class="o">::</span><span class="n">memset</span><span class="p">(</span><span class="n">new_u</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">new_u</span><span class="p">);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size_x</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">size_y</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">double</span> <span class="n">d2u_dx2</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">dx</span><span class="o">*</span><span class="n">dx</span><span class="p">);</span>
+            <span class="kt">double</span> <span class="n">d2u_dy2</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">dx</span><span class="o">*</span><span class="n">dx</span><span class="p">);</span>
+            <span class="n">new_u</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">d2u_dx2</span> <span class="o">+</span> <span class="n">d2u_dy2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">old_u</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">old_u</span><span class="p">,</span> <span class="n">u</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">new_u</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Na początku programu tworzymy potrzebne zmienne i tablice (czas, $u$ i $u$ z poprzedniej iteracji), ustalamy rozmiary symulacji (<code class="language-plaintext highlighter-rouge">size_x</code> i <code class="language-plaintext highlighter-rouge">size_y</code>, <code class="language-plaintext highlighter-rouge">dx</code> to krok w przestrzeni - ten sam dla $x$ i $y$, a <code class="language-plaintext highlighter-rouge">dt</code> to krok w czasie) i jej parametry (<code class="language-plaintext highlighter-rouge">c</code> - prędkość fali). W funkcji <code class="language-plaintext highlighter-rouge">calculate_u()</code> tworzymy pustą tablicę, do której obliczmy nowe wartości $u$ dla wszystkich komórek (nie możemy modyfikować $u$, ponieważ później używalibyśmy nowych, a nie aktualnych wartości do obliczeń). Po obliczeniach zapisujemy stare wartości (potrzebne do symulacji) do tablicy <code class="language-plaintext highlighter-rouge">old_u</code>, a nowe wartości do <code class="language-plaintext highlighter-rouge">u</code>.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">memset</span><span class="p">(</span><span class="n">old_u</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">old_u</span><span class="p">);</span>
+	<span class="n">std</span><span class="o">::</span><span class="n">memset</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span> <span class="n">u</span><span class="p">);</span>
+
+	<span class="n">u</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+	<span class="n">old_u</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+
+	<span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">data</span><span class="p">;</span>
+	<span class="n">data</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">"data.csv"</span><span class="p">);</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">calculate_u</span><span class="p">();</span>
+		<span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span><span class="p">;</span>
+		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size_x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">size_y</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+				<span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">!=</span> <span class="n">size_y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+					<span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">", "</span><span class="p">;</span>
+				<span class="k">else</span>
+					<span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+			<span class="n">data</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">data</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>W funkcji <code class="language-plaintext highlighter-rouge">main</code> inicjalizujemy tablice <code class="language-plaintext highlighter-rouge">u</code> i <code class="language-plaintext highlighter-rouge">old_u</code>, dodajemy chwilowe zaburzenie w $(5,5)$, a następnie dla 500 kroków w czasie iterujemy algorytm i wyniki zapisujemy w pliku <code class="language-plaintext highlighter-rouge">.csv</code>. Korzystając z biblioteki <code class="language-plaintext highlighter-rouge">matplotlib</code> w pythonie możemy wyniki obliczeń zwizualizować w postaci animacji:</p>
+<p align="center">
+<video width="800" controls="controls">
+<source src="/assets/videos/2026-02-23/anim5.mp4" type="video/mp4" />
+</video>
+</p>
+
+<p>Aby działo się coś więcej, możemy dodać na środku siatki 2 źródła oscylujące w zgodnej fazie. W pętli <code class="language-plaintext highlighter-rouge">for</code> przed <code class="language-plaintext highlighter-rouge">calculate_u()</code> dodajemy:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">u</span><span class="p">[</span><span class="mi">45</span><span class="p">][</span><span class="mi">50</span><span class="p">]</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<span class="n">u</span><span class="p">[</span><span class="mi">55</span><span class="p">][</span><span class="mi">50</span><span class="p">]</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+</code></pre></div></div>
+<p>Efekt jest następujący.</p>
+<p align="center">
+<video width="800" controls="controls">
+<source src="/assets/videos/2026-02-23/anim2.mp4" type="video/mp4" />
+</video>
+</p>
+<p>Widzimy wyraźne tworzenie się minimów interferencyjnych. Ze wzoru na interferencję na dwóch szczelinach pierwsze minimum powinno być pod kątem:
+$$ \alpha= \arcsin \frac{\lambda}{d}. $$
+U nas $d=10$, a $\lambda=c/f$. $c=1$ (ustalone w programie), a $f$ możemy obliczyć ze wzoru $\omega/2\pi$. U nas $\omega=1$, bo mamy $\sin t$. Stąd $\lambda=2\pi$ oraz $\alpha\approx 40\deg$. Bardzo podobny kąt odczytujemy również z animacji.</p>
+
+<p>Dodając w pętli <code class="language-plaintext highlighter-rouge">for</code> w funkcji <code class="language-plaintext highlighter-rouge">calculate_u()</code> warunek</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">50</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">47</span> <span class="o">||</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">53</span><span class="p">))</span>
+    <span class="k">continue</span><span class="p">;</span>
+</code></pre></div></div>
+<p>możemy utworzyć po środku obszaru ścianę z przesłoną:</p>
+<p align="center">
+<video width="800" controls="controls">
+<source src="/assets/videos/2026-02-23/anim1.mp4" type="video/mp4" />
+</video>
+</p>
+<p>Wyraźnie widzimy zjawisko ugięcia na szczelinie. Widzimy również wadę przyjętych warunków brzegowych - fale odbijają się od ścian i coraz bardziej się wzmacniają tworząc fale stojące (na brzegach) i ciekawe wzory.</p>
+
+<p>W ścianie umieścimy również dwie szczeliny:</p>
+<p align="center">
+<video width="800" controls="controls">
+<source src="/assets/videos/2026-02-23/anim3.mp4" type="video/mp4" />
+</video>
+</p>
+<p>i widzimy dobrze znane prążki. Szczeliny możemy również umiejscowić w różnych odległościach od źródła, aby zmienić fazę w każdej ze szczelin:</p>
+<p align="center">
+<video width="800" controls="controls">
+<source src="/assets/videos/2026-02-23/anim4.mp4" type="video/mp4" />
+</video>
+</p>
+<p>Fale w każdej ze szczelin są w przybliżeniu w przeciwfazie, a ta wychodząca z dolnej szczeliny ma większą amplitudę, ponieważ jest bliżej źródła. Prążki nie są teraz idealnie równe.</p>
+
+<p>Nasze warunki brzegowe można jednak wykorzystać na własną korzyść, tworząc np. okrągłą ścianę i tak dobierając parametry, aby powstała fala stojąca:</p>
+<p align="center">
+<video width="800" controls="controls">
+<source src="/assets/videos/2026-02-23/anim6.mp4" type="video/mp4" />
+</video>
+</p>
+<p>Fala stojąca po chwili zanika, a potem ponownie się pojawi, ponieważ ze względu na skończoną prezycję, parametrów nie można dobrać idealnie i będą zachodzić dudnienia.</p>
+<p align="center">
+<video width="800" controls="controls">
+<source src="/assets/videos/2026-02-23/anim7.mp4" type="video/mp4" />
+</video>
+</p>]]></content><author><name></name></author><category term="Programowanie" /><summary type="html"><![CDATA[Równanie falowe Rozważmy $N$ mas $m$ połączonych $N-1$ sprężynkami o współczynniku sprężystości $k$ i długości swobodnej $x_0$. Jeśli sprężyny są sztywne, może być to np. model sztywnego pręta. Wyznaczymy teraz prędkość rozchodzenia się zaburzeń w tym układzie i równanie je opisujące.]]></summary></entry><entry><title type="html">Ruch wsteczny Słońca na niebie</title><link href="http://localhost:4000/astronomia/ruch-wsteczny-slonca-na-niebie" rel="alternate" type="text/html" title="Ruch wsteczny Słońca na niebie" /><published>2026-02-12T00:00:00+01:00</published><updated>2026-02-12T00:00:00+01:00</updated><id>http://localhost:4000/astronomia/ruch-wsteczny-slonca-na-niebie</id><content type="html" xml:base="http://localhost:4000/astronomia/ruch-wsteczny-slonca-na-niebie"><![CDATA[<p>Czy możliwe jest, aby na którejkolwiek z planet Układu Słonecznego Słońce zaszło, a następnie od razu wzeszło, wszystko po zachodniej stronie nieba? Aby zjawisko takie miało miejsce, chwilowa prędkość ruchu Słońca po ekliptyce planety musi być większa niż prędkość obrotu sfery niebieskiej, wynikającej z obrotu planety wokół własnej osi.</p>
 
 <h2 id="dla-których-planet-może-zajść-ruch-wsteczny-słońca">Dla których planet może zajść ruch wsteczny Słońca?</h2>
 <p>Kąt godzinny Słońca możemy wyrazić wzorem 
@@ -91,7 +252,7 @@ $$ a= \frac{2\pi}{P_o}t+2e\sin\left( \frac{2\pi}{P_o}t\right)+ \frac{5}{4}e^2\si
 $$ \dot{a}=\frac{2\pi}{P_o}- \frac{2\pi}{P_d}+ \frac{4\pi e}{P_o}\cos\left( \frac{2\pi}{P_o}t\right) + \frac{5\pi e^2}{P_o}\cos\left( \frac{4\pi}{P_o}t\right). $$
 Aby obliczyć miejsce zerowe, $t_0$, przyrównujemy do $0$ i przekształcamy do postaci umożliwiającej iterację prostą:
 $$ t_0 = \frac{P_o}{4\pi}\arccos\left( \frac{1}{5e^2}- \frac{4}{5e}\cos\left( \frac{2\pi t_0}{P_o}\right)\right) $$
-(skorzystałem z faktu, że $P_o/P_d\approx 3/2$ dla Merkurego). Wartości zbiegają bardzo wolno i oscylują pomiędzy około $2.851$ i $2.807$, dlatego weźmiemy ich średnią: $t_0\approx 2.829^d$. Z struktury powyższego równania widać, że rozwiązania są symetryczne względem $x=0$, tzn. jeśli rozwiązanie to $x$, to $-x$ jest również rozwiązaniem. Dlatego $-t_0$ odpowiada chwili, gdy Słońce jest na horyzoncie i się zatrzymuje, a $t_0$ odpowiada chwili, gdy zawraca z ruchu wstecznego i ponownie zaczyna zmierzać w kierunku zachoda (czyli jest najwyżej). Chcemy, aby $a(-t_0)=0\degree$, więc stała $C$ to
+(skorzystałem z faktu, że $P_o/P_d\approx 3/2$ dla Merkurego). Wartości zbiegają bardzo wolno i oscylują pomiędzy około $2.851$ i $2.807$, dlatego weźmiemy ich średnią: $t_0\approx 2.829^d$. Ze struktury powyższego równania widać, że rozwiązania są symetryczne względem $t=0$, tzn. jeśli rozwiązanie to $x$, to $-x$ jest również rozwiązaniem. Dlatego $-t_0$ odpowiada chwili, gdy Słońce jest na horyzoncie i się zatrzymuje, a $t_0$ odpowiada chwili, gdy zawraca z ruchu wstecznego i ponownie zaczyna zmierzać w kierunku zachodu (czyli jest najwyżej). Chcemy, aby $a(-t_0)=0\degree$, więc stała $C$ to
 $$ C=2\pi t_0\left( \frac{1}{P_o}- \frac{1}{P_d}\right)+2e\sin\left( \frac{2\pi}{P_o}t_0\right)+ \frac{5}{4}e^2\sin\left( \frac{4\pi}{P_o}t_0\right), $$
 skąd $C\approx 0.00227$. Wtedy ostateczna odpowiedź to
 $$ a(t_0)\approx 16’. $$
@@ -817,124 +978,4 @@ Należy również wziąć pod uwagę efekt Schwarzschilda. Używany przeze mnie 
 <p align="center">
 <img src="/assets/images/2025-11-17/img7.jpg" width="700" />
 </p>
-<p>Rozdzielczość aparatu jest ograniczona przez użycie otworku jako soczewki. Najbardziej optymalna średnica otworu to wg. Wikipedii dla tej ogniskowej $0.2\text{mm}$ (wtedy efekty falowe powodują delikatne skupienie światła), lecz ciężko jest uzyskać dokładnie taki rozmiar.</p>]]></content><author><name></name></author><category term="Fotografia" /><summary type="html"><![CDATA[Aparat składa się z kilku części: rolki na naświetlony film, miejsca na puszkę z filmem, pokręteł do zwijania filmu, obiektywu, czyli folii aluminiowej z małą dziurką, ręcznie otwieranej i zamykanej przesłony, pokrywy, która magnetycznie przyczepia się do obudowy, magnesu w obudowie.]]></summary></entry><entry><title type="html">Rozkład Maxwella</title><link href="http://localhost:4000/termodynamika/rozk%C5%82ad-maxwella" rel="alternate" type="text/html" title="Rozkład Maxwella" /><published>2025-09-02T00:00:00+02:00</published><updated>2025-09-02T00:00:00+02:00</updated><id>http://localhost:4000/termodynamika/rozk%C5%82ad-maxwella</id><content type="html" xml:base="http://localhost:4000/termodynamika/rozk%C5%82ad-maxwella"><![CDATA[<h2 id="wzór-barometryczny">Wzór barometryczny</h2>
-
-<p align="center">
-<img src="/assets/images/2025-09-02/cisnienie.svg" width="500" />
-</p>
-
-<p>Rozważmy gaz doskonały znajdujący się w jednorodnym polu grawitacyjnym o natężeniu $g$. Gaz ma stałą temperaturę $T$.  Rozważmy ciśnienie $p$ w punkcie na wysokości $h$ względem pewnego poziomu odniesienia, na którym $h=0$ oraz $p=p_0$ (np. powierzchni ziemi). W punkcie znajdującym się niżej o $dh$ ciśnienie będzie wynosić:
-$$ p(h-dh)=p(h)+p_{gazu}, $$
-gdzie $p_{gazu}$ to ciśnienie wynikające z masy gazu znajdującego się między wysokościami $h$ a $h-dh$. 
-Z definicji ciśnienia mamy
-$$ p_{gazu}=\frac{dF}{dS}=g\frac{dm}{dS}, $$
-gdzie $dS$ to powierzchnia, na którą napiera element gazu o masie $dm$. Skorzystałem z faktu, że ciężar gazu wyraża się wzorem $g\,dm$. Wstawmy ten wynik do wcześniejszego równania:
-$$ p(h-dh)=p(h)+g\frac{dm}{dS}. $$
-Ponieważ $dp=p(h)-p(h-dh)$, możemy zapisać 
-$$ dp=-g\frac{dm}{dS}. $$
-Zauważmy, że $dm$ możemy wyrazić jako $\rho dV$, gdzie $\rho$ to gęstość elementu gazu:
-$$ dp=-g\rho\frac{dV}{dS}. $$
-Ponieważ $dV=dS\,dh$, 
-$$ dp=-g\rho\,dh $$</p>
-
-<p>Chcielibyśmy wyrazić $\rho$ poprzez $p$. Aby to uczynić, posłużymy się równaniem stanu gazu idealnego:
-$$ pV=nRT $$
-lub przekształcając
-$$ p=\frac{nRT}{V}. $$
-Liczbę moli możemy wyrazić poprzez gęstość, korzystając z faktu, że $n=m/\mu$ (gdzie $\mu$ to masa molowa gazu) oraz $m=\rho V$:
-$$ n=\rho V/\mu. $$
-Wstawmy to do wcześniejszego równania:
-$$ p=\frac{\rho RT}{\mu} $$
-i przekształćmy
-$$ \rho=\frac{p\mu}{RT}. $$</p>
-
-<p>Możemy powrócić do równania na $dp$:
-$$ dp=-\frac{g\mu}{RT}p\,dh $$
-$$ \frac{dp}{p}=-\frac{g\mu}{RT}\,dh. $$
-Pocałkujmy obustronnie:
-$$ \int \frac{dp}{p}=\int -\frac{g\mu}{RT}\,dh $$
-$$ \ln p=-\frac{g\mu}{RT}h+C $$
-i przekształćmy aby otrzymać wyrażenie na $p$:
-$$ p=\exp\left(-\frac{g\mu}{RT}h+C\right)=C\exp\left(-\frac{g\mu}{RT}h\right). $$
-Chcemy, aby $p=p_0$, gdy $h=0$, dlatego $C=p_0$. W ten sposób otrzymujemy <strong>wzór barometryczny</strong>:
-$$ \boxed{p=p_0\exp\left(-\frac{g\mu}{RT}h\right)} $$</p>
-
-<p>Teraz za pomocą wzoru barometrycznego wyrazimy gęstość gazu jako funkcję wysokości. Z poprzednich rozważań wiemy, że
-$$ \rho=\frac{p\mu}{RT}, $$
-czyli 
-$$ p=\rho\frac{RT}{\mu}. $$
-Jeśli ograniczymy się do jednej cząstki o masie $m$, możemy zapisać 
-$$ RT=\frac{nRT}{n}=\frac{NkT}{n}=\frac{kT}{n}, $$
-ponieważ $N=1$. Wstawmy to do wzoru barometrycznego:
-$$ \rho\frac{RT}{\mu}=\rho_0\frac{RT}{\mu}\exp\left(-\frac{g\mu n}{kT}h\right), $$
-a ponieważ $\mu n=m$:
-$$ \rho=\rho_0\exp\left(-\frac{mgh}{kT}\right). $$
-Gęstość malejąca wykładniczo z wysokością oznacza również wykładniczo malejącą liczbę cząstek, ponieważ te dwie wielkości są wprost proporcjonalne.</p>
-
-<p>Wzór barometryczny pozwala nam oszacować gęstość różnych gazów na różnych wysokościach w naszej atmosferze, przy założeniu stałej temperatury. Poniższy wykres przedstawia znormalizowane gęstości dla azotu, tlenu i wodoru. Warto zauważyć, że gazy lżejsze, takie jak wodór, na dużych wysokościach występują względnie częściej niż gazy cięższe, np. tlen i azot.</p>
-
-<p align="center">
-<img src="/assets/images/2025-09-02/gazyatm.svg" width="700" />
-</p>
-
-<p>Założenie stałej temperatury (w tym przypadku $T=288\text{K}$) oczywiście nie jest poprawne na skali wysokości $0-100\text{km}$, ale daje w przybliżeniu poprawne wyniki dla wysokościach do $10\text{km}$.</p>
-
-<h2 id="rozkład-prędkości-pionowych">Rozkład prędkości pionowych</h2>
-
-<p>Naszym obecnym celem jest znalezienie rozkładu prędkości pionowych cząsteczek. Wiemy, że cząsteczki <em>muszą</em> mieć różne prędkości pionowe, ponieważ zgodnie ze wzorem barometrycznym, niektóre z nich nie mają wystarczającej prędkości (energii), aby wznieść się na wysokość $h$.
-W tym celu rozważmy dwie płaszczyzny, jedną na poziomie $h=0$, a drugą na poziomie $h=H$. Zakładamy w tej chwili, że zderzenia nie mają wpyłwu na pionowy ruch cząsteczek. Zauważmy, że liczba cząstek o prędkości pionowej $v_z&gt;v_{min}=\sqrt{2gH}$ i przebiegających w pewnym czasie przez dolną płaszczyznę <em>jest równa</em> liczbie cząstek przebiegających przez górą płaszczyznę i o prędkości pionowej $v_z&gt;0$. Wszystkie cząstki spełniające warunek $v_z&gt;v_{min}$ w $h=0$ po pewnej chwili znajdą się w $h=H$ kosztem wytracenia energii $\frac{1}{2}m v_{min}^2$. Ponieważ $\rho$ jest stałe, liczba cząstek przebiegających przez płaszczyzny musi być stała (wtedy liczba cząstek poruszających się w górę jest równa liczbie tych poruszających się w dół i wypadkowy strumień cząstek jest równy zeru).</p>
-
-<p align="center">
-<img src="/assets/images/2025-09-02/rozmax1.svg" width="700" />
-</p>
-
-<p>Niech $n(v_z^2, h)$ będzie funkcją liczącą średnią liczbę cząstek o danym kwadracie prędkości na pewnej wysokości $h$. Zauważmy, że 
-$$n(v_z^2, H)=n(v_z^2+v_{min}^2, 0), $$
-ponieważ na wysokości $h=H$ wszystkie kwadraty prędkości zostają pomniejszone o $v_{min}^2$ (patrz wykres powyżej). Wykres $n(v_z^2, 0)$ zostaje “przesunięty” w lewo, aby “obciąć” te cząstki, które nie miały wystarczającej energii, oraz aby “przesunąć” pozostałe. Ponieważ na wysokości $H$ całkowita liczba cząstek jest mniejsza o czynnik z funkcją wykładniczą niż na wysokości $h=0$, możemy stwierdzić, że 
-$$ n(v_z^2, H)=\exp\left(-\frac{mgH}{kT}\right)n(v_z^2, 0). $$
-Wstawmy to do wcześniejszego równania:
-$$ \exp\left(-\frac{mgH}{kT}\right)n(v_z^2, 0)=n(v_z^2+v_{min}^2, 0) $$
-i zamieńmy $H$ na $v_{min}^2/2g$:
-$$ \exp\left(-\frac{mv_{min}^2}{2kT}\right)n(v_z^2, 0)=n(v_z^2+v_{min}^2, 0). $$
-Niech $v_{min}^2$ będzie bardzo małe. Oznaczmy $v_z^2$ jako $u$, a $v_{min}^2$ jako $du$. Wtedy, jeśli rozwiniemy funkcję wykładniczą w szereg:
-$$ \left(1-\frac{m}{2kT}\,du\right)n(u,0)=n(u+du,0) $$
-$$ -\frac{m}{2kT}n(u,0)\,du=n(u+du,0)-n(u,0) $$
-$$ -\frac{m}{2kT}n(u,0)\,du=dn $$
-$$ \frac{dn}{du}=-\frac{m}{2kT}n(u,0). $$
-Rozwiązując to równanie otrzymujemy
-$$ n(u, 0)=n_0\exp\left(-\frac{mu}{2kT}\right) $$
-lub 
-$$ n(v_z^2, 0)=n_0\exp\left(-\frac{mv_z^2}{2kT}\right), $$
-gdzie $n_0$ to pewna stała. Zauważmy, że powyższy wynik jest prawdziwy nie tylko dla małych, ale dla <em>wszystkich</em> $du$. Oznaczmy przez $n_c(0)$ całkowitą liczbę cząstek na poziomie $h=0$. Wtedy gęstość prawdopodobieństwa wylosowania cząstki o prędkości $v_z$ to
-$$ f(v_z)=\frac{n(v_z^2,0)}{n_c(0)}=f_{0z} \exp\left(-\frac{mv_z^2}{2kT}\right), $$
-gdzie $f_{0z}$ to pewna stała normalizująca. Funkcja $f$ przestaje być funkcją $v_z^2$, a $v_z$, ponieważ znak składowej prędkości nie ma znaczenia. Warto zauważyć, że rozkład jest symetryczny. Prawdopodobieństwo wylosowania cząstki o prędkości w przedziale $\left[v_{z0}, v_{z1}\right]$ to 
-$$ p_z=\int_{v_{z1}}^{v_{z2}} f(v_z)\,dv_z. $$
-Zauważmy, że rozkład <em>nie zależy</em> od wysokości ani wartości przyspieszenia grawitacyjnego. Jest on w ogólności prawdziwy dla <em>wszystkich gazów doskonałych</em>.</p>
-
-<h2 id="rozkład-prędkości-cząsteczkowych-w-gazie">Rozkład prędkości cząsteczkowych w gazie</h2>
-<p>Aby rozszerzyć prawdopodobieństwo na wartość wektora prędkości, a nie tylko jego składową w kierunku $z$, posłużymy się zasadą ekwipartycji energii. Na jej podstawie możemy stwierdzić, że 
-$$ v_x^2=v_y^2=v_z^2, $$
-dlatego
-$$ p_x=\int_{v_{0x}}^{v_{1x}}f_{0x}\exp\left(-\frac{mv_x^2}{2kT}\right)\,dv_x, $$
-$$ p_y=\int_{v_{0y}}^{v_{1y}}f_{0y}\exp\left(-\frac{mv_y^2}{2kT}\right)\,dv_y. $$
-Całkowite prawdopodobieństwo, że wartość prędkości zawiera się w pewnym przedziale $\left[v_0,v_1\right]$, to iloczyn prawdopodobieństw, że składowe wektora prędkości zawierają się w takich przedziałach, że wektor $\mathbf{v}$ ma odpowiednią długość:
-$$ p=\iiint_V f_0\exp\left(-\frac{m(v_x^2+v_y^2+v_z^2)}{2kT}\right)\,dv_x\,dv_y\,dv_z=\iiint_V f_0\exp\left(-\frac{mv^2}{2kT}\right)\,dv_x\,dv_y\,dv_z, $$
-gdzie $V$ to pewna objętość w przestrzeni $(v_x, v_y, v_z)$, dla której $v$ zawiera się w odpowiednim przedziale, a stała $f_0$ jest dobrana tak, że całkowite prawdopodobieństwo po całej przestrzeni wynosi $1$.</p>
-
-<p>Łatwo jest dostrzec analogię między współrzędnymi $(v_x, v_y, v_z)$ oraz $(x, y, z)$. Wtedy $v$ pełni rolę odległości od środka układu współrzędnych $r$. Z tego powodu możemy dokonać zamiany zmiennych, a mianowicie podobnie, jak we współrzędnych sferycznych $dx\,dy\,dz=4\pi r^2\,dr$, u nas $dv_x\,dv_y\,dv_z=4\pi v^2\,dv$:
-$$ p=\int_{v_0}^{v_1}4\pi f_0 v^2\exp\left(-\frac{mv^2}{2kT}\right)\,dv. $$
-Funkcja
-$$ \boxed{f(v)=4\pi f_0v^2\exp\left(-\frac{mv^2}{2kT}\right)} $$
-to <strong>rozkład Maxwella</strong>. Aby wyznaczyć stałą $f_0$ pocałkujmy na przedziale $\left[0,\infty\right]$:
-$$ \int_{0}^{\infty}4\pi f_0 v^2\exp\left(-\frac{mv^2}{2kT}\right)\,dv=1.$$
-Aby obliczyć całkę, podstawmy $z=mv^2/(2kT)$, skąd $dz=mv/(kT)\,dv=\sqrt{2mz/(kT)}\,dv$:
-$$ 4\pi f_0 \int_0^\infty \frac{2kT}{m}z\exp\left(-z\right)\sqrt{\frac{kT}{2mz}}\,dz=4\sqrt{2}\pi f_0\left(\frac{kT}{m}\right)^{3/2}\int_0^\infty z^{1/2}e^{-z}\,dz.  $$
-Całkę rozpoznajemy jako funkcję gamma:
-$$ \int_0^\infty z^{1/2}e^{-z}\,dz=\Gamma(\frac{3}{2})=\frac{1}{2}\Gamma(\frac{1}{2})=\frac{\sqrt{\pi}}{2}, $$
-a więc
-$$ f_0\left(\frac{2\pi kT}{m}\right)^{3/2}=1,$$
-$$ \boxed{f_0=\left(\frac{m}{2\pi kT}\right)^{3/2}} $$
-Funkcja rozkładu Maxwella dla różnych temperatur dla tego samego gazu została przedstawiona na poniższym wykresie.</p>
-<p align="center">
-<img src="/assets/images/2025-09-02/rozmax2.svg" width="700" />
-</p>]]></content><author><name></name></author><category term="Termodynamika" /><summary type="html"><![CDATA[Wzór barometryczny]]></summary></entry></feed>
+<p>Rozdzielczość aparatu jest ograniczona przez użycie otworku jako soczewki. Najbardziej optymalna średnica otworu to wg. Wikipedii dla tej ogniskowej $0.2\text{mm}$ (wtedy efekty falowe powodują delikatne skupienie światła), lecz ciężko jest uzyskać dokładnie taki rozmiar.</p>]]></content><author><name></name></author><category term="Fotografia" /><summary type="html"><![CDATA[Aparat składa się z kilku części: rolki na naświetlony film, miejsca na puszkę z filmem, pokręteł do zwijania filmu, obiektywu, czyli folii aluminiowej z małą dziurką, ręcznie otwieranej i zamykanej przesłony, pokrywy, która magnetycznie przyczepia się do obudowy, magnesu w obudowie.]]></summary></entry></feed>
