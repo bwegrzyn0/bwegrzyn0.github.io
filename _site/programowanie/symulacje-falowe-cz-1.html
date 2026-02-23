@@ -99,9 +99,9 @@ gdzie $c$ to prędkość rozchodzenia się fal w ośrodku. Widzimy zatem, że dl
 $$ c=\sqrt{ \frac{KL^2}{M}}. $$</p>
 
 <p>Podobne rozumowanie możemy przeprowadzić dla większej liczby wymiarów, np. dla dwóch:
-$$ \frac{\partial u}{\partial t^2}= c^2\left( \frac{\partial^2 u}{\partial x^2}+  \frac{\partial^2 u}{\partial y^2}\right) $$
+$$ \frac{\partial^2 u}{\partial t^2}= c^2\left( \frac{\partial^2 u}{\partial x^2}+  \frac{\partial^2 u}{\partial y^2}\right) $$
 lub w ogólności:
-$$ \boxed{\frac{\partial u}{\partial t^2}= c^2\nabla^2 u.} $$
+$$ \boxed{\frac{\partial^2 u}{\partial t^2}= c^2\nabla^2 u.} $$
 W tym artykule zajmiemy się równaniem falowym dla dwóch wymiarów.</p>
 
 <h2 id="numeryczne-rozwiązywanie-równania-falowego">Numeryczne rozwiązywanie równania falowego</h2>
@@ -171,14 +171,8 @@ Zauważmy, że potrzebujemy zapisywać w pamięci również $u_{ij}(t-\Delta t)
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>W funkcji <code class="language-plaintext highlighter-rouge">main</code> inicjalizujemy tablice <code class="language-plaintext highlighter-rouge">u</code> i <code class="language-plaintext highlighter-rouge">old_u</code>, dodajemy chwilowe zaburzenie w $(5,5)$, a następnie dla 500 kroków w czasie iterujemy algorytm i wyniki zapisujemy w pliku <code class="language-plaintext highlighter-rouge">.csv</code>. Korzystając z biblioteki <code class="language-plaintext highlighter-rouge">matplotlib</code> w pythonie możemy wyniki obliczeń zwizualizować w postaci animacji:</p>
-<p align="center">
-<video width="800" controls="controls">
-<source src="/assets/videos/2026-02-23/anim5.mp4" type="video/mp4" />
-</video>
-</p>
-
-<p>Aby działo się coś więcej, możemy dodać na środku siatki 2 źródła oscylujące w zgodnej fazie. W pętli <code class="language-plaintext highlighter-rouge">for</code> przed <code class="language-plaintext highlighter-rouge">calculate_u()</code> dodajemy:</p>
+<p>W funkcji <code class="language-plaintext highlighter-rouge">main</code> inicjalizujemy tablice <code class="language-plaintext highlighter-rouge">u</code> i <code class="language-plaintext highlighter-rouge">old_u</code>, dodajemy chwilowe zaburzenie w $(5,5)$, a następnie dla 500 kroków w czasie iterujemy algorytm i wyniki zapisujemy w pliku <code class="language-plaintext highlighter-rouge">.csv</code>. Korzystając z biblioteki <code class="language-plaintext highlighter-rouge">matplotlib</code> w pythonie możemy wyniki obliczeń zwizualizować w postaci animacji.
+Aby działo się coś ciekawego, możemy dodać na środku siatki 2 źródła oscylujące w zgodnej fazie. W pętli <code class="language-plaintext highlighter-rouge">for</code> przed <code class="language-plaintext highlighter-rouge">calculate_u()</code> dodajemy:</p>
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">u</span><span class="p">[</span><span class="mi">45</span><span class="p">][</span><span class="mi">50</span><span class="p">]</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
 <span class="n">u</span><span class="p">[</span><span class="mi">55</span><span class="p">][</span><span class="mi">50</span><span class="p">]</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
 </code></pre></div></div>
@@ -218,13 +212,7 @@ U nas $d=10$, a $\lambda=c/f$. $c=1$ (ustalone w programie), a $f$ możemy oblic
 </p>
 <p>Fale w każdej ze szczelin są w przybliżeniu w przeciwfazie, a ta wychodząca z dolnej szczeliny ma większą amplitudę, ponieważ jest bliżej źródła. Prążki nie są teraz idealnie równe.</p>
 
-<p>Nasze warunki brzegowe można jednak wykorzystać na własną korzyść, tworząc np. okrągłą ścianę i tak dobierając parametry, aby powstała fala stojąca:</p>
-<p align="center">
-<video width="800" controls="controls">
-<source src="/assets/videos/2026-02-23/anim6.mp4" type="video/mp4" />
-</video>
-</p>
-<p>Fala stojąca po chwili zanika, a potem ponownie się pojawi, ponieważ ze względu na skończoną prezycję, parametrów nie można dobrać idealnie i będą zachodzić dudnienia.</p>
+<p>Nasze warunki brzegowe można jednak wykorzystać na własną korzyść, tworząc np. okrągłą ścianę i tak dobierając parametry, aby powstała fala stojąca. Fala stojąca po chwili zanika, a potem ponownie się pojawi, ponieważ ze względu na skończoną prezycję, parametrów nie można dobrać idealnie i będą zachodzić dudnienia.</p>
 <p align="center">
 <video width="800" controls="controls">
 <source src="/assets/videos/2026-02-23/anim7.mp4" type="video/mp4" />
