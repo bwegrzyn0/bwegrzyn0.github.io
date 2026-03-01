@@ -154,7 +154,7 @@ Zauważmy, że potrzebujemy zapisywać w pamięci również $u_{ij}(t-\Delta t)
 	<span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">data</span><span class="p">;</span>
 	<span class="n">data</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">"data.csv"</span><span class="p">);</span>
 
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 		<span class="n">calculate_u</span><span class="p">();</span>
 		<span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span><span class="p">;</span>
 		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">size_x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>

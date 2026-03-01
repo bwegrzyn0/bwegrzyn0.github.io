@@ -360,7 +360,7 @@ pre > code {
  * Wrapper
  */
 .wrapper {
-  max-width: calc(1500px - (30px));
+  max-width: calc(1000px - (30px));
   margin-right: auto;
   margin-left: auto;
   padding-right: 15px;
@@ -368,7 +368,7 @@ pre > code {
 }
 @media screen and (min-width: 1200px) {
   .wrapper {
-    max-width: calc(1500px - 30px * 2);
+    max-width: calc(1000px - 30px * 2);
     padding-right: 30px;
     padding-left: 30px;
   }

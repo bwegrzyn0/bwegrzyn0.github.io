@@ -92,7 +92,7 @@ int main() {
 	std::ofstream data;
 	data.open("data.csv");
 
-	for (int i = 0; i < 500; i++) {
+	for (int k = 0; k < 500; k++) {
 		calculate_u();
 		t += dt;
 		for (int i = 0; i < size_x + 2; i++) {
