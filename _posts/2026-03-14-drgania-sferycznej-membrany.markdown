@@ -2,7 +2,7 @@
 layout: post
 title: "Drgania sferycznej membrany"
 date: 2026-03-14
-categories: 
+categories: Mechanika
 katex: true
 ---
 
