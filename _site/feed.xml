@@ -1,4 +1,139 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-03-01T15:07:52+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Symulacje falowe, część 2</title><link href="http://localhost:4000/programowanie/symulacje-falowe-cz-2" rel="alternate" type="text/html" title="Symulacje falowe, część 2" /><published>2026-03-01T00:00:00+01:00</published><updated>2026-03-01T00:00:00+01:00</updated><id>http://localhost:4000/programowanie/symulacje-falowe-cz-2</id><content type="html" xml:base="http://localhost:4000/programowanie/symulacje-falowe-cz-2"><![CDATA[<h2 id="absorbujące-warunki-brzegowe-engquist-majda">Absorbujące warunki brzegowe (Engquist-Majda)</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-03-14T18:03:32+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Drgania sferycznej membrany</title><link href="http://localhost:4000/drgania-sferycznej-membrany" rel="alternate" type="text/html" title="Drgania sferycznej membrany" /><published>2026-03-14T00:00:00+01:00</published><updated>2026-03-14T00:00:00+01:00</updated><id>http://localhost:4000/drgania-sferycznej-membrany</id><content type="html" xml:base="http://localhost:4000/drgania-sferycznej-membrany"><![CDATA[<p>Rozważmy sferycznie symetryczną, płaską membranę, przymocowaną sztywno do pierścienia lub innej okrągłej krawędzi i wykonującą drgania. Membrana leży w jednej płaszczyźnie, więc problem nie zależy od współrzędnej $z$. Rówanie falowe dla membrany będzie miało postać:
+$$ c^2 \nabla^2 u = \frac{\partial^2 u}{\partial t^2} $$
+z warunkiem brzegowym $u(R)=0$, gdzie $R$ to promień membrany (jest ona przymocowana). Laplasjan we współrzędnych biegunowych to
+$$ \nabla^2 u = \frac{1}{r} \frac{\partial}{\partial r}\left( r \frac{\partial u}{\partial r}\right) + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2}, $$
+więc
+$$ \frac{1}{c^2} \frac{\partial^2 u}{\partial t^2}=\frac{1}{r} \frac{\partial}{\partial r}\left( r \frac{\partial u}{\partial r}\right) + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2}, $$
+gdzie $\theta$ to kąt biegunowy.</p>
+
+<p>Równanie rozwiążemy oczywiście speracją zmiennych. Założymy, że rozwiązanie jest postaci $u(r, \theta, t)=Y(r,\theta) T(t)$. Podstawiając,
+$$ \frac{Y(r,\theta)}{c^2} \frac{d^2 T}{dt^2}= \frac{T(t)}{r} \frac{\partial}{\partial r}\left( r \frac{\partial Y}{\partial r}\right)+ \frac{T(t)}{r^2} \frac{\partial ^2 Y}{\partial \theta^2}, $$
+skąd:
+$$ \frac{1}{Y(r,\theta)}\left(\frac{1}{r} \frac{\partial}{\partial r}\left( r \frac{\partial Y}{\partial r}\right)+ \frac{1}{r^2} \frac{\partial ^2 Y}{\partial \theta^2}\right)= \frac{1}{c^2 T(t)} \frac{\partial^2 T}{\partial t^2}. $$
+Obie strony równania zależą od różnych zmiennych, zatem muszą być stałe:
+$$ \frac{1}{c^2 T(t)} \frac{\partial^2 T}{\partial t^2}=-\lambda^2, $$
+$$ \frac{1}{Y(r,\theta)}\left(\frac{1}{r} \frac{\partial}{\partial r}\left( r \frac{\partial Y}{\partial r}\right)+ \frac{1}{r^2} \frac{\partial ^2 Y}{\partial \theta^2}\right)=-\lambda^2, $$
+gdzie $\lambda\in\mathbb{R}$ to pewna stała separacji. Musi być ona rzeczywista, ponieważ oczekujemy, że ruch <em>drgającej</em> membrany będzie miał charakter oscylacyjny.</p>
+
+<p>Pierwsze z równań to wtedy 
+$$ \frac{\partial^2 T}{\partial t^2}=-c^2\lambda^2 T(t), $$
+a jego rozwiązanie, ponieważ $-c^2\lambda^2$ jest ujemną liczbą rzeczywistą, to
+$$ T(t)= A\cos(c\lambda t)+B\sin(c\lambda t), $$
+gdzie $A$ i $B$ to pewne stałe rzeczywiste.</p>
+
+<p>Drugie z równań to
+$$ \frac{1}{r} \frac{\partial}{\partial r}\left( r \frac{\partial Y}{\partial r}\right)+ \frac{1}{r^2} \frac{\partial ^2 Y}{\partial \theta^2}=-\lambda^2 Y(r,\theta). $$
+Założymy, że $Y(r,\theta)=R(r)\Theta(\theta)$. Wtedy
+$$ \frac{\Theta(\theta)}{r} \frac{d}{dr}\left( r\frac{dR}{dr}\right)+ \frac{R(r)}{r^2} \frac{d^2 \Theta}{d\theta^2}=-\lambda^2 R(r)\Theta(\theta), $$
+skąd
+$$ \frac{r}{R(r)} \frac{d}{dr}\left( r \frac{dR}{dr}\right)+\lambda^2 r^2+ \frac{1}{\Theta(\theta)} \frac{d^2 \Theta}{d\theta^2}=0. $$
+Podobnie, jak poprzednio, część równania zależna tylko od $r$ i tylko od $\theta$ musi być stała. Na podstawie tego faktu:
+$$ \frac{1}{\Theta(\theta)} \frac{d^2\Theta}{d\theta^2}=-\alpha^2, $$
+gdzie $\alpha\in \mathbb{R}$. Wynika to z faktu, że funkcja $\Theta(\theta)$ musi spełniać warunek:
+$$ \Theta(\theta)=\Theta(\theta+2\pi k), \tag{1} $$
+gdzie $k\in \mathbb{Z}$, zatem musi być okresowa. Rozwiązaniem tego równania jest wtedy
+$$ \Theta(\theta)=C\cos(\alpha\theta)+D\sin(\alpha\theta), $$
+gdzie $C$ i $D$ to rzeczywiste stałe. Punkt, w którym $\theta=0$ możemy dobrać dowolnie, więc wybierzemy go tak, aby pozbyć się sinusa. Ponadto, ze względu na warunek (1),
+$$ cos(\alpha\theta)=\cos(\alpha\theta+2\pi k), $$
+więc
+$$ \alpha\theta+2\pi n=\alpha(\theta+2\pi k), \, n\in \mathbb{Z}, $$
+$$ 2\pi n=2\pi \alpha k, $$
+$$ n=\alpha k. $$
+Powyższe będzie spełnione dla <em>dowolnych</em> $n,k\in\mathbb{Z}$, tylko, jeśli $\alpha\in\mathbb{Z}$ (jeśli $\alpha$ byłoby wymierne, ale nie całkowite, to wtedy zawsze możemy znaleźć takie $k$, że nie będzie to prawdziwe, np. $k$ może być liczbą pierwszą niebędącą dzielnikiem mianownika). Mamy zatem
+$$ \Theta(\theta) = C\cos(\alpha\theta), $$
+$C\in\mathbb{R}$, $\alpha\in\mathbb{Z}$.</p>
+
+<p>Równanie na $R(r)$ jest postaci:
+$$\frac{r}{R(r)} \frac{d}{dr}\left( r \frac{dR}{dr}\right)+\lambda^2 r^2=\alpha^2. $$
+Po przeniesieniu wszystkich wyrazów na lewą stronę i rozpisaniu pochodnej mamy:
+$$ r^2 \frac{d^2 R}{dr^2}+ r \frac{dR}{dr}+ (\lambda^2 r^2-\alpha^2)R(r)=0. $$
+Dokonajmy zamiany zmiennych $\lambda r=x$. Wtedy
+$$ x^2 \frac{d^2 R}{dx^2}+ x \frac{dR}{dx}+(x^2-\alpha^2)R(x)=0. $$
+(zamieniając pochodną po $r$ na pochodną po $x$ skracamy $\lambda$ powstałe z podstawienia).
+Jest to <strong>równanie Bessela</strong>. Jak widzimy, $x=0$ jest regularnym punktem osobliwym powyższego równania (bo funkcja przy drugiej pochodnej rośnie jak $x^2$, a przy pierwszej, jak $x$), więc będziemy szukać rozwiązań metodą Frobeniusa, czyli postaci:
+$$ R(x) = \sum_{n=0}^\infty a_n x^{n+r}, $$
+gdzie $r$ to pewien parametr. Obliczając pochodne i wstawiając otrzymujemy:
+$$ \sum_{n=0}^\infty a_n(n+r)(n+r-1)x^{n+r}+\sum_{n=0}^\infty a_n(n+r)x^{n+r}+\sum_{n=0}^\infty a_nx^{n+r+2}-\alpha^2 \sum_{n=0}^\infty a_nx^{n+r} = 0. $$
+Chcemy, aby potęga przy $x$ była taka sama dla każdej sumy. Dla trzeciej z nich:
+$$ \sum_{n=0}^\infty a_nx^{n+r+2}=\sum_{n=2}^\infty a_{n-2}x^{n+r}. $$
+Stąd:
+$$ a_0 x^r \left[r(r-1)+r-\alpha^2\right] + a_1 x^{r+1}\left[ r(r+1)+(r+1)-\alpha^2\right]+\\ +\sum_{n=2}^\infty \left[a_n\left((n+r)(n+r-1)+(n+r)-\alpha^2\right)+a_{n-2}\right] x^{r+n}=0. $$
+Ponieważ z definicji $a_0$ stoi przy najniższej potędze, nie może być równe $0$ (bo inaczej najniższa potęga nie byłaby najniższa). Z tego powodu:
+$$ r(r-1)+r-\alpha^2 = r^2-\alpha^2 =0, $$
+więc $r=\pm \alpha$. Z drugiego wyrazu albo $a_1=0$, albo:
+$$ r(r+1)+(r+1)-\alpha^2 = (r+1)^2-\alpha^2 =0, $$
+co biorąc pod uwagę fakt, że $\alpha=\pm r$, daje jedynie $\alpha=-1/2\notin\mathbb{Z}$, zatem jedyna możliwość to $a_1=0$. Z ostatniego wyrazu mamy
+$$ a_n\left((n+r)(n+r-1)+(n+r)-\alpha^2\right)+a_{n-2} =0, $$
+skąd
+$$ a_n= \frac{-a_{n-2}}{(n+r)^2-\alpha^2}. $$
+Ponieważ $r=\pm \alpha$, to
+$$ a_n = \frac{a_{n-2}}{\alpha^2 - (n\pm \alpha)^2}= \frac{a_{n-2}}{\pm 2n\alpha-n^2}. $$
+Rozważmy najpierw $+$. Wyrazy dla $n$ nieparzystego będą równe $0$, bo $a_1=0$. Dla $n$ parzystego:
+$$ a_2 = -\frac{a_0}{4(\alpha+1)} \\ a_4 = \frac{a_0}{4\cdot 8(\alpha+1)(\alpha+2)} \\ \alpha_6 = -\frac{a_0}{4\cdot 8\cdot 12(\alpha+1)(\alpha+2)(\alpha+3)}. $$
+Widzimy, że w ogólności:
+$$ a_{2n} = (-1)^n \frac{a_0 \alpha!}{(\alpha+n)! 2^{2n} n!}. $$
+Stąd pierwsze rozwiązanie to:
+$$ R_1(x) = \sum_{n=0}^\infty (-1)^n \frac{a_0 \alpha!}{(\alpha+n)!2^{2n}n!} x^{2n+\alpha}. $$ 
+W celu uproszczenia zapisu przyjmiemy
+$$ a_0 = \frac{1}{2^\alpha \alpha!}, $$
+skąd
+$$ R_1(x) = \sum_{n=0}^\infty (-1)^n \frac{1}{(\alpha+n)! n!}\left( \frac{x}{2}\right)^{2n+\alpha} = J_\alpha(x). $$
+Jest to <strong>funckja Bessela pierwszego rodzaju rzędu $\alpha$</strong>. Podobnie możemy postąpić dla $-$, skąd dostaniemy $R_2(x)=Y_\alpha(x)$, gdzie $Y_\alpha(x)$ to <strong>funkcja Bessela drugiego rodzaju rzędu $\alpha$</strong>. Okazuje się jednak, że $Y_\alpha(x)$ są rozbieżne dla $x=0$, zatem nie będą one nas interesować.</p>
+
+<p>Rozwiązanie to zatem:
+$$ u(r, \theta, t) = A\cos(c\lambda t)\cos(\alpha\theta) J_\alpha(\lambda r), $$
+gdzie chwilę początkową wybieramy tak, aby $B=0$ oraz wszystkie stałe łączymy w jedną. Pozostaje nam warunek brzegowy:
+$$ u(R, \theta, t)=0, $$
+więc 
+$$ J_\alpha(\lambda R)=0. $$
+Zastąpmy $\alpha$ przez $m$. Jako $\alpha_{mn}$ oznaczymy $n$-te miejsce zerowe $J_n(x)$. Wtedy
+$$ \lambda R=\alpha_{mn}, $$
+skąd
+$$ \lambda = \frac{\alpha_{mn}}{R}. $$
+Ostateczne rozwiązanie to:
+$$ \boxed{ u_{mn}(r,\theta, t)=A\cos\left( \frac{c\alpha_{mn}}{R}t\right)\cos(m\theta)\, J_m\left( \frac{\alpha_{mn}r}{R}\right).} $$
+Są to <strong>mody normalne</strong> cylindrycznej membrany. Kilka modów normalnych jest przedstawionych na poniższych animacjach.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">$u_{01}$</th>
+      <th style="text-align: center">$u_{02}$</th>
+      <th style="text-align: center">$u_{03}$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="/assets/videos/2026-03-14/u01.gif" width="200" /></td>
+      <td style="text-align: center"><img src="/assets/videos/2026-03-14/u02.gif" width="200" /></td>
+      <td style="text-align: center"><img src="/assets/videos/2026-03-14/u03.gif" width="200" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">$u_{11}$</td>
+      <td style="text-align: center">$u_{12}$</td>
+      <td style="text-align: center">$u_{13}$</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="/assets/videos/2026-03-14/u11.gif" width="200" /></td>
+      <td style="text-align: center"><img src="/assets/videos/2026-03-14/u12.gif" width="200" /></td>
+      <td style="text-align: center"><img src="/assets/videos/2026-03-14/u13.gif" width="200" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">$u_{21}$</td>
+      <td style="text-align: center">$u_{22}$</td>
+      <td style="text-align: center">$u_{23}$</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="/assets/videos/2026-03-14/u21.gif" width="200" /></td>
+      <td style="text-align: center"><img src="/assets/videos/2026-03-14/u22.gif" width="200" /></td>
+      <td style="text-align: center"><img src="/assets/videos/2026-03-14/u23.gif" width="200" /></td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name></name></author><summary type="html"><![CDATA[Rozważmy sferycznie symetryczną, płaską membranę, przymocowaną sztywno do pierścienia lub innej okrągłej krawędzi i wykonującą drgania. Membrana leży w jednej płaszczyźnie, więc problem nie zależy od współrzędnej $z$. Rówanie falowe dla membrany będzie miało postać: $$ c^2 \nabla^2 u = \frac{\partial^2 u}{\partial t^2} $$ z warunkiem brzegowym $u(R)=0$, gdzie $R$ to promień membrany (jest ona przymocowana). Laplasjan we współrzędnych biegunowych to $$ \nabla^2 u = \frac{1}{r} \frac{\partial}{\partial r}\left( r \frac{\partial u}{\partial r}\right) + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2}, $$ więc $$ \frac{1}{c^2} \frac{\partial^2 u}{\partial t^2}=\frac{1}{r} \frac{\partial}{\partial r}\left( r \frac{\partial u}{\partial r}\right) + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2}, $$ gdzie $\theta$ to kąt biegunowy.]]></summary></entry><entry><title type="html">Symulacje falowe, część 2</title><link href="http://localhost:4000/programowanie/symulacje-falowe-cz-2" rel="alternate" type="text/html" title="Symulacje falowe, część 2" /><published>2026-03-01T00:00:00+01:00</published><updated>2026-03-01T00:00:00+01:00</updated><id>http://localhost:4000/programowanie/symulacje-falowe-cz-2</id><content type="html" xml:base="http://localhost:4000/programowanie/symulacje-falowe-cz-2"><![CDATA[<h2 id="absorbujące-warunki-brzegowe-engquist-majda">Absorbujące warunki brzegowe (Engquist-Majda)</h2>
 <p>W poprzedniej części artykułu dostrzegliśmy problem związany z warunkami brzegowymi Dirichleta, tzn. $u=0$ na brzegach obszaru symulacji - fale odbijały się od nich, co było często niepożądanym zachowaniem. W celu zapobiegnięcia temu zjawisku, zaimplementujemy <strong>absorbujące warunki brzegowe</strong>, a konkretnie <a href="https://en.wikipedia.org/wiki/Engquist%E2%80%93Majda_absorbing_boundary_condition" target="blank">warunki brzegowe Engquista-Majdy</a>.</p>
 
 <p>Jednowymiarowe równanie falowe ma postać:
@@ -106,7 +241,7 @@ $$ u_{ij}(t) = \frac{u_{i(j\pm 1)}(t)c\Delta t+u_{ij}(t-\Delta t)\Delta x}{c\Del
 <source src="/assets/videos/2026-03-01/arago_spot_2.mp4" type="video/mp4" />
 </video>
 </p>
-<p>Dla szerszej ściany obserwujemy takie same zjawisko, plamka, widoczna szczególnie na końcu animacji, jest jednak mniejsza i słabsza.</p>
+<p>Dla szerszej ściany obserwujemy takie same zjawisko. Plamka, widoczna szczególnie na końcu animacji, jest jednak mniejsza i słabsza.</p>
 
 <h2 id="szklana-kulka">Szklana kulka</h2>
 <p>Aby dodać szklaną kulkę, utworzymy funkcję <code class="language-plaintext highlighter-rouge">glass_bulb()</code>:</p>
@@ -946,70 +1081,4 @@ $$ \Omega_{pr}= \frac{\Omega_1}{\sin\theta}= \frac{L_1}{I_1\sin\theta}= \frac{L\
 
 <p align="center">
 <img src="/assets/images/2026-01-01/fig2.svg" width="500" />
-</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Ruch ciała sztywnego Niech $\mathbf{R}$ będzie wektorem położenia środka masy ciała sztywnego, a $\mathbf{r_i}$ położeniem elementu masy $m_i$ wchodzącego w jego skład. Niech $\mathbf{r_i}’=\mathbf{r_i}-\mathbf{R}$ będzie położeniem $m_i$ względem środka masy. Niech ciało wykonuje obrót wokół osi $z$ z prędkością kątową $\mathbf{\Omega}$ oraz porusza się z prędkością $\mathbf{V}$. Po pewnym krótkim czasie $dt$ ciało obróci się o kąt $d\theta$ i przemieści o wektor $\mathbf{dR}$.]]></summary></entry><entry><title type="html">Dipol w kuli z dielektryka liniowego</title><link href="http://localhost:4000/elektromagnetyzm/dipol-w-kuli-z-dielektryka-liniowego" rel="alternate" type="text/html" title="Dipol w kuli z dielektryka liniowego" /><published>2025-12-13T00:00:00+01:00</published><updated>2025-12-13T00:00:00+01:00</updated><id>http://localhost:4000/elektromagnetyzm/dipol-w-kuli-z-dielektryka-liniowego</id><content type="html" xml:base="http://localhost:4000/elektromagnetyzm/dipol-w-kuli-z-dielektryka-liniowego"><![CDATA[<p>Rozważmy kulę wykonaną z dielektryka liniowego o względnej przenikalności $\varepsilon_r$ i promieniu $R$. W środku kuli zostaje umiejscowiony dipol o momencie $\mathbf{p}$. Chcemy wyznaczyć potencjał w środku i na zewnątrz kuli.</p>
-
-<p>Poprzez $V_z$ oznaczamy potencjał zewnętrzny, a $V_w$ wewnętrzny.</p>
-
-<p>Rozpoczniemy od zadania warunków brzegowych. Jedynym źródłem potencjału jest kula, więc w nieskończoności potencjał powinien zanikać:
-$$ r\to \infty\implies V_{z}\to 0. $$</p>
-
-<p>Potencjał musi być również ciągły na powierzchni kuli:
-$$ V_{z}(R)=V_{w}(R). $$</p>
-
-<p>Chcemy również, aby na powierzchni kuli było spełnione prawo Gaussa:
-$$ \oint_\mathcal{S}\mathbf{D}\cdot \hat{\mathbf{n}}\,dS=Q_{sw}, $$
-a ponieważ jedyne ładunki swobodne w układzie wchodzą w skład dipola, na powierzchni kuli możemy mieć tylko ładunki związane. Z tego powodu
-$$  \oint_\mathcal{S}\mathbf{D}\cdot \hat{\mathbf{n}}\,dS=0, $$
-gdzie $\mathcal{S}$ to powierzchnia pudełka Gaussa znajdującego się częściowo wewnątrz i częściowo na zewnątrz kuli. Ponieważ jest to dielektryk liniowy, $\nabla\times\mathbf{P}=0$, a zatem również $\nabla\times\mathbf{D}=0$, więc nie musimy martwić się składową $\mathbf{D}$ styczną do powierzchni kuli. Jeśli uczynimy pudełko Gaussa bardzo małym, warunek przybiera postać
-$$ D_{wew}(R)=D_{zew}(R). $$
-Pamiętając, że $D=\varepsilon E$, a $E=\frac{\partial V}{\partial n}=\frac{\partial V}{\partial r}$ (bo $\hat{\mathbf{n}}=\hat{\mathbf{r}}$), otrzymujemy
-$$ \varepsilon_r \left.\frac{\partial V_w}{\partial r}\right|_R =\left.\frac{\partial V_z}{\partial r}\right|_R, $$
-ponieważ wewnątrz $\varepsilon=\varepsilon_0\varepsilon_r$, a na zewnątrz $\varepsilon=\varepsilon_0$.</p>
-
-<p>Pozostaje nam wziąć pod uwagę obecność dipola wewnątrz kuli. Wyznaczmy najpierw gęstość ładunku związanego w zależności od gęstości ładunków swobodnych. Z definicji mamy
-$$ \rho_{zw}=-\nabla\cdot\mathbf{P}. $$
-W dielektrykach
-$$ \mathbf{P}=\varepsilon_0\chi_e \mathbf{E}=\varepsilon_0(\varepsilon_r-1)\mathbf{E}=\varepsilon_0(\varepsilon_r-1)\frac{\mathbf{D}}{\varepsilon_0\varepsilon_r}=\mathbf{D}\left(\frac{\varepsilon_r-1}{\varepsilon_r}\right),$$
-więc
-$$ \rho_{zw}=-\left(\frac{\varepsilon_r-1}{\varepsilon_r}\right)\nabla\cdot\mathbf{D}=-\left(\frac{\varepsilon_r-1}{\varepsilon_r}\right)\rho_{sw}.$$</p>
-
-<p>Widzimy zatem, że dwa ładunki wchodzące w skład dipola $\mathbf{p}$ wyindukują w swoich położeniach ładunki o przeciwnych znakach i mniejsze o czynnik w powyższym wzorze. Dwa wyindukowane ładunki wytworzą związany moment dipolowy:
-$$ \mathbf{p}_{zw}=-\mathbf{p}\left(\frac{\varepsilon_r-1}{\varepsilon_r}\right). $$
-Całkowity moment dipolowy wewnątrz kuli to
-$$ \mathbf{p}_c=\mathbf{p}+\mathbf{p}_{zw}=\frac{1}{\varepsilon_r}\mathbf{p}. $$</p>
-
-<p>Przejdźmy do wyznaczenia potencjału. Wiemy, że potencjał wewnątrz kuli w najogólniejszej postaci to
-$$ V_{wew}=\sum_{l=0}^\infty \left(A_l r^l +\frac{B_l}{r^{l+1}}\right)P_l(\cos\theta). $$
-Osobliwość potencjału w $r=0$ nie może pochodzić od powierzchniowych ładunków związanych, a tylko i wyłącznie od całkowitego momentu dipolowego. Dlatego wszystkie człony potencjału, dla których potęga $r$ jest mniejsza od $0$ muszą pochodzić tylko od dipola. Potencjał dipola to
-$$ V_{dip}=\frac{p_c\cos\theta}{4\pi\varepsilon_0 r^2}=\frac{p\cos\theta}{4\pi\varepsilon r^2}, $$
-więc widzimy, że
-$$ B_l=\begin{cases}
-0\text{, jeśli } l\neq 1 \\ \frac{p}{4\pi\varepsilon}\text{, jeśli } l=1. \end{cases} $$</p>
-
-<p>Potencjał na zewnątrz kuli jest podobnie opisany równaniem
-$$ V_{zew}=\sum_{l=0}^\infty \left(C_l r^l +\frac{D_l}{r^{l+1}}\right)P_l(\cos\theta). $$
-Ponieważ $V\to 0$ jak $r\to\infty$, $C_l=0$ dla wszystkich $l$.</p>
-
-<p>Rozpatrzmy przypadek $l\neq 1$. Warunek ciągłości potencjału daje nam ($B_l=0$ dla $l\neq 1$):
-$$ \frac{D_l}{R^{l+1}}=A_l R^l, $$
-a warunek wynikający z prawa Gaussa
-$$ -\frac{D_l(l+1)}{R^{l+2}}=\varepsilon_r A_l lR^{l-1}. $$
-Pierwsze z równań daje nam
-$$ D_l=A_l R^{2l+1}, $$
-a drugie
-$$ D_l=-\varepsilon_r A_l \frac{l}{l+1} R^{2l+1}. $$
-Ponieważ $R,l, \varepsilon_r&gt;0$, pierwsze równanie oznacza, że $A_l$ i $D_l$ mają ten sam znak, a równanie drugie, że mają przeciwny. Obywda warunki oczywiście mogą być spełnione jedynie, gdy $D_l=A_l=0$.</p>
-
-<p>Rozważmy teraz przypadek $l=1$. Warunek ciągłości:
-$$ \frac{D_1}{R^{2}}=A_1 R+\frac{p}{4\pi\varepsilon R^2}\rightarrow D_1=A_1R^3+\frac{p}{4\pi\varepsilon}. $$
-Warunek prawa Gaussa:
-$$ -\frac{2D_1}{R^3}=\varepsilon_r A_1-\frac{2p\varepsilon_r}{4\pi\varepsilon R^3}\rightarrow D_1=\frac{p}{4\pi\varepsilon_0}-\frac{A_1\varepsilon_r R^3}{2}.$$
-Z równań tych dostajemy
-$$ A_1=\frac{2p}{4\pi\varepsilon R^3}\left(\frac{\varepsilon_r-1}{\varepsilon_r+2}\right) $$
-oraz
-$$ D_1=\frac{p}{4\pi\varepsilon_0}\left(\frac{3}{\varepsilon_r+2}\right). $$</p>
-
-<p>Ostatecznie, potencjał wewnątrz kuli to dla $r\le R$:
-$$ V=\frac{p\cos\theta}{4\pi\varepsilon r^2}\left[1+\frac{2r^3}{R^3}\left(\frac{\varepsilon_r-1}{\varepsilon_r+2}\right)\right], $$ 
-a dla $r\ge R$:
-$$ V=\frac{p\cos\theta}{4\pi\varepsilon_0 r^2}\left(\frac{3}{2+\varepsilon_r}\right). $$</p>]]></content><author><name></name></author><category term="Elektromagnetyzm" /><summary type="html"><![CDATA[Rozważmy kulę wykonaną z dielektryka liniowego o względnej przenikalności $\varepsilon_r$ i promieniu $R$. W środku kuli zostaje umiejscowiony dipol o momencie $\mathbf{p}$. Chcemy wyznaczyć potencjał w środku i na zewnątrz kuli.]]></summary></entry></feed>
+</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Ruch ciała sztywnego Niech $\mathbf{R}$ będzie wektorem położenia środka masy ciała sztywnego, a $\mathbf{r_i}$ położeniem elementu masy $m_i$ wchodzącego w jego skład. Niech $\mathbf{r_i}’=\mathbf{r_i}-\mathbf{R}$ będzie położeniem $m_i$ względem środka masy. Niech ciało wykonuje obrót wokół osi $z$ z prędkością kątową $\mathbf{\Omega}$ oraz porusza się z prędkością $\mathbf{V}$. Po pewnym krótkim czasie $dt$ ciało obróci się o kąt $d\theta$ i przemieści o wektor $\mathbf{dR}$.]]></summary></entry></feed>

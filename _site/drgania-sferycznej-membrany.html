@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Drgania sferycznej membrany | bwegrzyn0.github.io</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Drgania sferycznej membrany" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Rozważmy sferycznie symetryczną, płaską membranę, przymocowaną sztywno do pierścienia lub innej okrągłej krawędzi i wykonującą drgania. Membrana leży w jednej płaszczyźnie, więc problem nie zależy od współrzędnej $z$. Rówanie falowe dla membrany będzie miało postać: $$ c^2 \nabla^2 u = \frac{\partial^2 u}{\partial t^2} $$ z warunkiem brzegowym $u(R)=0$, gdzie $R$ to promień membrany (jest ona przymocowana). Laplasjan we współrzędnych biegunowych to $$ \nabla^2 u = \frac{1}{r} \frac{\partial}{\partial r}\left( r \frac{\partial u}{\partial r}\right) + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2}, $$ więc $$ \frac{1}{c^2} \frac{\partial^2 u}{\partial t^2}=\frac{1}{r} \frac{\partial}{\partial r}\left( r \frac{\partial u}{\partial r}\right) + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2}, $$ gdzie $\theta$ to kąt biegunowy." />
+<meta property="og:description" content="Rozważmy sferycznie symetryczną, płaską membranę, przymocowaną sztywno do pierścienia lub innej okrągłej krawędzi i wykonującą drgania. Membrana leży w jednej płaszczyźnie, więc problem nie zależy od współrzędnej $z$. Rówanie falowe dla membrany będzie miało postać: $$ c^2 \nabla^2 u = \frac{\partial^2 u}{\partial t^2} $$ z warunkiem brzegowym $u(R)=0$, gdzie $R$ to promień membrany (jest ona przymocowana). Laplasjan we współrzędnych biegunowych to $$ \nabla^2 u = \frac{1}{r} \frac{\partial}{\partial r}\left( r \frac{\partial u}{\partial r}\right) + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2}, $$ więc $$ \frac{1}{c^2} \frac{\partial^2 u}{\partial t^2}=\frac{1}{r} \frac{\partial}{\partial r}\left( r \frac{\partial u}{\partial r}\right) + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2}, $$ gdzie $\theta$ to kąt biegunowy." />
+<link rel="canonical" href="http://localhost:4000/drgania-sferycznej-membrany" />
+<meta property="og:url" content="http://localhost:4000/drgania-sferycznej-membrany" />
+<meta property="og:site_name" content="bwegrzyn0.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-03-14T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Drgania sferycznej membrany" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-03-14T00:00:00+01:00","datePublished":"2026-03-14T00:00:00+01:00","description":"Rozważmy sferycznie symetryczną, płaską membranę, przymocowaną sztywno do pierścienia lub innej okrągłej krawędzi i wykonującą drgania. Membrana leży w jednej płaszczyźnie, więc problem nie zależy od współrzędnej $z$. Rówanie falowe dla membrany będzie miało postać: $$ c^2 \\nabla^2 u = \\frac{\\partial^2 u}{\\partial t^2} $$ z warunkiem brzegowym $u(R)=0$, gdzie $R$ to promień membrany (jest ona przymocowana). Laplasjan we współrzędnych biegunowych to $$ \\nabla^2 u = \\frac{1}{r} \\frac{\\partial}{\\partial r}\\left( r \\frac{\\partial u}{\\partial r}\\right) + \\frac{1}{r^2} \\frac{\\partial^2 u}{\\partial \\theta^2}, $$ więc $$ \\frac{1}{c^2} \\frac{\\partial^2 u}{\\partial t^2}=\\frac{1}{r} \\frac{\\partial}{\\partial r}\\left( r \\frac{\\partial u}{\\partial r}\\right) + \\frac{1}{r^2} \\frac{\\partial^2 u}{\\partial \\theta^2}, $$ gdzie $\\theta$ to kąt biegunowy.","headline":"Drgania sferycznej membrany","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/drgania-sferycznej-membrany"},"url":"http://localhost:4000/drgania-sferycznej-membrany"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+	<link rel="shortcut icon" type="image/png" href="/favicon.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bwegrzyn0.github.io" /></head>
+<head>
+	  
+
+<!-- CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
+
+<!-- JavaScript -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{
+    delimiters: [
+      { left: '$$',  right: '$$',  display: true  },
+      { left: '$',   right: '$',   display: false },
+      { left: '\\[', right: '\\]', display: true  },
+      { left: '\\(', right: '\\)', display: false }
+  ]});">
+</script>
+
+
+  </head>
+
+  <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">bwegrzyn0.github.io</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/kategorie/">Kategorie</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Drgania sferycznej membrany</h1>
+    <a href="/kategorie"><h3>  </h3></a>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-03-14T00:00:00+01:00" itemprop="datePublished">2026-03-14
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Rozważmy sferycznie symetryczną, płaską membranę, przymocowaną sztywno do pierścienia lub innej okrągłej krawędzi i wykonującą drgania. Membrana leży w jednej płaszczyźnie, więc problem nie zależy od współrzędnej $z$. Rówanie falowe dla membrany będzie miało postać:
+$$ c^2 \nabla^2 u = \frac{\partial^2 u}{\partial t^2} $$
+z warunkiem brzegowym $u(R)=0$, gdzie $R$ to promień membrany (jest ona przymocowana). Laplasjan we współrzędnych biegunowych to
+$$ \nabla^2 u = \frac{1}{r} \frac{\partial}{\partial r}\left( r \frac{\partial u}{\partial r}\right) + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2}, $$
+więc
+$$ \frac{1}{c^2} \frac{\partial^2 u}{\partial t^2}=\frac{1}{r} \frac{\partial}{\partial r}\left( r \frac{\partial u}{\partial r}\right) + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2}, $$
+gdzie $\theta$ to kąt biegunowy.</p>
+
+<p>Równanie rozwiążemy oczywiście speracją zmiennych. Założymy, że rozwiązanie jest postaci $u(r, \theta, t)=Y(r,\theta) T(t)$. Podstawiając,
+$$ \frac{Y(r,\theta)}{c^2} \frac{d^2 T}{dt^2}= \frac{T(t)}{r} \frac{\partial}{\partial r}\left( r \frac{\partial Y}{\partial r}\right)+ \frac{T(t)}{r^2} \frac{\partial ^2 Y}{\partial \theta^2}, $$
+skąd:
+$$ \frac{1}{Y(r,\theta)}\left(\frac{1}{r} \frac{\partial}{\partial r}\left( r \frac{\partial Y}{\partial r}\right)+ \frac{1}{r^2} \frac{\partial ^2 Y}{\partial \theta^2}\right)= \frac{1}{c^2 T(t)} \frac{\partial^2 T}{\partial t^2}. $$
+Obie strony równania zależą od różnych zmiennych, zatem muszą być stałe:
+$$ \frac{1}{c^2 T(t)} \frac{\partial^2 T}{\partial t^2}=-\lambda^2, $$
+$$ \frac{1}{Y(r,\theta)}\left(\frac{1}{r} \frac{\partial}{\partial r}\left( r \frac{\partial Y}{\partial r}\right)+ \frac{1}{r^2} \frac{\partial ^2 Y}{\partial \theta^2}\right)=-\lambda^2, $$
+gdzie $\lambda\in\mathbb{R}$ to pewna stała separacji. Musi być ona rzeczywista, ponieważ oczekujemy, że ruch <em>drgającej</em> membrany będzie miał charakter oscylacyjny.</p>
+
+<p>Pierwsze z równań to wtedy 
+$$ \frac{\partial^2 T}{\partial t^2}=-c^2\lambda^2 T(t), $$
+a jego rozwiązanie, ponieważ $-c^2\lambda^2$ jest ujemną liczbą rzeczywistą, to
+$$ T(t)= A\cos(c\lambda t)+B\sin(c\lambda t), $$
+gdzie $A$ i $B$ to pewne stałe rzeczywiste.</p>
+
+<p>Drugie z równań to
+$$ \frac{1}{r} \frac{\partial}{\partial r}\left( r \frac{\partial Y}{\partial r}\right)+ \frac{1}{r^2} \frac{\partial ^2 Y}{\partial \theta^2}=-\lambda^2 Y(r,\theta). $$
+Założymy, że $Y(r,\theta)=R(r)\Theta(\theta)$. Wtedy
+$$ \frac{\Theta(\theta)}{r} \frac{d}{dr}\left( r\frac{dR}{dr}\right)+ \frac{R(r)}{r^2} \frac{d^2 \Theta}{d\theta^2}=-\lambda^2 R(r)\Theta(\theta), $$
+skąd
+$$ \frac{r}{R(r)} \frac{d}{dr}\left( r \frac{dR}{dr}\right)+\lambda^2 r^2+ \frac{1}{\Theta(\theta)} \frac{d^2 \Theta}{d\theta^2}=0. $$
+Podobnie, jak poprzednio, część równania zależna tylko od $r$ i tylko od $\theta$ musi być stała. Na podstawie tego faktu:
+$$ \frac{1}{\Theta(\theta)} \frac{d^2\Theta}{d\theta^2}=-\alpha^2, $$
+gdzie $\alpha\in \mathbb{R}$. Wynika to z faktu, że funkcja $\Theta(\theta)$ musi spełniać warunek:
+$$ \Theta(\theta)=\Theta(\theta+2\pi k), \tag{1} $$
+gdzie $k\in \mathbb{Z}$, zatem musi być okresowa. Rozwiązaniem tego równania jest wtedy
+$$ \Theta(\theta)=C\cos(\alpha\theta)+D\sin(\alpha\theta), $$
+gdzie $C$ i $D$ to rzeczywiste stałe. Punkt, w którym $\theta=0$ możemy dobrać dowolnie, więc wybierzemy go tak, aby pozbyć się sinusa. Ponadto, ze względu na warunek (1),
+$$ cos(\alpha\theta)=\cos(\alpha\theta+2\pi k), $$
+więc
+$$ \alpha\theta+2\pi n=\alpha(\theta+2\pi k), \, n\in \mathbb{Z}, $$
+$$ 2\pi n=2\pi \alpha k, $$
+$$ n=\alpha k. $$
+Powyższe będzie spełnione dla <em>dowolnych</em> $n,k\in\mathbb{Z}$, tylko, jeśli $\alpha\in\mathbb{Z}$ (jeśli $\alpha$ byłoby wymierne, ale nie całkowite, to wtedy zawsze możemy znaleźć takie $k$, że nie będzie to prawdziwe, np. $k$ może być liczbą pierwszą niebędącą dzielnikiem mianownika). Mamy zatem
+$$ \Theta(\theta) = C\cos(\alpha\theta), $$
+$C\in\mathbb{R}$, $\alpha\in\mathbb{Z}$.</p>
+
+<p>Równanie na $R(r)$ jest postaci:
+$$\frac{r}{R(r)} \frac{d}{dr}\left( r \frac{dR}{dr}\right)+\lambda^2 r^2=\alpha^2. $$
+Po przeniesieniu wszystkich wyrazów na lewą stronę i rozpisaniu pochodnej mamy:
+$$ r^2 \frac{d^2 R}{dr^2}+ r \frac{dR}{dr}+ (\lambda^2 r^2-\alpha^2)R(r)=0. $$
+Dokonajmy zamiany zmiennych $\lambda r=x$. Wtedy
+$$ x^2 \frac{d^2 R}{dx^2}+ x \frac{dR}{dx}+(x^2-\alpha^2)R(x)=0. $$
+(zamieniając pochodną po $r$ na pochodną po $x$ skracamy $\lambda$ powstałe z podstawienia).
+Jest to <strong>równanie Bessela</strong>. Jak widzimy, $x=0$ jest regularnym punktem osobliwym powyższego równania (bo funkcja przy drugiej pochodnej rośnie jak $x^2$, a przy pierwszej, jak $x$), więc będziemy szukać rozwiązań metodą Frobeniusa, czyli postaci:
+$$ R(x) = \sum_{n=0}^\infty a_n x^{n+r}, $$
+gdzie $r$ to pewien parametr. Obliczając pochodne i wstawiając otrzymujemy:
+$$ \sum_{n=0}^\infty a_n(n+r)(n+r-1)x^{n+r}+\sum_{n=0}^\infty a_n(n+r)x^{n+r}+\sum_{n=0}^\infty a_nx^{n+r+2}-\alpha^2 \sum_{n=0}^\infty a_nx^{n+r} = 0. $$
+Chcemy, aby potęga przy $x$ była taka sama dla każdej sumy. Dla trzeciej z nich:
+$$ \sum_{n=0}^\infty a_nx^{n+r+2}=\sum_{n=2}^\infty a_{n-2}x^{n+r}. $$
+Stąd:
+$$ a_0 x^r \left[r(r-1)+r-\alpha^2\right] + a_1 x^{r+1}\left[ r(r+1)+(r+1)-\alpha^2\right]+\\ +\sum_{n=2}^\infty \left[a_n\left((n+r)(n+r-1)+(n+r)-\alpha^2\right)+a_{n-2}\right] x^{r+n}=0. $$
+Ponieważ z definicji $a_0$ stoi przy najniższej potędze, nie może być równe $0$ (bo inaczej najniższa potęga nie byłaby najniższa). Z tego powodu:
+$$ r(r-1)+r-\alpha^2 = r^2-\alpha^2 =0, $$
+więc $r=\pm \alpha$. Z drugiego wyrazu albo $a_1=0$, albo:
+$$ r(r+1)+(r+1)-\alpha^2 = (r+1)^2-\alpha^2 =0, $$
+co biorąc pod uwagę fakt, że $\alpha=\pm r$, daje jedynie $\alpha=-1/2\notin\mathbb{Z}$, zatem jedyna możliwość to $a_1=0$. Z ostatniego wyrazu mamy
+$$ a_n\left((n+r)(n+r-1)+(n+r)-\alpha^2\right)+a_{n-2} =0, $$
+skąd
+$$ a_n= \frac{-a_{n-2}}{(n+r)^2-\alpha^2}. $$
+Ponieważ $r=\pm \alpha$, to
+$$ a_n = \frac{a_{n-2}}{\alpha^2 - (n\pm \alpha)^2}= \frac{a_{n-2}}{\pm 2n\alpha-n^2}. $$
+Rozważmy najpierw $+$. Wyrazy dla $n$ nieparzystego będą równe $0$, bo $a_1=0$. Dla $n$ parzystego:
+$$ a_2 = -\frac{a_0}{4(\alpha+1)} \\ a_4 = \frac{a_0}{4\cdot 8(\alpha+1)(\alpha+2)} \\ \alpha_6 = -\frac{a_0}{4\cdot 8\cdot 12(\alpha+1)(\alpha+2)(\alpha+3)}. $$
+Widzimy, że w ogólności:
+$$ a_{2n} = (-1)^n \frac{a_0 \alpha!}{(\alpha+n)! 2^{2n} n!}. $$
+Stąd pierwsze rozwiązanie to:
+$$ R_1(x) = \sum_{n=0}^\infty (-1)^n \frac{a_0 \alpha!}{(\alpha+n)!2^{2n}n!} x^{2n+\alpha}. $$ 
+W celu uproszczenia zapisu przyjmiemy
+$$ a_0 = \frac{1}{2^\alpha \alpha!}, $$
+skąd
+$$ R_1(x) = \sum_{n=0}^\infty (-1)^n \frac{1}{(\alpha+n)! n!}\left( \frac{x}{2}\right)^{2n+\alpha} = J_\alpha(x). $$
+Jest to <strong>funckja Bessela pierwszego rodzaju rzędu $\alpha$</strong>. Podobnie możemy postąpić dla $-$, skąd dostaniemy $R_2(x)=Y_\alpha(x)$, gdzie $Y_\alpha(x)$ to <strong>funkcja Bessela drugiego rodzaju rzędu $\alpha$</strong>. Okazuje się jednak, że $Y_\alpha(x)$ są rozbieżne dla $x=0$, zatem nie będą one nas interesować.</p>
+
+<p>Rozwiązanie to zatem:
+$$ u(r, \theta, t) = A\cos(c\lambda t)\cos(\alpha\theta) J_\alpha(\lambda r), $$
+gdzie chwilę początkową wybieramy tak, aby $B=0$ oraz wszystkie stałe łączymy w jedną. Pozostaje nam warunek brzegowy:
+$$ u(R, \theta, t)=0, $$
+więc 
+$$ J_\alpha(\lambda R)=0. $$
+Zastąpmy $\alpha$ przez $m$. Jako $\alpha_{mn}$ oznaczymy $n$-te miejsce zerowe $J_n(x)$. Wtedy
+$$ \lambda R=\alpha_{mn}, $$
+skąd
+$$ \lambda = \frac{\alpha_{mn}}{R}. $$
+Ostateczne rozwiązanie to:
+$$ \boxed{ u_{mn}(r,\theta, t)=A\cos\left( \frac{c\alpha_{mn}}{R}t\right)\cos(m\theta)\, J_m\left( \frac{\alpha_{mn}r}{R}\right).} $$
+Są to <strong>mody normalne</strong> cylindrycznej membrany. Kilka modów normalnych jest przedstawionych na poniższych animacjach.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">$u_{01}$</th>
+      <th style="text-align: center">$u_{02}$</th>
+      <th style="text-align: center">$u_{03}$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="/assets/videos/2026-03-14/u01.gif" width="200" /></td>
+      <td style="text-align: center"><img src="/assets/videos/2026-03-14/u02.gif" width="200" /></td>
+      <td style="text-align: center"><img src="/assets/videos/2026-03-14/u03.gif" width="200" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">$u_{11}$</td>
+      <td style="text-align: center">$u_{12}$</td>
+      <td style="text-align: center">$u_{13}$</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="/assets/videos/2026-03-14/u11.gif" width="200" /></td>
+      <td style="text-align: center"><img src="/assets/videos/2026-03-14/u12.gif" width="200" /></td>
+      <td style="text-align: center"><img src="/assets/videos/2026-03-14/u13.gif" width="200" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">$u_{21}$</td>
+      <td style="text-align: center">$u_{22}$</td>
+      <td style="text-align: center">$u_{23}$</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="/assets/videos/2026-03-14/u21.gif" width="200" /></td>
+      <td style="text-align: center"><img src="/assets/videos/2026-03-14/u22.gif" width="200" /></td>
+      <td style="text-align: center"><img src="/assets/videos/2026-03-14/u23.gif" width="200" /></td>
+    </tr>
+  </tbody>
+</table>
+
+  </div><a class="u-url" href="/drgania-sferycznej-membrany" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">bwegrzyn0.github.io</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bwegrzyn0"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bwegrzyn0</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Fizyka i programowanie</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

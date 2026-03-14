@@ -116,7 +116,7 @@ Widzimy, że po przejściu przez ścianę fala zostaje mocno wygaszona. Jednak p
 <source src="/assets/videos/2026-03-01/arago_spot_2.mp4" type="video/mp4">
 </video>
 </p>
-Dla szerszej ściany obserwujemy takie same zjawisko, plamka, widoczna szczególnie na końcu animacji, jest jednak mniejsza i słabsza.
+Dla szerszej ściany obserwujemy takie same zjawisko. Plamka, widoczna szczególnie na końcu animacji, jest jednak mniejsza i słabsza.
 
 ## Szklana kulka
 Aby dodać szklaną kulkę, utworzymy funkcję `glass_bulb()`:
