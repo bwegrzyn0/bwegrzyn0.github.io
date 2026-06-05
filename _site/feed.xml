@@ -1,4 +1,151 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-03-14T18:13:48+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Drgania sferycznej membrany</title><link href="http://localhost:4000/mechanika/drgania-sferycznej-membrany" rel="alternate" type="text/html" title="Drgania sferycznej membrany" /><published>2026-03-14T00:00:00+01:00</published><updated>2026-03-14T00:00:00+01:00</updated><id>http://localhost:4000/mechanika/drgania-sferycznej-membrany</id><content type="html" xml:base="http://localhost:4000/mechanika/drgania-sferycznej-membrany"><![CDATA[<p>Rozważmy sferycznie symetryczną, płaską membranę, przymocowaną sztywno do pierścienia lub innej okrągłej krawędzi i wykonującą drgania. Membrana leży w jednej płaszczyźnie, więc problem nie zależy od współrzędnej $z$. Rówanie falowe dla membrany będzie miało postać:
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-06-05T19:53:08+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Fizyka i programowanie</subtitle><entry><title type="html">Symulacja dyfrakcji na okrągłej szczelinie</title><link href="http://localhost:4000/optyka/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie" rel="alternate" type="text/html" title="Symulacja dyfrakcji na okrągłej szczelinie" /><published>2026-06-05T00:00:00+02:00</published><updated>2026-06-05T00:00:00+02:00</updated><id>http://localhost:4000/optyka/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie</id><content type="html" xml:base="http://localhost:4000/optyka/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie"><![CDATA[<h2 id="wprowadzenie">Wprowadzenie</h2>
+
+<p>Rozważmy okrągłą szczelinę o promieniu $R$ wykonaną w płaszczyźnie, która w ogóle nie przepuszcza światła. Amplitudę drgań pola elektrycznego (lub magnetycznego, z dokładnością co do stałej) w każdym punkcie obrazu wytworzonego przez falę płaską padającą na szczelinę, na równoległym do płaszczyzny ekranie znajdującym się w odległości $L$ można obliczyć korzystając z reguły Huygensa. Każdy punkt szczeliny emituje do przodu falę kulistą o tej samej fazie i tej samej amplitudzie (ponieważ fala płaska jest jednorodna, a szczelina w każdym swoim punkcie przepuszcza całość światła). Ponieważ układ ma symetrię sferyczną, wprowadzimy kąt $\theta$ oraz wielkości $r’$ i $r$. Jak widzimy z rysunku, z twierdzenia Pitagorasa i twierdzenia cosinusów, $\rho=\sqrt{r^2+r’^2-2rr’\cos\theta}$.</p>
+
+<p align="center">
+<img src="/assets/images/2026-06-05/rys1.svg" width="500" />
+</p>
+
+<p>Przyczynek amplitudy od punktu o współrzędnych $(r’, \theta)$ dla punktu odległego od środka ekranu o $r$ to
+$$ dA = \frac{C}{\rho} e^{ik\rho}, $$
+gdzie $C$ to pewna stała, a $k=2\pi/\lambda$ to liczba falowa. Czynnik $1/\rho$ wynika z faktu, że w taki sposób maleje amplituda fali pola elektrycznego od punktowego źródła. Zakładamy ponadto, że padająca fala jest spolaryzowana liniowo, a zmianę amplitudy wynikającą z rzutowania wektora pola elektrycznego uznajemy za pomijalną, więc pole traktujemy jak skalar. Sumaryczny efekt od wszystkich przyczynków to
+$$ A = C \int \frac{1}{\rho} e^{ik\rho} dS, $$
+gdzie powierzchnią całkowania jest szczelina. Ze względu na geometrię szczeliny i wprowadzone współrzędne, $dS= r’ dr’ d\theta$, więc
+$$ A = C \int_0^{2\pi} \int_0^{R} \frac{1}{\rho} e^{ik\rho} r dr’ d\theta. $$
+Powyższą całkę obliczymy numerycznie, istnieją jednak przybliżenia takie jak:</p>
+<ul>
+  <li><strong>dyfrakcja Fresnela</strong> (w bliskim polu) - przybliżamy, że wszystkie promienie są równoległe, lecz w rozwinięciu wyrażenia na $\rho$ w szereg zachowujemy tylko pierwszy wyraz:
+$$ \rho \approx L + \frac{r^2+r’^2-2rr’\cos\theta}{2L}. $$</li>
+  <li><strong>dyfrakcja Fraunhofera</strong> (w dalekim polu) - podobnie jak wcześniej, pozostawiamy tylko pierwszy wyraz szeregu, ale również stosujemy przybliżenie $r’ \ll r$, skąd $$ \rho \approx L + \frac{r^2-2rr’\cos\theta}{2L}. $$</li>
+</ul>
+
+<p>Naszym celem będzie wyznaczenie najoptymalniejszych rozmiarów szczeliny do aparatu otworkowego, czyli takich, przy których plamka będąca obrazem nieskończenie dalekiego źródła punktowego ma najmniejszy rozmiar. Naszymi danymi są $f$, czyli odległość ekranu od szczeliny, oraz $\lambda$, czyli długość fali światła.</p>
+
+<h2 id="obliczenia-numeryczne">Obliczenia numeryczne</h2>
+
+<p>Do obliczeń numerycznych wykorzystamy język Julia, który pozwala na łatwe operacje na liczbach zespolonych. Pierwsza z funkcji to wyrażenie podcałkowe:</p>
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span><span class="nf"> integrand</span><span class="x">(</span><span class="n">R</span><span class="x">,</span> <span class="n">R0</span><span class="x">,</span> <span class="n">theta0</span><span class="x">)</span> 
+	<span class="n">dst</span> <span class="o">=</span> <span class="n">r</span><span class="x">(</span><span class="n">R</span><span class="x">,</span> <span class="n">R0</span><span class="x">,</span> <span class="n">theta0</span><span class="x">)</span>
+	<span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">dst</span> <span class="o">*</span> <span class="n">exp</span><span class="x">(</span><span class="nb">im</span> <span class="o">*</span> <span class="n">k</span> <span class="o">*</span> <span class="n">dst</span><span class="x">)</span> <span class="o">*</span> <span class="n">R0</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">r(R, R0, theta0)</code> to funkcja zwracająca odległość $\rho$, a zmienne z zerem są odpowiednikami nieprimowanych zmiennych. <code class="language-plaintext highlighter-rouge">im</code> to jednostka urojona. Obydwie całki obliczymy za pomocą <a href="#uzupełnienie-metoda-simpsona">metody Simpsona</a>. Wewnętrzna całka to:</p>
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span><span class="nf"> integral_1</span><span class="x">(</span><span class="n">R</span><span class="x">,</span> <span class="n">theta0</span><span class="x">)</span>
+	<span class="n">val</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="n">first_integrand</span> <span class="o">=</span> <span class="n">integrand</span><span class="x">(</span><span class="n">R</span><span class="x">,</span> <span class="mi">0</span><span class="x">,</span> <span class="n">theta0</span><span class="x">)</span>
+	<span class="n">middle_integrand</span> <span class="o">=</span> <span class="n">integrand</span><span class="x">(</span><span class="n">R</span><span class="x">,</span> <span class="n">dR0</span> <span class="o">/</span> <span class="mi">2</span><span class="x">,</span> <span class="n">theta0</span><span class="x">)</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">N_samples_R</span>
+		<span class="c"># metoda simpsona kwadratowa</span>
+		<span class="n">last_integrand</span> <span class="o">=</span> <span class="n">integrand</span><span class="x">(</span><span class="n">R</span><span class="x">,</span> <span class="n">i</span> <span class="o">*</span> <span class="n">dR0</span><span class="x">,</span> <span class="n">theta0</span><span class="x">)</span>
+		<span class="n">val</span> <span class="o">+=</span> <span class="n">dR0</span> <span class="o">/</span> <span class="mi">6</span> <span class="o">*</span> <span class="x">(</span><span class="n">first_integrand</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">middle_integrand</span> <span class="o">+</span> <span class="n">last_integrand</span><span class="x">)</span>
+		<span class="n">first_integrand</span> <span class="o">=</span> <span class="n">last_integrand</span>
+		<span class="n">middle_integrand</span> <span class="o">=</span> <span class="n">integrand</span><span class="x">(</span><span class="n">R</span><span class="x">,</span> <span class="n">dR0</span> <span class="o">*</span> <span class="x">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="x">),</span> <span class="n">theta0</span><span class="x">)</span>
+	<span class="k">end</span>
+	<span class="k">return</span> <span class="n">val</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<p>gdzie fist, last i middle oznaczają wartości funkcji dla $a$, $(a+b)/2$ oraz $b$. Zewnętrzną obliczamy podobnie:</p>
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span><span class="nf"> integral_2</span><span class="x">(</span><span class="n">R</span><span class="x">)</span>
+	<span class="n">val</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="n">first_integrand</span> <span class="o">=</span> <span class="n">integral_1</span><span class="x">(</span><span class="n">R</span><span class="x">,</span> <span class="mi">0</span><span class="x">)</span>
+	<span class="n">middle_integrand</span> <span class="o">=</span> <span class="n">integral_1</span><span class="x">(</span><span class="n">R</span><span class="x">,</span> <span class="n">dtheta0</span> <span class="o">/</span> <span class="mi">2</span><span class="x">)</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">N_samples_theta0</span>
+		<span class="n">last_integrand</span> <span class="o">=</span> <span class="n">integral_1</span><span class="x">(</span><span class="n">R</span><span class="x">,</span> <span class="n">i</span> <span class="o">*</span> <span class="n">dtheta0</span><span class="x">)</span>
+		<span class="n">val</span> <span class="o">+=</span> <span class="x">(</span><span class="n">first_integrand</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">middle_integrand</span> <span class="o">+</span> <span class="n">last_integrand</span><span class="x">)</span> <span class="o">*</span> <span class="n">dtheta0</span> <span class="o">/</span> <span class="mi">6</span> 
+		<span class="n">first_integrand</span> <span class="o">=</span> <span class="n">last_integrand</span>
+		<span class="n">middle_integrand</span> <span class="o">=</span> <span class="n">integral_1</span><span class="x">(</span><span class="n">R</span><span class="x">,</span> <span class="n">dtheta0</span> <span class="o">*</span> <span class="x">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="x">))</span>
+	<span class="k">end</span>
+	<span class="k">return</span> <span class="n">abs2</span><span class="x">(</span><span class="n">val</span><span class="x">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<p>Zwracamy kwadrat modułu wartości całki, ponieważ jest wprost proporcjonalny do średniego natężenia światła dla odległości <code class="language-plaintext highlighter-rouge">R</code> od środka ekranu.</p>
+
+<p>Aby wyznaczyć rozmiar plamki dla danego promienia szczeliny <code class="language-plaintext highlighter-rouge">r</code>, obliczymy maksymalną wartość natężenia światła, a następnie będziemy szukać ostatniego miejsca, dla którego natężenie wynosi $0.1\times$maksimum. Realizuje to poniższy kod:</p>
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span><span class="nf"> spot_size</span><span class="x">(</span><span class="n">r</span><span class="x">)</span>
+	<span class="c"># aktualizuj wartość r i krok do obliczania całki</span>
+	<span class="n">update_r</span><span class="x">(</span><span class="n">r</span><span class="x">)</span>
+
+	<span class="c"># liczba promieni do próbkowania</span>
+	<span class="n">samplesR</span> <span class="o">=</span> <span class="mi">50</span>
+	<span class="n">x</span> <span class="o">=</span> <span class="n">range</span><span class="x">(</span><span class="mi">0</span><span class="x">,</span> <span class="n">r</span> <span class="o">*</span> <span class="mi">2</span><span class="x">,</span> <span class="n">samplesR</span><span class="x">)</span>
+	<span class="c"># obraz dla tych promieni</span>
+	<span class="n">val</span> <span class="o">=</span> <span class="x">[</span><span class="n">integral_2</span><span class="x">(</span><span class="n">a</span><span class="x">)</span> <span class="k">for</span> <span class="n">a</span><span class="o">=</span><span class="n">x</span><span class="x">]</span>
+	<span class="c"># maksymalna wartość</span>
+	<span class="n">max</span> <span class="o">=</span> <span class="n">maximum</span><span class="x">(</span><span class="n">val</span><span class="x">)</span>
+	
+	<span class="n">last_i</span> <span class="o">=</span> <span class="n">length</span><span class="x">(</span><span class="n">val</span><span class="x">)</span> <span class="o">-</span> <span class="mi">1</span>
+	<span class="c"># czy znaleziono granicę jasnego obszaru</span>
+	<span class="n">ableToFind</span> <span class="o">=</span> <span class="nb">false</span>
+
+	<span class="c"># szukamy kiedy jasność spada ostatni raz poniżej 0.1 maksimum</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">2</span><span class="o">:</span><span class="x">(</span><span class="n">length</span><span class="x">(</span><span class="n">val</span><span class="x">))</span>
+		<span class="k">if</span> <span class="x">(</span><span class="n">val</span><span class="x">[</span><span class="n">i</span><span class="x">]</span> <span class="o">&lt;=</span> <span class="n">max</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="o">&amp;&amp;</span> <span class="n">val</span><span class="x">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="x">]</span> <span class="o">&gt;=</span> <span class="n">max</span> <span class="o">*</span> <span class="mf">0.1</span><span class="x">)</span>
+			<span class="n">last_i</span> <span class="o">=</span> <span class="n">i</span>
+			<span class="n">ableToFind</span> <span class="o">=</span> <span class="nb">true</span>
+		<span class="k">end</span>
+	<span class="k">end</span>
+
+	<span class="c"># jesli takiego miejsca nie znaleziono w przedziale (0, 2r) to idziemy dalej</span>
+	<span class="n">iterator</span> <span class="o">=</span> <span class="n">last_i</span>
+	<span class="n">step</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">samplesR</span>
+	<span class="n">lastValue</span> <span class="o">=</span> <span class="n">val</span><span class="x">[</span><span class="n">last_i</span><span class="x">]</span> 
+	<span class="k">while</span> <span class="o">!</span><span class="n">ableToFind</span>
+		<span class="n">currentValue</span> <span class="o">=</span> <span class="n">integral_2</span><span class="x">(</span><span class="n">iterator</span> <span class="o">*</span> <span class="n">step</span><span class="x">)</span>
+		<span class="k">if</span> <span class="x">(</span><span class="n">currentValue</span> <span class="o">&lt;=</span> <span class="n">max</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="o">&amp;&amp;</span> <span class="n">lastValue</span> <span class="o">&gt;=</span> <span class="n">max</span> <span class="o">*</span> <span class="mf">0.1</span><span class="x">)</span>
+			<span class="n">last_i</span> <span class="o">=</span> <span class="n">iterator</span>
+			<span class="n">ableToFind</span> <span class="o">=</span> <span class="nb">true</span>
+		<span class="k">end</span>
+		<span class="n">lastValue</span> <span class="o">=</span> <span class="n">currentValue</span>
+		<span class="n">iterator</span> <span class="o">+=</span> <span class="mi">1</span>
+	<span class="k">end</span>
+	<span class="k">return</span> <span class="n">last_i</span> <span class="o">*</span> <span class="n">step</span>
+<span class="k">end</span>
+</code></pre></div></div>
+<p>Szukamy najpierw, czy takie miejsce istnieje w przedziale od $0$ do $2\times$promień, a jeśli nie, to idziemy dalej, aż takie miejsce znajdziemy. Powyższą funkcję uruchamiamy dla różnych wartości <code class="language-plaintext highlighter-rouge">radius</code>, aby otrzymać następujący wykres zależności rozmiarów plamki od promienia szczeliny:</p>
+<p align="center">
+<img src="/assets/images/2026-06-05/rys4.svg" width="500" />
+</p>
+<p>Obserwujemy wyraźne minimum, które wyznacza optymalne rozmiary szczeliny. Okazuje się również, że w minimum $r_o \approx 0.7 r$, gdzie $r_o$ oraz $r$ to odpowienio promień plamki i szczeliny. Oznacza to, że szczelina skupia delikatnie światło.</p>
+
+<p>Możemy zobaczyć jak wygląda obraz na ekranie dla optymalnego promienia szczeliny:</p>
+<p align="center">
+<img src="/assets/images/2026-06-05/rys5.png" width="500" />
+</p>
+<p>Biały okrąg reprezentuje szczelinę. Wyraźnie widzimy, że światło zostało skupione.</p>
+
+<p>Widzimy, że w granicy $r\to 0$ zależność $r_o(r)$ to w przybliżeniu $1/r$, co jest oczekiwane dla dyfrakcji Fraunhofera. Dla pierwszego minimum mamy 
+$$ \lambda = D\sin\theta = 2r\sin\theta, $$
+a $r_o \approx f\sin\theta$, więc
+$$ r_o \approx \frac{f\lambda}{2r}.$$
+Z kolei, gdy $r\gg r_o$, dążymy do optyki geometrycznej i $r_o = r$, co wyjaśnia liniowy wzrost. Możemy oszacować $r_o$ przyrównując obydwa równania:
+$$ r \approx \frac{f\lambda}{2r}, $$
+skąd
+$$ r\approx 0.71\sqrt{f\lambda}. $$</p>
+
+<p>Chcielibyśmy sprawdzić numerycznie, czy zależność $D(f, \lambda)$ ma podobną postać. Z tego powodu obliczono $D$ dla różnych wartości $f$ przy stałym $\lambda$ i na odwrót. Wykresy przedstawiały zależność prawdopodobnie potęgową, czyli:
+$$ D(f) = A_f f^\alpha $$ 
+oraz
+$$ D(\lambda) = A_\lambda \lambda^\beta. $$
+Jeśli weźmiemy w powyższych równaniach obstronnie logarytm naturalny, otrzymamy zależność postaci $y=ax+b$, gdzie $a$ to potęga, a $b$ to $\ln$ stałego współczynnika. Poniższe wykresy wykazują liniową zależność między logartymami, a więc przybliżenie potęgowe jest dobre.</p>
+<p align="center">
+<img src="/assets/images/2026-06-05/rys2.svg" width="500" />
+</p>
+<p align="center">
+<img src="/assets/images/2026-06-05/rys3.svg" width="500" />
+</p>
+<p>Widzimy, że obydwa współczynniki są bliskie $1/2$, więc mamy zależność postaci $D(f,\lambda)=A\sqrt{f\lambda}$. Ponadto,
+$$ D(f)=A\sqrt{f\lambda}=A_\lambda\sqrt{f} $$
+dla ustalonego $\lambda$, co daje $A=1.34$ (wszystkie obliczenia są prowadzone w mm, lecz $A$ jest bezwymiarowe). Podobnie mamy dla $A_f$, skąd $A=1.07$. Biorąc średnią, $A=1.21\pm 0.14$. Mamy zatem
+$$ D(f) \approx 1.21 \sqrt{f\lambda}. $$
+Przykładowo dla aparatu o $f=30$mm oraz dla światła widzialnego średnio $\lambda=550$nm mamy $D=0.16$mm. Zauważmy również, że zależność ta jest bardzo podobna do tej wyprowadzonej wcześniej.</p>
+
+<h2 id="uzupełnienie-metoda-simpsona">Uzupełnienie: Metoda Simpsona</h2>
+<p>Jak powszechnie wiadomo, prostą i stosunkowo dokładną metodą pierwszego rzędu do obliczania całek jest metoda trapezów, dla której całkę
+$$ \int_a^b f(x)\,dx $$
+przybliżamy jako
+$$ \approx \frac{f(b)+f(a)}{2}(b-a), $$
+czyli przez pole trapezu utworzonego przez oś $x$, proste $x=a$ oraz $x=b$ i prostą łączącą punkty $(a, f(a))$, $(b, f(b))$. W metodzie Simpsona nie korzystamy z prostej, a z paraboli, do której dopasowania wykorzystujemy punkty $(a, f(a))$, $((a+b)/2, f((a+b)/2))$ oraz $(b, f(b))$. Po bardzo żmudnych, lecz prostych obliczeniach można wykazać, że pole pod tą parabolą to:
+$$ \int_a^b f(x)\,dx \approx \frac{b-a}{6}\left(f(a)+4f\left( \frac{a+b}{2}\right)+f(b)\right). $$</p>]]></content><author><name></name></author><category term="Optyka" /><summary type="html"><![CDATA[Wprowadzenie]]></summary></entry><entry><title type="html">Drgania okrągłej membrany</title><link href="http://localhost:4000/mechanika/drgania-okr%C4%85g%C5%82ej-membrany" rel="alternate" type="text/html" title="Drgania okrągłej membrany" /><published>2026-03-14T00:00:00+01:00</published><updated>2026-03-14T00:00:00+01:00</updated><id>http://localhost:4000/mechanika/drgania-okr%C4%85g%C5%82ej-membrany</id><content type="html" xml:base="http://localhost:4000/mechanika/drgania-okr%C4%85g%C5%82ej-membrany"><![CDATA[<p>Rozważmy sferycznie symetryczną, płaską membranę, przymocowaną sztywno do pierścienia lub innej okrągłej krawędzi i wykonującą drgania. Membrana leży w jednej płaszczyźnie, więc problem nie zależy od współrzędnej $z$. Rówanie falowe dla membrany będzie miało postać:
 $$ c^2 \nabla^2 u = \frac{\partial^2 u}{\partial t^2} $$
 z warunkiem brzegowym $u(R)=0$, gdzie $R$ to promień membrany (jest ona przymocowana). Laplasjan we współrzędnych biegunowych to
 $$ \nabla^2 u = \frac{1}{r} \frac{\partial}{\partial r}\left( r \frac{\partial u}{\partial r}\right) + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2}, $$
@@ -86,7 +233,7 @@ gdzie chwilę początkową wybieramy tak, aby $B=0$ oraz wszystkie stałe łącz
 $$ u(R, \theta, t)=0, $$
 więc 
 $$ J_\alpha(\lambda R)=0. $$
-Zastąpmy $\alpha$ przez $m$. Jako $\alpha_{mn}$ oznaczymy $n$-te miejsce zerowe $J_n(x)$. Wtedy
+Zastąpmy $\alpha$ przez $m$. Jako $\alpha_{mn}$ oznaczymy $n$-te miejsce zerowe $J_m(x)$. Wtedy
 $$ \lambda R=\alpha_{mn}, $$
 skąd
 $$ \lambda = \frac{\alpha_{mn}}{R}. $$
@@ -159,7 +306,7 @@ Jest to równanie fali rozchodzącej się dla $-$ w prawo, a dla $+$ w lewo. Wid
 <p>Ponieważ przynajmniej jedno z równań (1) musi być spełnione, każda funkcja spełniająca równanie falowe składa się z fal rozchodzących się w prawo lub w lewo, lub z obu naraz. Chcemy, aby fale padające na lewą krawędź obszaru były przez nią absorbowane, czyli poruszały się dalej, tak, jakby tej krawędzi nie było. Dlatego dla niej postawimy warunek $\partial_- u=0$, czyli przepuszcza ona składową fali poruszającą się w lewo. Podobnie dla prawej krawędzi, $\partial_+ u=0$.</p>
 
 <p>Powyższe rozumowanie ugólnimy dla dwuwymiarowego równania falowego. Dla fal poruszających się wzdłuż osi x:
-$$ (c^2\partial_x^2+c^2\partial_y^2-\partial_t^2)=c^2\left(\partial_x-\frac{\partial_t}{c}\sqrt{1- \frac{\partial_y^2}{\partial_t^2}}\right)\left(\partial_x+\frac{\partial_t}{c}\sqrt{1- \frac{\partial_y^2}{\partial_t^2}}\right). $$
+$$ (c^2\partial_x^2+c^2\partial_y^2-\partial_t^2)=c^2\left(\partial_x-\frac{\partial_t}{c}\sqrt{1- c^2\frac{\partial_y^2}{\partial_t^2}}\right)\left(\partial_x+\frac{\partial_t}{c}\sqrt{1- c^2\frac{\partial_y^2}{\partial_t^2}}\right). $$
 W pierwszym przybliżeniu $\partial_y u\approx 0$, czyli fale padające prostopadle na krawędź będą w całości przepuszczane. W dalszych przybliżeniach pierwiastek możemy rozrzeszać korzystając z $(1+x)^\alpha\approx 1+\alpha x+\cdots$ dla małych $x$, co w szczególności polepszy warunki brzegowe dla fal padających na krawędź pod dużym kątem. W naszym przybliżeniu mamy zatem:
 $$ (\partial_t -c\partial_x)u=0 \vee (\partial_t +c\partial_x)u =0 \tag{2} $$
 i analogicznie dla fal poruszających się wzdłuż osi $y$:
@@ -951,134 +1098,4 @@ Od razu wynika stąd odpowiedź do podpunktu b), $p_b=0.25\%$. Dla podpunktu c):
 $$ p_c=p_6\approx 16\%. $$</p>
 
 <p>Jak wyprowadziliśmy wyżej na przykładzie, <strong>rozkład Poissona</strong>, opisujący prawdopodobieństwo zajścia $k$ wydarzeń, które zachodzą z pewną średnią częstością $\lambda$ w pewnym interwale czasu, w tym interwale to
-$$ \boxed{p_k = \frac{\lambda^k}{k!}e^{-\lambda}.} $$</p>]]></content><author><name></name></author><category term="Astronomia" /><summary type="html"><![CDATA[Rozkład Bernoulliego (dwumianowy) Najprostszym przykładem ilustrującym ten rozkład jest rzut monetą. Niech prawdopodobieństwo wyrzucenia reszki wynosi $p$, a prawdopodobieństwo wyrzucenia orła - $1-p$ (jeśli $p=1/2$, moneta jest ,,uczciwa’’, a w przeciwnym przypadku jest ,,stronnicza’’). Niech będzie w sumie $N$ rzutów. Interesuje nas prawdopodobieństwo wyrzucenia reszki $k$ razy.]]></summary></entry><entry><title type="html">Tensor momentu bezwładności</title><link href="http://localhost:4000/mechanika/tensor-momentu-bezwladnosci" rel="alternate" type="text/html" title="Tensor momentu bezwładności" /><published>2026-01-01T00:00:00+01:00</published><updated>2026-01-01T00:00:00+01:00</updated><id>http://localhost:4000/mechanika/tensor-momentu-bezwladnosci</id><content type="html" xml:base="http://localhost:4000/mechanika/tensor-momentu-bezwladnosci"><![CDATA[<h2 id="ruch-ciała-sztywnego">Ruch ciała sztywnego</h2>
-<p>Niech $\mathbf{R}$ będzie wektorem położenia środka masy ciała sztywnego, a $\mathbf{r_i}$ położeniem elementu masy $m_i$ wchodzącego w jego skład. Niech $\mathbf{r_i}’=\mathbf{r_i}-\mathbf{R}$ będzie położeniem $m_i$ względem środka masy. Niech ciało wykonuje obrót wokół osi $z$ z prędkością kątową $\mathbf{\Omega}$ oraz porusza się z prędkością $\mathbf{V}$. Po pewnym krótkim czasie $dt$ ciało obróci się o kąt $d\theta$ i przemieści o wektor $\mathbf{dR}$.</p>
-
-<p align="center">
-<img src="/assets/images/2026-01-01/fig1.svg" width="500" />
-</p>
-
-<p>Wyznaczmy wynikające z tego obrotu przesunięcie $\mathbf{dr_i}’$ elementu masy $m_i$. Jeśli poprzez $\phi_i$ oznaczymy kąt tworzony przez $\mathbf{r_i}’$ i oś $z$, to widzimy, że $dr_i’$ to długość łuku okręgu o promieniu $r_i’\sin\phi_i$ określonego przez kąt $d\theta$. Dlatego:
-$$ dr_i’=r_i’\sin\phi_i\,d\theta. $$
-Niech wektor $\mathbf{d\theta}$ będzie skierowany tak, jak $\mathbf{\Omega}$. Ponieważ obrót zachodzi w płaszczyźnie prostopadłej zarówno do wektora kąta, jak i wektora położenia $\mathbf{r_i}’$, a wartość wektora $\mathbf{dr}$ jest taka sama, jak ich iloczynu wektorowego, możemy określić go jako ich iloczyn wektorowy:
-$$ \mathbf{dr_i}’=\mathbf{d\theta}\times\mathbf{r_i}’, $$
-gdzie kolejność mnożenia wynika z reguły prawej dłoni - przyjmujemy, że jeśli $\mathbf{\Omega}$ jest skierowane zgodnie z osią $z$, to obrót następuje przeciwnie do ruchu wskazówek zegara. Całkowite przesunięcie, biorąc pod uwagę ruch środka masy, to
-$$ \mathbf{dr_i}=\mathbf{dr_i}’+\mathbf{dR}=\mathbf{d\theta}\times\mathbf{r_i}’+\mathbf{dR}. $$
-Po podzieleniu powyższego wyrażenia przez $dt$ otrzymujemy
-$$ \mathbf{v_i}=\mathbf{\Omega}\times \mathbf{r_i}’+\mathbf{V}. $$
-Wynika z tego, że ruch ciała sztywnego możemy zawsze rozpatrywać jako ruch obrotowy wokół środka masy oraz ruch postępowy środka masy.</p>
-
-<h2 id="energia-kinetyczna-ciała-sztywnego">Energia kinetyczna ciała sztywnego</h2>
-<p>Obliczmy teraz energię kinetyczną ciała sztywnego. Będzie ona oczywiście równa sumie energii kinetycznych wszystkich jego elementów:
-$$ T=\frac{1}{2}\sum_i m_i\left|\mathbf{v_i}\right|^2. $$
-Skorzystamy z wyprowadzonego wcześniej wzoru na $\mathbf{v_i}$:
-$$ T=\frac{1}{2}\sum_i m_i \left(\mathbf{\Omega}\times \mathbf{r_i}’+\mathbf{V}\right)^2. $$
-Rozpiszmy wyrażenie w nawiasie:
-$$  \left(\mathbf{\Omega}\times \mathbf{r_i}’+\mathbf{V}\right)^2=\left|\mathbf{\Omega}\times\mathbf{r_i}’\right|^2r+2\mathbf{V}\cdot\left(\mathbf{\Omega}\times\mathbf{r_i}’\right)+V^2. $$
-W drugim członie możemy cyklicznie przestawić wyrazy:
-$$ \mathbf{V}\cdot\left(\mathbf{\Omega}\times\mathbf{r_i}’\right)=\mathbf{r_i}’\cdot\left(\mathbf{V}\times\mathbf{\Omega}\right), $$
-a w pierwszym członie możemy obliczyć wartość iloczynu wektorowego:
-$$ \left|\mathbf{\Omega}\times\mathbf{r_i}’\right|^2=\Omega^2r_i’^2\sin^2\phi=\Omega^2r_i’^2-\Omega^2r_i’^2\cos^2\phi=\Omega^2r_i’^2-\left(\mathbf{\Omega}\cdot\mathbf{r_i}’\right)^2. $$
-Wracając do $T$, dostajemy
-$$ T=\frac{1}{2}V^2\sum_i m_i+\left(\mathbf{V}\times\mathbf{\Omega}\right)\cdot\sum_i m_i\mathbf{r_i}’+\frac{1}{2}\sum_i m_i\left[\Omega^2r_i’^2-\left(\mathbf{\Omega}\cdot\mathbf{r_i}’\right)^2\right]. $$
-Suma w pierwszym członie to oczywiście masa całkowita ciała, czyli $M$. Suma w drugim członie to
-$$ \sum_i m_i\mathbf{r_i}’=\sum_i m_i \left(\mathbf{r_i}-\mathbf{R}\right)=\sum_i m_i\mathbf{r_i}-M\mathbf{R}. $$
-Pierwszy wyraz rozpoznajemy jako definicję środka masy pomnożoną razy $M$, więc suma wynosi $M\mathbf{R}-M\mathbf{R}=0$.</p>
-
-<p>Ostatni człon przepiszemy następująco. Niech indeksy $1,2,3$ oznaczają kolejne składowe wektora. Składowe $\mathbf{r_i}’$ będziemy oznaczać jako $x_i$. Wtedy pierwszy wyraz w nawiasie kwadratowym to
-$$ \left(\sum_j \Omega_j^2\right)\left(\sum_k x_k^2\right)=\Omega_j^2 x_k^2 $$
-Dla przejrzystości zapisu będziemy pomijać symbole sumy, wiedząc że sumowanie odbywa się po wskaźnikach $1,2,3$. Podobnie w przypadku iloczynu wektorowego:
-$$ \mathbf{\Omega}\cdot\mathbf{r_i}’=\sum_l \Omega_l x_l=\Omega_l x_l, $$
-a jego kwadrat to $\Omega_l \Omega_m x_l x_m$. Zauważmy, że $\Omega_j^2$ możemy przepisać jako
-$$ \Omega_l \Omega_m \delta_{lm}, $$
-gdzie $\delta_{lm}$ to delta Kroneckera.
-Możemy teraz przepisać wyrażenie w nawiasie kwadratowym jako
-$$ \Omega_l\Omega_m \delta_{lm}x_k^2 -\Omega_l\Omega_m x_l x_m = \Omega_l\Omega_m\left(x_k^2\delta_{lm}-x_l x_m\right). $$
-Cała suma to teraz
-$$ \frac{1}{2}\Omega_l \Omega_m \sum_i m_i\left(x_k^2\delta_{lm}-x_l x_m\right), $$
-gdzie $\Omega_l \Omega_m$ wyciągnęliśmy przed sumę, ponieważ jest to wielkość niezależna od $i$.</p>
-
-<p>Energia kinetycza to
-$$ \boxed{T=\frac{1}{2}MV^2+\frac{1}{2}\Omega_l\Omega_m I_{lm},} $$
-gdzie $I_{lm}$ to <strong>tensor momentu bezwładności</strong>. Możemy zapisać go w postaci macierzy:
-$$ \mathbf{I}=\begin{pmatrix}
-\sum_i m_i(y^2+z^2) &amp; -\sum_i m_ixy &amp; -\sum_i m_ixz \\ -\sum_i m_ixy &amp; \sum_i m_i(x^2+z^2) &amp; -\sum_i m_iyz \\ -\sum_i m_ixz &amp; -\sum_i m_iyz &amp; \sum_i m_i(x^2+y^2)
-\end{pmatrix}. $$
-Widzimy, że tensor jest symetryczny, tzn. $I_{lm}=I_{ml}$. Oczywiście, dla ciał rozciągłych sumę zastępujemy całką.</p>
-
-<h2 id="moment-pędu-ciała-sztywnego">Moment pędu ciała sztywnego</h2>
-<p>Za pomocą tensora bezwładności możemy również wyrazić wektor momentu pędu ciała sztywnego. Moment pędu to z definicji
-$$ \mathbf{L}=\sum_i m_i \mathbf{r_i}’\times \mathbf{v_i}. $$
-Korzystając ze wcześniejszych wyników, możemy postawić za $ \mathbf{v_i}$:
-$$ \mathbf{L}=\sum_i m_i \mathbf{r_i}’\times\left(\mathbf{V}+ \mathbf{\Omega}\times \mathbf{r_i}’\right). $$
-Pierwszy człon sumy daje 
-$$ \left(\sum_i m_i \mathbf{r_i}’\right)\times \mathbf{V}=0 $$
-(wyrażenie w nawiasie zostało obliczone wcześniej), a wyraz z drugiego możemy przepisać, korzystając ze wzoru na potrójny iloczyn wektorowy:
-$$ \mathbf{r_i}’\times\left(\mathbf{\Omega}\times \mathbf{r_i}’\right)= \mathbf{\Omega}\left( \mathbf{r_i}’\cdot \mathbf{r_i}’\right)- \mathbf{r_i}’\left( \mathbf{r_i}’\cdot \mathbf{\Omega}\right). $$
-$k$-ta składowa wektora momentu pędu to wtedy
-$$ L_k=\sum_i m_i\left(\Omega_k x_j^2-x_k x_j\Omega_j \right). $$
-Zauważmy, że $\Omega_k=\Omega_j\delta_{jk}$, więc
-$$ L_k=\Omega_j\sum_i m_i\left(x_j^2\delta_{jk}-x_jx_k\right). $$
-Sumę rozpoznajemy jako tensor momentu bezwładności. Ostatecznie,
-$$ \boxed{L_k=\Omega_j I_{jk}} $$
-lub
-$$ \boxed{ \mathbf{L}= \mathbf{I}\cdot \mathbf{\Omega}.} $$</p>
-
-<h2 id="tensor-symetryczny">Tensor symetryczny</h2>
-<p>Tensor $ \mathbf{I}$ jest symetryczną macierzą kwadratową, więc możemy wyznaczyć jego wartości i wektory własne. Będą one odpowiadać kierunkom, dla których zwrot wektora momentu pędu będzie taki sam, jak zwrot wektora prędkości kątowej.</p>
-
-<p>Tensory symetryczne mają wiele użytecznych własności. Pierwsza z nich to fakt, że wszystkie rzeczywiste tensory symetryczne mają rzeczywiste wartości własne. Aby to udowodnić, zapiszmy zagadnienie własne dla macierzy $ \mathbf{A}$:
-$$ A_{ij} v_j=\lambda v_i. $$
-Weźmy teraz sprzężenie zespolone obu stron i skorzystajmy z własności $(ab)^*=a^*b^*$:
-$$ A_{ij} v_j^*=\lambda^* v_i^*, $$
-gdzie skorzystaliśmy również z faktu, że tensor $ \mathbf{A}$ jest rzeczywisty.
-Weźmy teraz iloczyn skalarny $ \mathbf{v}^* $ i pierwszego równania oraz $ \mathbf{v}$ i drugiego równania:
-$$ v_i^* A_{ij}v_j=\lambda v_i^*v_i \text{, } v_i A_{ij}v_j^*=\lambda^* v_iv_i^*.$$
-Korzystając z faktu, że $A_{ij}=A_{ji}$, $\lambda v_i^*v_i=v_i^* A_{ij}v_j=v_i^* A_{ji}v_j=v_jA_{ji}v_i^*$, a zamiania miejscami wskaźników $i$ oraz $j$ (co nic nie zmienia) daje $v_iA_{ij}v_j^*=\lambda^* v_iv_i^*$. Stąd
-$$ \lambda^* v_iv_i^*=\lambda v_i^*v_i. $$
-$v_iv_i^*=v_i^*v_i$, więc $\lambda=\lambda^*$, a to jest możliwe tylko, gdy $ \text{Im }\lambda=0$.</p>
-
-<p>Druga z własności to fakt, że wszystkie wektory własne, odpowiadające różnym wartością własnym są ortogonalne. Załóżmy, że mamy różne wartości własne $\lambda$ i $\mu$ oraz wektory własne $ \mathbf{x}$ oraz $ \mathbf{y}$. Odpowiadające im równania to
-$$ A_{ij}x_j=\lambda x_i \text{ oraz } A_{ij}y_j=\mu y_i. $$
-Aby udowodnić ortogonalność, musimy udowodnić, że $x_i y_i=0$. Aby to uczynić, przekształćmy następujące wyrażenie:
-$$ \lambda x_i y_i=A_{ij}x_j y_i, $$
-a korzystając z $A_{ij}=A_{ji}$:
-$$ =x_jA_{ji}y_i=x_j\mu y_j. $$
-Doszliśmy do związku:
-$$ \lambda x_i y_i=\mu x_j y_j. $$
-Ponieważ $\lambda\neq\mu$, a $x_iy_i=x_jy_j$, to iloczyn skalarny jest równy $0$.</p>
-
-<p>Łatwo jest zauważyć, dlaczego powyższa zależność jest prawdziwa, patrząc na przekształcenie wektorów na płaszczyźnie. Wiemy, że pierwsza kolumna macierzy wskazuje, gdzie po transformacji “idzie” wektor jednostkowy osi $x$, a druga - $y$. Ponieważ macierz jest symetryczna, wektory jednostkowe są swoimi odbiciami względem prostej $y=x$. Zauważmy teraz, że wszystkie wektory leżące na prostej $y=x$ są złożone z takiej samej liczby wektorów jednostkowych $x$ oraz $y$, co pozostaje prawdą po transformacji. Zauważmy również, że suma dwóch wektorów, będących swoimi odbiciami względem prostej $y=x$ zawsze ląduje na tej prostej (niech będą to wektory $(a,b)$ oraz $(b,a)$. Widzimy, że ich suma to $(a+b,a+b)$, więc $y=x$). Wektory wchodzące w skład wektora leżącego na $y=x$ możemy pogrupować parami, a każda z nich daje wektor leżący na $y=x$, zatem kierunek wszystkich wektorów na tejże prostej się nie zmienia - są to wektory własne przypadające pierwszej wartości własnej. Dla wektorów leżących na $y=-x$ możemy przeprowadzić podobne rozumowanie i dojść do wniosku, że one również są wektorami własnymi przypadającymi drugiej wartości własnej. Teraz widzimy, że oczywiście proste $y=x$ i $y=-x$ są prostopadłe, więc wektory własne również.</p>
-
-<p>Często macierze przybierają o wiele prostszą postać w innych układach współrzędnych. Okazuje się, że istnieje taki wybór osi układu współrzędnych, dla którego macierz symetryczna staje się diagonalna. Innymi słowy,
-$$ \mathbf{A}= \mathbf{P}^{-1} \mathbf{B} \mathbf{P}, $$
-gdzie $ \mathbf{B}$ to macierz diagonalna, a macierz $ \mathbf{P}$ jest macierzą ortogonalną, tzn. złożoną z wektorów ortogonalnych (np. wektorów wskazujących osie kartezjańskiego układu współrzędnych). Wyrażenie po prawej stronie odpowiada transformacji układu współrzędnych, następnie zastosowaniu transformacji macierzy $ \mathbf{B}$, która odpowiada transformacji $ \mathbf{A}$, lecz ma prostszą postać, a następnie powrotowi do pierwotnego układu współrzędnych (macierz odwrotna do $ \mathbf{P}$). Zastanówmy się, dla jakiej macierzy $ \mathbf{P}$, czyli wyboru osi układu współrzędnych, macierz $ \mathbf{B}$ zmienia jedynie długość wektorów jednostkowych osi (ponieważ $ \mathbf{B}$ jest diagonalna, a takie macierze zmieniają tylko długość wektorów jednostkowych wskazujących osie układu współrzędnych). Własność taką mają oczywiście wektory własne macierzy $ \mathbf{A}$, więc spodziewamy się, że $ \mathbf{P}$ będzie właśnie z nich złożona. Z kolei, wektory własne są wydłużane o czynnik wartości własnej, więc na przekątnej $ \mathbf{B}$ będą wartości własne odpowiadające każdemu z wektorów własnych. Innymi słowy,
-$$ \mathbf{B}=\begin{pmatrix}
-\lambda_1 &amp; \cdots &amp; 0 \\ \vdots &amp; \ddots &amp; \vdots \\ 0 &amp; \cdots &amp; \lambda_n \end{pmatrix}
-$$
-oraz 
-$$ \mathbf{P} = \begin{pmatrix} \mathbf{x_1} &amp; \cdots &amp;  \mathbf{x_n} \end{pmatrix}, $$
-gdzie $ \mathbf{x}_i$ to wektory własne odpowiadające wartościom własnym $\lambda_i$. Jak udowodniono wcześniej, wektory własne są ortogonalne, więc $ \mathbf{P}$ jest macierzą ortogonalną.</p>
-
-<p>Wracając do tensora momentu bezwładności, możemy wyznaczyć jego wektory własne, które będą wskazywać kierunki nazywane <strong>głównymi osiami bezwładności</strong>. Zauważmy, że jeśli kierunek wektora prędkości kątowej $ \mathbf{\Omega}$ będzie pokrywał się z kierunkiem którejkolwiek z głównych osi bezwładności (czyli $ \mathbf{\Omega}$ jest wektorem własnym tensora bezwładności) wektor momentu pędu również będzie pokrywał się z tą osią.</p>
-
-<p>Przy wyborze osi wskazywanych przez wektory własne tensora bezwładności, wyrażenia na energię i moment pędu przybierają prostą postać:
-$$ \boxed{T=\frac{1}{2}I_i\Omega_i^2,} $$
-gdzie $I_i=I_{ij}\delta_{ij}$ (w przekształconym układzie współrzędnych) oraz
-$$ \boxed{L_i=I_i\Omega_i.} $$</p>
-
-<h2 id="precesja-regularna-bąka-symetrycznego">Precesja regularna bąka symetrycznego</h2>
-<p><strong>Bąkiem symetrycznym</strong> nazywamy ciało, dla którego dwa główne momenty bezwładności są równe, $I_1=I_2\neq I_3$. Oznacza to, że płaszczyzna, w której zawierają się wektory własne $ \mathbf{x}_1$ oraz $ \mathbf{x}_2$, jest “rozciągana” przez macierz (tensor) $ \mathbf{I}$ równomiernie w dwóch prostopadłych kierunkach. W takim przypadku, oczywiste jest, że zmieniają się jedynie długości wektorów, a ich kierunki pozostają stałe - i jest to prawdziwe dla wszystkich wektorów w płaszczyźnie. Zatem dowolna para prostopadłych wektorów $ \mathbf{x}_1’$ oraz $ \mathbf{x}_2’$ w rozważanej płaszczyźnie może służyć za kierunki osi układu współrzędnych.</p>
-
-<p>W ogólności wektor $ \mathbf{L}$ nie będzie miał zwrotu zgodnego z którąkolwiek z głównych osi bezwładności. Skorzystajmy ze swobody wyboru osi prostopadłych do $x_3$ i wybierzmy oś $x_2$ taką, że jest ona prostopadła do płaszczyzny, w której zawiera się $x_3$ oraz $ \mathbf{L}$. Wtedy $L_2=0$ i z wcześniejszych rozważań, $\Omega_2=0$. Wiemy więc, że wektory $ \mathbf{L}$, $ \mathbf{\Omega}$ i oś $x_3$, będącą osią symetrii bąka, leżą w jednej płaszczyźnie. Rozważmy teraz prędkości punktów leżących na osi $x_3$. Są one dane wzorem
-$$ \mathbf{v}_i= \mathbf{\Omega}\times \mathbf{r}_i’. $$
-Widzimy więc, że prędkości będą zwrócone prostopadle do tej płaszczyny, a co za tym idzie, oś bąka będzie obracać się jednostanie wokół wektora $ \mathbf{L}$. Wyznaczmy prędkość kątową obrotu i precesji bąka. Niech $\theta$ oznacza kąt między $ \mathbf{L}$ a $x_3$. Ze wcześniejszych zależności
-$$ \Omega_3=\Omega_{obr}= \frac{L_3}{I_3}, $$
-a $L_3=L\cos\theta$, więc
-$$ \Omega_{obr}= \frac{L}{I_3}\cos\theta. $$
-Z kolei, z rysunku widzimy, że po rozłożeniu wektora $ \mathbf{\Omega}$ na składową w kierunku $x_3$ (oznaczoną znakiem prim, ponieważ nie jest ona tym samym, co $ \mathbf{\Omega_3}$!) oraz na składową w kierunku $ \mathbf{L}$, $\Omega_{pr}\sin\theta=\Omega_1$, więc
-$$ \Omega_{pr}= \frac{\Omega_1}{\sin\theta}= \frac{L_1}{I_1\sin\theta}= \frac{L\sin\theta}{I_1\sin\theta}= \frac{L}{I_1}. $$</p>
-
-<p align="center">
-<img src="/assets/images/2026-01-01/fig2.svg" width="500" />
-</p>]]></content><author><name></name></author><category term="Mechanika" /><summary type="html"><![CDATA[Ruch ciała sztywnego Niech $\mathbf{R}$ będzie wektorem położenia środka masy ciała sztywnego, a $\mathbf{r_i}$ położeniem elementu masy $m_i$ wchodzącego w jego skład. Niech $\mathbf{r_i}’=\mathbf{r_i}-\mathbf{R}$ będzie położeniem $m_i$ względem środka masy. Niech ciało wykonuje obrót wokół osi $z$ z prędkością kątową $\mathbf{\Omega}$ oraz porusza się z prędkością $\mathbf{V}$. Po pewnym krótkim czasie $dt$ ciało obróci się o kąt $d\theta$ i przemieści o wektor $\mathbf{dR}$.]]></summary></entry></feed>
+$$ \boxed{p_k = \frac{\lambda^k}{k!}e^{-\lambda}.} $$</p>]]></content><author><name></name></author><category term="Astronomia" /><summary type="html"><![CDATA[Rozkład Bernoulliego (dwumianowy) Najprostszym przykładem ilustrującym ten rozkład jest rzut monetą. Niech prawdopodobieństwo wyrzucenia reszki wynosi $p$, a prawdopodobieństwo wyrzucenia orła - $1-p$ (jeśli $p=1/2$, moneta jest ,,uczciwa’’, a w przeciwnym przypadku jest ,,stronnicza’’). Niech będzie w sumie $N$ rzutów. Interesuje nas prawdopodobieństwo wyrzucenia reszki $k$ razy.]]></summary></entry></feed>

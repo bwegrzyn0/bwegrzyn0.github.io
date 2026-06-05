@@ -32,7 +32,7 @@ Jest to równanie fali rozchodzącej się dla $-$ w prawo, a dla $+$ w lewo. Wid
 Ponieważ przynajmniej jedno z równań (1) musi być spełnione, każda funkcja spełniająca równanie falowe składa się z fal rozchodzących się w prawo lub w lewo, lub z obu naraz. Chcemy, aby fale padające na lewą krawędź obszaru były przez nią absorbowane, czyli poruszały się dalej, tak, jakby tej krawędzi nie było. Dlatego dla niej postawimy warunek $\partial_- u=0$, czyli przepuszcza ona składową fali poruszającą się w lewo. Podobnie dla prawej krawędzi, $\partial_+ u=0$.
 
 Powyższe rozumowanie ugólnimy dla dwuwymiarowego równania falowego. Dla fal poruszających się wzdłuż osi x:
-\$$ (c^2\partial_x^2+c^2\partial_y^2-\partial_t^2)=c^2\left(\partial_x-\frac{\partial_t}{c}\sqrt{1- \frac{\partial_y^2}{\partial_t^2}}\right)\left(\partial_x+\frac{\partial_t}{c}\sqrt{1- \frac{\partial_y^2}{\partial_t^2}}\right). \$$
+\$$ (c^2\partial_x^2+c^2\partial_y^2-\partial_t^2)=c^2\left(\partial_x-\frac{\partial_t}{c}\sqrt{1- c^2\frac{\partial_y^2}{\partial_t^2}}\right)\left(\partial_x+\frac{\partial_t}{c}\sqrt{1- c^2\frac{\partial_y^2}{\partial_t^2}}\right). \$$
 W pierwszym przybliżeniu $\partial_y u\approx 0$, czyli fale padające prostopadle na krawędź będą w całości przepuszczane. W dalszych przybliżeniach pierwiastek możemy rozrzeszać korzystając z $(1+x)^\alpha\approx 1+\alpha x+\cdots$ dla małych $x$, co w szczególności polepszy warunki brzegowe dla fal padających na krawędź pod dużym kątem. W naszym przybliżeniu mamy zatem:
 \$$ (\partial_t -c\partial_x)u=0 \vee (\partial_t +c\partial_x)u =0 \tag{2} \$$
 i analogicznie dla fal poruszających się wzdłuż osi $y$:

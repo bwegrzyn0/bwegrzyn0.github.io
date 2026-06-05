@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Drgania sferycznej membrany"
+title: "Drgania okrągłej membrany"
 date: 2026-03-14
 categories: Mechanika
 katex: true
@@ -94,7 +94,7 @@ gdzie chwilę początkową wybieramy tak, aby $B=0$ oraz wszystkie stałe łącz
 \$$ u(R, \theta, t)=0, \$$
 więc 
 \$$ J_\alpha(\lambda R)=0. \$$
-Zastąpmy $\alpha$ przez $m$. Jako $\alpha_{mn}$ oznaczymy $n$-te miejsce zerowe $J_n(x)$. Wtedy
+Zastąpmy $\alpha$ przez $m$. Jako $\alpha_{mn}$ oznaczymy $n$-te miejsce zerowe $J_m(x)$. Wtedy
 \$$ \lambda R=\alpha_{mn}, \$$
 skąd
 \$$ \lambda = \frac{\alpha_{mn}}{R}. \$$

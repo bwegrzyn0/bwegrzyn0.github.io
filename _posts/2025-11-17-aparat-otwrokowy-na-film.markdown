@@ -2,7 +2,7 @@
 layout: post
 title: "Aparat otworkowy na film"
 date: 2025-11-17
-categories: Fotografia
+categories: Optyka 
 katex: true
 ---
 
