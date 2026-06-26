@@ -2,6 +2,42 @@
 layout: default
 ---
 
+<head>
+	<style>
+		.post {
+			border: 1px gray solid;
+			border-radius: 10px;
+			padding-top: 5px;
+			padding-right: 10px;
+			padding-left: 10px;
+			padding-bottom: 5px;
+		}
+
+		.grid-container {
+			display: grid;
+			gap: 20px;
+		}
+
+		@media (orientation:portrait) {
+			.grid-container {
+				grid-template-columns: 95%;
+			}
+		}
+
+		@media (orientation:landscape) {
+			.grid-container {
+				grid-template-columns: 45% 45%;
+			}
+		}
+
+		.excerpt img {
+			float: left;
+			padding-right: 10px;
+		}
+	</style>
+</head>
+
+<body>
 <div class="home">
   {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
@@ -10,24 +46,63 @@ layout: default
   {{ content }}
 
   {%- if site.posts.size > 0 -%}
-    <h1 class="post-title">{{ page.list_title | default: "Artykuły" }}</h1>
+    <h1 class="post-title">{{ page.list_title | default: "Posts" }}</h1>
     <ul class="post-list">
-      {%- for post in site.posts -%}
-      <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-      </li>
-      {%- endfor -%}
+	    <div class="grid-container">
+			{%- for post in site.posts -%}
+			{%- unless post.old -%}
+			<div class="post">
+				{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+				<span class="post-meta">{{ post.date | date: date_format }}</span>
+				<h3>
+					<a class="post-link" href="{{ post.url | relative_url }}">
+						{{ post.title | escape }}
+					</a>
+				</h3>
+				<div class="excerpt">
+					{%- if post.image -%}
+					<img src="{{ post.image }}" width = 50% />
+					{%- endif -%}
+					{{ post.content | strip_html | truncatewords: 20 }}
+				</div>
+			</div>
+			{%- endunless -%}
+			{%- endfor -%}
+	    </div>
     </ul>
-
+    <h1 class="post-title">{{ page.list_title | default: "Posts in Polish" }}</h1>
+    <ul class="post-list">
+	    <div class="grid-container">
+			{%- for post in site.posts -%}
+			{%- if post.old -%}
+			<div class="post">
+				{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+				<span class="post-meta">{{ post.date | date: date_format }}</span>
+				<h3>
+					<a class="post-link" href="{{ post.url | relative_url }}">
+						{{ post.title }}
+					</a>
+				</h3>
+				<div class="excerpt">
+					{%- if post.image -%}
+					<img src="{{ post.image }}" width = 50% />
+					{%- endif -%}
+					{{ post.content | strip_html | truncatewords: 20 }}
+				</div>
+			</div>
+			{%- endif -%}
+			{%- endfor -%}
+	    </div>
+    </ul>
   {%- endif -%}
-
 </div>
+</body>
+
+<script> 
+	var el = (document.getElementsByClassName('excerpt'));
+	for (let i = 0; i < el.length; i++) {
+		var text = el[i].innerHTML;
+		console.log(text)
+		el[i].innerHTML = text.replaceAll('$','');
+	}
+</script>

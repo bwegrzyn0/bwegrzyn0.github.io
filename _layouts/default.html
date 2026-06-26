@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
-  {%- include head.html -%}
-  <head>
-	  {% if page.katex %}
+	{%- include head.html -%}
+	<head>
+		{% if page.katex %}
 
-<!-- CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
+		<!-- CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
 
-<!-- JavaScript -->
-<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js"
-  onload="renderMathInElement(document.body,{
-    delimiters: [
-      { left: '$$',  right: '$$',  display: true  },
-      { left: '$',   right: '$',   display: false },
-      { left: '\\[', right: '\\]', display: true  },
-      { left: '\\(', right: '\\)', display: false }
-  ]});">
-</script>
+		<!-- JavaScript -->
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js"
+			      onload="renderMathInElement(document.body,{
+			      delimiters: [
+			      { left: '$$',  right: '$$',  display: true  },
+			      { left: '$',   right: '$',   display: false },
+			      { left: '\\[', right: '\\]', display: true  },
+			      { left: '\\(', right: '\\)', display: false }
+			      ]});">
+		</script>
 
-{% endif %}
-  </head>
+		{% endif %}
+	</head>
 
-  <body>
+	<body>
 
-    {%- include header.html -%}
+		{%- include header.html -%}
 
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </main>
+		<main class="page-content" aria-label="Content">
+			<div class="wrapper">
+				{{ content }}
+			</div>
+		</main>
 
-    {%- include footer.html -%}
+		{%- include footer.html -%}
 
-  </body>
+	</body>
 
 </html>
