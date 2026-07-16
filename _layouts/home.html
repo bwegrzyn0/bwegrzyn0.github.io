@@ -63,7 +63,7 @@ layout: default
 					{%- if post.image -%}
 					<img src="{{ post.image }}" width = 50% />
 					{%- endif -%}
-					{{ post.content | strip_html | truncatewords: 20 }}
+					{{ post.content | strip_html | truncatewords: 30 }}
 				</div>
 			</div>
 			{%- endunless -%}
@@ -87,7 +87,7 @@ layout: default
 					{%- if post.image -%}
 					<img src="{{ post.image }}" width = 50% />
 					{%- endif -%}
-					{{ post.content | strip_html | truncatewords: 20 }}
+					{{ post.content | strip_html | truncatewords: 30 }}
 				</div>
 			</div>
 			{%- endif -%}
