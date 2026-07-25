@@ -1,4 +1,120 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-07-16T19:49:33+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Physics &amp; programming </subtitle><entry><title type="html">Symulacja dyfrakcji na okrągłej szczelinie</title><link href="http://localhost:4000/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie" rel="alternate" type="text/html" title="Symulacja dyfrakcji na okrągłej szczelinie" /><published>2026-06-05T00:00:00+02:00</published><updated>2026-06-05T00:00:00+02:00</updated><id>http://localhost:4000/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie</id><content type="html" xml:base="http://localhost:4000/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie"><![CDATA[<h2 id="wprowadzenie">Wprowadzenie</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-07-25T15:05:17+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Physics &amp; programming </subtitle><entry><title type="html">Heisenberg uncertainty relation</title><link href="http://localhost:4000/quantum-mechanics/heisenberg-uncertainty-relation" rel="alternate" type="text/html" title="Heisenberg uncertainty relation" /><published>2026-07-25T00:00:00+02:00</published><updated>2026-07-25T00:00:00+02:00</updated><id>http://localhost:4000/quantum-mechanics/heisenberg-uncertainty-relation</id><content type="html" xml:base="http://localhost:4000/quantum-mechanics/heisenberg-uncertainty-relation"><![CDATA[<h3 id="measurement-in-quantum-mechanics">Measurement in quantum mechanics</h3>
+<p>Let us consider an operator associated with the measurement of an <strong><em>observable</em></strong>, for example position or momentum, which we will denote in general as $A$. We will denote the <strong><em>eigenkets (eigenvectors)</em></strong> of the operator as $\ket{a’}$ and the associated eigenvalues as $a’$. This means that we have the following equality:
+$$ A\ket{a’}=a’\ket{a’}. \tag{1} $$
+We see that when the operator acts on one of its eigenkets, we get a measured value $a’$ associated with that eigenket in return.</p>
+
+<blockquote>
+  <p><strong><em>Theorem.</em></strong> Because $a’$ is a value that is actually measured, it must be real. From this follows that the operator $A$ must be <strong>hermitian</strong>, i.e. $A=A^\dag$, where $^\dag$ denotes the hermitian adjoint (conjugate transpose). <br /> <strong><em>Proof</em></strong>: We will take the hermitian adjoint of (1), which gives us:
+$$ \bra{a’} A^\dag = \bra{a’} a’^\ast, $$
+where $\bra{a’}$ is called the <strong>bra</strong> and is an element of the dual space of the ket vector space. We will now multiply both sides of the equation by $\ket{a’}$:
+$$ \bra{a’} A^\dag \ket{a’}=\bra{a’} a’^\ast \ket{a’}. $$
+We now use the fact that $a’\in\mathbb{R}$, so $a’=a’^\ast$. Notice that we now get $a’\ket{a’}=A\ket{a’}$ on the RHS. Using this:
+$$ \bra{a’} A^\dag \ket{a’}=\bra{a’} A \ket{a’} \iff \bra{a’}(A-A^\dag)\ket{a’} =0, $$
+so $A=A^\dag$. $\blacksquare$</p>
+</blockquote>
+
+<p>Let us consider a state $\ket{\alpha}$, not necessarily being an eigenket of $A$. What quantum mechanics postulates, is that once a measurement of an observable associated with $A$ is taken, the state $\ket{\alpha}$ is randomly thrown into one of the eigenkets of $A$. The probability of being thrown into the state $\ket{a’}$ is $\lvert\braket{a’ \vert \alpha}\rvert^2$.
+$$ \ket{\alpha} \xrightarrow{\text{measurement}} \ket{a’} \text{ with probability } \lvert\braket{a’ \vert \alpha}\rvert^2. \tag{2} $$</p>
+
+<h3 id="the-expectation-value-of-an-operator">The expectation value of an operator</h3>
+<p>We will now consider an ensemble of states $\ket{\alpha}$, i.e. we have as many identical $\ket{\alpha}$ states as we need. We will measure each of the states using our $A$ operator and calculate the average measured value we got.</p>
+
+<p>Because $\ket{\alpha}$ is thrown into different $\ket{a’}$ states randomly, each one has a certain probability to occur and give a measured value $a’$ in agreement with (1). For now we will denote the probability of the state by $p(a’)$. We now use the standard definition of the average:
+$$ \braket{A} = \sum_{a’} p(a’) a’. $$
+We recall from (2) that
+$$ p(a’)=\lvert\braket{a’ \vert \alpha}\rvert^2=\braket{a’ \vert \alpha}^\ast\braket{a’ \vert \alpha}=\braket{\alpha \vert a’}\braket{a’ \vert \alpha}, $$
+so
+$$ \braket{A} = \bra{\alpha} \left(\sum_{a’} \ket{a’}\bra{a’} a’\right) \ket{\alpha}. $$
+We will calculate the sum inside the parentheses:
+$$ \sum_{a’} a’\ket{a’}\bra{a’}  = \sum_{a’} A\ket{a’}\bra{a’} = A\sum_{a’} \ket{a’}\bra{a’}. $$
+The eigenkets of $A$ are postulated to form a complete vector space, i.e.
+$$ \sum_{a’} \ket{a’}\bra{a’} = 1, $$
+where $1$ signifies the identity matrix. As a result we arrive at the formula for the <strong>expectation value</strong> of the operator $A$ with respect to the state $\ket{\alpha}$:
+$$ \braket{A} = \bra{\alpha} A \ket{\alpha}. \tag{3} $$</p>
+
+<h3 id="the-dispersion-of-an-operator">The dispersion of an operator</h3>
+<p>We define the <strong>dispersion</strong> of $A$ as:
+$$ \braket{(\Delta A)^2}= \braket{ \left(A-\braket{A}\right)^2}, $$
+which should be reminiscent of the mean of variance in statistics. We will expand the parentheses to arrive at a different expression for dispersion:
+$$ \braket{ \left(A-\braket{A}\right)^2}=\braket{ A^2 -2A\braket{A} +\braket{A}^2}=\braket{A^2} -2\braket{A}\braket{A} + \braket{A}^2 $$
+$$ \braket{(\Delta A)^2}=\braket{A^2} - \braket{A}^2. $$</p>
+
+<h3 id="cauchy-schwarz-inequality">Cauchy-Schwarz inequality</h3>
+<blockquote>
+  <p><strong><em>Theorem.</em></strong> In order to prove Heisenberg’s uncertainty relation, we will first need the Cauchy-Schwarz inequality, which states that:
+$$ \braket{\alpha \vert \alpha} \braket{\beta \vert \beta} \ge \left\lvert \braket{\alpha \vert \beta} \right\rvert ^2. \tag{4} $$
+In $\mathbb{R}^3$ it reduces to:
+$$ AB \ge  \left\lvert \vec{A}\cdot\vec{B} \right\rvert. $$
+We will first prove the inequality in $\mathbb{R}^3$ and then move to the general case.
+<br /> <strong><em>Proof in $\mathbb{R}^3$</em></strong>:
+Consider the vector $\vec{U}$, being the projection of $\vec{A}$ onto $\vec{B}$:
+$$ \vec{U} = \left(\vec{A}\cdot \hat{B}\right) \hat{B}, $$
+where $\hat{B}=\vec{B}/B$ is the unit vector in the direction of $\vec{B}$. We now consider what remains, that is $\vec{V}=\vec{A}-\vec{U}$:
+$$ \vec{V} = \vec{A} - \frac{\vec{A}\cdot\vec{B}}{B^2}\vec{B}. $$
+We also know that $V^2= \vec{V}\cdot\vec{V}\ge 0$, so:
+$$ V^2 = \left(\vec{A} - \frac{\vec{A}\cdot\vec{B}}{B^2}\vec{B}\right)^2 = \vec{A}\cdot\vec{A} - 2\frac{(\vec{A}\cdot\vec{B})^2}{B^2} + \frac{(\vec{A}\cdot\vec{B})^2}{B^4}B^2= A^2 - \frac{(\vec{A}\cdot\vec{B})^2}{B^2} \ge 0.  $$
+Rearranging, we get
+$$ AB\ge \left\lvert\vec{A}\cdot\vec{B}\right\rvert. \, \blacksquare$$
+<strong><em>General proof</em></strong>:
+We consider the ket
+$$ \ket{\gamma} = \ket{\alpha} - \frac{\braket{\beta \vert \alpha}}{\braket{\beta\vert \beta}}\ket{\beta}. $$
+One of the axioms of a vector space is that $\braket{c \vert c} \ge 0$, so
+$$ \braket{c \vert c} = \left( \bra{\alpha} - \bra{\beta}\frac{\braket{\alpha \vert \beta}}{\braket{\beta\vert \beta}}\right)\left(\ket{\alpha} - \frac{\braket{\beta \vert \alpha}}{\braket{\beta\vert \beta}}\ket{\beta}\right)= $$
+$$ = \braket{\alpha \vert \alpha} - \frac{\braket{\alpha\vert\beta}\braket{\beta\vert\alpha}}{\braket{\beta\vert\beta}} - \frac{\braket{\beta\vert\alpha}\braket{\alpha\vert\beta}}{\braket{\beta\vert\beta}} + \frac{\braket{\beta\vert\alpha}\braket{\alpha\vert\beta}}{\lvert\braket{\beta\vert\beta}\rvert^2}\braket{\beta\vert\beta} = $$
+$$ = \braket{\alpha \vert \alpha} - \frac{\lvert\braket{\alpha\vert\beta}\rvert^2}{\braket{\beta\vert\beta}} \ge 0, $$
+from which we easily get the desired result. $\blacksquare$</p>
+</blockquote>
+
+<h3 id="the-uncertainty-relation">The uncertainty relation</h3>
+<p>We consider the kets
+$$ \ket{\alpha} = \Delta A \ket{\gamma}, \, \ket{\beta} = \Delta B \ket{\gamma}, $$
+where $\ket{\gamma}$ is an arbitrary ket of our choice. $\Delta A\ket{\alpha}$ means $A\ket{\alpha} - \bra{\alpha} A \ket{\alpha} \ket{\alpha}$.</p>
+
+<blockquote>
+  <p><strong><em>Lemma 1:</em></strong> If $A=A^\dag$, the same follows for $\Delta A$. <br /> <strong><em>Proof:</em></strong>
+$$ \left( \Delta A\right)^\dag = A^\dag - \bra{\alpha} A^\dag \ket{\alpha} = A- \bra{\alpha} A \ket{\alpha} = \Delta A. \,\square $$</p>
+</blockquote>
+
+<blockquote>
+  <p><strong><em>Lemma 2:</em></strong> $[\Delta A, \Delta B] = [A, B]$. <br /> <strong><em>Proof:</em></strong>
+$$ [\Delta A, \Delta B]= \Delta A \Delta B - \Delta B\Delta A=(A-\braket{A})(B-\braket{B}) - (B-\braket{B})(A-\braket{A})= $$
+$$ = AB - A\braket{B} - B\braket{A} + \braket{A}\braket{B} - BA + B\braket{A} + A\braket{B} - \braket{A}\braket{B} = AB - BA = [A, B]. \, \square $$</p>
+</blockquote>
+
+<blockquote>
+  <p><strong><em>Lemma 3:</em></strong> The expectation value of a commutator of hermitian operators is imaginary and of an anticommutator is real.  <br /> <strong><em>Proof:</em></strong>
+The commutator is anti-hermitian: 
+$$ [A,B]^\dag=B^\dag A^\dag - A^\dag B^\dag = BA - AB = -[A, B]. $$
+The anticommutator is hermitian:
+$$ \lbrace A, B \rbrace^\dag = B^\dag A^\dag + A^\dag B^\dag = BA+AB = \lbrace A, B \rbrace. $$
+For hermitian operators, say $C=C^\dag$:
+$$ \braket{C}=\bra{\alpha} C \ket{\alpha} = \bra{\alpha} C^\dag \ket{\alpha} = (\bra{\alpha} C \ket{\alpha})^\ast, $$
+so the expectation value of $C=\lbrace A, B \rbrace$ is real. For $D=-D^\dag$:
+$$ \braket{D}=\bra{\alpha} D \ket{\alpha} = -\bra{\alpha} D^\dag \ket{\alpha} = -(\bra{\alpha} D \ket{\alpha})^\ast, $$
+so $\braket{D}=\braket{[A, B]}$ is imaginary. $\square$</p>
+</blockquote>
+
+<p>We now plug in both kets into the Cauchy-Schwarz inequality (4):
+$$ \braket{\alpha \vert \alpha} \braket{\beta \vert \beta} \ge \left\lvert \braket{\alpha \vert \beta} \right\rvert ^2 $$
+$$ \bra{\gamma} (\Delta A)^\dag \Delta A \ket{\gamma} \bra{\gamma} (\Delta B)^\dag \Delta B \ket{\gamma} \ge \left\lvert \bra{\gamma} (\Delta A)^\dag \Delta B \ket{\gamma} \right\rvert ^2 $$
+and using the the result of lemma 1:
+$$ \bra{\gamma} \Delta A \Delta A \ket{\gamma} \bra{\gamma} \Delta B \Delta B \ket{\gamma} \ge \left\lvert \bra{\gamma} \Delta A \Delta B \ket{\gamma} \right\rvert ^2. $$
+Using (3):
+$$ \braket{(\Delta A)^2} \braket{(\Delta B)^2} \ge \left\lvert \braket{\Delta A \Delta B} \right\rvert ^2. $$
+Notice that
+$$ \Delta A \Delta B = \frac{1}{2}\Delta A \Delta B - \frac{1}{2} \Delta B \Delta A + \frac{1}{2} \Delta A \Delta B + \frac{1}{2}\Delta B \Delta A = \frac{1}{2} [\Delta A, \Delta B] + \frac{1}{2} \lbrace \Delta A, \Delta B \rbrace. $$
+We use lemma 2 to write:
+$$ \braket{(\Delta A)^2} \braket{(\Delta B)^2} \ge \frac{1}{4}\left\lvert \braket{[A,  B]} + \braket{\lbrace \Delta A, \Delta B \rbrace} \right\rvert ^2 $$
+We will now use lemma 3 to evaluate RHS. Because the first term is purely imaginary and the second one purely real,
+$$ \left\lvert \braket{[A,  B]} + \braket{\lbrace \Delta A, \Delta B \rbrace} \right\rvert ^2 = \left\lvert \braket{[A,  B]} \right\rvert^2 + \left\lvert\braket{\lbrace \Delta A, \Delta B \rbrace} \right\rvert ^2. $$
+We omit the second term in the above equation to make the inequality stronger and arrive at
+$$ \boxed{\braket{(\Delta A)^2} \braket{(\Delta B)^2} \ge \frac{1}{4}\left\lvert \braket{[A,  B]} \right\rvert ^2.} \tag{5} $$
+The above inequality states that if we deal with incompatible observables ($[A, B]\neq 0$), we cannot measure both of them simultaneously with arbitrary precision. Decreasing the dispersion of one observable will, by virtue of the inequality, increase the dispersion of the second one.</p>
+
+<p>We will use one of the <strong><em>canonical commutation relations</em></strong>:
+$$ [x_i, p_j] = i\hbar \delta_{ij}, $$
+where $x_i$ is the i-th component of the position operator (x, y, z) and the same for $p$. Plugging it into (5) we arrive at the <strong><em>Heisenberg uncretainty relation</em></strong>:
+$$ \boxed{\braket{(\Delta x_i)^2} \braket{(\Delta p_j)^2} \ge \frac{\hbar^2}{4}\delta_{ij}.} $$</p>]]></content><author><name></name></author><category term="quantum-mechanics" /><summary type="html"><![CDATA[Measurement in quantum mechanics Let us consider an operator associated with the measurement of an observable, for example position or momentum, which we will denote in general as $A$. We will denote the eigenkets (eigenvectors) of the operator as $\ket{a’}$ and the associated eigenvalues as $a’$. This means that we have the following equality: $$ A\ket{a’}=a’\ket{a’}. \tag{1} $$ We see that when the operator acts on one of its eigenkets, we get a measured value $a’$ associated with that eigenket in return.]]></summary></entry><entry><title type="html">Symulacja dyfrakcji na okrągłej szczelinie</title><link href="http://localhost:4000/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie" rel="alternate" type="text/html" title="Symulacja dyfrakcji na okrągłej szczelinie" /><published>2026-06-05T00:00:00+02:00</published><updated>2026-06-05T00:00:00+02:00</updated><id>http://localhost:4000/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie</id><content type="html" xml:base="http://localhost:4000/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie"><![CDATA[<h2 id="wprowadzenie">Wprowadzenie</h2>
 
 <p>Rozważmy okrągłą szczelinę o promieniu $R$ wykonaną w płaszczyźnie, która w ogóle nie przepuszcza światła. Amplitudę drgań pola elektrycznego (lub magnetycznego, z dokładnością co do stałej) w każdym punkcie obrazu wytworzonego przez falę płaską padającą na szczelinę, na równoległym do płaszczyzny ekranie znajdującym się w odległości $L$ można obliczyć korzystając z reguły Huygensa. Każdy punkt szczeliny emituje do przodu falę kulistą o tej samej fazie i tej samej amplitudzie (ponieważ fala płaska jest jednorodna, a szczelina w każdym swoim punkcie przepuszcza całość światła). Ponieważ układ ma symetrię sferyczną, wprowadzimy kąt $\theta$ oraz wielkości $r’$ i $r$. Jak widzimy z rysunku, z twierdzenia Pitagorasa i twierdzenia cosinusów, $\rho=\sqrt{r^2+r’^2-2rr’\cos\theta}$.</p>
 
@@ -1045,57 +1161,4 @@ $$ \alpha^3=\beta^2. $$</p>
 
 <p>Rozważymy teraz dwie cząstki poruszające się na dwóch geometrycznie podobnych torach. Na podstawie wcześniejszego rozumowania możemy stwierdzić, że czasy ruchu na tych torach mają się do siebie jak
 $$ \frac{t_2}{t_1}=\left( \frac{l_2}{l_1}\right)^{3/2}, $$
-gdzie $l$ to miara liniowych rozmiarów toru. Miarą liniowych rozmiarów toru jest półoś wielka, a czasem ruchu jest okres orbitalny, więc powyższe stwierdzenie jest równoważne z III prawem Keplera.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Problem dwóch ciał Rozważmy dwa ciała oddziałujące ze sobą klasycznym potencjałem grawitacyjnym, tzn. ich energia potencjalna wzajemnych oddziaływań to $$ U(r)= -\frac{Gm_1m_2}{r}, $$ gdzie wprowadzamy oznaczenia $ \mathbf{r}\equiv \mathbf{r_1}- \mathbf{r_2}$, $ \mathbf{r_1}$ - wektor wodzący ciała o masie $m_1$ i analogicznie dla $m_2$. Zapiszemy lagranżjan dla układu: $$ \mathcal{L} = \frac{1}{2}m_1v_1^2+ \frac{1}{2}m_2 v_2^2+ \frac{Gm_1m_2}{r}, $$ gdzie $v_1=|\dot{ \mathbf{r}}_1|$ i analogicznie dla 2.]]></summary></entry><entry><title type="html">Rozkład Bernoulliego i Poissona w astronomii sferycznej</title><link href="http://localhost:4000/rozklad-bernoulliego-i-poissona-w-astronomii-sferycznej" rel="alternate" type="text/html" title="Rozkład Bernoulliego i Poissona w astronomii sferycznej" /><published>2026-01-18T00:00:00+01:00</published><updated>2026-01-18T00:00:00+01:00</updated><id>http://localhost:4000/rozklad-bernoulliego-i-poissona-w-astronomii-sferycznej</id><content type="html" xml:base="http://localhost:4000/rozklad-bernoulliego-i-poissona-w-astronomii-sferycznej"><![CDATA[<h2 id="rozkład-bernoulliego-dwumianowy">Rozkład Bernoulliego (dwumianowy)</h2>
-<p>Najprostszym przykładem ilustrującym ten rozkład jest rzut monetą. Niech prawdopodobieństwo wyrzucenia reszki wynosi $p$, a prawdopodobieństwo wyrzucenia orła - $1-p$ (jeśli $p=1/2$, moneta jest ,,uczciwa’’, a w przeciwnym przypadku jest ,,stronnicza’’). Niech będzie w sumie $N$ rzutów. Interesuje nas prawdopodobieństwo wyrzucenia reszki $k$ razy.</p>
-
-<p>Rozważmy pewną sekwencję rzutów (permutację), w której reszka wypadła $k$ razy. Prawdopodobieństwo, że reszka wypadnie dokładnie $k$ razy, a orzeł dokładnie $N-k$ (bo suma rzutów to $N$) to z podstawowego rachunku prawdopodobieństwa
-$$ p^k(1-p)^{N-k}. $$
-Jest to prawdobodobieństwo, że trafiona przez nas sekwencja rzutów ma akurat $k$ reszek i $N-k$ orłów. Wszystkich takich możliwych sekwencji jest tyle, na ile sposobów możemy wybrać $k$ rzutów z $N$ rzutów, czyli
-$$ {N\choose k}. $$
-Z tego powodu całkowite prawdopodobieństwo zwiększa się o ten czynnik. Wynosi ono:
-$$ \boxed{p_k = {N\choose k} p^k (1-p)^{N-k}.} $$
-Jest to szukany przez nas <strong>rozkład dwumianowy (Bernoulliego)</strong>.</p>
-
-<h3 id="przykładowe-zastosowanie-w-astronomii">Przykładowe zastosowanie w astronomii</h3>
-<p><strong>Problem:</strong> Na niebie jest około $6000$ gwiazd widocznych gołym okiem. Jakie jest prawdopodobieństwo, że tylko dwie z nich znajdą się nie dalej niż $10’’$ (sekund kątowych)? Zakładamy, że gwiazdy są rozmieszone na całej sferze niebieskiej losowo i niezależnie od siebie oraz nie są związane fizycznie. (32 OA, II etap, zadanie 2)</p>
-
-<p>W tym przypadku nasz jeden rzut monetą to sprawdzenie jednej pary gwiazd, a wylosowanie reszki to ich wzajemne położenie bliższe niż $10’’$. Wyznaczmy najpierw prawdopodobieństwo, że dwie gwiazdy znajdą się w odległości mniejszej niż $10’’$. Kąt bryłowy opisany przez stożek o kącie rozwarcia $\theta$ (w radianach) to
-$$ \Omega=2\pi(1-\cos\theta)\approx \pi\theta^2, $$
-gdzie przybliżenie jest prawdziwe, jeśli $\theta$ jest małe. $10’’$ jest o wiele mniejsze niż $1$ rad, więc przybliżenie będzie słuszne. Cała sfera niebieska obejmuje kąt $4\pi$, więc szukane prawdopodobieństwo to
-$$ p= \frac{\Omega}{4\pi}= \frac{\theta^2}{4}. $$
-Wstawiając dane otrzymujemy 
-$$ p\approx 5.9 \times 10^{-10}. $$
-Wszystkich par na niebie jest 
-$$ N_2={6000\choose 2}= \frac{6000!}{2!\cdot 5998!}= \frac{6000\cdot5999}{2}\approx \frac{6000^2}{2}=1.8 \times 10^{7}. $$
-Wstawiając to wszystko do rozkładu Bernoulliego z $k=1$ (tylko jedna para) dostajemy
-$$ p_1 = N_2 p (1-p)^{N_2-1} $$
-(${N_2\choose 1}=N_2$).
-Ponieważ $p$ jest małe, możemy przybliżyć $(1+x)^\alpha\approx 1+\alpha x$, $N_2-1\approx N_2$:
-$$ p_1 \approx N_2 p(1-N_2p). $$
-Wstawiając dane liczbowe dostajemy
-$$ p_1\approx 1.1\%. $$</p>
-
-<h2 id="rozkład-poissona">Rozkład Poissona</h2>
-<p>W tym przypadku postać tego rozkładu będzie motywowana następującym problemem.</p>
-
-<p><strong>Problem:</strong> Pewnej nocy prowadzono obserwacje meteorów. W kącie bryłowym o rozwarciu $45\degree$ w otoczeniu zenitu w ciągu godziny zaobserwowano średnio $n=6$ meteorów. Zakładając, że rozbłysk meteoru jest zjawiskiem losowym zachodzącym z tym samym prawdopodobieństwem dla całej sfery niebieskiej, oblicz prawdopodobieństwo, że w ciągu godziny w podanym kącie bryłowym a) pojawi się co najmniej jeden meteor, b) nie pojawi się żaden, c) pojawi się ich dokładnie 6. (30 OA, II etap, zadanie 2)</p>
-
-<p>Podzielmy czas $t=1$h na $N$ interwałów o długości $\Delta t=t/N$ każdy. Załóżmy, że jak $N\to\infty$, prawdopodobieństwo, że w ciągu tego samego interwału zajdą 2 rozbłyski meteoru jest pomijalnie małe. Oznacza to, że ponownie mamy rzut monetą, tym razem dla rozbłysków. Niech prawdopodobieństwo, że rozbłysk zajdzie w rozpatrywanym kącie bryłowym w interwale $\Delta t$ wynosi $p$. Interwałów czasu mamy $N$, czyli $N$ ,,rzutów’’, a rozbłysków niech będzie $k$. Wstawiając to do rozkładu Bernoulliego otrzymujemy prawdopodobieństwo, że w czasie $t$ w rozpatrywanym kącie bryłowym zajdzie dokładnie $k$ rozbłysków:
-$$ p_k= {N\choose k} p^k (1-p)^{N-k}. $$
-Weźmy teraz granicę jak $N\to\infty$, czyli przedziały czasu $\Delta t$ stają się bardzo małe oraz $k\ll N$ (stąd $N-k\approx N$). Jeśli rozpiszemy symbol Newtona otrzymamy:
-$$ {N\choose k}= \frac{N(N-1)\cdots (N-k+1)}{k!} \approx \frac{N^k}{k!}, $$
-bo $k\ll N$.</p>
-
-<p>Zajmiemy się teraz prawdopodobieństwem. Ponieważ każdy interwał czasu jest równy i rozbłyski są w pełni losowe, prawdopodobieństwo, że rozbłysk zajdzie akurat w tym interwale w kącie bryłowym $\Omega$ to
-$$ p = \frac{n}{N}, $$ 
-gdzie, jak pamiętamy, $n$ to średnia liczba rozbłysków na godzinę. Wstawiając to do rozkładu otrzymujemy
-$$ p_k\approx \frac{N^k}{k!} \frac{n^k}{N^k}(1-p)^N= \frac{ n^k}{k!}(1-\frac{n}{N})^N.$$
-Ponieważ $N\to\infty$, wyrażenie w nawiasie z potęgą rozpozajemy jako jedną z definicji $e^{-n}$, zatem:
-$$ p_k= \frac{n^k}{k!}e^{-n}. $$
-Prawdopodobieństwo z podpunktu a) to $1-P(\text{nie pojawi się żaden meteor})=1-p_0$, czyli
-$$ p_a=1-e^{-6}=99.75\%. $$
-Od razu wynika stąd odpowiedź do podpunktu b), $p_b=0.25\%$. Dla podpunktu c):
-$$ p_c=p_6\approx 16\%. $$</p>
-
-<p>Jak wyprowadziliśmy wyżej na przykładzie, <strong>rozkład Poissona</strong>, opisujący prawdopodobieństwo zajścia $k$ wydarzeń, które zachodzą z pewną średnią częstością $\lambda$ w pewnym interwale czasu, w tym interwale to
-$$ \boxed{p_k = \frac{\lambda^k}{k!}e^{-\lambda}.} $$</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Rozkład Bernoulliego (dwumianowy) Najprostszym przykładem ilustrującym ten rozkład jest rzut monetą. Niech prawdopodobieństwo wyrzucenia reszki wynosi $p$, a prawdopodobieństwo wyrzucenia orła - $1-p$ (jeśli $p=1/2$, moneta jest ,,uczciwa’’, a w przeciwnym przypadku jest ,,stronnicza’’). Niech będzie w sumie $N$ rzutów. Interesuje nas prawdopodobieństwo wyrzucenia reszki $k$ razy.]]></summary></entry></feed>
+gdzie $l$ to miara liniowych rozmiarów toru. Miarą liniowych rozmiarów toru jest półoś wielka, a czasem ruchu jest okres orbitalny, więc powyższe stwierdzenie jest równoważne z III prawem Keplera.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Problem dwóch ciał Rozważmy dwa ciała oddziałujące ze sobą klasycznym potencjałem grawitacyjnym, tzn. ich energia potencjalna wzajemnych oddziaływań to $$ U(r)= -\frac{Gm_1m_2}{r}, $$ gdzie wprowadzamy oznaczenia $ \mathbf{r}\equiv \mathbf{r_1}- \mathbf{r_2}$, $ \mathbf{r_1}$ - wektor wodzący ciała o masie $m_1$ i analogicznie dla $m_2$. Zapiszemy lagranżjan dla układu: $$ \mathcal{L} = \frac{1}{2}m_1v_1^2+ \frac{1}{2}m_2 v_2^2+ \frac{Gm_1m_2}{r}, $$ gdzie $v_1=|\dot{ \mathbf{r}}_1|$ i analogicznie dla 2.]]></summary></entry></feed>
