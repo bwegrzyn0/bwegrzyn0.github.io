@@ -4,6 +4,8 @@ title: "Symulacja dyfrakcji na okrągłej szczelinie"
 date: 2026-06-05
 old: true
 katex: true
+category: polish
+
 image: "/assets/images/2026-06-05/rys5.png" 
 
 ---

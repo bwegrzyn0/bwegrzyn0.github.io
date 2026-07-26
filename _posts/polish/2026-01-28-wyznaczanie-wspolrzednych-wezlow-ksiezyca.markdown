@@ -5,6 +5,8 @@ date: 2026-01-28
 old: true
 katex: true
 image: "/assets/images/2026-01-28/obs.jpg"
+category: polish
+
 ---
 
 Naszym celem jest wyznaczenie aktualnej rektascensji i deklinacji węzłów Księżyca na podstawie zdjęcia Księżyca z widocznymi gwiazdami. Wiele takich obserwacji w ciągu roku pozwoli wyznaczyć tempo precesji węzłów Księżyca.

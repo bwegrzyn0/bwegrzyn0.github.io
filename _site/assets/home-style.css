@@ -1,0 +1,35 @@
+.post {
+	border: 1px gray solid;
+	border-radius: 10px;
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 5px;
+}
+
+.grid-container {
+	display: grid;
+	gap: 20px;
+}
+
+@media (orientation:portrait) {
+	.grid-container {
+		grid-template-columns: 95%;
+	}
+}
+
+@media (orientation:landscape) {
+	.grid-container {
+		grid-template-columns: 50% 50%;
+	}
+}
+
+.excerpt img {
+	float: left;
+	padding-right: 10px;
+}
+
+.category-display {
+	font-style: italic;
+}
+

@@ -5,6 +5,8 @@ date: 2025-07-31
 old: true
 katex: true
 image: "/assets/images/2025-07-31/readme_image.jpg"
+category: polish
+
 ---
 
 <p align="center">

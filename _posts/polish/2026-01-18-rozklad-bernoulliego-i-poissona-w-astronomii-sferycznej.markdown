@@ -4,6 +4,8 @@ title: "Rozkład Bernoulliego i Poissona w astronomii sferycznej"
 date: 2026-01-18
 old: true
 katex: true
+category: polish
+
 ---
 
 ## Rozkład Bernoulliego (dwumianowy)

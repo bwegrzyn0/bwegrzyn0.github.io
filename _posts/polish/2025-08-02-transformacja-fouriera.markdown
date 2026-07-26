@@ -5,6 +5,8 @@ date: 2025-08-02
 old: true
 katex: true
 image: "/assets/images/2025-08-02/falaModulowana.svg"
+category: polish
+
 ---
 
 ## Szeregi Fouriera

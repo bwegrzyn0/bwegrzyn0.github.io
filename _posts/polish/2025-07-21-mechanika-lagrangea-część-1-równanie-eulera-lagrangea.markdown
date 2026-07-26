@@ -5,6 +5,8 @@ date: 2025-07-21
 old: true
 katex: true
 image: "/assets/images/2025-07-21/bryla_obrotowa.svg"
+category: polish
+
 ---
 
 ## Motywacja

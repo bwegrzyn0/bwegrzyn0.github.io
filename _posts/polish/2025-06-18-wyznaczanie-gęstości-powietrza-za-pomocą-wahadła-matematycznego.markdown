@@ -5,6 +5,7 @@ date: 2025-06-18
 old: true
 katex: true
 image: "/assets/images/2025-06-18/wahadlotlumione.svg"
+category: polish
 ---
 
 ## Tłumione wahadło matematyczne

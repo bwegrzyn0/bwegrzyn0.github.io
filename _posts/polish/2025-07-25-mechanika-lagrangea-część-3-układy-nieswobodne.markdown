@@ -5,6 +5,8 @@ date: 2025-07-25
 old: true
 katex: true
 image: "/assets/images/2025-07-25/siła_reakcji.svg"
+category: polish
+
 ---
 
 ## Układ nieswobodny

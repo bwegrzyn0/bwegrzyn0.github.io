@@ -1,0 +1,19 @@
+current directory: /home/anon/Documents/artykuly/bwegrzyn0.github.io/vendor/bundle/ruby/3.4.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+/usr/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/anon/Documents/artykuly/bwegrzyn0.github.io/vendor/bundle/ruby/3.4.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20260726-7815-rfsmoi sitelibdir\=./.gem.20260726-7815-rfsmoi clean
+
+current directory: /home/anon/Documents/artykuly/bwegrzyn0.github.io/vendor/bundle/ruby/3.4.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20260726-7815-rfsmoi sitelibdir\=./.gem.20260726-7815-rfsmoi
+compiling ruby_http_parser.c
+compiling ryah_http_parser.c
+linking shared-object ruby_http_parser.so
+
+current directory: /home/anon/Documents/artykuly/bwegrzyn0.github.io/vendor/bundle/ruby/3.4.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20260726-7815-rfsmoi sitelibdir\=./.gem.20260726-7815-rfsmoi install
+/usr/bin/install -c -m 0755 ruby_http_parser.so ./.gem.20260726-7815-rfsmoi
+
+current directory: /home/anon/Documents/artykuly/bwegrzyn0.github.io/vendor/bundle/ruby/3.4.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
+make DESTDIR\= sitearchdir\=./.gem.20260726-7815-rfsmoi sitelibdir\=./.gem.20260726-7815-rfsmoi clean

@@ -4,6 +4,8 @@ title: "Drgania okrągłej membrany"
 date: 2026-03-14
 old: true
 katex: true
+category: polish
+
 image: "/assets/videos/2026-03-14/u12.gif"
 ---
 

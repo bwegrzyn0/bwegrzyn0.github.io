@@ -4,6 +4,8 @@ title: "Dipol w kuli z dielektryka liniowego"
 date: 2025-12-13
 old: true
 katex: true
+category: polish
+
 ---
 
 Rozważmy kulę wykonaną z dielektryka liniowego o względnej przenikalności $\varepsilon_r$ i promieniu $R$. W środku kuli zostaje umiejscowiony dipol o momencie $\mathbf{p}$. Chcemy wyznaczyć potencjał w środku i na zewnątrz kuli. 

@@ -138,18 +138,13 @@ a {
  * Blockquotes
  */
 blockquote {
-  color: $brand-color;
-  border-left: 4px solid $border-color-01;
-  padding-left: $spacing-unit * .5;
-  @include relative-font-size(1.125);
-  font-style: italic;
+  color: color-mix(in hsl, $brand-color, $text-color 30%);
+  border: 4px solid $border-color-01;
+  padding: $spacing-unit * .5;
+  @include relative-font-size(1);
 
   > :last-child {
     margin-bottom: 0;
-  }
-
-  i, em {
-    font-style: normal;
   }
 }
 

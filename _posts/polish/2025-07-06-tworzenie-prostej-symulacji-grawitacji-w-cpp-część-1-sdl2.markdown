@@ -1,4 +1,5 @@
 ---
+category: polish
 layout: post
 title: "Tworzenie prostej symulacji grawitacji w C++, część 1: SDL2"
 date: 2025-07-06

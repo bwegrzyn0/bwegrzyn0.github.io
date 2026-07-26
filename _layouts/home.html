@@ -3,38 +3,7 @@ layout: default
 ---
 
 <head>
-	<style>
-		.post {
-			border: 1px gray solid;
-			border-radius: 10px;
-			padding-top: 5px;
-			padding-right: 10px;
-			padding-left: 10px;
-			padding-bottom: 5px;
-		}
-
-		.grid-container {
-			display: grid;
-			gap: 20px;
-		}
-
-		@media (orientation:portrait) {
-			.grid-container {
-				grid-template-columns: 95%;
-			}
-		}
-
-		@media (orientation:landscape) {
-			.grid-container {
-				grid-template-columns: 45% 45%;
-			}
-		}
-
-		.excerpt img {
-			float: left;
-			padding-right: 10px;
-		}
-	</style>
+	<link rel="stylesheet" href="assets/home-style.css">
 </head>
 
 <body>
@@ -54,6 +23,7 @@ layout: default
 			<div class="post">
 				{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
 				<span class="post-meta">{{ post.date | date: date_format }}</span>
+				<span class="post-meta category-display">{{ post.category }}</span>
 				<h3>
 					<a class="post-link" href="{{ post.url | relative_url }}">
 						{{ post.title | escape }}
@@ -67,30 +37,6 @@ layout: default
 				</div>
 			</div>
 			{%- endunless -%}
-			{%- endfor -%}
-	    </div>
-    </ul>
-    <h1 class="post-title">{{ page.list_title | default: "Posts in Polish" }}</h1>
-    <ul class="post-list">
-	    <div class="grid-container">
-			{%- for post in site.posts -%}
-			{%- if post.old -%}
-			<div class="post">
-				{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-				<span class="post-meta">{{ post.date | date: date_format }}</span>
-				<h3>
-					<a class="post-link" href="{{ post.url | relative_url }}">
-						{{ post.title | escape }}
-					</a>
-				</h3>
-				<div class="excerpt">
-					{%- if post.image -%}
-					<img src="{{ post.image }}" width = 50% />
-					{%- endif -%}
-					{{ post.content | strip_html | truncatewords: 30 }}
-				</div>
-			</div>
-			{%- endif -%}
 			{%- endfor -%}
 	    </div>
     </ul>

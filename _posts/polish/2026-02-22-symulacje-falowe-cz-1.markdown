@@ -4,6 +4,8 @@ title: "Symulacje falowe, część 1"
 date: 2026-02-22 
 old: true
 katex: true
+category: polish
+
 ---
 
 ## Równanie falowe

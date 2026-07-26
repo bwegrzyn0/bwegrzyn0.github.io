@@ -5,6 +5,7 @@ date: 2025-06-30
 old: true
 katex: true
 image: "/assets/images/2025-06-30/przyklad2.svg"
+category: polish
 ---
 
 ## Algorytm Rungego-Kutty

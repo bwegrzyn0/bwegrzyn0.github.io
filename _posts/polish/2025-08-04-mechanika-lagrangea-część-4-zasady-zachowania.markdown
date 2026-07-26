@@ -4,6 +4,8 @@ title: "Mechanika Lagrange'a, część 4: Zasady zachowania"
 date: 2025-08-04
 old: true
 katex: true
+category: polish
+
 ---
 
 ## Uogólnienie na układ wielu cząstek

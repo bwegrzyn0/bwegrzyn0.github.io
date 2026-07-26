@@ -4,6 +4,8 @@ title: "Ruch wsteczny Słońca na niebie"
 date: 2026-02-12
 old: true
 katex: true
+category: polish
+
 ---
 
 Czy możliwe jest, aby na którejkolwiek z planet Układu Słonecznego Słońce zaszło, a następnie od razu wzeszło, wszystko po zachodniej stronie nieba? Aby zjawisko takie miało miejsce, chwilowa prędkość ruchu Słońca po ekliptyce planety musi być większa niż prędkość obrotu sfery niebieskiej, wynikającej z obrotu planety wokół własnej osi. 

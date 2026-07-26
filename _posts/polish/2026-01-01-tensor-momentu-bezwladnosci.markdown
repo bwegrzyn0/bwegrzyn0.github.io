@@ -4,6 +4,8 @@ title: "Tensor momentu bezwładności"
 date: 2026-01-01
 old: true
 katex: true
+category: polish
+
 ---
 
 ## Ruch ciała sztywnego

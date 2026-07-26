@@ -1,0 +1,52 @@
+---
+layout: default
+permalink: /polish/
+title: "Posts in Polish"
+---
+
+<head>
+	<head>
+		<link rel="stylesheet" href="/assets/home-style.css">
+	</head>
+</head>
+
+<body>
+<div class="home">
+  {%- if site.posts.size > 0 -%}
+    <h1 class="post-title">{{ page.list_title | default: "Posts in Polish" }}</h1>
+    <ul class="post-list">
+	    <div class="grid-container">
+			{%- for post in site.posts -%}
+			{%- if post.old -%}
+			<div class="post">
+				{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+				<span class="post-meta">{{ post.date | date: date_format }}</span>
+				<h3>
+					<a class="post-link" href="{{ post.url | relative_url }}">
+						{{ post.title | escape }}
+					</a>
+				</h3>
+				<div class="excerpt">
+					{%- if post.image -%}
+					<img src="{{ post.image }}" width = 50% />
+					{%- endif -%}
+					{{ post.content | strip_html | truncatewords: 30 }}
+				</div>
+			</div>
+			{%- endif -%}
+			{%- endfor -%}
+	    </div>
+    </ul>
+  {%- endif -%}
+</div>
+</body>
+
+<script> 
+	var el = (document.getElementsByClassName('excerpt'));
+	for (let i = 0; i < el.length; i++) {
+		var text = el[i].innerHTML;
+		console.log(text)
+		el[i].innerHTML = text.replaceAll('$','');
+	}
+</script>
+

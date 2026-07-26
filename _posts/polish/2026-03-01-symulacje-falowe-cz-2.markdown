@@ -4,6 +4,8 @@ title: "Symulacje falowe, część 2"
 date: 2026-03-01
 old: true
 katex: true
+category: polish
+
 ---
 
 ## Absorbujące warunki brzegowe (Engquist-Majda)

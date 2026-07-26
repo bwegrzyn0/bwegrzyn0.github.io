@@ -5,6 +5,8 @@ date: 2025-07-13
 old: true
 katex: true
 image: "/assets/images/2025-07-13/dzialanie-programu.gif"
+category: polish
+
 ---
 
 ## Rysowanie kół

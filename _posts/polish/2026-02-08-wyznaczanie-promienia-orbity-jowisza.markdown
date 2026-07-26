@@ -5,6 +5,8 @@ date: 2026-02-08
 old: true
 katex: true
 image: "/assets/images/2026-02-08/23_11_2024.jpg"
+category: polish
+
 ---
 
 Naszym celem jest wyznaczenie promienia oribty Jowisza na podstawie dwóch zdjęć, na których planeta ta jest widoczna na tle pobliskich gwiazd, wykonanych w odstępie nieco ponad roku.

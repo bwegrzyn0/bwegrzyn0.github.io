@@ -5,6 +5,8 @@ date: 2026-01-31
 old: true
 katex: true
 image: "/assets/images/2026-01-31/wykres.svg"
+category: polish
+
 ---
 
 ## Motywacja

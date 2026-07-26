@@ -5,6 +5,8 @@ date: 2025-11-17
 old: true
 katex: true
 image: "/assets/images/2025-11-17/img4.jpg"
+category: polish
+
 ---
 
 Aparat składa się z kilku części:

@@ -5,6 +5,8 @@ date: 2025-09-02
 old: true
 katex: true
 image: "/assets/images/2025-09-02/rozmax2.svg"
+category: polish
+
 ---
 
 ## Wzór barometryczny

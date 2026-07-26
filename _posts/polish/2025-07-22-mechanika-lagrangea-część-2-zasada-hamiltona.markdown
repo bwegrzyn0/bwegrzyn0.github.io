@@ -4,6 +4,8 @@ title: "Mechanika Lagrange'a, część 2: Zasada Hamiltona"
 date: 2025-07-22
 old: true
 katex: true
+category: polish
+
 ---
 
 ## Zasada Hamiltona 

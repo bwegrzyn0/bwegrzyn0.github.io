@@ -4,6 +4,8 @@ title: "Prawa Keplera"
 date: 2026-01-26
 old: true
 katex: true
+category: polish
+
 ---
 
 ## Problem dwóch ciał 
