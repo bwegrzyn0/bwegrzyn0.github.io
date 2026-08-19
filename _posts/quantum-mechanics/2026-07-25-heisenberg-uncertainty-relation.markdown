@@ -3,7 +3,8 @@ layout: post
 title: "Heisenberg uncertainty relation"
 date: 2026-07-25
 katex: true
-category: "Quantum mechanics"
+category-displayed: "Quantum mechanics"
+category: "quantum-mechanics"
 ---
 
 ### Measurement in quantum mechanics 

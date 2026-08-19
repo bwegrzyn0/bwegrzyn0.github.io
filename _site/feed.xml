@@ -1,4 +1,125 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-07-26T13:22:28+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Physics &amp; programming </subtitle><entry><title type="html">Heisenberg uncertainty relation</title><link href="http://localhost:4000/quantum%20mechanics/heisenberg-uncertainty-relation" rel="alternate" type="text/html" title="Heisenberg uncertainty relation" /><published>2026-07-25T00:00:00+02:00</published><updated>2026-07-25T00:00:00+02:00</updated><id>http://localhost:4000/quantum%20mechanics/heisenberg-uncertainty-relation</id><content type="html" xml:base="http://localhost:4000/quantum%20mechanics/heisenberg-uncertainty-relation"><![CDATA[<h3 id="measurement-in-quantum-mechanics">Measurement in quantum mechanics</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-08-19T13:48:50+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Physics &amp; programming </subtitle><entry><title type="html">Derivation of the Lorentz transformation</title><link href="http://localhost:4000/special-relativity/derivation-of-the-lorentz-transformation" rel="alternate" type="text/html" title="Derivation of the Lorentz transformation" /><published>2026-08-19T00:00:00+02:00</published><updated>2026-08-19T00:00:00+02:00</updated><id>http://localhost:4000/special-relativity/derivation-of-the-lorentz-transformation</id><content type="html" xml:base="http://localhost:4000/special-relativity/derivation-of-the-lorentz-transformation"><![CDATA[<h3 id="the-postulates">The postulates</h3>
+<p><strong>Postulate I:</strong> The laws of physics are independent of the chosen inertial frame of reference. <br />
+<strong>Postulate II:</strong> The speed of light in vacuum is the same in every direction and in every point of a given intertial frame of reference. It is identical for all inertial frames of reference.</p>
+
+<h3 id="the-spacetime-interval">The spacetime interval</h3>
+<p>Let us consider an intertial frame $K$. At time $t_1$ we send a light pulse from $(x_1, y_1, z_1)$ to $(x_2, y_2, z_2)$, which arrives there at time $t_2$. If we denote the speed of light by $c$, we have
+$$ c(t_2-t_1)^2=(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2, $$
+or rearranging
+$$ s_{12}^2\equiv c(t_2-t_1)^2-l_{12}^2=0, $$
+where $l_{12}=(x_2-x_1)^2-(y_2-y_1)^2-(z_2-z_1)^2$ and we have defined the <strong><em>spacetime interval</em></strong> $s_{12}$ between two events.</p>
+
+<p>Because the above reasoning is frame-independent, we can state the same for an inertial frame $K^\prime$:
+$$ s_{12}^{\prime 2}=c(t_2^\prime-t_1^\prime)^2-l_{12}^{\prime 2} =0. $$
+We can thus see that if $s_{12}=0$, then $s_{12}^\prime =0$, too, so it is the same in all inertial reference frames.</p>
+
+<blockquote>
+  <p><strong><em>Theorem.</em></strong> $s$ is the same in all inertial frames of reference. <br />
+<strong><em>Proof:</em></strong> Consider when the time and space intervals are small, i.e. we have
+$$ ds^2 = c^2 dt^2 - dl^2 \text{ and } ds^{\prime 2} = c^2 dt^{\prime 2} - dl^{\prime 2}. $$
+Notice that 1) $ds=0 \iff ds^\prime=0$ and 2) $ds$ and $ds^\prime$ are of the same order $O(ds)=O(ds^\prime)$. These two facts allow us to conclude that $ds\propto ds^\prime$.</p>
+
+  <p>We now wish to determine the proportionality factor $a$. By virtue of the fact that space is uniform and isotropic (which is a result of the postulates), the factor can only depend on the value of $V$, where $V$ is the relative velocity between two intertial frames of reference. Consider the frames $K$, $K_1$ and $K_2$, with relative velocities between $K_1$ and $K$ being $V_1$, $K_2$ and $K$, $V_2$ and between $K_1$ and $K_2$, $V_{12}$. We must have
+$$ ds = a(V_1) ds_1, $$
+$$ ds = a(V_2) ds_2, $$
+$$ ds_1 = a(V_{12}) ds_2. $$
+What easily follows from the above is
+$$ \frac{a(V_1)}{a(V_2)}=a(V_{12})^{-1}. $$
+Because $V_{12}$ is a function of $V_1$, $V_2$ and the angle between $ \mathbf{V_1}$ and $ \mathbf{V_2}$, $a(V)=const.$ Otherwise we would be able to change the angle and thus the value of $a(V_{12})$ without changing the LHS. What trivially follows is that $a(V)=1$, so
+$$ ds=ds^\prime $$
+<strong>always</strong>. Because of the above and because $s=0$ means $s^\prime =0$, we must have
+$$ \boxed{ s=s^\prime,} $$
+i.e. the spacetime is invariant between all inertial frames of reference. $\blacksquare$</p>
+</blockquote>
+
+<h3 id="deriving-the-lorentz-transformation-method-1">Deriving the Lorentz transformation: method 1</h3>
+<p>Without loss of generality we will assume that $x_1=y_1=z_1=0$ and $t_1=0$ (it can be achieved by the right choice of a reference frame and an initial moment) and that $K$ and $K^\prime$ are in the same point in space at $t=t^\prime=0$. We also assume that their $x$ and $x^\prime$ axes are aligned and $K^\prime$ is moving along the positive $x,x^\prime$ axis. We will denote $ct$ as $\tau$.</p>
+
+<p>First we will prove that the coordinates in the plane perpendicular to the relative velocity (here $yz$) are invariant. Consider a rod $AB$ which moves with $K$ and lies on the y axis. Consider an identical rod $A^\prime B^\prime$ lying on the $y^\prime$ axis. The centres of the rods, $C$ and $C^\prime$, are in the same point at $t=t^\prime=0$. We now measure the length of $AB$ from $K^\prime$ and the length of $A^\prime B^\prime$ from $K$. If $AB&gt;A^\prime B^\prime$ or the other way around, we can tell a difference between the two frames of reference, which violates the first postulate.</p>
+
+<p>Because $y=y^\prime$ and $z=z^\prime$, we have
+$$ \tau^2 - x^2 = \tau ^{\prime 2} -  x^{\prime 2}, \tag{1} $$
+where $\tau = ct$. The transformation should be independent of the choice of $x=0$, so it must be linear. Otherwise an additional term dependent on both $x_0$ and $x$ would be introduced, changing the form of the transformation, which, by virtue of the first postulate, should be invariant. We must have:
+$$\begin{cases} x ^\prime= a_1 x + b_1 \tau \\ \tau  ^\prime = a_2 x + b_2 \tau. \end{cases} $$
+We plug this into (1):
+$$ \tau^2 - x^2 = (a_2^2 - a_1^2) x^2 + (b_2^2 - b_1^2) \tau^2 + 2(a_2b_2 - a_1b_1)x\tau. $$
+Comparing both sides, we arrive at
+$$ \begin{cases} a_1^2 - a_2^2 = 1\\ b_2^2 - b_1^2 = 1 \\ a_2b_2=a_1b_1, \end{cases} $$
+which can be checked to be satisfied by
+$$ \begin{cases} a_1=b_2=\cosh\theta \\ a_2=b_1=\sinh\theta. \end{cases} $$
+We thus have
+$$\begin{cases} x ^\prime= x\cosh\theta +\tau\sinh\theta \\ \tau  ^\prime = x\sinh\theta + \tau\cosh\theta. \end{cases} $$
+Let $x ^\prime=0$. We then have
+$$ \tanh\theta = - \frac{x}{\tau} = - \frac{x}{ct}, $$
+which is none other than the velocity of the origin of $K ^\prime$ w.r.t. $K$, denoted by $V$. If we denote $V/c$ by $B$,
+$$ \tanh\theta = -B. $$
+We can make use of the identity
+$$ \cosh\theta = \frac{1}{\sqrt{1-\tanh^2\theta}} $$
+to get
+$$ \cosh\theta = \frac{1}{\sqrt{1-B^2}} \equiv \Gamma. $$
+We also have
+$$ \sinh\theta = \cosh\theta\tanh\theta = -\Gamma B. $$
+We thus arrive at
+$$\boxed{\begin{cases} x ^\prime= \Gamma\left(x-Vt\right) \\ t ^\prime=\Gamma\left(t - \frac{V}{c^2}x\right). \end{cases}} $$</p>
+
+<h3 id="deriving-the-lorentz-transformation-method-2">Deriving the Lorentz transformation: method 2</h3>
+<p>We can see a simmilarity between $s^2=\tau^2 - x^2$ and length in eucledian 2D space. Notice, that if we introduce complex time, $\tilde{\tau} \equiv i\tau$, the interval becomes $s^2 = - \left( \tilde{\tau}^2 + x^2\right)$. This the negative distance between two points in the $x\tilde{\tau}$ plane, which is obviously conserved when rotating the axes.</p>
+
+<p>Recalling the standard formulae for rotating orthogonal systems of coordinates:
+$$ \begin{cases} x ^\prime=x\cos\phi + \tilde{\tau} \sin\phi \\ \tilde{\tau} ^\prime=  - x\sin\phi + \tilde{\tau}\cos\phi. \end{cases} \tag{2} $$
+(The axes are rotated counter-clockwise, so all vectors are rotated clockwise in the new coordinate system; this is different from the standard rotation matrix, because it’s <em>the axes</em> that are rotated).</p>
+
+<p>We now seek $\phi$. It can only depend on $V$, because this is the only difference between reference frames. Consider a point rigidly bound to $K ^\prime$. In $K$ we then have:
+$$ V = \frac{dx}{dt}. $$
+If we take the differential of the first equation from (2) and acknowledge that for the point in consideration $dx ^\prime=0$, we get
+$$ 0 = dx \cos\phi + d\tilde{\tau} \sin\phi. $$
+Remembering that $\tilde{\tau} = ict$, we now have an easy way to acquire $\phi$:
+$$ \tan\phi = - \frac{dx}{d\tilde{\tau}}= - \frac{dx}{ic\,dt} = \frac{i}{c} \frac{dx}{dt} = \frac{iV}{c} = iB. $$
+We also calculate $\cos\phi$:
+$$ \cos\phi = \frac{1}{\sqrt{1+\tan^2\phi}} = \frac{1}{\sqrt{1-B^2}}=\Gamma $$
+and $\sin\phi$:
+$$ \sin\phi = \cos\phi\tan\phi = i\Gamma B. $$</p>
+
+<p>Plugging all of this into (2), we arrive at
+$$ \begin{cases} x^\prime = \Gamma \left(x + iB \tilde{\tau}\right) \\ \tilde{\tau} ^\prime=\Gamma \left(\tilde{\tau} - iBx\right). \end{cases} $$
+If we remember that $\tilde{\tau} = ict$, we recover the original Lorentz transformation.</p>
+
+<h3 id="the-geometrical-interperation">The geometrical interperation</h3>
+<p>Because the $y$ and $z$ coordinates are invariant under the transformation in our configuration, we will only consider the $x\tau$ plane. Let’s see how the Lorentz transformation changes the axes.</p>
+
+<p>First consider the $\tau ^\prime$ axis, so $x ^\prime = 0$. We must have
+$$ \Gamma\left(x - B\tau\right) = 0, $$
+so for that axis we have $x = B\tau$, which means that it’s tilted by an angle $\arctan B$ to the $\tau$ axis. This situation is shown in figure 1. We can clearly see that even if $\tau ^\prime=0$, it does not necessarily mean that $\tau=0$. This is a consequence of the fact that clocks synchronised in $K$ are not synchronised in $K ^\prime$.</p>
+
+<p>By repeating the same steps for the $x ^\prime$ axis, we find that its tilted by the same angle $\arctan B$ to the $x$ axis. We also see that for $x ^\prime=0$, we need not have $x=0$, which follows from the relative movement of both reference frames. This phenomenon also occurs in classical mechanics.</p>
+
+<p align="center">
+<img src="/assets/images/special-relativity/lorentz-transformation/fig1.svg" width="500" />
+<br />
+<em>Fig. 1</em>
+</p>
+
+<p>Consider the point $(1, 0)$ in $K ^\prime$. Its coordinates can be easily calculated to be $(\Gamma, \Gamma B)$ in $K$. We can thus see that the unit length on the $x ^\prime$ axis is $\sqrt{\Gamma^2+\Gamma^2 B^2} = \sqrt{ \frac{1+B^2}{1-B^2}}$ times longer than the one on the $x$ axis. The same follows for $\tau ^\prime$ - the primed axes get stretched.</p>
+
+<p>To illustrate this, consider a rod stationary in $K$, having its ends at $x_0=0$ and $x_1$. According to the Lorentz transformation, $l=x_1-x_0=\Gamma\left(l ^\prime + V(t_2 ^\prime-t_1 ^\prime)\right)$. For the measurement in $K ^\prime$ to make sense, the ends have to measured at the same time, so $t_1 ^\prime = t_2 ^\prime$ and we have $l ^\prime = l / \Gamma$, so the rod gets shorter.</p>
+
+<p>Now we use the geometrical method, shown in figure 2. Because $t_1 ^\prime = t_2 ^\prime$, we tilt the rod in the $K$ frame so that is parallel to $x ^\prime$, but still has length $l$ when projected onto $x$. The length of the rod along the $x ^\prime$ axis is now $l\sqrt{1+B^2}$, but because $x ^\prime$ has a different unit length, we have $l ^\prime = l \sqrt{1+B^2} \sqrt{ \frac{1-B^2}{1+B^2}} = l/\Gamma$, as expected.</p>
+
+<p align="center">
+<img src="/assets/images/special-relativity/lorentz-transformation/fig2.svg" width="500" />
+<br />
+<em>Fig. 2</em>
+</p>
+
+<p>All of the above has been discussed from the point of view of $K$. However, an observer in $ K ^\prime$ looking at $K$ will, by virtue of the first postulate, observe the same effects occur in $K$. We can also see this from the inverse Lorentz transformation, which we get by either solving for $x ^\prime$ and $\tau ^\prime$, or changing the primes and replacing $V$ with $-V$:
+$$ \begin{cases} x= \Gamma\left(x ^\prime+Vt ^\prime\right) \\ t=\Gamma\left(t ^\prime + \frac{V}{c^2}x ^\prime\right). \end{cases} $$
+This time, however, due to the sign next to $V$, the axes are tilted in the opposite direction, as shown in figure 3.</p>
+
+<p align="center">
+<img src="/assets/images/special-relativity/lorentz-transformation/fig3.svg" width="600" />
+<br />
+<em>Fig. 3</em>
+</p>]]></content><author><name></name></author><category term="special-relativity" /><summary type="html"><![CDATA[The postulates Postulate I: The laws of physics are independent of the chosen inertial frame of reference. Postulate II: The speed of light in vacuum is the same in every direction and in every point of a given intertial frame of reference. It is identical for all inertial frames of reference.]]></summary></entry><entry><title type="html">Heisenberg uncertainty relation</title><link href="http://localhost:4000/quantum-mechanics/heisenberg-uncertainty-relation" rel="alternate" type="text/html" title="Heisenberg uncertainty relation" /><published>2026-07-25T00:00:00+02:00</published><updated>2026-07-25T00:00:00+02:00</updated><id>http://localhost:4000/quantum-mechanics/heisenberg-uncertainty-relation</id><content type="html" xml:base="http://localhost:4000/quantum-mechanics/heisenberg-uncertainty-relation"><![CDATA[<h3 id="measurement-in-quantum-mechanics">Measurement in quantum mechanics</h3>
 <p>Let us consider an operator associated with the measurement of an <strong><em>observable</em></strong>, for example position or momentum, which we will denote in general as $A$. We will denote the <strong><em>eigenkets (eigenvectors)</em></strong> of the operator as $\ket{a’}$ and the associated eigenvalues as $a’$. This means that we have the following equality:
 $$ A\ket{a’}=a’\ket{a’}. \tag{1} $$
 We see that when the operator acts on one of its eigenkets, we get a measured value $a’$ associated with that eigenket in return.</p>
@@ -114,7 +235,7 @@ The above inequality states that if we deal with incompatible observables ($[A, 
 <p>We will use one of the <strong><em>canonical commutation relations</em></strong>:
 $$ [x_i, p_j] = i\hbar \delta_{ij}, $$
 where $x_i$ is the i-th component of the position operator (x, y, z) and the same for $p$. Plugging it into (5) we arrive at the <strong><em>Heisenberg uncretainty relation</em></strong>:
-$$ \boxed{\braket{(\Delta x_i)^2} \braket{(\Delta p_j)^2} \ge \frac{\hbar^2}{4}\delta_{ij}.} $$</p>]]></content><author><name></name></author><category term="Quantum mechanics" /><summary type="html"><![CDATA[Measurement in quantum mechanics Let us consider an operator associated with the measurement of an observable, for example position or momentum, which we will denote in general as $A$. We will denote the eigenkets (eigenvectors) of the operator as $\ket{a’}$ and the associated eigenvalues as $a’$. This means that we have the following equality: $$ A\ket{a’}=a’\ket{a’}. \tag{1} $$ We see that when the operator acts on one of its eigenkets, we get a measured value $a’$ associated with that eigenket in return.]]></summary></entry><entry><title type="html">Symulacja dyfrakcji na okrągłej szczelinie</title><link href="http://localhost:4000/polish/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie" rel="alternate" type="text/html" title="Symulacja dyfrakcji na okrągłej szczelinie" /><published>2026-06-05T00:00:00+02:00</published><updated>2026-06-05T00:00:00+02:00</updated><id>http://localhost:4000/polish/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie</id><content type="html" xml:base="http://localhost:4000/polish/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie"><![CDATA[<h2 id="wprowadzenie">Wprowadzenie</h2>
+$$ \boxed{\braket{(\Delta x_i)^2} \braket{(\Delta p_j)^2} \ge \frac{\hbar^2}{4}\delta_{ij}.} $$</p>]]></content><author><name></name></author><category term="quantum-mechanics" /><summary type="html"><![CDATA[Measurement in quantum mechanics Let us consider an operator associated with the measurement of an observable, for example position or momentum, which we will denote in general as $A$. We will denote the eigenkets (eigenvectors) of the operator as $\ket{a’}$ and the associated eigenvalues as $a’$. This means that we have the following equality: $$ A\ket{a’}=a’\ket{a’}. \tag{1} $$ We see that when the operator acts on one of its eigenkets, we get a measured value $a’$ associated with that eigenket in return.]]></summary></entry><entry><title type="html">Symulacja dyfrakcji na okrągłej szczelinie</title><link href="http://localhost:4000/polish/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie" rel="alternate" type="text/html" title="Symulacja dyfrakcji na okrągłej szczelinie" /><published>2026-06-05T00:00:00+02:00</published><updated>2026-06-05T00:00:00+02:00</updated><id>http://localhost:4000/polish/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie</id><content type="html" xml:base="http://localhost:4000/polish/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie"><![CDATA[<h2 id="wprowadzenie">Wprowadzenie</h2>
 
 <p>Rozważmy okrągłą szczelinę o promieniu $R$ wykonaną w płaszczyźnie, która w ogóle nie przepuszcza światła. Amplitudę drgań pola elektrycznego (lub magnetycznego, z dokładnością co do stałej) w każdym punkcie obrazu wytworzonego przez falę płaską padającą na szczelinę, na równoległym do płaszczyzny ekranie znajdującym się w odległości $L$ można obliczyć korzystając z reguły Huygensa. Każdy punkt szczeliny emituje do przodu falę kulistą o tej samej fazie i tej samej amplitudzie (ponieważ fala płaska jest jednorodna, a szczelina w każdym swoim punkcie przepuszcza całość światła). Ponieważ układ ma symetrię sferyczną, wprowadzimy kąt $\theta$ oraz wielkości $r’$ i $r$. Jak widzimy z rysunku, z twierdzenia Pitagorasa i twierdzenia cosinusów, $\rho=\sqrt{r^2+r’^2-2rr’\cos\theta}$.</p>
 
@@ -1043,122 +1164,4 @@ i przekształcając układy współrzędnych:
 $$ \boxed{(\alpha_w, \delta_w)=(23^h 17^m, -4\degree 35’),} $$
 gdzie wzięliśmy wartość funkcji $\arccos$ plus $180\degree$, aby być w odpowiedniej ćwiartce układu współrzędnych. Mamy również:
 $$ \boxed{(\alpha_z, \delta_z)=(11^h 17^m, 4\degree 35’).} $$
-Porównując to ze współrzędnymi Księżyca, kiedy ostatni raz znalazł się w węźle (dane z programu Stellarium), różnica w rektascensji to około $10’$, a w deklinacji $1\degree$. Tak duża rozbieżność w deklinacji może wynikać np. z przybliżenia orbity Księżyca jako okręgu, co nie jest prawdą i może wprowadzić taką niedokładność do obliczeń. Efekt precesji węzłów nie powinien grać tutaj bardzo dużej roli, biorąc pod uwagę krótki czas od ostatniego węzła oraz to, że wpływa on o wiele znaczniej na rektasencję węzłów.</p>]]></content><author><name></name></author><category term="polish" /><summary type="html"><![CDATA[Naszym celem jest wyznaczenie aktualnej rektascensji i deklinacji węzłów Księżyca na podstawie zdjęcia Księżyca z widocznymi gwiazdami. Wiele takich obserwacji w ciągu roku pozwoli wyznaczyć tempo precesji węzłów Księżyca.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/2026-01-28/obs.jpg" /><media:content medium="image" url="http://localhost:4000/assets/images/2026-01-28/obs.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Prawa Keplera</title><link href="http://localhost:4000/polish/prawa-keplera" rel="alternate" type="text/html" title="Prawa Keplera" /><published>2026-01-26T00:00:00+01:00</published><updated>2026-01-26T00:00:00+01:00</updated><id>http://localhost:4000/polish/prawa-keplera</id><content type="html" xml:base="http://localhost:4000/polish/prawa-keplera"><![CDATA[<h2 id="problem-dwóch-ciał">Problem dwóch ciał</h2>
-<p>Rozważmy dwa ciała oddziałujące ze sobą klasycznym potencjałem grawitacyjnym, tzn. ich energia potencjalna wzajemnych oddziaływań to
-$$ U(r)= -\frac{Gm_1m_2}{r}, $$
-gdzie wprowadzamy oznaczenia $ \mathbf{r}\equiv \mathbf{r_1}- \mathbf{r_2}$, $ \mathbf{r_1}$ - wektor wodzący ciała o masie $m_1$ i analogicznie dla $m_2$. Zapiszemy lagranżjan dla układu:
-$$ \mathcal{L} = \frac{1}{2}m_1v_1^2+ \frac{1}{2}m_2 v_2^2+ \frac{Gm_1m_2}{r}, $$
-gdzie $v_1=|\dot{ \mathbf{r}}_1|$ i analogicznie dla 2.</p>
-
-<p>Oznaczymy jako $\mathbf{R}$ wektor wodzący środka masy dwóch ciał, który jest zdefiniowany jako
-$$ \mathbf{R}= \frac{1}{M}\left(m_1 \mathbf{r_1}+m_2 \mathbf{r_2}\right), $$
-gdzie $M=m_1+m_2$. Powyższe równanie i definicja $ \mathbf{r}$ tworzą układ dwóch równań, które możemy rozwiązać, aby otrzymać $ \mathbf{r_1}$ i $ \mathbf{r_2}$:
-$$ \begin{cases} \mathbf{r_1} = \mathbf{R} + \frac{m_2}{M} \mathbf{r} \\ \mathbf{r_2}= \mathbf{R} - \frac{m_1}{M} \mathbf{r}. \end{cases} $$
-Obliczając pochodne i wstawiając do lagranżjanu otrzymujemy:
-$$ \mathcal{L} = \frac{1}{2}m_1\left(\mathbf{\dot{R}} + \frac{m_2}{M} \mathbf{\dot{r}}\right)^2+ \frac{1}{2}m_2 \left(\mathbf{\dot{R}} - \frac{m_1}{M} \mathbf{\dot{r}}\right)^2+ \frac{Gm_1 m_2}{r}. $$
-Po rozpisaniu i wymnożeniu nawiasów środkowe wyrazy się skracają, co pozostawia nas z 
-$$ \mathcal{L} = \frac{1}{2}M\mathbf{\dot{R}}^2+ \frac{1}{2} \frac{m_1 m_2}{M} \mathbf{\dot{r}}^2+ \frac{Gm_1m_2}{r}. $$
-Widzimy, że ruch możemy rozpatrywać jako ruch środka masy (jednostajny i prostoliniowy) oraz ruch masy zredukowanej $\mu\equiv m_1m_2/M$ wokół środka masy. Iloczyn $m_1m_2$ możemy wyrazić jako $\mu M$, a wybierając inercjalny układ odniesienia związany ze środkiem masy, czyli $ \mathbf{\dot{R}}=0$, lagranżjan przyjmie najprostszą postać
-$$ \mathcal{L} = \frac{1}{2}\mu \mathbf{\dot{r}}^2+ \frac{GM\mu}{r}. $$
-Wektor $ \mathbf{\dot{r}}$ możemy rozdzielić na składową radialną i styczną, a z twierdzenia Pitagorasa $ \mathbf{\dot{r}}^2=\dot{r}^2+r^2\dot{\theta}^2$, gdzie $\theta$ to kąt azymutalny tworzony przez wektor $ \mathbf{r}$ z pewnym kierunkiem odniesienia, a więc
-$$ \mathcal{L} = \frac{1}{2}\mu \dot{r}^2 + \frac{1}{2}\mu r^2\dot{\theta}^2+ \frac{GM\mu}{r}. $$
-Lagranżjan nie zależy od kąta biegunowego, więc moment pędu z nim związany jest równy zero ($ L_\phi=\partial\mathcal{L}/\partial \dot{\phi}=0$). Z tego powodu ruch odbywa się w jednej płaszczyźnie. Zachodzi również zależność
-$$ L_\theta= \frac{\partial \mathcal{L}}{\partial \dot{\theta}}=\mu r^2\dot{\theta}=const. $$
-która wynika bezpośrednio z <a href="https://bwegrzyn0.github.io/mechanika/mechanika-lagrangea-cz%C4%99%C5%9B%C4%87-2-zasada-hamiltona" target="_blank">równania Eulera-Lagrange’a</a> dla współrzędnej $\theta$.</p>
-
-<h2 id="pierwsze-prawo-keplera">Pierwsze prawo Keplera</h2>
-<p>Chcielibyśmy znaleźć teraz ogólne wyrażenie na kształt toru cząstki. W tym celu naszym punktem wyjścia nie będzie równanie ruchu wynikające bezpośrednio z równania Eulera-Lagrange’a, a zasada zachowania energii. Zamieniając drugi znak plus na minus w lagranżjanie otrzymamy całkowitą energię:
-$$ E=\frac{1}{2}\mu \dot{r}^2 + \frac{1}{2}\mu r^2\dot{\theta}^2- \frac{GM\mu}{r}. $$
-Korzystając z zachowania momentu pędu (gdzie $L_\theta$ to od teraz po prostu $L$):
-$$ \dot{\theta}= \frac{L}{\mu r^2}, $$
-oraz z reguły łańcuchowej
-$$ \dot{r}= \frac{dr}{d\theta} \dot{\theta}= \frac{L}{\mu r^2} \frac{dr}{d\theta}. $$
-Wstawiając to do energii otrzymujemy
-$$ \frac{1}{2}\mu \left( \frac{L}{\mu r^2} \frac{dr}{d\theta} \right)^2=E- \frac{1}{2}\mu r^2 \left( \frac{L}{mr^2}\right)^2+ \frac{GM\mu}{r}. $$
-Przekształcając,
-$$ \frac{L}{\mu r^2} \frac{dr}{d\theta}= \sqrt{ \frac{2}{\mu}\left(E- \frac{1}{2}\mu r^2 \left( \frac{L}{\mu r^2}\right)^2+ \frac{GM\mu}{r}\right)}, $$
-separując zmienne i całkując:
-$$ \theta=\int \frac{L\,dr}{\mu r^2 \sqrt{ \frac{2}{\mu}\left(E-\frac{L^2}{2\mu r^2}+ \frac{GM\mu}{r}\right)}}. $$
-Widzimy, że mamy wiele wyrazów postaci $1/r$, a $dr/r^2=-d(1/r)$. Dlatego wykonamy podstawienie $u=-1/r$, co da nam
-$$ \theta=-\int \frac{L\,du}{\mu \sqrt{ \frac{2}{\mu}\left(E-\frac{L^2}{2\mu} u^2- GM\mu u\right)}}. $$
-Wyrażenie pod pierwiastkiem dopełnimy do kwadratu:
-$$ E-\frac{L^2}{2\mu} u^2- GM\mu u=E+ \frac{G^2 M^2 \mu^3}{2L^2}- \left( \frac{L}{\sqrt{2\mu}}u+ \frac{GM\mu^{3/2}}{L\sqrt{2}}\right)^2, $$
-więc
-$$ \theta=-\int\frac{L\,du}{\mu \sqrt{ \frac{2}{\mu}\left(E+ \frac{G^2 M^2 \mu^3}{2L^2}- \left( \frac{L}{\sqrt{2\mu}}u+ \frac{GM\mu^{3/2}}{L\sqrt{2}}\right)^2\right)}}. $$
-Podstawimy
-$$ v=\frac{1}{\sqrt{E+ \frac{G^2 M^2 \mu^3}{2L^2}}}\left(\frac{L}{\sqrt{2\mu}}u+ \frac{GM\mu^{3/2}}{L\sqrt{2}}\right), $$
-skąd
-$$ \theta=-\int \frac{L}{\sqrt{2\mu\left(E+ \frac{G^2 M^2 \mu^3}{2L^2}\right)}} \frac{1}{\sqrt{1-v^2}} \frac{\sqrt{2\mu\left(E+ \frac{G^2 M^2 \mu^3}{2L^2}\right)}\,dv}{L}=-\int \frac{dv}{\sqrt{1-v^2}}=\arccos{v}+\theta_0, $$ 
-gdzie $\theta_0$ to stała całkowania. Przekształcając i wstawiając definicję $v$ i $u$:
-$$ r= \frac{p}{1-e\cos\left(\theta-\theta_0\right)}, $$
-gdzie $p$ wynosi
-$$ \boxed{p= \frac{L^2}{GM\mu^2}} $$
-oraz
-$$ \boxed{e= \sqrt{1+ \frac{2EL^2}{G^2 M^2 \mu^3}}.} $$
-Równanie to jest oczywiście definicją elipsy o mimośrodzie $e$ i <em>semilatus rectum</em> $p$ we współrzędnych biegunowych. W ognisku elipsy znajduje się zatem środek masy dwóch ciał. Jeśli chcemy, aby $\theta=0$ w perygeum (najniższym punkcie orbity), mianownik musi być jak największy, więc $\cos\theta_0$ musi wynosić $-1$, skąd $\theta_0=\pi$. Wtedy
-$$ \boxed{r= \frac{p}{1+e\cos\theta}.} $$</p>
-
-<p>W przypadku ciał Układu Słonecznego, $m_1\gg m_2$, gdzie $m_1$ to masa Słońca, a $m_2$ to masa planety. Wtedy $M=m_1+m_2\approx m_1$, $\mu\approx m_2$, a środek masy układu leży w Słońcu, zatem Słońce leży w ognisku orbity planety. Daje nam to <strong>I prawo Keplera</strong>:</p>
-<blockquote>
-  <p><strong>Wszystkie planety poruszają się po elipsach ze Słońcem w jednym z ognisk.</strong></p>
-</blockquote>
-
-<h2 id="drugie-prawo-keplera">Drugie prawo Keplera</h2>
-<p align="center">
-<img src="/assets/images/2026-01-26/2prawokeplera.svg" width="500" />
-</p>
-<p>Obliczmy, jakie pole elipsy zakreśla wektor wodzący ciała w przedziale czasu $dt$. Z powyższego rysunku widzimy, że zakreślone pole to w przybliżeniu pole sektora okręgu o promieniu $r$ i kącie rozwarcia $d\theta$, ponieważ $r(\theta+d\theta)\approx r(\theta)$. Pole takie wyraża się wzorem
-$$ dA= \frac{1}{2}r^2\,d\theta. $$
-Dzieląc przez $dt$ otrzymamy:
-$$ \dot{A}= \frac{1}{2}r^2\dot{\theta}= \frac{1}{2}r^2 \frac{L}{\mu r^2}= \frac{L}{2\mu}=const.$$
-ponieważ jak przekonaliśmy się wcześniej,
-$$ L=\mu r^2\dot{\theta}=const. $$
-Fakt, że wielkość $\dot{A}$ jest stała, jest równoważny z <strong>II prawem Keplera</strong>:</p>
-<blockquote>
-  <p><strong>W jednakowych przedziałach czasu wektor wodzący planety zakreśla jednakowe pole powierzchni.</strong></p>
-</blockquote>
-
-<h2 id="trzecie-prawo-keplera">Trzecie prawo Keplera</h2>
-<h3 id="pierwsza-metoda">Pierwsza metoda</h3>
-<p>Jak wyprowadziliśmy wcześniej, 
-$$ \frac{dA}{dt}= \frac{L}{2\mu}. $$
-Możemy rodzielić zmienne i pocałkować obustronnie:
-$$ \int dA = \int \frac{L}{2\mu}\,dt. $$
-Jeśli pocałkujemy po przedziale $t\in\langle 0,P\rangle$, gdzie $P$ to okres orbity, to całka po $dA$ to po prostu pole całej elipsy, które wynosi $\pi ab$, gdzie $a$ to półoś wielka, a $b$ to półoś mała:
-$$ \pi ab= \frac{L}{2\mu}P. $$
-Półoś mała elipsy to
-$$ b=a\sqrt{1-e^2}. $$
-Jak obliczyliśmy wcześniej,
-$$ p= \frac{L^2}{GM\mu^2}, $$
-więc
-$$ L=\mu\sqrt{GMp}. $$
-<em>Semilatus rectum</em> elipsy to
-$$ p=a(1-e^2), $$
-więc łącząc to wszystko:
-$$ \pi a^2\sqrt{1-e^2}= \frac{\mu \sqrt{GMa(1-e^2)}}{2\mu}P. $$
-Podnosząc obustronnie do kwadratu i skracając wyrazy otrzymujemy
-$$ \boxed{P^2 = \frac{4\pi^2}{GM}a^3,} $$
-więc
-$$ \boxed{P^2\propto a^3.} $$
-<strong>III prawo Keplera</strong> brzmi zatem następująco:</p>
-<blockquote>
-  <p><strong>Kwadraty okresów orbitalnych planet mają się do siebie jak sześciany półosi wielkich orbit tych planet.</strong></p>
-</blockquote>
-
-<h3 id="druga-metoda">Druga metoda</h3>
-<p>Istnieje inna metoda wyprowadzenia III prawa Keplera, opierająca się na podobieństwie mechanicznym.</p>
-
-<p>Zauważmy, że pomnożenie lagranżjanu przez stały czynnik nie zmienia w żaden sposób równań ruchu, ponieważ jeśli do równania Eulera-Lagrange’a wstawimy $a\mathcal{L}$ zamiast $\mathcal{L}$, stały czynnik $a$ skraca się.</p>
-
-<p>Zauważmy teraz, że grawitacyjna energia potencjalna jest funkcją jednorodną stopnia $k=-1$, tzn.
-$$ U(\alpha r)= \alpha^{k} U(r). $$
-Jeśli dokonamy zamiany zmiennych, tak, że $r$ zamieniamy na $\alpha r$, a czas zamieniamy na $\beta t$, gdzie $\beta$ to inna stała, wszystkie prędkości zostaną pomnożone przez czynnik $\alpha/\beta$, energie kinetyczne ($\propto v$) razy $\alpha^2/\beta^2$, a energia potencjalna razy $1/\alpha$. Da nam to lagranżjan
-$$ \mathcal{L}= \frac{\alpha^2}{\beta^2}T- \frac{1}{\alpha}U. $$
-Aby równania ruchu były nienaruszone, musimy być w stanie wyciągnąć stały czynnik przed nawias, co jest możliwe tylko wtedy, gdy
-$$ \frac{\alpha^2}{\beta^2}= \frac{1}{\alpha} $$
-lub równoważnie:
-$$ \alpha^3=\beta^2. $$</p>
-
-<p>Rozważymy teraz dwie cząstki poruszające się na dwóch geometrycznie podobnych torach. Na podstawie wcześniejszego rozumowania możemy stwierdzić, że czasy ruchu na tych torach mają się do siebie jak
-$$ \frac{t_2}{t_1}=\left( \frac{l_2}{l_1}\right)^{3/2}, $$
-gdzie $l$ to miara liniowych rozmiarów toru. Miarą liniowych rozmiarów toru jest półoś wielka, a czasem ruchu jest okres orbitalny, więc powyższe stwierdzenie jest równoważne z III prawem Keplera.</p>]]></content><author><name></name></author><category term="polish" /><summary type="html"><![CDATA[Problem dwóch ciał Rozważmy dwa ciała oddziałujące ze sobą klasycznym potencjałem grawitacyjnym, tzn. ich energia potencjalna wzajemnych oddziaływań to $$ U(r)= -\frac{Gm_1m_2}{r}, $$ gdzie wprowadzamy oznaczenia $ \mathbf{r}\equiv \mathbf{r_1}- \mathbf{r_2}$, $ \mathbf{r_1}$ - wektor wodzący ciała o masie $m_1$ i analogicznie dla $m_2$. Zapiszemy lagranżjan dla układu: $$ \mathcal{L} = \frac{1}{2}m_1v_1^2+ \frac{1}{2}m_2 v_2^2+ \frac{Gm_1m_2}{r}, $$ gdzie $v_1=|\dot{ \mathbf{r}}_1|$ i analogicznie dla 2.]]></summary></entry></feed>
+Porównując to ze współrzędnymi Księżyca, kiedy ostatni raz znalazł się w węźle (dane z programu Stellarium), różnica w rektascensji to około $10’$, a w deklinacji $1\degree$. Tak duża rozbieżność w deklinacji może wynikać np. z przybliżenia orbity Księżyca jako okręgu, co nie jest prawdą i może wprowadzić taką niedokładność do obliczeń. Efekt precesji węzłów nie powinien grać tutaj bardzo dużej roli, biorąc pod uwagę krótki czas od ostatniego węzła oraz to, że wpływa on o wiele znaczniej na rektasencję węzłów.</p>]]></content><author><name></name></author><category term="polish" /><summary type="html"><![CDATA[Naszym celem jest wyznaczenie aktualnej rektascensji i deklinacji węzłów Księżyca na podstawie zdjęcia Księżyca z widocznymi gwiazdami. Wiele takich obserwacji w ciągu roku pozwoli wyznaczyć tempo precesji węzłów Księżyca.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/2026-01-28/obs.jpg" /><media:content medium="image" url="http://localhost:4000/assets/images/2026-01-28/obs.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
