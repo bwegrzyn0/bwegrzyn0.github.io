@@ -5,6 +5,7 @@ date: 2026-08-19
 katex: true
 category-displayed: "Special relativity"
 category: "special-relativity"
+excerpt: "We introduce Einstein's two postulates of special relativity. From them we derive the invariance of the spacetime interval, from which Lorentz transformation follows. A geometrical interpretation for the transformation is also given."
 ---
 
 ### The postulates

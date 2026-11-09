@@ -33,7 +33,11 @@ layout: default
 					{%- if post.image -%}
 					<img src="{{ post.image }}" width = 50% />
 					{%- endif -%}
-					{{ post.content | strip_html | truncatewords: 30 }}
+					{%- if post.excerpt -%}
+						{{ post.excerpt }}
+					{%- else -%}
+						{{ post.content | strip_html | truncatewords: 30 }}
+					{%- endif - %}
 				</div>
 			</div>
 			{%- endunless -%}

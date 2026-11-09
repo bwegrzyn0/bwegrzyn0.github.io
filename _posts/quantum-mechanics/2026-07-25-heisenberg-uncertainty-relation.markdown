@@ -5,6 +5,7 @@ date: 2026-07-25
 katex: true
 category-displayed: "Quantum mechanics"
 category: "quantum-mechanics"
+excerpt: "In this article we introduce the notion of a measurement in QM. We introduce the definition of the dispersion of an observable. After proving the Cauchy-Schwarz inequality in bra-ket notation, we derive an uncertainty relation, which applied to the position and momentum operator is known as Heisenberg uncertainty relation."
 ---
 
 ### Measurement in quantum mechanics 

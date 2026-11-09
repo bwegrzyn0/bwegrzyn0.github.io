@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Canonical transformations | bwegrzyn0.github.io</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Canonical transformations" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this article we derive the Hamilton’s equations both from the Lagrangian formulation, as well as directly from a variational principle. This enables us to develop the language of canonical transformations, which will prove themselves to be a powerful tool in future posts." />
+<meta property="og:description" content="In this article we derive the Hamilton’s equations both from the Lagrangian formulation, as well as directly from a variational principle. This enables us to develop the language of canonical transformations, which will prove themselves to be a powerful tool in future posts." />
+<link rel="canonical" href="http://localhost:4000/classical-mechanics/canonical-transformations" />
+<meta property="og:url" content="http://localhost:4000/classical-mechanics/canonical-transformations" />
+<meta property="og:site_name" content="bwegrzyn0.github.io" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-11-09T00:00:00+01:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Canonical transformations" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-11-09T00:00:00+01:00","datePublished":"2026-11-09T00:00:00+01:00","description":"In this article we derive the Hamilton’s equations both from the Lagrangian formulation, as well as directly from a variational principle. This enables us to develop the language of canonical transformations, which will prove themselves to be a powerful tool in future posts.","headline":"Canonical transformations","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/classical-mechanics/canonical-transformations"},"url":"http://localhost:4000/classical-mechanics/canonical-transformations"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+	<link rel="shortcut icon" type="image/png" href="/favicon.png"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="bwegrzyn0.github.io" /></head>
+<head>
+		
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
+
+		<!-- JavaScript -->
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js"
+			      onload="renderMathInElement(document.body,{
+			      delimiters: [
+			      { left: '$$',  right: '$$',  display: true  },
+			      { left: '$',   right: '$',   display: false },
+			      { left: '\\[', right: '\\]', display: true  },
+			      { left: '\\(', right: '\\)', display: false }
+			      ]});">
+		</script>
+
+		
+	</head>
+
+	<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">bwegrzyn0.github.io</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/polish/">Posts in Polish</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+			<div class="wrapper">
+				<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Canonical transformations</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-11-09T00:00:00+01:00" itemprop="datePublished">2026-11-09
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="hamiltons-equations">Hamilton’s equations</h2>
+<p>Let’s consider the total differential of the Lagrangian $\mathcal{L}=\mathcal{L}(q, \dot{q}, t)$, where $q_i$ are generalized coordinates:
+$$ d\mathcal{L} = \frac{\partial \mathcal{L}}{\partial q_i} dq_i + \frac{\partial \mathcal{L}}{\partial \dot{q}_i} d\dot{q}_i + \frac{\partial\mathcal{L}}{\partial t} dt. $$
+We make use of Einstein’s summation convention, where we sum over any repeated index, so here $i$. We can make use of the definition of the momentum $p_i$ conjugate to the variable $q_i$:
+$$ p_i = \frac{\partial \mathcal{L}}{\partial \dot{q}_i} $$
+and of the Euler-Lagrange equation:
+$$ \dot{p}_i = \frac{\partial\mathcal{L}}{\partial q_i} $$
+to write the differential as
+$$ d\mathcal{L} = \dot{p}_i dq_i + p_i d\dot{q}_i + \frac{\partial\mathcal{L}}{\partial t} dt. $$
+We would like some of the terms to simplify and we are especially looking for another total differential. We can create one by noticing that
+$$ p_i d\dot{q}_i = d\left( p_i \dot{q}_i\right) - \dot{q}_i dp_i. $$
+We plug this into the total differential and rearrange terms to arrive at
+$$ d\left(\mathcal{L} - p_i \dot{q}_ i\right) = \dot{p}_i dq_i - \dot{q}_i dp_i + \frac{\partial\mathcal{L}}{\partial t} dt. $$<br />
+Let us define the <strong>Hamiltonian</strong> as
+$$ \mathcal{H}\equiv\mathcal{H}(q, p, t) = p_i\dot{q}_i - \mathcal{L}. $$
+Its total differential is then
+$$ d\mathcal{H} = -\dot{p}_i dq_i + \dot{q}_i dp_i - \frac{\partial\mathcal{L}}{\partial t} dt, $$
+from which the following relations, known as <strong>Hamilton’s equations</strong> follow:
+$$ \dot{p}_i=-\frac{\partial\mathcal{H}}{\partial q_i}, $$
+$$ \dot{q}_i=\frac{\partial\mathcal{H}}{\partial p_i}. $$
+We also have an additional relation:
+$$ \left( \frac{\partial\mathcal{H}}{\partial t} \right)_{p,q} = -\left( \frac{\partial\mathcal{L}}{\partial t} \right)_{p,q}, $$
+with $p$ and $q$ held constant. Time is a certain parameter that both $\mathcal{H}$ and $\mathcal{L}$ depend upon. However, it could be any other parameter $\lambda$, which can be easily introduced into the total differential and the same relationship can be proven to hold for it.</p>
+
+<p>Hamilton’s equations ultimately give us the same results as those that we would get from the Lagrangian formulation of mechanics. This time, however, $q$ and $p$ are treated as completely <em>separate and independent</em> variables, unlike $q$ and $\dot{q}$. Because of that, we are left with two first order equations instead of a single second order one. The power of Hamilton’s formulation, however, lies in canonical transformations.</p>
+
+<h3 id="hamiltons-equations-derived-from-a-variational-principle">Hamilton’s equations derived from a variational principle</h3>
+<p>Before proceeding to canonical transformations, we need to see how Hamilton’s equations can be derived from a variational principle and what significant observations follow from the derivation.</p>
+
+<p>We know that, according to Hamilton’s principle, the variation of action is zero:
+$$ \delta \int_{t_1}^{t_2} \mathcal{L}\,dt = 0. $$
+We also know, by definition, that
+$$ \mathcal{L} = \dot{q}_i p_i - \mathcal{H}(q, p, t), $$
+so we are left with
+$$ \delta \int_{t_1}^{t_2} f(q, p, \dot{q}, \dot{p}, t) \,dt = 0, $$
+where the expression for $f$ is the same as the Lagrangian above. We don’t use the same notation however, as the Lagrangian is a function of only $q$, $\dot{q}$ and $t$. The above equation is known as modified Hamilton’s principle. From Euler-Lagrange equations:
+$$ \frac{d}{dt}\left( \frac{\partial f}{\partial \dot{q}_i}\right) = \frac{\partial f}{\partial q_i} $$
+and 
+$$ \frac{d}{dt}\left( \frac{\partial f}{\partial \dot{p}_i}\right) = \frac{\partial f}{\partial p_i}. $$
+Evaluating those derivatives gives back Hamilton’s equations, which is left as an exercise for the reader.</p>
+
+<p>The most important point is to consider what happens, when we add $dF/dt$, where $F=F(q,p,t)$ to the integrand. We have then an additional term:
+$$ \delta\int_{t_1}^{t_2} \frac{dF}{dt}\,dt = \delta\left(F(q(t_2), p(t_2), t_2) - F(q(t_1), p(t_1), t_1)\right), $$
+which follows from the fundamental theorem of calculus. The vartiation of $t_1$ and $t_2$ is obviously zero by definition, as well as $\delta q(t_1)=\delta q(t_2)=0$. If we additionally assume that $\delta p(t_1)=\delta p(t_2) =0$, we can say that the variation of the parentheses is zero (as $F$ changes only with $q$, $p$ or $t$). This means that we can add an arbitrary function $dF/dt$ to modified Hamilton’s principle and it won’t make a difference. This is a key observation, which will allow us to check, whether a transformation is canonical.</p>
+
+<h2 id="canonical-transformations">Canonical transformations</h2>
+<p>A <strong>canonical transformation</strong> is a transformation from $(q, p, t)$ to another set of variables $(Q, P, t)$, which preserves the form of Hamilton’s equations. This means that if
+$$ \dot{q}_i = \frac{\partial \mathcal{H}}{\partial p_i} $$
+$$ \dot{p}_i = -\frac{\partial \mathcal{H}}{\partial q_i}, $$
+then
+$$ \dot{Q}_i = \frac{\partial \mathcal{K}}{\partial P_i} $$
+$$ \dot{P}_i = -\frac{\partial \mathcal{K}}{\partial Q_i}, $$
+where $\mathcal{K}=\mathcal{K}(Q, P, t)$ is the transformed hamiltonian.</p>
+
+<p>We want to look for something that will let us decide, whether a given transformation is canonical. From the variational principle derived earlier, we know that
+$$ \delta\int_{t_1}^{t_2} \dot{q}_i p_i - \mathcal{H}(q, p, t)\,dt = 0. $$
+But, if $(Q, P)$ are a valid set of canonical coordinates, we should also have
+$$ \delta\int_{t_1}^{t_2} \dot{Q}_i P_i - \mathcal{K}(Q, P, t)\,dt = 0. $$
+This means that 1) the integrands differ by a constant factor, which is an uninteresting case, or 2) the integrands differ by $dF/dt$, where $F$ is a function which we described earlier. This gives us
+$$ \dot{q}_i p_i - \mathcal{H}(q, p, t) = \dot{Q}_i P_i - \mathcal{K}(Q, P, t) + \frac{dF}{dt}. $$
+The function, in general, depends on all old and new canonical variables plus time. It is called the <strong>generating function</strong> for a canonical transformation. We will now consider some special cases.</p>
+
+<p><strong>1)</strong> $F=F_1(q,Q,t)$. This gives us
+$$ \dot{q}_i p_i - \mathcal{H}(q, p, t) = \dot{Q}_i P_i - \mathcal{K}(Q, P, t) + \frac{\partial F}{\partial q_i}\dot{q}_i + \frac{\partial F}{\partial Q_i}\dot{Q}_i + \frac{\partial F}{\partial t}. $$
+By comparing terms we can see that
+$$ p_i = \frac{\partial F_1}{\partial q_i} $$
+$$ P_i = -\frac{\partial F_1}{\partial Q_i}. $$
+This leaves us with
+$$ \mathcal{K} = \mathcal{H} + \frac{\partial F_1}{\partial t}. $$</p>
+
+<p>How do we make use of such a function? We can use it to check, whether a given transformation is canonical, i.e. if it satisfies the above conditions. We can also come up with new generating functions and create new canonical transformations. To get the transformation equations from $F_1$, we can use the first equation, which gives us $p_i = p_i(q, Q, t)$ to solve for $Q$ and then use $P_i=P_i(q, Q, t)$.</p>
+
+<p><strong>2)</strong> Let us try a function of the form $F=F_2(q,P,t)$:
+$$ \dot{q}_i p_i - \mathcal{H}(q, p, t) = \dot{Q}_i P_i - \mathcal{K}(Q, P, t) + \frac{\partial F_2}{\partial q_i}\dot{q}_i + \frac{\partial F_2}{\partial P_i}\dot{P}_i + \frac{\partial F_2}{\partial t}. $$
+We run into trouble, though, as we have no matching terms for $\dot{P}_i$ or $\dot{Q}_i$. We will thus use a function of the form
+$$ F = F_2(q,P,t) + f, $$
+where $f$ is an unknown function, which will fill our gaps. We thus have:
+$$ \dot{q}_i p_i - \mathcal{H}(q, p, t) = \dot{Q}_i P_i - \mathcal{K}(Q, P, t) + \frac{\partial F}{\partial q_i}\dot{q}_i + \frac{\partial F}{\partial p_i}\dot{p}_i + \frac{\partial F}{\partial Q_i}\dot{Q}_i + \frac{\partial F}{\partial P_i}\dot{P}_i + \frac{\partial F}{\partial t}. $$
+We plug the definition of $F$ into the above equation, we compare terms and see that
+$$ \mathcal{K} = \mathcal{H} + \frac{\partial F_2}{\partial t} + \frac{\partial f}{\partial t}, $$
+so to keep it the same as for $F_1$, we must have $\partial f/\partial t=0$. Furthermore,
+$$ p_i = \frac{\partial F_2}{\partial q_i} + \frac{\partial f}{\partial q_i}, $$
+so we want $\partial f/\partial q_i=0$ for simplicity. We can also see that the only matching term with $\dot{Q}_i$ will give us
+$$ P_i = - \frac{\partial F}{\partial Q_i} = - \frac{\partial f}{\partial Q_i}, $$
+which cannot be zero in general. There are no matching terms for $\dot{P}_i$, so
+$$ \frac{\partial F}{\partial P_i}= \frac{\partial F_2}{\partial P_i}+ \frac{\partial f}{\partial P_i}=0. $$
+Due to symmetry between $(q,p)$ and $(Q, P)$, we choose that
+$$ Q_i = \frac{\partial F_2}{\partial P_i}, $$
+from which
+$$ \frac{\partial f}{\partial P_i} = -Q_i. $$
+We can thus see that $f=f(Q, P)$, where we got rid of $p$, because it changes completely nothing in the transformation (there are no derivatives w.r.t. it). From the partial derivatives we conclude that
+$$ f(Q,P) = -Q_i P_i. $$
+This means that for a generating function of the form
+$$ F = F_2(q,P,t) - Q_i P_i $$
+what follows is:
+$$ p_i = \frac{\partial F_2}{\partial q_i}, $$
+$$ Q_i = \frac{\partial F_2}{\partial P_i}, $$
+$$ \mathcal{K} = \mathcal{H} + \frac{\partial F_2}{\partial t}. $$</p>
+
+<p><strong>3)</strong> We can repeat the same prodecure for a function $F_3(p, Q, t)$. In order to be able to match terms we must have $F=F_3(p,Q,t)+f(q,p,Q,P,t)$. We then discover that 
+$$ \frac{\partial f}{\partial q_i}=p_i, $$
+from which we have $f=q_i p_i+f_1(p,Q,P,t)$. We take $f_1$ to be independent of time, $p$ and $Q$, as those are already included in $F_3$. This leaves us with
+$$ \frac{\partial f}{\partial P_i} =0, $$
+so we have $F=F_3(p,Q,t)+p_i q_i$. The following equalities are then satisfied:
+$$ \mathcal{K} = \mathcal{H} + \frac{\partial F_3}{\partial t}, $$
+$$ q_i = -\frac{\partial F_3}{\partial p_i}, $$
+$$ P_i = -\frac{\partial F_3}{\partial Q_i}. $$</p>
+
+<p><strong>4)</strong> The last type is $F=F_4(p,P,t)-Q_iP_i+q_ip_i$, so a combination of the previous ones (exactly, a Legendre transformation). As we can guess, we must have
+$$ \mathcal{K} = \mathcal{H} + \frac{\partial F_4}{\partial t}, $$
+$$ q_i = -\frac{\partial F_4}{\partial p_i}, $$
+$$ Q_i = \frac{\partial F_4}{\partial Q_i}. $$</p>
+
+
+  </div><a class="u-url" href="/classical-mechanics/canonical-transformations" hidden></a>
+</article>
+
+			</div>
+		</main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">bwegrzyn0.github.io</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/bwegrzyn0"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">bwegrzyn0</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Physics &amp; programming </p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

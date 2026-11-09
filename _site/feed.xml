@@ -1,4 +1,115 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-08-19T13:48:50+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Physics &amp; programming </subtitle><entry><title type="html">Derivation of the Lorentz transformation</title><link href="http://localhost:4000/special-relativity/derivation-of-the-lorentz-transformation" rel="alternate" type="text/html" title="Derivation of the Lorentz transformation" /><published>2026-08-19T00:00:00+02:00</published><updated>2026-08-19T00:00:00+02:00</updated><id>http://localhost:4000/special-relativity/derivation-of-the-lorentz-transformation</id><content type="html" xml:base="http://localhost:4000/special-relativity/derivation-of-the-lorentz-transformation"><![CDATA[<h3 id="the-postulates">The postulates</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-11-09T17:52:35+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">bwegrzyn0.github.io</title><subtitle>Physics &amp; programming </subtitle><entry><title type="html">Canonical transformations</title><link href="http://localhost:4000/classical-mechanics/canonical-transformations" rel="alternate" type="text/html" title="Canonical transformations" /><published>2026-11-09T00:00:00+01:00</published><updated>2026-11-09T00:00:00+01:00</updated><id>http://localhost:4000/classical-mechanics/canonical-transformations</id><content type="html" xml:base="http://localhost:4000/classical-mechanics/canonical-transformations"><![CDATA[<h2 id="hamiltons-equations">Hamilton’s equations</h2>
+<p>Let’s consider the total differential of the Lagrangian $\mathcal{L}=\mathcal{L}(q, \dot{q}, t)$, where $q_i$ are generalized coordinates:
+$$ d\mathcal{L} = \frac{\partial \mathcal{L}}{\partial q_i} dq_i + \frac{\partial \mathcal{L}}{\partial \dot{q}_i} d\dot{q}_i + \frac{\partial\mathcal{L}}{\partial t} dt. $$
+We make use of Einstein’s summation convention, where we sum over any repeated index, so here $i$. We can make use of the definition of the momentum $p_i$ conjugate to the variable $q_i$:
+$$ p_i = \frac{\partial \mathcal{L}}{\partial \dot{q}_i} $$
+and of the Euler-Lagrange equation:
+$$ \dot{p}_i = \frac{\partial\mathcal{L}}{\partial q_i} $$
+to write the differential as
+$$ d\mathcal{L} = \dot{p}_i dq_i + p_i d\dot{q}_i + \frac{\partial\mathcal{L}}{\partial t} dt. $$
+We would like some of the terms to simplify and we are especially looking for another total differential. We can create one by noticing that
+$$ p_i d\dot{q}_i = d\left( p_i \dot{q}_i\right) - \dot{q}_i dp_i. $$
+We plug this into the total differential and rearrange terms to arrive at
+$$ d\left(\mathcal{L} - p_i \dot{q}_ i\right) = \dot{p}_i dq_i - \dot{q}_i dp_i + \frac{\partial\mathcal{L}}{\partial t} dt. $$<br />
+Let us define the <strong>Hamiltonian</strong> as
+$$ \mathcal{H}\equiv\mathcal{H}(q, p, t) = p_i\dot{q}_i - \mathcal{L}. $$
+Its total differential is then
+$$ d\mathcal{H} = -\dot{p}_i dq_i + \dot{q}_i dp_i - \frac{\partial\mathcal{L}}{\partial t} dt, $$
+from which the following relations, known as <strong>Hamilton’s equations</strong> follow:
+$$ \dot{p}_i=-\frac{\partial\mathcal{H}}{\partial q_i}, $$
+$$ \dot{q}_i=\frac{\partial\mathcal{H}}{\partial p_i}. $$
+We also have an additional relation:
+$$ \left( \frac{\partial\mathcal{H}}{\partial t} \right)_{p,q} = -\left( \frac{\partial\mathcal{L}}{\partial t} \right)_{p,q}, $$
+with $p$ and $q$ held constant. Time is a certain parameter that both $\mathcal{H}$ and $\mathcal{L}$ depend upon. However, it could be any other parameter $\lambda$, which can be easily introduced into the total differential and the same relationship can be proven to hold for it.</p>
+
+<p>Hamilton’s equations ultimately give us the same results as those that we would get from the Lagrangian formulation of mechanics. This time, however, $q$ and $p$ are treated as completely <em>separate and independent</em> variables, unlike $q$ and $\dot{q}$. Because of that, we are left with two first order equations instead of a single second order one. The power of Hamilton’s formulation, however, lies in canonical transformations.</p>
+
+<h3 id="hamiltons-equations-derived-from-a-variational-principle">Hamilton’s equations derived from a variational principle</h3>
+<p>Before proceeding to canonical transformations, we need to see how Hamilton’s equations can be derived from a variational principle and what significant observations follow from the derivation.</p>
+
+<p>We know that, according to Hamilton’s principle, the variation of action is zero:
+$$ \delta \int_{t_1}^{t_2} \mathcal{L}\,dt = 0. $$
+We also know, by definition, that
+$$ \mathcal{L} = \dot{q}_i p_i - \mathcal{H}(q, p, t), $$
+so we are left with
+$$ \delta \int_{t_1}^{t_2} f(q, p, \dot{q}, \dot{p}, t) \,dt = 0, $$
+where the expression for $f$ is the same as the Lagrangian above. We don’t use the same notation however, as the Lagrangian is a function of only $q$, $\dot{q}$ and $t$. The above equation is known as modified Hamilton’s principle. From Euler-Lagrange equations:
+$$ \frac{d}{dt}\left( \frac{\partial f}{\partial \dot{q}_i}\right) = \frac{\partial f}{\partial q_i} $$
+and 
+$$ \frac{d}{dt}\left( \frac{\partial f}{\partial \dot{p}_i}\right) = \frac{\partial f}{\partial p_i}. $$
+Evaluating those derivatives gives back Hamilton’s equations, which is left as an exercise for the reader.</p>
+
+<p>The most important point is to consider what happens, when we add $dF/dt$, where $F=F(q,p,t)$ to the integrand. We have then an additional term:
+$$ \delta\int_{t_1}^{t_2} \frac{dF}{dt}\,dt = \delta\left(F(q(t_2), p(t_2), t_2) - F(q(t_1), p(t_1), t_1)\right), $$
+which follows from the fundamental theorem of calculus. The vartiation of $t_1$ and $t_2$ is obviously zero by definition, as well as $\delta q(t_1)=\delta q(t_2)=0$. If we additionally assume that $\delta p(t_1)=\delta p(t_2) =0$, we can say that the variation of the parentheses is zero (as $F$ changes only with $q$, $p$ or $t$). This means that we can add an arbitrary function $dF/dt$ to modified Hamilton’s principle and it won’t make a difference. This is a key observation, which will allow us to check, whether a transformation is canonical.</p>
+
+<h2 id="canonical-transformations">Canonical transformations</h2>
+<p>A <strong>canonical transformation</strong> is a transformation from $(q, p, t)$ to another set of variables $(Q, P, t)$, which preserves the form of Hamilton’s equations. This means that if
+$$ \dot{q}_i = \frac{\partial \mathcal{H}}{\partial p_i} $$
+$$ \dot{p}_i = -\frac{\partial \mathcal{H}}{\partial q_i}, $$
+then
+$$ \dot{Q}_i = \frac{\partial \mathcal{K}}{\partial P_i} $$
+$$ \dot{P}_i = -\frac{\partial \mathcal{K}}{\partial Q_i}, $$
+where $\mathcal{K}=\mathcal{K}(Q, P, t)$ is the transformed hamiltonian.</p>
+
+<p>We want to look for something that will let us decide, whether a given transformation is canonical. From the variational principle derived earlier, we know that
+$$ \delta\int_{t_1}^{t_2} \dot{q}_i p_i - \mathcal{H}(q, p, t)\,dt = 0. $$
+But, if $(Q, P)$ are a valid set of canonical coordinates, we should also have
+$$ \delta\int_{t_1}^{t_2} \dot{Q}_i P_i - \mathcal{K}(Q, P, t)\,dt = 0. $$
+This means that 1) the integrands differ by a constant factor, which is an uninteresting case, or 2) the integrands differ by $dF/dt$, where $F$ is a function which we described earlier. This gives us
+$$ \dot{q}_i p_i - \mathcal{H}(q, p, t) = \dot{Q}_i P_i - \mathcal{K}(Q, P, t) + \frac{dF}{dt}. $$
+The function, in general, depends on all old and new canonical variables plus time. It is called the <strong>generating function</strong> for a canonical transformation. We will now consider some special cases.</p>
+
+<p><strong>1)</strong> $F=F_1(q,Q,t)$. This gives us
+$$ \dot{q}_i p_i - \mathcal{H}(q, p, t) = \dot{Q}_i P_i - \mathcal{K}(Q, P, t) + \frac{\partial F}{\partial q_i}\dot{q}_i + \frac{\partial F}{\partial Q_i}\dot{Q}_i + \frac{\partial F}{\partial t}. $$
+By comparing terms we can see that
+$$ p_i = \frac{\partial F_1}{\partial q_i} $$
+$$ P_i = -\frac{\partial F_1}{\partial Q_i}. $$
+This leaves us with
+$$ \mathcal{K} = \mathcal{H} + \frac{\partial F_1}{\partial t}. $$</p>
+
+<p>How do we make use of such a function? We can use it to check, whether a given transformation is canonical, i.e. if it satisfies the above conditions. We can also come up with new generating functions and create new canonical transformations. To get the transformation equations from $F_1$, we can use the first equation, which gives us $p_i = p_i(q, Q, t)$ to solve for $Q$ and then use $P_i=P_i(q, Q, t)$.</p>
+
+<p><strong>2)</strong> Let us try a function of the form $F=F_2(q,P,t)$:
+$$ \dot{q}_i p_i - \mathcal{H}(q, p, t) = \dot{Q}_i P_i - \mathcal{K}(Q, P, t) + \frac{\partial F_2}{\partial q_i}\dot{q}_i + \frac{\partial F_2}{\partial P_i}\dot{P}_i + \frac{\partial F_2}{\partial t}. $$
+We run into trouble, though, as we have no matching terms for $\dot{P}_i$ or $\dot{Q}_i$. We will thus use a function of the form
+$$ F = F_2(q,P,t) + f, $$
+where $f$ is an unknown function, which will fill our gaps. We thus have:
+$$ \dot{q}_i p_i - \mathcal{H}(q, p, t) = \dot{Q}_i P_i - \mathcal{K}(Q, P, t) + \frac{\partial F}{\partial q_i}\dot{q}_i + \frac{\partial F}{\partial p_i}\dot{p}_i + \frac{\partial F}{\partial Q_i}\dot{Q}_i + \frac{\partial F}{\partial P_i}\dot{P}_i + \frac{\partial F}{\partial t}. $$
+We plug the definition of $F$ into the above equation, we compare terms and see that
+$$ \mathcal{K} = \mathcal{H} + \frac{\partial F_2}{\partial t} + \frac{\partial f}{\partial t}, $$
+so to keep it the same as for $F_1$, we must have $\partial f/\partial t=0$. Furthermore,
+$$ p_i = \frac{\partial F_2}{\partial q_i} + \frac{\partial f}{\partial q_i}, $$
+so we want $\partial f/\partial q_i=0$ for simplicity. We can also see that the only matching term with $\dot{Q}_i$ will give us
+$$ P_i = - \frac{\partial F}{\partial Q_i} = - \frac{\partial f}{\partial Q_i}, $$
+which cannot be zero in general. There are no matching terms for $\dot{P}_i$, so
+$$ \frac{\partial F}{\partial P_i}= \frac{\partial F_2}{\partial P_i}+ \frac{\partial f}{\partial P_i}=0. $$
+Due to symmetry between $(q,p)$ and $(Q, P)$, we choose that
+$$ Q_i = \frac{\partial F_2}{\partial P_i}, $$
+from which
+$$ \frac{\partial f}{\partial P_i} = -Q_i. $$
+We can thus see that $f=f(Q, P)$, where we got rid of $p$, because it changes completely nothing in the transformation (there are no derivatives w.r.t. it). From the partial derivatives we conclude that
+$$ f(Q,P) = -Q_i P_i. $$
+This means that for a generating function of the form
+$$ F = F_2(q,P,t) - Q_i P_i $$
+what follows is:
+$$ p_i = \frac{\partial F_2}{\partial q_i}, $$
+$$ Q_i = \frac{\partial F_2}{\partial P_i}, $$
+$$ \mathcal{K} = \mathcal{H} + \frac{\partial F_2}{\partial t}. $$</p>
+
+<p><strong>3)</strong> We can repeat the same prodecure for a function $F_3(p, Q, t)$. In order to be able to match terms we must have $F=F_3(p,Q,t)+f(q,p,Q,P,t)$. We then discover that 
+$$ \frac{\partial f}{\partial q_i}=p_i, $$
+from which we have $f=q_i p_i+f_1(p,Q,P,t)$. We take $f_1$ to be independent of time, $p$ and $Q$, as those are already included in $F_3$. This leaves us with
+$$ \frac{\partial f}{\partial P_i} =0, $$
+so we have $F=F_3(p,Q,t)+p_i q_i$. The following equalities are then satisfied:
+$$ \mathcal{K} = \mathcal{H} + \frac{\partial F_3}{\partial t}, $$
+$$ q_i = -\frac{\partial F_3}{\partial p_i}, $$
+$$ P_i = -\frac{\partial F_3}{\partial Q_i}. $$</p>
+
+<p><strong>4)</strong> The last type is $F=F_4(p,P,t)-Q_iP_i+q_ip_i$, so a combination of the previous ones (exactly, a Legendre transformation). As we can guess, we must have
+$$ \mathcal{K} = \mathcal{H} + \frac{\partial F_4}{\partial t}, $$
+$$ q_i = -\frac{\partial F_4}{\partial p_i}, $$
+$$ Q_i = \frac{\partial F_4}{\partial Q_i}. $$</p>]]></content><author><name></name></author><category term="classical-mechanics" /><summary type="html"><![CDATA[In this article we derive the Hamilton's equations both from the Lagrangian formulation, as well as directly from a variational principle. This enables us to develop the language of canonical transformations, which will prove themselves to be a powerful tool in future posts.]]></summary></entry><entry><title type="html">Derivation of the Lorentz transformation</title><link href="http://localhost:4000/special-relativity/derivation-of-the-lorentz-transformation" rel="alternate" type="text/html" title="Derivation of the Lorentz transformation" /><published>2026-08-19T00:00:00+02:00</published><updated>2026-08-19T00:00:00+02:00</updated><id>http://localhost:4000/special-relativity/derivation-of-the-lorentz-transformation</id><content type="html" xml:base="http://localhost:4000/special-relativity/derivation-of-the-lorentz-transformation"><![CDATA[<h3 id="the-postulates">The postulates</h3>
 <p><strong>Postulate I:</strong> The laws of physics are independent of the chosen inertial frame of reference. <br />
 <strong>Postulate II:</strong> The speed of light in vacuum is the same in every direction and in every point of a given intertial frame of reference. It is identical for all inertial frames of reference.</p>
 
@@ -119,7 +230,7 @@ This time, however, due to the sign next to $V$, the axes are tilted in the oppo
 <img src="/assets/images/special-relativity/lorentz-transformation/fig3.svg" width="600" />
 <br />
 <em>Fig. 3</em>
-</p>]]></content><author><name></name></author><category term="special-relativity" /><summary type="html"><![CDATA[The postulates Postulate I: The laws of physics are independent of the chosen inertial frame of reference. Postulate II: The speed of light in vacuum is the same in every direction and in every point of a given intertial frame of reference. It is identical for all inertial frames of reference.]]></summary></entry><entry><title type="html">Heisenberg uncertainty relation</title><link href="http://localhost:4000/quantum-mechanics/heisenberg-uncertainty-relation" rel="alternate" type="text/html" title="Heisenberg uncertainty relation" /><published>2026-07-25T00:00:00+02:00</published><updated>2026-07-25T00:00:00+02:00</updated><id>http://localhost:4000/quantum-mechanics/heisenberg-uncertainty-relation</id><content type="html" xml:base="http://localhost:4000/quantum-mechanics/heisenberg-uncertainty-relation"><![CDATA[<h3 id="measurement-in-quantum-mechanics">Measurement in quantum mechanics</h3>
+</p>]]></content><author><name></name></author><category term="special-relativity" /><summary type="html"><![CDATA[We introduce Einstein's two postulates of special relativity. From them we derive the invariance of the spacetime interval, from which Lorentz transformation follows. A geometrical interpretation for the transformation is also given.]]></summary></entry><entry><title type="html">Heisenberg uncertainty relation</title><link href="http://localhost:4000/quantum-mechanics/heisenberg-uncertainty-relation" rel="alternate" type="text/html" title="Heisenberg uncertainty relation" /><published>2026-07-25T00:00:00+02:00</published><updated>2026-07-25T00:00:00+02:00</updated><id>http://localhost:4000/quantum-mechanics/heisenberg-uncertainty-relation</id><content type="html" xml:base="http://localhost:4000/quantum-mechanics/heisenberg-uncertainty-relation"><![CDATA[<h3 id="measurement-in-quantum-mechanics">Measurement in quantum mechanics</h3>
 <p>Let us consider an operator associated with the measurement of an <strong><em>observable</em></strong>, for example position or momentum, which we will denote in general as $A$. We will denote the <strong><em>eigenkets (eigenvectors)</em></strong> of the operator as $\ket{a’}$ and the associated eigenvalues as $a’$. This means that we have the following equality:
 $$ A\ket{a’}=a’\ket{a’}. \tag{1} $$
 We see that when the operator acts on one of its eigenkets, we get a measured value $a’$ associated with that eigenket in return.</p>
@@ -235,7 +346,7 @@ The above inequality states that if we deal with incompatible observables ($[A, 
 <p>We will use one of the <strong><em>canonical commutation relations</em></strong>:
 $$ [x_i, p_j] = i\hbar \delta_{ij}, $$
 where $x_i$ is the i-th component of the position operator (x, y, z) and the same for $p$. Plugging it into (5) we arrive at the <strong><em>Heisenberg uncretainty relation</em></strong>:
-$$ \boxed{\braket{(\Delta x_i)^2} \braket{(\Delta p_j)^2} \ge \frac{\hbar^2}{4}\delta_{ij}.} $$</p>]]></content><author><name></name></author><category term="quantum-mechanics" /><summary type="html"><![CDATA[Measurement in quantum mechanics Let us consider an operator associated with the measurement of an observable, for example position or momentum, which we will denote in general as $A$. We will denote the eigenkets (eigenvectors) of the operator as $\ket{a’}$ and the associated eigenvalues as $a’$. This means that we have the following equality: $$ A\ket{a’}=a’\ket{a’}. \tag{1} $$ We see that when the operator acts on one of its eigenkets, we get a measured value $a’$ associated with that eigenket in return.]]></summary></entry><entry><title type="html">Symulacja dyfrakcji na okrągłej szczelinie</title><link href="http://localhost:4000/polish/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie" rel="alternate" type="text/html" title="Symulacja dyfrakcji na okrągłej szczelinie" /><published>2026-06-05T00:00:00+02:00</published><updated>2026-06-05T00:00:00+02:00</updated><id>http://localhost:4000/polish/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie</id><content type="html" xml:base="http://localhost:4000/polish/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie"><![CDATA[<h2 id="wprowadzenie">Wprowadzenie</h2>
+$$ \boxed{\braket{(\Delta x_i)^2} \braket{(\Delta p_j)^2} \ge \frac{\hbar^2}{4}\delta_{ij}.} $$</p>]]></content><author><name></name></author><category term="quantum-mechanics" /><summary type="html"><![CDATA[In this article we introduce the notion of a measurement in QM. We introduce the definition of the dispersion of an observable. After proving the Cauchy-Schwarz inequality in bra-ket notation, we derive an uncertainty relation, which applied to the position and momentum operator is known as Heisenberg uncertainty relation.]]></summary></entry><entry><title type="html">Symulacja dyfrakcji na okrągłej szczelinie</title><link href="http://localhost:4000/polish/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie" rel="alternate" type="text/html" title="Symulacja dyfrakcji na okrągłej szczelinie" /><published>2026-06-05T00:00:00+02:00</published><updated>2026-06-05T00:00:00+02:00</updated><id>http://localhost:4000/polish/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie</id><content type="html" xml:base="http://localhost:4000/polish/dyfrakcja-na-okr%C4%85g%C5%82ej-szczelinie"><![CDATA[<h2 id="wprowadzenie">Wprowadzenie</h2>
 
 <p>Rozważmy okrągłą szczelinę o promieniu $R$ wykonaną w płaszczyźnie, która w ogóle nie przepuszcza światła. Amplitudę drgań pola elektrycznego (lub magnetycznego, z dokładnością co do stałej) w każdym punkcie obrazu wytworzonego przez falę płaską padającą na szczelinę, na równoległym do płaszczyzny ekranie znajdującym się w odległości $L$ można obliczyć korzystając z reguły Huygensa. Każdy punkt szczeliny emituje do przodu falę kulistą o tej samej fazie i tej samej amplitudzie (ponieważ fala płaska jest jednorodna, a szczelina w każdym swoim punkcie przepuszcza całość światła). Ponieważ układ ma symetrię sferyczną, wprowadzimy kąt $\theta$ oraz wielkości $r’$ i $r$. Jak widzimy z rysunku, z twierdzenia Pitagorasa i twierdzenia cosinusów, $\rho=\sqrt{r^2+r’^2-2rr’\cos\theta}$.</p>
 
@@ -1103,65 +1214,4 @@ Wynik jest wyrażony w radianach, więc przekształcamy go na godziny mnożąc r
 </p>
 <p>Chwila $t=0$ odpowiada równonocy wiosennej, która ma przeważnie miejsce 80 dni po 1 stycznia, więc wykres został przesunięty tak, aby zaczynał się z początkiem roku.</p>
 
-<p>Można również postąpić na odwrót: w ciągu roku prowadzić obserwacje równania czasu, a następnie przeprowadzić <a href="https://bwegrzyn0.github.io/narz%C4%99dzia%20matematyczne/transformacja-fouriera" target="_blank">transformację Fouriera</a> otrzymanej funkcji - możemy wyznaczyć wtedy $e$, $\varepsilon$ oraz $\varpi$.</p>]]></content><author><name></name></author><category term="polish" /><summary type="html"><![CDATA[Motywacja Okazuje się, że Słońce nie porusza się w ciągu roku po ekliptyce ze stałą prędkością. Wynika to głównie z dwóch czynników: nachylenia ekliptyki oraz ekscentryczności orbity Ziemi. Ponieważ zegary nie są w stanie mierzyć zmiennego czasu, wprowadzono pojęcie Słońca średniego (ang. mean Sun), czyli punktu, który porusza się po równiku niebieskim ze stałą prędkością, zakreślając kąt $360\degree$ w ciągu roku zwrotnikowego (od równonocy do równonocy). Kąt godzinny Słońca średniego to czas wskazywany przez nasze zegarki (minus $12^h$ bo $h=0^h$ w chwili górowania). Różnicę między kątem godzinnym Słońca średniego (MS) i Słońca prawdziwego (TS - od true Sun), czyli między czasem Słonecznym średnim a prawdziwym wyraża równanie czasu: $$ \boxed{\tau=h_{MS}-h_{TS}.} $$ W tym artykule wyprowadzimy przybliżone równanie czasu dla Ziemi, zakładając, że zarówno nachylenie ekliptyki, jak i ekscentryczność orbity są na tyle małe, że zezwalają na pewne przybliżenia, które znacznie uproszczą wzory. Wcześniej jednak, przekształcimy równanie czasu korzystając z zależności $\Theta=\alpha+h$, gdzie $\Theta$ to lokalny czas gwiazdowy, a $\alpha$ to rektascencja obiektu o kącie godzinnym $h$: $$ \tau=\alpha_{TS}-\alpha_{MS}. $$]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/2026-01-31/wykres.svg" /><media:content medium="image" url="http://localhost:4000/assets/images/2026-01-31/wykres.svg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Wyznaczanie współrzędnych węzłów Księżyca</title><link href="http://localhost:4000/polish/wyznaczanie-wspolrzednych-wezlow-ksiezyca" rel="alternate" type="text/html" title="Wyznaczanie współrzędnych węzłów Księżyca" /><published>2026-01-28T00:00:00+01:00</published><updated>2026-01-28T00:00:00+01:00</updated><id>http://localhost:4000/polish/wyznaczanie-wspolrzednych-wezlow-ksiezyca</id><content type="html" xml:base="http://localhost:4000/polish/wyznaczanie-wspolrzednych-wezlow-ksiezyca"><![CDATA[<p>Naszym celem jest wyznaczenie aktualnej rektascensji i deklinacji węzłów Księżyca na podstawie zdjęcia Księżyca z widocznymi gwiazdami. Wiele takich obserwacji w ciągu roku pozwoli wyznaczyć tempo precesji węzłów Księżyca.</p>
-
-<h2 id="wyznaczanie-współrzędnych-ekliptycznych-księżyca">Wyznaczanie współrzędnych ekliptycznych Księżyca</h2>
-<p>Mając dane współrzędne Księżyca, $(\alpha, \delta)$ i nachylenie ekliptyki $\varepsilon$, możemy wyznaczyć współrzędne równikowe Księżyca w układzie współrzędnych ekliptycznych, korzystając z trójkąta sferycznego przedstawionego (schematycznie) na poniższym rysunku.</p>
-
-<p align="center">
-<img src="/assets/images/2026-01-28/sfer1.svg" width="500" /> <br /> <br />
-<em>BN - biegun niebieski, BE - biegun ekliptyczny</em>
-</p>
-
-<p>Z twierdzenia cosinusów:
-$$ \sin\beta=\cos\varepsilon\sin\delta-\sin\varepsilon\cos\delta\sin\alpha, $$
-a z twierdzenia sinusów:
-$$ \cos\lambda= \frac{\cos\alpha \cos\delta}{\cos\beta}. $$</p>
-
-<h2 id="wyznaczanie-współrzędnych-ekliptycznych-węzłów">Wyznaczanie współrzędnych ekliptycznych węzłów</h2>
-
-<p align="center">
-<img src="/assets/images/2026-01-28/sfer2.svg" width="500" /> 
-</p>
-
-<p>Orbita Księżyca, która zakładamy, że jest w przybliżeniu kołowa ($e\approx 0.0549$), jest nachylona pod kątem $i$ do ekliptyki. Naszym celem jest wyznaczenie $\lambda_w$ (węzła wstępującego). Z <a href="https://en.wikipedia.org/wiki/Spherical_trigonometry#Napier's_rules_for_right_spherical_triangles" target="_blank">koła Napiera</a> dla prostokątnego trójkąta sferycznego schematycznie przedstawionego na powyższym rysunku mamy:
-$$ \sin(\lambda-\lambda_w)=\cot{i}\tan{\beta}, $$
-co wystarcza do obliczenia $\lambda_w$ znając $\lambda$, $\beta$ oraz $i$. Węzeł zstępujący będzie miał oczywiście współrzędną $\lambda_w+180\degree$. Szerokość ekliptyczna obu węzłów to z definicji $\beta=0\degree$.</p>
-
-<p>Korzystając z trójkąta sferycznego z wcześniejszego rysunku, możemy wyznaczyć rektascensję i deklinację węzłów. Z twierdzenia cosinusów:
-$$ \sin\delta_w=\cos\varepsilon\sin\beta_w+\sin\varepsilon\cos\beta_w\sin\lambda_w, $$
-co po wstawieniu $\beta=0\degree$ daje
-$$ \sin\delta_w=\sin\varepsilon\sin\lambda_w, $$
-a z twierdzenia sinusów:
-$$ \cos\alpha_w=- \frac{\cos\lambda_w\cos\beta_w}{\cos\delta_w}=- \frac{\cos\lambda_w}{\cos\delta_w}. $$
-Dla węzła zstępującego podstawiamy $\lambda_w\rightarrow \lambda_w+180\degree$, co daje nam
-$$ \sin\delta_z=-\sin\delta_w, $$
-więc $\delta_w=-\delta_z$ oraz
-$$ \cos\alpha_z=-\cos\alpha_w, $$
-więc $\alpha_z=\alpha_w+180\degree$, zatem jest on dokładnie po przeciwnej stronie sfery niebieskiej.</p>
-
-<h2 id="obserwacje">Obserwacje</h2>
-
-<p align="center">
-<img src="/assets/images/2026-01-28/obs.jpg" width="500" />
-<img src="/assets/images/2026-01-28/wyzn.jpg" width="500" />
-</p>
-<p>Powyżej znajduje się zdjęcie, na którego podstawie wyznaczamy współrzędne Księżyca oraz jego przybliżony fragment. Na zdjęciu widzimy m. in. Plejady (M45) - bardzo blisko Księżyca, Byka, Oriona, Woźnicę, Wieloryba, fragment Perseusza. Znaleziono 2 pary gwiazd, takie, że jeśli poprowadzimy przez nie prostą, to przechodzi ona w dobrym przybliżeniu przez środek tarczy Księżyca. Ich przecięcie w atlasie będzie wtedy punktem o szukanych współrzędnych równikowych.</p>
-<p align="center">
-<img src="/assets/images/2026-01-28/atlas.jpg" width="500" />
-</p>
-<p>Wyznaczając współrzędne pogrubionego punktu na powyższym zdjęciu otrzymujemy:
-$$ (\alpha, \delta)=(3^h37^m, 24\degree 20’), $$
-co daje praktycznie idealną zgodność w porównaniu z danymi z programu Stellarium.</p>
-
-<p>Korzystając ze wcześniejszych wzorów wyznaczamy współrzędne ekliptyczne Księżyca:
-$$ (\lambda, \beta)=(57\degree 43’, 4\degree 49’), $$
-gdzie przyjąłem $\varepsilon=23\degree 26’$.</p>
-
-<p>Przyjmując $i=5\degree 09’$, mamy:
-$$ \lambda_w=348\degree 23’ $$
-i przekształcając układy współrzędnych:
-$$ \boxed{(\alpha_w, \delta_w)=(23^h 17^m, -4\degree 35’),} $$
-gdzie wzięliśmy wartość funkcji $\arccos$ plus $180\degree$, aby być w odpowiedniej ćwiartce układu współrzędnych. Mamy również:
-$$ \boxed{(\alpha_z, \delta_z)=(11^h 17^m, 4\degree 35’).} $$
-Porównując to ze współrzędnymi Księżyca, kiedy ostatni raz znalazł się w węźle (dane z programu Stellarium), różnica w rektascensji to około $10’$, a w deklinacji $1\degree$. Tak duża rozbieżność w deklinacji może wynikać np. z przybliżenia orbity Księżyca jako okręgu, co nie jest prawdą i może wprowadzić taką niedokładność do obliczeń. Efekt precesji węzłów nie powinien grać tutaj bardzo dużej roli, biorąc pod uwagę krótki czas od ostatniego węzła oraz to, że wpływa on o wiele znaczniej na rektasencję węzłów.</p>]]></content><author><name></name></author><category term="polish" /><summary type="html"><![CDATA[Naszym celem jest wyznaczenie aktualnej rektascensji i deklinacji węzłów Księżyca na podstawie zdjęcia Księżyca z widocznymi gwiazdami. Wiele takich obserwacji w ciągu roku pozwoli wyznaczyć tempo precesji węzłów Księżyca.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/2026-01-28/obs.jpg" /><media:content medium="image" url="http://localhost:4000/assets/images/2026-01-28/obs.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Można również postąpić na odwrót: w ciągu roku prowadzić obserwacje równania czasu, a następnie przeprowadzić <a href="https://bwegrzyn0.github.io/narz%C4%99dzia%20matematyczne/transformacja-fouriera" target="_blank">transformację Fouriera</a> otrzymanej funkcji - możemy wyznaczyć wtedy $e$, $\varepsilon$ oraz $\varpi$.</p>]]></content><author><name></name></author><category term="polish" /><summary type="html"><![CDATA[Motywacja Okazuje się, że Słońce nie porusza się w ciągu roku po ekliptyce ze stałą prędkością. Wynika to głównie z dwóch czynników: nachylenia ekliptyki oraz ekscentryczności orbity Ziemi. Ponieważ zegary nie są w stanie mierzyć zmiennego czasu, wprowadzono pojęcie Słońca średniego (ang. mean Sun), czyli punktu, który porusza się po równiku niebieskim ze stałą prędkością, zakreślając kąt $360\degree$ w ciągu roku zwrotnikowego (od równonocy do równonocy). Kąt godzinny Słońca średniego to czas wskazywany przez nasze zegarki (minus $12^h$ bo $h=0^h$ w chwili górowania). Różnicę między kątem godzinnym Słońca średniego (MS) i Słońca prawdziwego (TS - od true Sun), czyli między czasem Słonecznym średnim a prawdziwym wyraża równanie czasu: $$ \boxed{\tau=h_{MS}-h_{TS}.} $$ W tym artykule wyprowadzimy przybliżone równanie czasu dla Ziemi, zakładając, że zarówno nachylenie ekliptyki, jak i ekscentryczność orbity są na tyle małe, że zezwalają na pewne przybliżenia, które znacznie uproszczą wzory. Wcześniej jednak, przekształcimy równanie czasu korzystając z zależności $\Theta=\alpha+h$, gdzie $\Theta$ to lokalny czas gwiazdowy, a $\alpha$ to rektascencja obiektu o kącie godzinnym $h$: $$ \tau=\alpha_{TS}-\alpha_{MS}. $$]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/2026-01-31/wykres.svg" /><media:content medium="image" url="http://localhost:4000/assets/images/2026-01-31/wykres.svg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
